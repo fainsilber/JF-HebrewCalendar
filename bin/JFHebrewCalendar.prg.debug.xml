@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="C:\src\projects\garmin\JF-HebrewCalendar\manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="1" lineNum="26" parent="globals" pc="268435460" symbol="getApp"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="1" lineNum="27" parent="globals" pc="268435470" symbol="getApp"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="2" lineNum="7" parent="globals/Rez" pc="268435481" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="3" lineNum="5" parent="globals/JF_HebrewCalendarApp" pc="268435501" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="4" lineNum="6" parent="globals/JF_HebrewCalendarView" pc="268435513" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="5" lineNum="12" parent="globals/JF_HebrewCalendarApp" pc="268435525" symbol="onStart"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="6" lineNum="20" parent="globals/JF_HebrewCalendarApp" pc="268435528" symbol="getInitialView"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="6" lineNum="21" parent="globals/JF_HebrewCalendarApp" pc="268435530" symbol="getInitialView"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="7" lineNum="7" parent="globals/JF_HebrewCalendarApp" pc="268435556" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="7" lineNum="8" parent="globals/JF_HebrewCalendarApp" pc="268435558" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="8" lineNum="16" parent="globals/JF_HebrewCalendarApp" pc="268435571" symbol="onStop"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="14" parent="globals/JF_HebrewCalendarView" pc="268435574" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="15" parent="globals/JF_HebrewCalendarView" pc="268435576" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="16" parent="globals/JF_HebrewCalendarView" pc="268435609" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="9" parent="globals/JF_HebrewCalendarView" pc="268435648" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="10" parent="globals/JF_HebrewCalendarView" pc="268435650" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="25" parent="globals/JF_HebrewCalendarView" pc="268435663" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="26" parent="globals/JF_HebrewCalendarView" pc="268435666" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="27" parent="globals/JF_HebrewCalendarView" pc="268435704" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="28" parent="globals/JF_HebrewCalendarView" pc="268435716" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="30" parent="globals/JF_HebrewCalendarView" pc="268435724" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="31" parent="globals/JF_HebrewCalendarView" pc="268435736" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="41" parent="globals/JF_HebrewCalendarView" pc="268435770" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="42" parent="globals/JF_HebrewCalendarView" pc="268435786" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="49" parent="globals/JF_HebrewCalendarView" pc="268435828" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="50" parent="globals/JF_HebrewCalendarView" pc="268435844" symbol="onUpdate"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="16" lineNum="18" parent="globals/Rez/Layouts" pc="268435884" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="16" lineNum="19" parent="globals/Rez/Layouts" pc="268435894" symbol="WatchFace"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry field="true" id="13" symbol="frank"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="7" object="true" symbol="JF_HebrewCalendarApp"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry field="true" id="14" symbol="AppName"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="8388772" module="true" object="true" symbol="Fonts"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry field="true" id="10" symbol="myfonts"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry id="8389375" method="true" object="true" symbol="WatchFace"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry id="8389275" method="true" symbol="getApp"/>
+        <entry id="5" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry id="8389376" method="true" symbol="onEnterSleep"/>
+        <entry field="true" id="12" symbol="Alphazet"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry id="8389377" method="true" symbol="onExitSleep"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="11" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="9" module="true" symbol="Layouts"/>
+        <entry id="4" module="true" symbol="globals/Rez/Fonts"/>
+        <entry id="8" object="true" symbol="JF_HebrewCalendarView"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+    </symbolTable>
+    <localVars>
+        <entry arg="true" endPc="268435647" name="dc" stackId="1" startPc="268435574"/>
+        <entry arg="true" endPc="268435883" name="dc" stackId="1" startPc="268435663"/>
+        <entry endPc="268435882" name="clockTime" stackId="2" startPc="268435666"/>
+        <entry endPc="268435882" name="h" stackId="3" startPc="268435666"/>
+        <entry arg="true" endPc="268435896" name="dc" stackId="1" startPc="268435884"/>
+    </localVars>
+    <deviceInfo deviceVersion="0ed082a335bbf00c12e5da810e92d4f89288090c" partNumber="006-B4024-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Fonts" module="globals/Rez" symbol="Alphazet"/>
+        <annotationEntry annotation="initialized" class="Fonts" module="globals/Rez" symbol="frank"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="67" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/Rez" offset="134" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/JF_HebrewCalendarApp" offset="196" parentId="globals" symbolId="JF_HebrewCalendarApp" type="class"/>
+        <dataEntry label="globals/JF_HebrewCalendarView" offset="267" parentId="globals" symbolId="JF_HebrewCalendarView" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="374" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="409" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Fonts" offset="444" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="488" parentId="Rez" symbolId="Strings" type="module"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435480" name="getApp" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435500" name="&lt;init&gt;" parent="Rez" startPc="268435481">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435512" name="&lt;init&gt;" parent="JF_HebrewCalendarApp" startPc="268435501">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435524" name="&lt;init&gt;" parent="JF_HebrewCalendarView" startPc="268435513">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Fonts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435527" name="onStart" parent="JF_HebrewCalendarApp" startPc="268435525">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435555" name="getInitialView" parent="JF_HebrewCalendarApp" startPc="268435528">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435570" name="initialize" parent="JF_HebrewCalendarApp" startPc="268435556">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435573" name="onStop" parent="JF_HebrewCalendarApp" startPc="268435571">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onExitSleep" parent="JF_HebrewCalendarView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onShow" parent="JF_HebrewCalendarView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435647" name="onLayout" parent="JF_HebrewCalendarView" startPc="268435574">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onEnterSleep" parent="JF_HebrewCalendarView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435662" name="initialize" parent="JF_HebrewCalendarView" startPc="268435648">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onHide" parent="JF_HebrewCalendarView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435883" name="onUpdate" parent="JF_HebrewCalendarView" startPc="268435663">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435896" name="WatchFace" parent="Layouts" startPc="268435884">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>

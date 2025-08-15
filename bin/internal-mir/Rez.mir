@@ -1,0 +1,1465 @@
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [Lang,1,14,18]; ]
+import Toybox.Lang;
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [WatchUi,2,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; @symbol_usingAlias = [Ui,3,24,26]; ]
+using Toybox.WatchUi as :Ui;
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
+using Toybox.Graphics;
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Graphics,5,13,21]; @symbol_usingAlias = [Gfx,5,25,28]; ]
+using Toybox.Graphics as :Gfx;
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 7; @symbol_moduledef = [Rez,7,7,10]; ]
+module Rez {
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 8; @symbol_moduledef = [Drawables,8,11,20]; ]
+    module Drawables {
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 8; ]
+        <init> {
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 9; @position = 27; initialized = true; @symbol_vardef = [LauncherIcon,9,27,39]; @symbol_type<0> = [ResourceId,9,43,53]; ]
+        var LauncherIcon as ResourceId;
+    }
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 12; @symbol_moduledef = [Fonts,12,11,16]; ]
+    module Fonts {
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 12; ]
+        <init> {
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 13; @position = 27; initialized = true; @symbol_vardef = [Alphazet,13,27,35]; @symbol_type<0> = [ResourceId,13,39,49]; ]
+        var Alphazet as ResourceId;
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 14; @position = 27; initialized = true; @symbol_vardef = [frank,14,27,32]; @symbol_type<0> = [ResourceId,14,36,46]; ]
+        var frank as ResourceId;
+    }
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 17; @symbol_moduledef = [Layouts,17,11,18]; ]
+    module Layouts {
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 17; ]
+        <init> {
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 18; @symbol_functiondef = [WatchFace,18,17,26]; @symbol_param<0> = [dc,18,27,29]; @symbol_param<0>_type<0> = [Graphics,18,33,41]; @symbol_param<0>_type<1> = [Dc,18,42,44]; @symbol_return<0> = [Array,18,49,54]; @symbol_return<1> = [WatchUi,18,55,62]; @symbol_return<2> = [Drawable,18,63,71]; ]
+        function WatchFace(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
+c__src_projects_garmin_JF_HebrewCalendar_bin_gen_006_B4024_00_source_Rez_mcgen_18_73_20_8_start:
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 19 12 ]
+            %tmp.1 = newa 0 Array<WatchUi.Drawable>;
+            symbol [ Array %tmp.1 19 25 30 ];
+            symbol [ WatchUi %tmp.1 19 31 38 ];
+            symbol [ Drawable %tmp.1 19 39 47 ];
+            ret %tmp.1;
+c__src_projects_garmin_JF_HebrewCalendar_bin_gen_006_B4024_00_source_Rez_mcgen_18_73_20_8_stop:
+        }
+    }
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 23; @symbol_moduledef = [Strings,23,11,18]; ]
+    module Strings {
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 23; ]
+        <init> {
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 24; @position = 27; initialized = true; @symbol_vardef = [AppName,24,27,34]; @symbol_type<0> = [ResourceId,24,38,48]; ]
+        var AppName as ResourceId;
+    }
+    [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 27; @symbol_moduledef = [Styles,27,11,17]; ]
+    module Styles {
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 27; ]
+        <init> {
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 28; @symbol_moduledef = [prompt_font_enhanced_readability__body_with_title,28,15,64]; ]
+        module prompt_font_enhanced_readability__body_with_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 28; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 29; @position = 18; @symbol_constdef = [exclude,29,18,25]; @symbol_type<0> = [Boolean,29,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 32; @symbol_moduledef = [system_size__menu_header,32,15,39]; ]
+        module system_size__menu_header {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 32; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 33; @position = 18; @symbol_constdef = [width,33,18,23]; @symbol_type<0> = [Number,33,27,33]; ]
+            const width as Number = 260;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 34; @position = 18; @symbol_constdef = [height,34,18,24]; @symbol_type<0> = [Number,34,28,34]; ]
+            const height as Number = 81;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 37; @symbol_moduledef = [system_loc__hint_button_left_bottom,37,15,50]; ]
+        module system_loc__hint_button_left_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 37; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 38; @position = 18; @symbol_constdef = [x,38,18,19]; @symbol_type<0> = [Number,38,23,29]; ]
+            const x as Number = 10;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 39; @position = 18; @symbol_constdef = [y,39,18,19]; @symbol_type<0> = [Number,39,23,29]; ]
+            const y as Number = 173;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 42; @symbol_moduledef = [prompt_font_enhanced_readability__body_no_title,42,15,62]; ]
+        module prompt_font_enhanced_readability__body_no_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 42; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 43; @position = 18; @symbol_constdef = [exclude,43,18,25]; @symbol_type<0> = [Boolean,43,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 46; @symbol_moduledef = [prompt_loc__body_no_title,46,15,40]; ]
+        module prompt_loc__body_no_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 46; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 47; @position = 18; @symbol_constdef = [x,47,18,19]; @symbol_type<0> = [Number,47,23,29]; ]
+            const x as Number = 26;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 48; @position = 18; @symbol_constdef = [y,48,18,19]; @symbol_type<0> = [Number,48,23,29]; ]
+            const y as Number = 26;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 51; @symbol_moduledef = [system_icon_dark__about,51,15,38]; ]
+        module system_icon_dark__about {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 51; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 52; @position = 18; @symbol_constdef = [filename,52,18,26]; @symbol_type<0> = [String,52,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__about.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 53; @position = 18; @symbol_constdef = [compress,53,18,26]; @symbol_type<0> = [String,53,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 54; @position = 18; @symbol_constdef = [dithering,54,18,27]; @symbol_type<0> = [String,54,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 55; @position = 18; @symbol_constdef = [automaticPalette,55,18,34]; @symbol_type<0> = [String,55,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 58; @symbol_moduledef = [system_icon_light__question,58,15,42]; ]
+        module system_icon_light__question {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 58; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 59; @position = 18; @symbol_constdef = [filename,59,18,26]; @symbol_type<0> = [String,59,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__question.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 60; @position = 18; @symbol_constdef = [dithering,60,18,27]; @symbol_type<0> = [String,60,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 63; @symbol_moduledef = [system_loc__hint_button_left_top,63,15,47]; ]
+        module system_loc__hint_button_left_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 63; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 64; @position = 18; @symbol_constdef = [exclude,64,18,25]; @symbol_type<0> = [Boolean,64,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 67; @symbol_moduledef = [prompt_font__title,67,15,33]; ]
+        module prompt_font__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 67; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 68 18 ]
+                symbol [ Graphics %tmp.2 68 34 42 ];
+                %tmp.2 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.3 68 43 62 ];
+                %tmp.3 = getv %tmp.2 :TEXT_JUSTIFY_CENTER;
+                symbol [ Graphics %tmp.4 68 63 71 ];
+                %tmp.4 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_VCENTER %tmp.5 68 72 92 ];
+                %tmp.5 = getv %tmp.4 :TEXT_JUSTIFY_VCENTER;
+                %tmp.6 = bitor %tmp.3 %tmp.5;
+                putv self :justification %tmp.6;
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 69 18 ]
+                symbol [ Graphics %tmp.7 69 25 33 ];
+                %tmp.7 = getm $.Toybox.Graphics;
+                symbol [ FONT_XTINY %tmp.8 69 34 44 ];
+                %tmp.8 = getv %tmp.7 :FONT_XTINY;
+                putv self :font %tmp.8;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 68; @position = 18; @symbol_constdef = [justification,68,18,31]; ]
+            const justification;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 69; @position = 18; @symbol_constdef = [font,69,18,22]; ]
+            const font;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 72; @symbol_moduledef = [system_icon_dark__discard,72,15,40]; ]
+        module system_icon_dark__discard {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 72; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 73; @position = 18; @symbol_constdef = [filename,73,18,26]; @symbol_type<0> = [String,73,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__discard.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 74; @position = 18; @symbol_constdef = [compress,74,18,26]; @symbol_type<0> = [String,74,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 75; @position = 18; @symbol_constdef = [dithering,75,18,27]; @symbol_type<0> = [String,75,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 76; @position = 18; @symbol_constdef = [automaticPalette,76,18,34]; @symbol_type<0> = [String,76,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 79; @symbol_moduledef = [system_size__menu_item,79,15,37]; ]
+        module system_size__menu_item {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 79; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 80; @position = 18; @symbol_constdef = [width,80,18,23]; @symbol_type<0> = [Number,80,27,33]; ]
+            const width as Number = 260;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 81; @position = 18; @symbol_constdef = [height,81,18,24]; @symbol_type<0> = [Number,81,28,34]; ]
+            const height as Number = 68;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 84; @symbol_moduledef = [system_color_dark__text,84,15,38]; ]
+        module system_color_dark__text {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 84; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 86 18 ]
+                symbol [ Graphics %tmp.9 86 31 39 ];
+                %tmp.9 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.10 86 40 57 ];
+                %tmp.10 = getv %tmp.9 :COLOR_TRANSPARENT;
+                putv self :background %tmp.10;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 85; @position = 18; @symbol_constdef = [color,85,18,23]; @symbol_type<0> = [Number,85,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 86; @position = 18; @symbol_constdef = [background,86,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 89; @symbol_moduledef = [system_icon_destructive__discard,89,15,47]; ]
+        module system_icon_destructive__discard {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 89; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 90; @position = 18; @symbol_constdef = [filename,90,18,26]; @symbol_type<0> = [String,90,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__discard.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 91; @position = 18; @symbol_constdef = [dithering,91,18,27]; @symbol_type<0> = [String,91,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 94; @symbol_moduledef = [system_icon_dark__hint_action_menu,94,15,49]; ]
+        module system_icon_dark__hint_action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 94; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 95; @position = 18; @symbol_constdef = [filename,95,18,26]; @symbol_type<0> = [String,95,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 96; @position = 18; @symbol_constdef = [dithering,96,18,27]; @symbol_type<0> = [String,96,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 99; @symbol_moduledef = [prompt_size__title,99,15,33]; ]
+        module prompt_size__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 99; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 100; @position = 18; @symbol_constdef = [width,100,18,23]; @symbol_type<0> = [Number,100,27,33]; ]
+            const width as Number = 208;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 101; @position = 18; @symbol_constdef = [height,101,18,24]; @symbol_type<0> = [Number,101,28,34]; ]
+            const height as Number = 48;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 104; @symbol_moduledef = [confirmation_font__body,104,15,38]; ]
+        module confirmation_font__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 104; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 105 18 ]
+                symbol [ Graphics %tmp.11 105 34 42 ];
+                %tmp.11 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.12 105 43 62 ];
+                %tmp.12 = getv %tmp.11 :TEXT_JUSTIFY_CENTER;
+                symbol [ Graphics %tmp.13 105 63 71 ];
+                %tmp.13 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_VCENTER %tmp.14 105 72 92 ];
+                %tmp.14 = getv %tmp.13 :TEXT_JUSTIFY_VCENTER;
+                %tmp.15 = bitor %tmp.12 %tmp.14;
+                putv self :justification %tmp.15;
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 106 18 ]
+                symbol [ Graphics %tmp.16 106 25 33 ];
+                %tmp.16 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.17 106 34 43 ];
+                %tmp.17 = getv %tmp.16 :FONT_TINY;
+                putv self :font %tmp.17;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 105; @position = 18; @symbol_constdef = [justification,105,18,31]; ]
+            const justification;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 106; @position = 18; @symbol_constdef = [font,106,18,22]; ]
+            const font;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 109; @symbol_moduledef = [system_color_dark__background,109,15,44]; ]
+        module system_color_dark__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 109; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 110; @position = 18; @symbol_constdef = [color,110,18,23]; @symbol_type<0> = [Number,110,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 111; @position = 18; @symbol_constdef = [background,111,18,28]; @symbol_type<0> = [Number,111,32,38]; ]
+            const background as Number = 0x000000;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 114; @symbol_moduledef = [system_icon_destructive__hint_button_left_top,114,15,60]; ]
+        module system_icon_destructive__hint_button_left_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 114; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 115; @position = 18; @symbol_constdef = [filename,115,18,26]; @symbol_type<0> = [String,115,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_left_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 116; @position = 18; @symbol_constdef = [dithering,116,18,27]; @symbol_type<0> = [String,116,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 119; @symbol_moduledef = [system_size__launch_icon,119,15,39]; ]
+        module system_size__launch_icon {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 119; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 120; @position = 18; @symbol_constdef = [scaleX,120,18,24]; @symbol_type<0> = [Number,120,28,34]; ]
+            const scaleX as Number = 40;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 121; @position = 18; @symbol_constdef = [scaleY,121,18,24]; @symbol_type<0> = [Number,121,28,34]; ]
+            const scaleY as Number = 40;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 122; @position = 18; @symbol_constdef = [scaleRelativeTo,122,18,33]; @symbol_type<0> = [String,122,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 125; @symbol_moduledef = [confirmation_input__confirm,125,15,42]; ]
+        module confirmation_input__confirm {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 125; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 126 18 ]
+                symbol [ WatchUi %tmp.18 126 27 34 ];
+                %tmp.18 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.19 126 35 44 ];
+                %tmp.19 = getv %tmp.18 :KEY_ENTER;
+                putv self :button %tmp.19;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 126; @position = 18; @symbol_constdef = [button,126,18,24]; ]
+            const button;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 129; @symbol_moduledef = [prompt_font__body_with_title,129,15,43]; ]
+        module prompt_font__body_with_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 129; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 130 18 ]
+                symbol [ Graphics %tmp.20 130 34 42 ];
+                %tmp.20 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.21 130 43 62 ];
+                %tmp.21 = getv %tmp.20 :TEXT_JUSTIFY_CENTER;
+                putv self :justification %tmp.21;
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 131 18 ]
+                symbol [ Graphics %tmp.22 131 25 33 ];
+                %tmp.22 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.23 131 34 43 ];
+                %tmp.23 = getv %tmp.22 :FONT_TINY;
+                putv self :font %tmp.23;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 130; @position = 18; @symbol_constdef = [justification,130,18,31]; ]
+            const justification;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 131; @position = 18; @symbol_constdef = [font,131,18,22]; ]
+            const font;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 134; @symbol_moduledef = [confirmation_loc__body,134,15,37]; ]
+        module confirmation_loc__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 134; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 135; @position = 18; @symbol_constdef = [x,135,18,19]; @symbol_type<0> = [Number,135,23,29]; ]
+            const x as Number = 52;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 136; @position = 18; @symbol_constdef = [y,136,18,19]; @symbol_type<0> = [Number,136,23,29]; ]
+            const y as Number = 52;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 139; @symbol_moduledef = [system_icon_destructive__hint_button_left_bottom,139,15,63]; ]
+        module system_icon_destructive__hint_button_left_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 139; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 140; @position = 18; @symbol_constdef = [filename,140,18,26]; @symbol_type<0> = [String,140,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_left_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 141; @position = 18; @symbol_constdef = [dithering,141,18,27]; @symbol_type<0> = [String,141,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 144; @symbol_moduledef = [prompt_color_dark__background,144,15,44]; ]
+        module prompt_color_dark__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 144; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 145; @position = 18; @symbol_constdef = [color,145,18,23]; @symbol_type<0> = [Number,145,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 146; @position = 18; @symbol_constdef = [background,146,18,28]; @symbol_type<0> = [Number,146,32,38]; ]
+            const background as Number = 0x000000;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 149; @symbol_moduledef = [system_icon_destructive__hint_action_menu,149,15,56]; ]
+        module system_icon_destructive__hint_action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 149; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 150; @position = 18; @symbol_constdef = [filename,150,18,26]; @symbol_type<0> = [String,150,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 151; @position = 18; @symbol_constdef = [dithering,151,18,27]; @symbol_type<0> = [String,151,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 154; @symbol_moduledef = [system_loc__hint_action_menu,154,15,43]; ]
+        module system_loc__hint_action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 154; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 155; @position = 18; @symbol_constdef = [x,155,18,19]; @symbol_type<0> = [Number,155,23,29]; ]
+            const x as Number = 227;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 156; @position = 18; @symbol_constdef = [y,156,18,19]; @symbol_type<0> = [Number,156,23,29]; ]
+            const y as Number = 53;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 159; @symbol_moduledef = [confirmation_icon__hint_confirm,159,15,46]; ]
+        module confirmation_icon__hint_confirm {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 159; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 160; @position = 18; @symbol_constdef = [filename,160,18,26]; @symbol_type<0> = [String,160,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_completion.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 161; @position = 18; @symbol_constdef = [dithering,161,18,27]; @symbol_type<0> = [String,161,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 164; @symbol_moduledef = [system_loc__hint_button_left_middle,164,15,50]; ]
+        module system_loc__hint_button_left_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 164; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 165; @position = 18; @symbol_constdef = [x,165,18,19]; @symbol_type<0> = [Number,165,23,29]; ]
+            const x as Number = 1;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 166; @position = 18; @symbol_constdef = [y,166,18,19]; @symbol_type<0> = [Number,166,23,29]; ]
+            const y as Number = 109;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 169; @symbol_moduledef = [prompt_size__body_no_title,169,15,41]; ]
+        module prompt_size__body_no_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 169; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 170; @position = 18; @symbol_constdef = [width,170,18,23]; @symbol_type<0> = [Number,170,27,33]; ]
+            const width as Number = 208;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 171; @position = 18; @symbol_constdef = [height,171,18,24]; @symbol_type<0> = [Number,171,28,34]; ]
+            const height as Number = 208;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 174; @symbol_moduledef = [system_icon_light__hint_button_left_top,174,15,54]; ]
+        module system_icon_light__hint_button_left_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 174; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 175; @position = 18; @symbol_constdef = [filename,175,18,26]; @symbol_type<0> = [String,175,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_left_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 176; @position = 18; @symbol_constdef = [dithering,176,18,27]; @symbol_type<0> = [String,176,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 179; @symbol_moduledef = [prompt_color_light__background,179,15,45]; ]
+        module prompt_color_light__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 179; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 180; @position = 18; @symbol_constdef = [color,180,18,23]; @symbol_type<0> = [Number,180,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 181; @position = 18; @symbol_constdef = [background,181,18,28]; @symbol_type<0> = [Number,181,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 184; @symbol_moduledef = [confirmation_input__delete,184,15,41]; ]
+        module confirmation_input__delete {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 184; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 185 18 ]
+                symbol [ WatchUi %tmp.24 185 27 34 ];
+                %tmp.24 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.25 185 35 44 ];
+                %tmp.25 = getv %tmp.24 :KEY_ENTER;
+                putv self :button %tmp.25;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 185; @position = 18; @symbol_constdef = [button,185,18,24]; ]
+            const button;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 188; @symbol_moduledef = [system_icon_dark__hint_button_left_top,188,15,53]; ]
+        module system_icon_dark__hint_button_left_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 188; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 189; @position = 18; @symbol_constdef = [filename,189,18,26]; @symbol_type<0> = [String,189,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_left_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 190; @position = 18; @symbol_constdef = [dithering,190,18,27]; @symbol_type<0> = [String,190,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 193; @symbol_moduledef = [system_input__action_menu,193,15,40]; ]
+        module system_input__action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 193; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 194 18 ]
+                symbol [ WatchUi %tmp.26 194 27 34 ];
+                %tmp.26 = getm $.Toybox.WatchUi;
+                symbol [ KEY_ENTER %tmp.27 194 35 44 ];
+                %tmp.27 = getv %tmp.26 :KEY_ENTER;
+                putv self :button %tmp.27;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 194; @position = 18; @symbol_constdef = [button,194,18,24]; ]
+            const button;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 197; @symbol_moduledef = [system_icon_light__save,197,15,38]; ]
+        module system_icon_light__save {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 197; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 198; @position = 18; @symbol_constdef = [filename,198,18,26]; @symbol_type<0> = [String,198,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__save.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 199; @position = 18; @symbol_constdef = [dithering,199,18,27]; @symbol_type<0> = [String,199,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 202; @symbol_moduledef = [prompt_color_light__body,202,15,39]; ]
+        module prompt_color_light__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 202; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 204 18 ]
+                symbol [ Graphics %tmp.28 204 31 39 ];
+                %tmp.28 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.29 204 40 57 ];
+                %tmp.29 = getv %tmp.28 :COLOR_TRANSPARENT;
+                putv self :background %tmp.29;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 203; @position = 18; @symbol_constdef = [color,203,18,23]; @symbol_type<0> = [Number,203,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 204; @position = 18; @symbol_constdef = [background,204,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 207; @symbol_moduledef = [system_loc__subwindow,207,15,36]; ]
+        module system_loc__subwindow {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 207; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 208; @position = 18; @symbol_constdef = [exclude,208,18,25]; @symbol_type<0> = [Boolean,208,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 211; @symbol_moduledef = [system_icon_light__warning,211,15,41]; ]
+        module system_icon_light__warning {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 211; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 212; @position = 18; @symbol_constdef = [filename,212,18,26]; @symbol_type<0> = [String,212,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__warning.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 213; @position = 18; @symbol_constdef = [dithering,213,18,27]; @symbol_type<0> = [String,213,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 216; @symbol_moduledef = [confirmation_color_light__body,216,15,45]; ]
+        module confirmation_color_light__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 216; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 218 18 ]
+                symbol [ Graphics %tmp.30 218 31 39 ];
+                %tmp.30 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.31 218 40 57 ];
+                %tmp.31 = getv %tmp.30 :COLOR_TRANSPARENT;
+                putv self :background %tmp.31;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 217; @position = 18; @symbol_constdef = [color,217,18,23]; @symbol_type<0> = [Number,217,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 218; @position = 18; @symbol_constdef = [background,218,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 221; @symbol_moduledef = [confirmation_icon_light__hint_keep,221,15,49]; ]
+        module confirmation_icon_light__hint_keep {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 221; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 222; @position = 18; @symbol_constdef = [filename,222,18,26]; @symbol_type<0> = [String,222,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_keep.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 223; @position = 18; @symbol_constdef = [dithering,223,18,27]; @symbol_type<0> = [String,223,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 226; @symbol_moduledef = [activity_color_light__background,226,15,47]; ]
+        module activity_color_light__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 226; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 227; @position = 18; @symbol_constdef = [color,227,18,23]; @symbol_type<0> = [Number,227,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 228; @position = 18; @symbol_constdef = [background,228,18,28]; @symbol_type<0> = [Number,228,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 231; @symbol_moduledef = [system_icon_positive__hint_button_right_top,231,15,58]; ]
+        module system_icon_positive__hint_button_right_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 231; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 232; @position = 18; @symbol_constdef = [filename,232,18,26]; @symbol_type<0> = [String,232,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 233; @position = 18; @symbol_constdef = [dithering,233,18,27]; @symbol_type<0> = [String,233,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 236; @symbol_moduledef = [system_size__screen,236,15,34]; ]
+        module system_size__screen {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 236; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 237; @position = 18; @symbol_constdef = [width,237,18,23]; @symbol_type<0> = [Number,237,27,33]; ]
+            const width as Number = 260;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 238; @position = 18; @symbol_constdef = [height,238,18,24]; @symbol_type<0> = [Number,238,28,34]; ]
+            const height as Number = 260;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 241; @symbol_moduledef = [system_icon_destructive__hint_button_right_bottom,241,15,64]; ]
+        module system_icon_destructive__hint_button_right_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 241; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 242; @position = 18; @symbol_constdef = [filename,242,18,26]; @symbol_type<0> = [String,242,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_right_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 243; @position = 18; @symbol_constdef = [dithering,243,18,27]; @symbol_type<0> = [String,243,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 246; @symbol_moduledef = [system_color_light__background,246,15,45]; ]
+        module system_color_light__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 246; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 247; @position = 18; @symbol_constdef = [color,247,18,23]; @symbol_type<0> = [Number,247,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 248; @position = 18; @symbol_constdef = [background,248,18,28]; @symbol_type<0> = [Number,248,32,38]; ]
+            const background as Number = 0xFFFFFF;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 251; @symbol_moduledef = [system_icon_destructive__hint_button_right_top,251,15,61]; ]
+        module system_icon_destructive__hint_button_right_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 251; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 252; @position = 18; @symbol_constdef = [filename,252,18,26]; @symbol_type<0> = [String,252,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 253; @position = 18; @symbol_constdef = [dithering,253,18,27]; @symbol_type<0> = [String,253,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 256; @symbol_moduledef = [confirmation_loc__hint_confirm,256,15,45]; ]
+        module confirmation_loc__hint_confirm {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 256; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 257; @position = 18; @symbol_constdef = [x,257,18,19]; @symbol_type<0> = [Number,257,23,29]; ]
+            const x as Number = 205;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 258; @position = 18; @symbol_constdef = [y,258,18,19]; @symbol_type<0> = [Number,258,23,29]; ]
+            const y as Number = 50;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 261; @symbol_moduledef = [activity_color_dark__text,261,15,40]; ]
+        module activity_color_dark__text {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 261; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 263 18 ]
+                symbol [ Graphics %tmp.32 263 31 39 ];
+                %tmp.32 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.33 263 40 57 ];
+                %tmp.33 = getv %tmp.32 :COLOR_TRANSPARENT;
+                putv self :background %tmp.33;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 262; @position = 18; @symbol_constdef = [color,262,18,23]; @symbol_type<0> = [Number,262,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 263; @position = 18; @symbol_constdef = [background,263,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 266; @symbol_moduledef = [confirmation_input__keep,266,15,39]; ]
+        module confirmation_input__keep {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 266; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 267 18 ]
+                symbol [ WatchUi %tmp.34 267 27 34 ];
+                %tmp.34 = getm $.Toybox.WatchUi;
+                symbol [ KEY_DOWN %tmp.35 267 35 43 ];
+                %tmp.35 = getv %tmp.34 :KEY_DOWN;
+                putv self :button %tmp.35;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 267; @position = 18; @symbol_constdef = [button,267,18,24]; ]
+            const button;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 270; @symbol_moduledef = [prompt_loc__body_with_title,270,15,42]; ]
+        module prompt_loc__body_with_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 270; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 271; @position = 18; @symbol_constdef = [x,271,18,19]; @symbol_type<0> = [Number,271,23,29]; ]
+            const x as Number = 26;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 272; @position = 18; @symbol_constdef = [y,272,18,19]; @symbol_type<0> = [Number,272,23,29]; ]
+            const y as Number = 78;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 275; @symbol_moduledef = [system_icon_dark__search,275,15,39]; ]
+        module system_icon_dark__search {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 275; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 276; @position = 18; @symbol_constdef = [filename,276,18,26]; @symbol_type<0> = [String,276,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__search.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 277; @position = 18; @symbol_constdef = [compress,277,18,26]; @symbol_type<0> = [String,277,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 278; @position = 18; @symbol_constdef = [dithering,278,18,27]; @symbol_type<0> = [String,278,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 279; @position = 18; @symbol_constdef = [automaticPalette,279,18,34]; @symbol_type<0> = [String,279,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 282; @symbol_moduledef = [activity_color_light__text,282,15,41]; ]
+        module activity_color_light__text {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 282; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 284 18 ]
+                symbol [ Graphics %tmp.36 284 31 39 ];
+                %tmp.36 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.37 284 40 57 ];
+                %tmp.37 = getv %tmp.36 :COLOR_TRANSPARENT;
+                putv self :background %tmp.37;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 283; @position = 18; @symbol_constdef = [color,283,18,23]; @symbol_type<0> = [Number,283,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 284; @position = 18; @symbol_constdef = [background,284,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 287; @symbol_moduledef = [confirmation_icon__hint_keep,287,15,43]; ]
+        module confirmation_icon__hint_keep {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 287; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 288; @position = 18; @symbol_constdef = [filename,288,18,26]; @symbol_type<0> = [String,288,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_keep.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 289; @position = 18; @symbol_constdef = [dithering,289,18,27]; @symbol_type<0> = [String,289,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 292; @symbol_moduledef = [system_icon_dark__save,292,15,37]; ]
+        module system_icon_dark__save {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 292; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 293; @position = 18; @symbol_constdef = [filename,293,18,26]; @symbol_type<0> = [String,293,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__save.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 294; @position = 18; @symbol_constdef = [compress,294,18,26]; @symbol_type<0> = [String,294,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 295; @position = 18; @symbol_constdef = [dithering,295,18,27]; @symbol_type<0> = [String,295,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 296; @position = 18; @symbol_constdef = [automaticPalette,296,18,34]; @symbol_type<0> = [String,296,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 299; @symbol_moduledef = [system_icon_destructive__hint_button_left_middle,299,15,63]; ]
+        module system_icon_destructive__hint_button_left_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 299; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 300; @position = 18; @symbol_constdef = [filename,300,18,26]; @symbol_type<0> = [String,300,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__hint_button_left_middle.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 301; @position = 18; @symbol_constdef = [dithering,301,18,27]; @symbol_type<0> = [String,301,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 304; @symbol_moduledef = [system_icon_light__search,304,15,40]; ]
+        module system_icon_light__search {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 304; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 305; @position = 18; @symbol_constdef = [filename,305,18,26]; @symbol_type<0> = [String,305,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__search.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 306; @position = 18; @symbol_constdef = [dithering,306,18,27]; @symbol_type<0> = [String,306,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 309; @symbol_moduledef = [system_icon_dark__hint_button_left_bottom,309,15,56]; ]
+        module system_icon_dark__hint_button_left_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 309; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 310; @position = 18; @symbol_constdef = [filename,310,18,26]; @symbol_type<0> = [String,310,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_left_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 311; @position = 18; @symbol_constdef = [dithering,311,18,27]; @symbol_type<0> = [String,311,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 314; @symbol_moduledef = [system_icon_positive__hint_button_left_top,314,15,57]; ]
+        module system_icon_positive__hint_button_left_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 314; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 315; @position = 18; @symbol_constdef = [filename,315,18,26]; @symbol_type<0> = [String,315,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_left_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 316; @position = 18; @symbol_constdef = [dithering,316,18,27]; @symbol_type<0> = [String,316,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 319; @symbol_moduledef = [system_loc__hint_button_right_bottom,319,15,51]; ]
+        module system_loc__hint_button_right_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 319; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 320; @position = 18; @symbol_constdef = [x,320,18,19]; @symbol_type<0> = [Number,320,23,29]; ]
+            const x as Number = 224;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 321; @position = 18; @symbol_constdef = [y,321,18,19]; @symbol_type<0> = [Number,321,23,29]; ]
+            const y as Number = 172;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 324; @symbol_moduledef = [confirmation_icon_dark__hint_reject,324,15,50]; ]
+        module confirmation_icon_dark__hint_reject {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 324; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 325; @position = 18; @symbol_constdef = [filename,325,18,26]; @symbol_type<0> = [String,325,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_reject.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 326; @position = 18; @symbol_constdef = [dithering,326,18,27]; @symbol_type<0> = [String,326,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 329; @symbol_moduledef = [confirmation_color_dark__body,329,15,44]; ]
+        module confirmation_color_dark__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 329; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 331 18 ]
+                symbol [ Graphics %tmp.38 331 31 39 ];
+                %tmp.38 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.39 331 40 57 ];
+                %tmp.39 = getv %tmp.38 :COLOR_TRANSPARENT;
+                putv self :background %tmp.39;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 330; @position = 18; @symbol_constdef = [color,330,18,23]; @symbol_type<0> = [Number,330,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 331; @position = 18; @symbol_constdef = [background,331,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 334; @symbol_moduledef = [confirmation_icon_light__hint_confirm,334,15,52]; ]
+        module confirmation_icon_light__hint_confirm {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 334; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 335; @position = 18; @symbol_constdef = [filename,335,18,26]; @symbol_type<0> = [String,335,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_completion.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 336; @position = 18; @symbol_constdef = [dithering,336,18,27]; @symbol_type<0> = [String,336,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 339; @symbol_moduledef = [prompt_color_dark__title,339,15,39]; ]
+        module prompt_color_dark__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 339; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 341 18 ]
+                symbol [ Graphics %tmp.40 341 31 39 ];
+                %tmp.40 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.41 341 40 57 ];
+                %tmp.41 = getv %tmp.40 :COLOR_TRANSPARENT;
+                putv self :background %tmp.41;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 340; @position = 18; @symbol_constdef = [color,340,18,23]; @symbol_type<0> = [Number,340,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 341; @position = 18; @symbol_constdef = [background,341,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 344; @symbol_moduledef = [system_icon_destructive__cancel,344,15,46]; ]
+        module system_icon_destructive__cancel {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 344; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 345; @position = 18; @symbol_constdef = [filename,345,18,26]; @symbol_type<0> = [String,345,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__cancel.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 346; @position = 18; @symbol_constdef = [dithering,346,18,27]; @symbol_type<0> = [String,346,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 349; @symbol_moduledef = [system_icon_light__hint_button_right_bottom,349,15,58]; ]
+        module system_icon_light__hint_button_right_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 349; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 350; @position = 18; @symbol_constdef = [filename,350,18,26]; @symbol_type<0> = [String,350,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_right_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 351; @position = 18; @symbol_constdef = [dithering,351,18,27]; @symbol_type<0> = [String,351,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 354; @symbol_moduledef = [prompt_loc__title,354,15,32]; ]
+        module prompt_loc__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 354; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 355; @position = 18; @symbol_constdef = [x,355,18,19]; @symbol_type<0> = [Number,355,23,29]; ]
+            const x as Number = 26;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 356; @position = 18; @symbol_constdef = [y,356,18,19]; @symbol_type<0> = [Number,356,23,29]; ]
+            const y as Number = 19;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 359; @symbol_moduledef = [confirmation_font_enhanced_readability__body,359,15,59]; ]
+        module confirmation_font_enhanced_readability__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 359; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 360; @position = 18; @symbol_constdef = [exclude,360,18,25]; @symbol_type<0> = [Boolean,360,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 363; @symbol_moduledef = [prompt_color_light__title,363,15,40]; ]
+        module prompt_color_light__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 363; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 365 18 ]
+                symbol [ Graphics %tmp.42 365 31 39 ];
+                %tmp.42 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.43 365 40 57 ];
+                %tmp.43 = getv %tmp.42 :COLOR_TRANSPARENT;
+                putv self :background %tmp.43;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 364; @position = 18; @symbol_constdef = [color,364,18,23]; @symbol_type<0> = [Number,364,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 365; @position = 18; @symbol_constdef = [background,365,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 368; @symbol_moduledef = [system_icon_dark__hint_button_right_top,368,15,54]; ]
+        module system_icon_dark__hint_button_right_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 368; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 369; @position = 18; @symbol_constdef = [filename,369,18,26]; @symbol_type<0> = [String,369,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 370; @position = 18; @symbol_constdef = [dithering,370,18,27]; @symbol_type<0> = [String,370,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 373; @symbol_moduledef = [system_icon_dark__hint_button_left_middle,373,15,56]; ]
+        module system_icon_dark__hint_button_left_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 373; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 374; @position = 18; @symbol_constdef = [filename,374,18,26]; @symbol_type<0> = [String,374,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_left_middle.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 375; @position = 18; @symbol_constdef = [dithering,375,18,27]; @symbol_type<0> = [String,375,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 378; @symbol_moduledef = [confirmation_icon_dark__hint_keep,378,15,48]; ]
+        module confirmation_icon_dark__hint_keep {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 378; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 379; @position = 18; @symbol_constdef = [filename,379,18,26]; @symbol_type<0> = [String,379,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_keep.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 380; @position = 18; @symbol_constdef = [dithering,380,18,27]; @symbol_type<0> = [String,380,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 383; @symbol_moduledef = [system_icon_light__cancel,383,15,40]; ]
+        module system_icon_light__cancel {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 383; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 384; @position = 18; @symbol_constdef = [filename,384,18,26]; @symbol_type<0> = [String,384,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__cancel.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 385; @position = 18; @symbol_constdef = [dithering,385,18,27]; @symbol_type<0> = [String,385,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 388; @symbol_moduledef = [confirmation_icon_light__hint_reject,388,15,51]; ]
+        module confirmation_icon_light__hint_reject {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 388; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 389; @position = 18; @symbol_constdef = [filename,389,18,26]; @symbol_type<0> = [String,389,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_reject.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 390; @position = 18; @symbol_constdef = [dithering,390,18,27]; @symbol_type<0> = [String,390,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 393; @symbol_moduledef = [system_icon_light__about,393,15,39]; ]
+        module system_icon_light__about {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 393; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 394; @position = 18; @symbol_constdef = [filename,394,18,26]; @symbol_type<0> = [String,394,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__about.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 395; @position = 18; @symbol_constdef = [dithering,395,18,27]; @symbol_type<0> = [String,395,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 398; @symbol_moduledef = [system_size__toast_icon,398,15,38]; ]
+        module system_size__toast_icon {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 398; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 399; @position = 18; @symbol_constdef = [scaleX,399,18,24]; @symbol_type<0> = [Number,399,28,34]; ]
+            const scaleX as Number = 21;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 400; @position = 18; @symbol_constdef = [scaleY,400,18,24]; @symbol_type<0> = [Number,400,28,34]; ]
+            const scaleY as Number = 21;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 401; @position = 18; @symbol_constdef = [scaleRelativeTo,401,18,33]; @symbol_type<0> = [String,401,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 404; @symbol_moduledef = [system_icon_dark__hint_button_right_middle,404,15,57]; ]
+        module system_icon_dark__hint_button_right_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 404; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 405; @position = 18; @symbol_constdef = [exclude,405,18,25]; @symbol_type<0> = [Boolean,405,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 408; @symbol_moduledef = [confirmation_icon__hint_reject,408,15,45]; ]
+        module confirmation_icon__hint_reject {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 408; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 409; @position = 18; @symbol_constdef = [filename,409,18,26]; @symbol_type<0> = [String,409,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_reject.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 410; @position = 18; @symbol_constdef = [dithering,410,18,27]; @symbol_type<0> = [String,410,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 413; @symbol_moduledef = [system_icon_light__hint_action_menu,413,15,50]; ]
+        module system_icon_light__hint_action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 413; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 414; @position = 18; @symbol_constdef = [filename,414,18,26]; @symbol_type<0> = [String,414,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 415; @position = 18; @symbol_constdef = [dithering,415,18,27]; @symbol_type<0> = [String,415,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 418; @symbol_moduledef = [system_icon_light__hint_button_right_middle,418,15,58]; ]
+        module system_icon_light__hint_button_right_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 418; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 419; @position = 18; @symbol_constdef = [exclude,419,18,25]; @symbol_type<0> = [Boolean,419,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 422; @symbol_moduledef = [system_icon_destructive__hint_button_right_middle,422,15,64]; ]
+        module system_icon_destructive__hint_button_right_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 422; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 423; @position = 18; @symbol_constdef = [exclude,423,18,25]; @symbol_type<0> = [Boolean,423,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 426; @symbol_moduledef = [confirmation_loc__hint_reject,426,15,44]; ]
+        module confirmation_loc__hint_reject {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 426; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 427; @position = 18; @symbol_constdef = [x,427,18,19]; @symbol_type<0> = [Number,427,23,29]; ]
+            const x as Number = 13;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 428; @position = 18; @symbol_constdef = [y,428,18,19]; @symbol_type<0> = [Number,428,23,29]; ]
+            const y as Number = 174;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 429; @position = 18; @symbol_constdef = [horizontalJustification,429,18,41]; @symbol_type<0> = [String,429,45,51]; ]
+            const horizontalJustification as String = "left";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 432; @symbol_moduledef = [confirmation_icon_dark__hint_delete,432,15,50]; ]
+        module confirmation_icon_dark__hint_delete {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 432; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 433; @position = 18; @symbol_constdef = [filename,433,18,26]; @symbol_type<0> = [String,433,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_delete.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 434; @position = 18; @symbol_constdef = [dithering,434,18,27]; @symbol_type<0> = [String,434,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 437; @symbol_moduledef = [activity_color_dark__background,437,15,46]; ]
+        module activity_color_dark__background {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 437; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 438; @position = 18; @symbol_constdef = [color,438,18,23]; @symbol_type<0> = [Number,438,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 439; @position = 18; @symbol_constdef = [background,439,18,28]; @symbol_type<0> = [Number,439,32,38]; ]
+            const background as Number = 0x000000;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 442; @symbol_moduledef = [system_icon_light__hint_button_left_bottom,442,15,57]; ]
+        module system_icon_light__hint_button_left_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 442; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 443; @position = 18; @symbol_constdef = [filename,443,18,26]; @symbol_type<0> = [String,443,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_left_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 444; @position = 18; @symbol_constdef = [dithering,444,18,27]; @symbol_type<0> = [String,444,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 447; @symbol_moduledef = [system_icon_positive__hint_button_left_middle,447,15,60]; ]
+        module system_icon_positive__hint_button_left_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 447; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 448; @position = 18; @symbol_constdef = [filename,448,18,26]; @symbol_type<0> = [String,448,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_left_middle.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 449; @position = 18; @symbol_constdef = [dithering,449,18,27]; @symbol_type<0> = [String,449,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 452; @symbol_moduledef = [system_size__menu_icon,452,15,37]; ]
+        module system_size__menu_icon {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 452; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 453; @position = 18; @symbol_constdef = [scaleX,453,18,24]; @symbol_type<0> = [Number,453,28,34]; ]
+            const scaleX as Number = 40;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 454; @position = 18; @symbol_constdef = [scaleY,454,18,24]; @symbol_type<0> = [Number,454,28,34]; ]
+            const scaleY as Number = 40;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 455; @position = 18; @symbol_constdef = [scaleRelativeTo,455,18,33]; @symbol_type<0> = [String,455,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 458; @symbol_moduledef = [system_icon_destructive__warning,458,15,47]; ]
+        module system_icon_destructive__warning {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 458; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 459; @position = 18; @symbol_constdef = [filename,459,18,26]; @symbol_type<0> = [String,459,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_destructive__warning.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 460; @position = 18; @symbol_constdef = [dithering,460,18,27]; @symbol_type<0> = [String,460,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 463; @symbol_moduledef = [system_loc__hint_button_right_middle,463,15,51]; ]
+        module system_loc__hint_button_right_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 463; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 464; @position = 18; @symbol_constdef = [exclude,464,18,25]; @symbol_type<0> = [Boolean,464,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 467; @symbol_moduledef = [system_icon_dark__cancel,467,15,39]; ]
+        module system_icon_dark__cancel {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 467; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 468; @position = 18; @symbol_constdef = [filename,468,18,26]; @symbol_type<0> = [String,468,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__cancel.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 469; @position = 18; @symbol_constdef = [compress,469,18,26]; @symbol_type<0> = [String,469,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 470; @position = 18; @symbol_constdef = [dithering,470,18,27]; @symbol_type<0> = [String,470,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 471; @position = 18; @symbol_constdef = [automaticPalette,471,18,34]; @symbol_type<0> = [String,471,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 474; @symbol_moduledef = [prompt_size__body_with_title,474,15,43]; ]
+        module prompt_size__body_with_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 474; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 475; @position = 18; @symbol_constdef = [width,475,18,23]; @symbol_type<0> = [Number,475,27,33]; ]
+            const width as Number = 208;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 476; @position = 18; @symbol_constdef = [height,476,18,24]; @symbol_type<0> = [Number,476,28,34]; ]
+            const height as Number = 156;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 479; @symbol_moduledef = [system_loc__hint_button_right_top,479,15,48]; ]
+        module system_loc__hint_button_right_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 479; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 480; @position = 18; @symbol_constdef = [x,480,18,19]; @symbol_type<0> = [Number,480,23,29]; ]
+            const x as Number = 224;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 481; @position = 18; @symbol_constdef = [y,481,18,19]; @symbol_type<0> = [Number,481,23,29]; ]
+            const y as Number = 50;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 484; @symbol_moduledef = [system_color_light__text,484,15,39]; ]
+        module system_color_light__text {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 484; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 486 18 ]
+                symbol [ Graphics %tmp.44 486 31 39 ];
+                %tmp.44 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.45 486 40 57 ];
+                %tmp.45 = getv %tmp.44 :COLOR_TRANSPARENT;
+                putv self :background %tmp.45;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 485; @position = 18; @symbol_constdef = [color,485,18,23]; @symbol_type<0> = [Number,485,27,33]; ]
+            const color as Number = 0x000000;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 486; @position = 18; @symbol_constdef = [background,486,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 489; @symbol_moduledef = [system_icon_light__check,489,15,39]; ]
+        module system_icon_light__check {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 489; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 490; @position = 18; @symbol_constdef = [filename,490,18,26]; @symbol_type<0> = [String,490,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__check.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 491; @position = 18; @symbol_constdef = [dithering,491,18,27]; @symbol_type<0> = [String,491,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 494; @symbol_moduledef = [confirmation_input__reject,494,15,41]; ]
+        module confirmation_input__reject {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 494; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 495 18 ]
+                symbol [ WatchUi %tmp.46 495 27 34 ];
+                %tmp.46 = getm $.Toybox.WatchUi;
+                symbol [ KEY_DOWN %tmp.47 495 35 43 ];
+                %tmp.47 = getv %tmp.46 :KEY_DOWN;
+                putv self :button %tmp.47;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 495; @position = 18; @symbol_constdef = [button,495,18,24]; ]
+            const button;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 498; @symbol_moduledef = [system_icon_light__revert,498,15,40]; ]
+        module system_icon_light__revert {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 498; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 499; @position = 18; @symbol_constdef = [filename,499,18,26]; @symbol_type<0> = [String,499,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__revert.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 500; @position = 18; @symbol_constdef = [dithering,500,18,27]; @symbol_type<0> = [String,500,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 503; @symbol_moduledef = [system_size__subwindow,503,15,37]; ]
+        module system_size__subwindow {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 503; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 504; @position = 18; @symbol_constdef = [exclude,504,18,25]; @symbol_type<0> = [Boolean,504,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 507; @symbol_moduledef = [system_icon_positive__hint_button_left_bottom,507,15,60]; ]
+        module system_icon_positive__hint_button_left_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 507; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 508; @position = 18; @symbol_constdef = [filename,508,18,26]; @symbol_type<0> = [String,508,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_left_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 509; @position = 18; @symbol_constdef = [dithering,509,18,27]; @symbol_type<0> = [String,509,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 512; @symbol_moduledef = [system_icon_dark__check,512,15,38]; ]
+        module system_icon_dark__check {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 512; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 513; @position = 18; @symbol_constdef = [filename,513,18,26]; @symbol_type<0> = [String,513,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__check.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 514; @position = 18; @symbol_constdef = [compress,514,18,26]; @symbol_type<0> = [String,514,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 515; @position = 18; @symbol_constdef = [dithering,515,18,27]; @symbol_type<0> = [String,515,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 516; @position = 18; @symbol_constdef = [automaticPalette,516,18,34]; @symbol_type<0> = [String,516,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 519; @symbol_moduledef = [confirmation_loc__hint_keep,519,15,42]; ]
+        module confirmation_loc__hint_keep {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 519; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 520; @position = 18; @symbol_constdef = [x,520,18,19]; @symbol_type<0> = [Number,520,23,29]; ]
+            const x as Number = 13;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 521; @position = 18; @symbol_constdef = [y,521,18,19]; @symbol_type<0> = [Number,521,23,29]; ]
+            const y as Number = 174;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 522; @position = 18; @symbol_constdef = [horizontalJustification,522,18,41]; @symbol_type<0> = [String,522,45,51]; ]
+            const horizontalJustification as String = "left";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 525; @symbol_moduledef = [confirmation_loc__hint_delete,525,15,44]; ]
+        module confirmation_loc__hint_delete {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 525; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 526; @position = 18; @symbol_constdef = [x,526,18,19]; @symbol_type<0> = [Number,526,23,29]; ]
+            const x as Number = 208;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 527; @position = 18; @symbol_constdef = [y,527,18,19]; @symbol_type<0> = [Number,527,23,29]; ]
+            const y as Number = 50;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 530; @symbol_moduledef = [system_icon_positive__hint_action_menu,530,15,53]; ]
+        module system_icon_positive__hint_action_menu {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 530; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 531; @position = 18; @symbol_constdef = [filename,531,18,26]; @symbol_type<0> = [String,531,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 532; @position = 18; @symbol_constdef = [dithering,532,18,27]; @symbol_type<0> = [String,532,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 535; @symbol_moduledef = [system_icon_positive__hint_button_right_middle,535,15,61]; ]
+        module system_icon_positive__hint_button_right_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 535; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 536; @position = 18; @symbol_constdef = [exclude,536,18,25]; @symbol_type<0> = [Boolean,536,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 539; @symbol_moduledef = [system_icon_light__hint_button_left_middle,539,15,57]; ]
+        module system_icon_light__hint_button_left_middle {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 539; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 540; @position = 18; @symbol_constdef = [filename,540,18,26]; @symbol_type<0> = [String,540,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_left_middle.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 541; @position = 18; @symbol_constdef = [dithering,541,18,27]; @symbol_type<0> = [String,541,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 544; @symbol_moduledef = [system_icon_dark__hint_button_right_bottom,544,15,57]; ]
+        module system_icon_dark__hint_button_right_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 544; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 545; @position = 18; @symbol_constdef = [filename,545,18,26]; @symbol_type<0> = [String,545,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__hint_button_right_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 546; @position = 18; @symbol_constdef = [dithering,546,18,27]; @symbol_type<0> = [String,546,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 549; @symbol_moduledef = [system_icon_positive__hint_button_right_bottom,549,15,61]; ]
+        module system_icon_positive__hint_button_right_bottom {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 549; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 550; @position = 18; @symbol_constdef = [filename,550,18,26]; @symbol_type<0> = [String,550,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__hint_button_right_bottom.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 551; @position = 18; @symbol_constdef = [dithering,551,18,27]; @symbol_type<0> = [String,551,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 554; @symbol_moduledef = [system_icon_dark__revert,554,15,39]; ]
+        module system_icon_dark__revert {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 554; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 555; @position = 18; @symbol_constdef = [filename,555,18,26]; @symbol_type<0> = [String,555,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__revert.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 556; @position = 18; @symbol_constdef = [compress,556,18,26]; @symbol_type<0> = [String,556,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 557; @position = 18; @symbol_constdef = [dithering,557,18,27]; @symbol_type<0> = [String,557,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 558; @position = 18; @symbol_constdef = [automaticPalette,558,18,34]; @symbol_type<0> = [String,558,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 561; @symbol_moduledef = [confirmation_icon_light__hint_delete,561,15,51]; ]
+        module confirmation_icon_light__hint_delete {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 561; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 562; @position = 18; @symbol_constdef = [filename,562,18,26]; @symbol_type<0> = [String,562,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_delete.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 563; @position = 18; @symbol_constdef = [dithering,563,18,27]; @symbol_type<0> = [String,563,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 566; @symbol_moduledef = [system_icon_dark__question,566,15,41]; ]
+        module system_icon_dark__question {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 566; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 567; @position = 18; @symbol_constdef = [filename,567,18,26]; @symbol_type<0> = [String,567,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__question.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 568; @position = 18; @symbol_constdef = [compress,568,18,26]; @symbol_type<0> = [String,568,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 569; @position = 18; @symbol_constdef = [dithering,569,18,27]; @symbol_type<0> = [String,569,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 570; @position = 18; @symbol_constdef = [automaticPalette,570,18,34]; @symbol_type<0> = [String,570,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 573; @symbol_moduledef = [system_icon_light__discard,573,15,41]; ]
+        module system_icon_light__discard {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 573; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 574; @position = 18; @symbol_constdef = [filename,574,18,26]; @symbol_type<0> = [String,574,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__discard.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 575; @position = 18; @symbol_constdef = [dithering,575,18,27]; @symbol_type<0> = [String,575,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 578; @symbol_moduledef = [device_info,578,15,26]; ]
+        module device_info {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 578; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 580 18 ]
+                symbol [ Toybox %tmp.49 580 32 38 ];
+                %tmp.49 = getv ? :Toybox;
+                symbol [ System %tmp.50 580 39 45 ];
+                %tmp.50 = getv %tmp.49 :System;
+                symbol [ SCREEN_SHAPE_ROUND %tmp.51 580 46 64 ];
+                %tmp.51 = getv %tmp.50 :SCREEN_SHAPE_ROUND;
+                putv self :screenShape %tmp.51;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 579; @position = 18; @symbol_constdef = [screenWidth,579,18,29]; @symbol_type<0> = [Number,579,33,39]; ]
+            const screenWidth as Number = 260;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 580; @position = 18; @symbol_constdef = [screenShape,580,18,29]; ]
+            const screenShape;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 581; @position = 18; @symbol_constdef = [hasNightMode,581,18,30]; @symbol_type<0> = [Boolean,581,34,41]; ]
+            const hasNightMode as Boolean = false;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 582; @position = 18; @symbol_constdef = [hasGpu,582,18,24]; @symbol_type<0> = [Boolean,582,28,35]; ]
+            const hasGpu as Boolean = true;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 583; @position = 18; @symbol_constdef = [screenHeight,583,18,30]; @symbol_type<0> = [Number,583,34,40]; ]
+            const screenHeight as Number = 260;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 584; @position = 18; @symbol_constdef = [hasTouchScreen,584,18,32]; @symbol_type<0> = [Boolean,584,36,43]; ]
+            const hasTouchScreen as Boolean = true;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 585; @position = 18; @symbol_constdef = [hasEnhancedReadabilityMode,585,18,44]; @symbol_type<0> = [Boolean,585,48,55]; ]
+            const hasEnhancedReadabilityMode as Boolean = false;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 588; @symbol_moduledef = [confirmation_icon_dark__hint_confirm,588,15,51]; ]
+        module confirmation_icon_dark__hint_confirm {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 588; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 589; @position = 18; @symbol_constdef = [filename,589,18,26]; @symbol_type<0> = [String,589,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_completion.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 590; @position = 18; @symbol_constdef = [dithering,590,18,27]; @symbol_type<0> = [String,590,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 593; @symbol_moduledef = [prompt_font__body_no_title,593,15,41]; ]
+        module prompt_font__body_no_title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 593; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 594 18 ]
+                symbol [ Graphics %tmp.52 594 34 42 ];
+                %tmp.52 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_CENTER %tmp.53 594 43 62 ];
+                %tmp.53 = getv %tmp.52 :TEXT_JUSTIFY_CENTER;
+                symbol [ Graphics %tmp.54 594 63 71 ];
+                %tmp.54 = getm $.Toybox.Graphics;
+                symbol [ TEXT_JUSTIFY_VCENTER %tmp.55 594 72 92 ];
+                %tmp.55 = getv %tmp.54 :TEXT_JUSTIFY_VCENTER;
+                %tmp.56 = bitor %tmp.53 %tmp.55;
+                putv self :justification %tmp.56;
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 595 18 ]
+                symbol [ Graphics %tmp.57 595 25 33 ];
+                %tmp.57 = getm $.Toybox.Graphics;
+                symbol [ FONT_TINY %tmp.58 595 34 43 ];
+                %tmp.58 = getv %tmp.57 :FONT_TINY;
+                putv self :font %tmp.58;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 594; @position = 18; @symbol_constdef = [justification,594,18,31]; ]
+            const justification;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 595; @position = 18; @symbol_constdef = [font,595,18,22]; ]
+            const font;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 598; @symbol_moduledef = [prompt_size__title_icon,598,15,38]; ]
+        module prompt_size__title_icon {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 598; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 599; @position = 18; @symbol_constdef = [scaleX,599,18,24]; @symbol_type<0> = [Float,599,28,33]; ]
+            const scaleX as Float = 0.1539;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 600; @position = 18; @symbol_constdef = [scaleRelativeTo,600,18,33]; @symbol_type<0> = [String,600,37,43]; ]
+            const scaleRelativeTo as String = "screen";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 603; @symbol_moduledef = [system_icon_dark__warning,603,15,40]; ]
+        module system_icon_dark__warning {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 603; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 604; @position = 18; @symbol_constdef = [filename,604,18,26]; @symbol_type<0> = [String,604,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_dark__warning.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 605; @position = 18; @symbol_constdef = [compress,605,18,26]; @symbol_type<0> = [String,605,30,36]; ]
+            const compress as String = "true";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 606; @position = 18; @symbol_constdef = [dithering,606,18,27]; @symbol_type<0> = [String,606,31,37]; ]
+            const dithering as String = "none";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 607; @position = 18; @symbol_constdef = [automaticPalette,607,18,34]; @symbol_type<0> = [String,607,38,44]; ]
+            const automaticPalette as String = "true";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 610; @symbol_moduledef = [prompt_loc__title_icon,610,15,37]; ]
+        module prompt_loc__title_icon {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 610; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 611; @position = 18; @symbol_constdef = [x,611,18,19]; @symbol_type<0> = [Number,611,23,29]; ]
+            const x as Number = 130;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 612; @position = 18; @symbol_constdef = [y,612,18,19]; @symbol_type<0> = [Number,612,23,29]; ]
+            const y as Number = 39;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 613; @position = 18; @symbol_constdef = [horizontalJustification,613,18,41]; @symbol_type<0> = [String,613,45,51]; ]
+            const horizontalJustification as String = "center";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 614; @position = 18; @symbol_constdef = [verticalJustification,614,18,39]; @symbol_type<0> = [String,614,43,49]; ]
+            const verticalJustification as String = "center";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 617; @symbol_moduledef = [prompt_font_enhanced_readability__title,617,15,54]; ]
+        module prompt_font_enhanced_readability__title {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 617; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 618; @position = 18; @symbol_constdef = [exclude,618,18,25]; @symbol_type<0> = [Boolean,618,29,36]; ]
+            const exclude as Boolean = true;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 621; @symbol_moduledef = [prompt_color_dark__body,621,15,38]; ]
+        module prompt_color_dark__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 621; ]
+            <init> {
+[ "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen" 623 18 ]
+                symbol [ Graphics %tmp.59 623 31 39 ];
+                %tmp.59 = getm $.Toybox.Graphics;
+                symbol [ COLOR_TRANSPARENT %tmp.60 623 40 57 ];
+                %tmp.60 = getv %tmp.59 :COLOR_TRANSPARENT;
+                putv self :background %tmp.60;
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 622; @position = 18; @symbol_constdef = [color,622,18,23]; @symbol_type<0> = [Number,622,27,33]; ]
+            const color as Number = 0xFFFFFF;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 623; @position = 18; @symbol_constdef = [background,623,18,28]; ]
+            const background;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 626; @symbol_moduledef = [confirmation_icon__hint_delete,626,15,45]; ]
+        module confirmation_icon__hint_delete {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 626; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 627; @position = 18; @symbol_constdef = [filename,627,18,26]; @symbol_type<0> = [String,627,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\confirmation_icon__hint_delete.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 628; @position = 18; @symbol_constdef = [dithering,628,18,27]; @symbol_type<0> = [String,628,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 631; @symbol_moduledef = [system_icon_light__hint_button_right_top,631,15,55]; ]
+        module system_icon_light__hint_button_right_top {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 631; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 632; @position = 18; @symbol_constdef = [filename,632,18,26]; @symbol_type<0> = [String,632,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_light__hint_button_right_top.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 633; @position = 18; @symbol_constdef = [dithering,633,18,27]; @symbol_type<0> = [String,633,31,37]; ]
+            const dithering as String = "none";
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 636; @symbol_moduledef = [confirmation_size__body,636,15,38]; ]
+        module confirmation_size__body {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 636; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 637; @position = 18; @symbol_constdef = [width,637,18,23]; @symbol_type<0> = [Number,637,27,33]; ]
+            const width as Number = 156;
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 638; @position = 18; @symbol_constdef = [height,638,18,24]; @symbol_type<0> = [Number,638,28,34]; ]
+            const height as Number = 156;
+        }
+        [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 641; @symbol_moduledef = [system_icon_positive__check,641,15,42]; ]
+        module system_icon_positive__check {
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 641; ]
+            <init> {
+            }
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 642; @position = 18; @symbol_constdef = [filename,642,18,26]; @symbol_type<0> = [String,642,30,36]; ]
+            const filename as String = "C:\\Users\\jonat\\AppData\\Roaming\\Garmin\\ConnectIQ\\Devices\\fr955\\system_icon_positive__check.svg";
+            [ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 643; @position = 18; @symbol_constdef = [dithering,643,18,27]; @symbol_type<0> = [String,643,31,37]; ]
+            const dithering as String = "none";
+        }
+    }
+}
+[ @file = "c:\src\projects\garmin\JF-HebrewCalendar\bin\gen\006-B4024-00\source\Rez.mcgen"; @line = 1; ]
+<init> {
+}
