@@ -107,9 +107,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function isHebrewLeapYear(year) {
     return (year * 7 + 1) % 19 < 7;
   }
-  // function isHebrewLeapYear(year) {
-  //     return (((year * 7) + 1) % 19) < 7;
-  // }
 
   function gregorianToAbsolute(year, month, day) {
     // Days in prior years
@@ -216,32 +213,28 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     // Find the start of the Hebrew year this gregorian year
     var startOfHebrewYearThisGregorianYear = hebrewYearStartGregorian(year);
-    var startOfHebrewYearNextGregorianYear = hebrewYearStartGregorian(year+1);
+    var startOfHebrewYearNextGregorianYear = hebrewYearStartGregorian(year + 1);
+    var absGregorianNextYear = gregorianToAbsolute(
+      startOfHebrewYearNextGregorianYear[0],
+      startOfHebrewYearNextGregorianYear[1],
+      startOfHebrewYearNextGregorianYear[2]
+    );
+    var absGregorianThisYear = gregorianToAbsolute(
+      startOfHebrewYearThisGregorianYear[0],
+      startOfHebrewYearThisGregorianYear[1],
+      startOfHebrewYearThisGregorianYear[2]
+    );
 
     // Find actual Hebrew year
-    while (
-      absDay >=
-      gregorianToAbsolute(
-        startOfHebrewYearNextGregorianYear[0],
-        startOfHebrewYearNextGregorianYear[1],
-        startOfHebrewYearNextGregorianYear[2]
-      )
-    ) {
+    while (absDay >= absGregorianNextYear) {
       year += 1;
     }
-    while (
-      absDay <
-      gregorianToAbsolute(
-        startOfHebrewYearThisGregorianYear[0],
-        startOfHebrewYearThisGregorianYear[1],
-        startOfHebrewYearThisGregorianYear[2]
-      )
-    ) {
+    while (absDay < absGregorianThisYear) {
       year -= 1;
     }
 
     // Days since Rosh Hashana
-    var startOfYearAbs = hebrewCalendarElapsedDays(year) + 1373429; // Hebrew epoch offset
+    var startOfYearAbs = hebrewCalendarElapsedDays(year) - 1373429; // Hebrew epoch offset
     var dayOfYear = absDay - startOfYearAbs + 1;
 
     // Find month/day
