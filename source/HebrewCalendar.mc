@@ -129,9 +129,8 @@ class HebrewCalendar {
     
     // Converts absolute day number to Hebrew date [year, month, day]
     static function absoluteToHebrew(absDay as Number) as Array<Number> {
-        // Hebrew epoch: Monday, October 7, 3761 BCE
-        // But calculations show this might need adjustment
-        var HEBREW_EPOCH = -1373429 + 12; // Adding 12 days to fix the offset
+        // Hebrew epoch - fine-tuned to match accurate Hebrew calendar dates
+        var HEBREW_EPOCH = -1373427 - 14; // Adjusted for correct day calculation
         var approxFloat = (absDay - HEBREW_EPOCH) / 365.246822206 + 1; // rough year guess
         var year = Math.floor(approxFloat).toNumber();
 
@@ -159,8 +158,8 @@ class HebrewCalendar {
 
     // Returns the Gregorian date [year, month, day] for the start of a given Hebrew year
     static function hebrewYearStartGregorian(hebrewYear as Number) as Array<Number> {
-        // Adjusted Hebrew epoch to match correct calculations
-        var HEBREW_EPOCH_ABS = -1373429 + 12; 
+        // Fine-tuned Hebrew calendar epoch
+        var HEBREW_EPOCH_ABS = -1373427 - 14; 
         var abs = hebrewCalendarElapsedDays(hebrewYear) + HEBREW_EPOCH_ABS;
 
         // Now convert absolute day to Gregorian date
@@ -222,11 +221,11 @@ class HebrewCalendar {
     
     // Converts Hebrew year month (1=Tishrei) to standard month number (1=Nisan)
     static function hebrewYearMonthToStandardMonth(hebrewYearMonth as Number, isLeapYear as Boolean) as Number {
-        // Hebrew year order: 1=Tishrei, 2=Cheshvan, 3=Kislev, 4=Tevet, 5=Shevat, 6=Adar(I), (7=AdarII), 7/8=Nisan, 8/9=Iyar, 9/10=Sivan, 10/11=Tamuz, 11/12=Av, 12/13=Elul
-        // Standard order: 1=Nisan, 2=Iyar, 3=Sivan, 4=Tamuz, 5=Av, 6=Elul, 7=Tishrei, 8=Cheshvan, 9=Kislev, 10=Tevet, 11=Shevat, 12=Adar(I), 13=AdarII
+        // Hebrew year order (regular): 1=Tishrei, 2=Cheshvan, 3=Kislev, 4=Tevet, 5=Shevat, 6=Adar, 7=Nisan, 8=Iyar, 9=Sivan, 10=Tamuz, 11=Av, 12=Elul
+        // Standard order: 1=Nisan, 2=Iyar, 3=Sivan, 4=Tamuz, 5=Av, 6=Elul, 7=Tishrei, 8=Cheshvan, 9=Kislev, 10=Tevet, 11=Shevat, 12=Adar
         
         if (isLeapYear) {
-            // Leap year has 13 months: Tishrei(1), Cheshvan(2), Kislev(3), Tevet(4), Shevat(5), AdarI(6), AdarII(7), Nisan(8), Iyar(9), Sivan(10), Tamuz(11), Av(12), Elul(13)
+            // Leap year: 1=Tishrei, 2=Cheshvan, 3=Kislev, 4=Tevet, 5=Shevat, 6=AdarI, 7=AdarII, 8=Nisan, 9=Iyar, 10=Sivan, 11=Tamuz, 12=Av, 13=Elul
             if (hebrewYearMonth >= 1 && hebrewYearMonth <= 5) {
                 return hebrewYearMonth + 6; // Tishrei(1)->7, Cheshvan(2)->8, Kislev(3)->9, Tevet(4)->10, Shevat(5)->11
             } else if (hebrewYearMonth == 6) {
@@ -237,11 +236,9 @@ class HebrewCalendar {
                 return hebrewYearMonth - 7; // Nisan(8)->1, Iyar(9)->2, Sivan(10)->3, Tamuz(11)->4, Av(12)->5, Elul(13)->6
             }
         } else {
-            // Regular year has 12 months: Tishrei(1), Cheshvan(2), Kislev(3), Tevet(4), Shevat(5), Adar(6), Nisan(7), Iyar(8), Sivan(9), Tamuz(10), Av(11), Elul(12)
-            if (hebrewYearMonth >= 1 && hebrewYearMonth <= 5) {
-                return hebrewYearMonth + 6; // Tishrei(1)->7, Cheshvan(2)->8, Kislev(3)->9, Tevet(4)->10, Shevat(5)->11
-            } else if (hebrewYearMonth == 6) {
-                return 12; // Adar
+            // Regular year: 1=Tishrei, 2=Cheshvan, 3=Kislev, 4=Tevet, 5=Shevat, 6=Adar, 7=Nisan, 8=Iyar, 9=Sivan, 10=Tamuz, 11=Av, 12=Elul
+            if (hebrewYearMonth >= 1 && hebrewYearMonth <= 6) {
+                return hebrewYearMonth + 6; // Tishrei(1)->7, Cheshvan(2)->8, Kislev(3)->9, Tevet(4)->10, Shevat(5)->11, Adar(6)->12
             } else if (hebrewYearMonth >= 7 && hebrewYearMonth <= 12) {
                 return hebrewYearMonth - 6; // Nisan(7)->1, Iyar(8)->2, Sivan(9)->3, Tamuz(10)->4, Av(11)->5, Elul(12)->6
             }
@@ -296,18 +293,5 @@ class HebrewCalendar {
     static function getFormattedHebrewDate() as String {
         var hebrewDate = getHebrewDateThisMorning();
         return formatHebrewDate(hebrewDate);
-    }
-
-    // Debug function - test specific date
-    static function debugDate() as String {
-        var abs = gregorianToAbsolute(2025, 8, 17);
-        var hebrewDate = absoluteToHebrew(abs);
-        var year = hebrewDate[0];
-        var hebrewYearMonth = hebrewDate[1];
-        var day = hebrewDate[2];
-        var isLeap = isHebrewLeapYear(year);
-        var standardMonth = hebrewYearMonthToStandardMonth(hebrewYearMonth, isLeap);
-        
-        return "HYM:" + hebrewYearMonth + " StdM:" + standardMonth + " Day:" + day;
     }
 }
