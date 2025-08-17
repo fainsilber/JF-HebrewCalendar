@@ -6,57 +6,161 @@
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="1" lineNum="27" parent="globals" pc="268435470" symbol="getApp"/>
         <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="2" lineNum="7" parent="globals/Rez" pc="268435481" symbol="&lt;init&gt;"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="3" lineNum="5" parent="globals/JF_HebrewCalendarApp" pc="268435501" symbol="&lt;init&gt;"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="4" lineNum="6" parent="globals/JF_HebrewCalendarView" pc="268435513" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="4" lineNum="7" parent="globals/JF_HebrewCalendarView" pc="268435513" symbol="&lt;init&gt;"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="5" lineNum="12" parent="globals/JF_HebrewCalendarApp" pc="268435525" symbol="onStart"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="6" lineNum="20" parent="globals/JF_HebrewCalendarApp" pc="268435528" symbol="getInitialView"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="6" lineNum="21" parent="globals/JF_HebrewCalendarApp" pc="268435530" symbol="getInitialView"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="7" lineNum="7" parent="globals/JF_HebrewCalendarApp" pc="268435556" symbol="initialize"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="7" lineNum="8" parent="globals/JF_HebrewCalendarApp" pc="268435558" symbol="initialize"/>
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarApp.mc" id="8" lineNum="16" parent="globals/JF_HebrewCalendarApp" pc="268435571" symbol="onStop"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="14" parent="globals/JF_HebrewCalendarView" pc="268435574" symbol="onLayout"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="15" parent="globals/JF_HebrewCalendarView" pc="268435576" symbol="onLayout"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="11" lineNum="16" parent="globals/JF_HebrewCalendarView" pc="268435609" symbol="onLayout"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="9" parent="globals/JF_HebrewCalendarView" pc="268435648" symbol="initialize"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="10" parent="globals/JF_HebrewCalendarView" pc="268435650" symbol="initialize"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="25" parent="globals/JF_HebrewCalendarView" pc="268435663" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="26" parent="globals/JF_HebrewCalendarView" pc="268435666" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="27" parent="globals/JF_HebrewCalendarView" pc="268435704" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="28" parent="globals/JF_HebrewCalendarView" pc="268435716" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="30" parent="globals/JF_HebrewCalendarView" pc="268435724" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="31" parent="globals/JF_HebrewCalendarView" pc="268435736" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="41" parent="globals/JF_HebrewCalendarView" pc="268435770" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="42" parent="globals/JF_HebrewCalendarView" pc="268435786" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="49" parent="globals/JF_HebrewCalendarView" pc="268435828" symbol="onUpdate"/>
-        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="50" parent="globals/JF_HebrewCalendarView" pc="268435844" symbol="onUpdate"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="16" lineNum="18" parent="globals/Rez/Layouts" pc="268435884" symbol="WatchFace"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="16" lineNum="19" parent="globals/Rez/Layouts" pc="268435894" symbol="WatchFace"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="196" parent="globals/JF_HebrewCalendarView" pc="268435574" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="197" parent="globals/JF_HebrewCalendarView" pc="268435576" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="198" parent="globals/JF_HebrewCalendarView" pc="268435603" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="200" parent="globals/JF_HebrewCalendarView" pc="268435609" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="201" parent="globals/JF_HebrewCalendarView" pc="268435636" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="203" parent="globals/JF_HebrewCalendarView" pc="268435642" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="204" parent="globals/JF_HebrewCalendarView" pc="268435664" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="206" parent="globals/JF_HebrewCalendarView" pc="268435670" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="207" parent="globals/JF_HebrewCalendarView" pc="268435678" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="10" lineNum="209" parent="globals/JF_HebrewCalendarView" pc="268435684" symbol="daysInHebrewMonth"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="12" lineNum="141" parent="globals/JF_HebrewCalendarView" pc="268435687" symbol="lastMonthOfHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="12" lineNum="142" parent="globals/JF_HebrewCalendarView" pc="268435689" symbol="lastMonthOfHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="155" parent="globals/JF_HebrewCalendarView" pc="268435710" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="156" parent="globals/JF_HebrewCalendarView" pc="268435713" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="158" parent="globals/JF_HebrewCalendarView" pc="268435725" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="159" parent="globals/JF_HebrewCalendarView" pc="268435741" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="164" parent="globals/JF_HebrewCalendarView" pc="268435793" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="165" parent="globals/JF_HebrewCalendarView" pc="268435801" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="166" parent="globals/JF_HebrewCalendarView" pc="268435829" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="168" parent="globals/JF_HebrewCalendarView" pc="268435836" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="171" parent="globals/JF_HebrewCalendarView" pc="268435840" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="179" parent="globals/JF_HebrewCalendarView" pc="268435934" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="183" parent="globals/JF_HebrewCalendarView" pc="268435944" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="184" parent="globals/JF_HebrewCalendarView" pc="268435967" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="13" lineNum="187" parent="globals/JF_HebrewCalendarView" pc="268435977" symbol="hebrewCalendarElapsedDays"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="14" lineNum="15" parent="globals/JF_HebrewCalendarView" pc="268435980" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="14" lineNum="16" parent="globals/JF_HebrewCalendarView" pc="268435982" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="14" lineNum="17" parent="globals/JF_HebrewCalendarView" pc="268436015" symbol="onLayout"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="259" parent="globals/JF_HebrewCalendarView" pc="268436054" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="262" parent="globals/JF_HebrewCalendarView" pc="268436057" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="263" parent="globals/JF_HebrewCalendarView" pc="268436063" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="266" parent="globals/JF_HebrewCalendarView" pc="268436078" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="267" parent="globals/JF_HebrewCalendarView" pc="268436082" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="269" parent="globals/JF_HebrewCalendarView" pc="268436086" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="271" parent="globals/JF_HebrewCalendarView" pc="268436122" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="272" parent="globals/JF_HebrewCalendarView" pc="268436145" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="274" parent="globals/JF_HebrewCalendarView" pc="268436155" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="275" parent="globals/JF_HebrewCalendarView" pc="268436175" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="278" parent="globals/JF_HebrewCalendarView" pc="268436185" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="279" parent="globals/JF_HebrewCalendarView" pc="268436189" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="280" parent="globals/JF_HebrewCalendarView" pc="268436212" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="282" parent="globals/JF_HebrewCalendarView" pc="268436222" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="15" lineNum="283" parent="globals/JF_HebrewCalendarView" pc="268436244" symbol="hebrewYearStartGregorian"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="16" lineNum="137" parent="globals/JF_HebrewCalendarView" pc="268436264" symbol="isGregorianLeapYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="16" lineNum="138" parent="globals/JF_HebrewCalendarView" pc="268436266" symbol="isGregorianLeapYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="114" parent="globals/JF_HebrewCalendarView" pc="268436301" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="116" parent="globals/JF_HebrewCalendarView" pc="268436304" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="123" parent="globals/JF_HebrewCalendarView" pc="268436379" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="124" parent="globals/JF_HebrewCalendarView" pc="268436386" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="125" parent="globals/JF_HebrewCalendarView" pc="268436399" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="127" parent="globals/JF_HebrewCalendarView" pc="268436409" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="128" parent="globals/JF_HebrewCalendarView" pc="268436421" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="132" parent="globals/JF_HebrewCalendarView" pc="268436441" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="17" lineNum="134" parent="globals/JF_HebrewCalendarView" pc="268436448" symbol="gregorianToAbsolute"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="18" lineNum="84" parent="globals/JF_HebrewCalendarView" pc="268436451" symbol="toLongSafe"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="18" lineNum="86" parent="globals/JF_HebrewCalendarView" pc="268436453" symbol="toLongSafe"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="19" lineNum="107" parent="globals/JF_HebrewCalendarView" pc="268436473" symbol="isHebrewLeapYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="19" lineNum="108" parent="globals/JF_HebrewCalendarView" pc="268436475" symbol="isHebrewLeapYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="20" lineNum="145" parent="globals/JF_HebrewCalendarView" pc="268436490" symbol="monthsElapsedBeforeHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="20" lineNum="146" parent="globals/JF_HebrewCalendarView" pc="268436493" symbol="monthsElapsedBeforeHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="20" lineNum="147" parent="globals/JF_HebrewCalendarView" pc="268436500" symbol="monthsElapsedBeforeHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="20" lineNum="148" parent="globals/JF_HebrewCalendarView" pc="268436514" symbol="monthsElapsedBeforeHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="20" lineNum="151" parent="globals/JF_HebrewCalendarView" pc="268436529" symbol="monthsElapsedBeforeHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="21" lineNum="286" parent="globals/JF_HebrewCalendarView" pc="268436561" symbol="getHebrewDateThisMorning"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="21" lineNum="287" parent="globals/JF_HebrewCalendarView" pc="268436564" symbol="getHebrewDateThisMorning"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="21" lineNum="288" parent="globals/JF_HebrewCalendarView" pc="268436589" symbol="getHebrewDateThisMorning"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="21" lineNum="293" parent="globals/JF_HebrewCalendarView" pc="268436641" symbol="getHebrewDateThisMorning"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="21" lineNum="294" parent="globals/JF_HebrewCalendarView" pc="268436653" symbol="getHebrewDateThisMorning"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="22" lineNum="190" parent="globals/JF_HebrewCalendarView" pc="268436656" symbol="daysInHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="22" lineNum="191" parent="globals/JF_HebrewCalendarView" pc="268436658" symbol="daysInHebrewYear"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="212" parent="globals/JF_HebrewCalendarView" pc="268436683" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="213" parent="globals/JF_HebrewCalendarView" pc="268436686" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="214" parent="globals/JF_HebrewCalendarView" pc="268436692" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="215" parent="globals/JF_HebrewCalendarView" pc="268436720" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="218" parent="globals/JF_HebrewCalendarView" pc="268436732" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="219" parent="globals/JF_HebrewCalendarView" pc="268436744" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="222" parent="globals/JF_HebrewCalendarView" pc="268436759" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="230" parent="globals/JF_HebrewCalendarView" pc="268436787" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="232" parent="globals/JF_HebrewCalendarView" pc="268436797" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="240" parent="globals/JF_HebrewCalendarView" pc="268436825" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="244" parent="globals/JF_HebrewCalendarView" pc="268436835" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="245" parent="globals/JF_HebrewCalendarView" pc="268436852" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="248" parent="globals/JF_HebrewCalendarView" pc="268436862" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="249" parent="globals/JF_HebrewCalendarView" pc="268436866" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="250" parent="globals/JF_HebrewCalendarView" pc="268436884" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="251" parent="globals/JF_HebrewCalendarView" pc="268436901" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="23" lineNum="253" parent="globals/JF_HebrewCalendarView" pc="268436911" symbol="absoluteToHebrew"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="90" parent="globals/JF_HebrewCalendarView" pc="268436931" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="91" parent="globals/JF_HebrewCalendarView" pc="268436934" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="92" parent="globals/JF_HebrewCalendarView" pc="268436946" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="95" parent="globals/JF_HebrewCalendarView" pc="268436958" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="96" parent="globals/JF_HebrewCalendarView" pc="268436965" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="25" lineNum="97" parent="globals/JF_HebrewCalendarView" pc="268436975" symbol="divFloor"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="26" lineNum="10" parent="globals/JF_HebrewCalendarView" pc="268436978" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="26" lineNum="11" parent="globals/JF_HebrewCalendarView" pc="268436980" symbol="initialize"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="26" parent="globals/JF_HebrewCalendarView" pc="268436993" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="27" parent="globals/JF_HebrewCalendarView" pc="268436996" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="28" parent="globals/JF_HebrewCalendarView" pc="268437034" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="29" parent="globals/JF_HebrewCalendarView" pc="268437046" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="31" parent="globals/JF_HebrewCalendarView" pc="268437054" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="32" parent="globals/JF_HebrewCalendarView" pc="268437066" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="42" parent="globals/JF_HebrewCalendarView" pc="268437100" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="46" parent="globals/JF_HebrewCalendarView" pc="268437108" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="47" parent="globals/JF_HebrewCalendarView" pc="268437138" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="48" parent="globals/JF_HebrewCalendarView" pc="268437154" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="55" parent="globals/JF_HebrewCalendarView" pc="268437193" symbol="onUpdate"/>
+        <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="28" lineNum="56" parent="globals/JF_HebrewCalendarView" pc="268437209" symbol="onUpdate"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="29" lineNum="18" parent="globals/Rez/Layouts" pc="268437249" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="29" lineNum="19" parent="globals/Rez/Layouts" pc="268437259" symbol="WatchFace"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
-        <entry field="true" id="13" symbol="frank"/>
+        <entry field="true" id="26" symbol="frank"/>
+        <entry id="15" method="true" symbol="gregorianToAbsolute"/>
         <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="10" method="true" symbol="absoluteToHebrew"/>
+        <entry id="17" method="true" symbol="hebrewYearStartGregorian"/>
+        <entry id="13" method="true" symbol="divFloor"/>
         <entry id="7" object="true" symbol="JF_HebrewCalendarApp"/>
+        <entry id="18" method="true" symbol="isGregorianLeapYear"/>
         <entry field="true" id="8388611" module="true" symbol="Toybox"/>
-        <entry field="true" id="14" symbol="AppName"/>
+        <entry id="11" method="true" symbol="daysInHebrewMonth"/>
+        <entry id="19" method="true" symbol="isHebrewLeapYear"/>
+        <entry field="true" id="27" symbol="AppName"/>
         <entry id="6" module="true" symbol="globals/Rez/Strings"/>
         <entry id="8388772" module="true" object="true" symbol="Fonts"/>
+        <entry id="21" method="true" symbol="monthsElapsedBeforeHebrewYear"/>
         <entry id="8388648" module="true" symbol="WatchUi"/>
         <entry id="2" module="true" symbol="globals/Rez"/>
-        <entry field="true" id="10" symbol="myfonts"/>
+        <entry field="true" id="22" symbol="myfonts"/>
         <entry id="8389124" method="true" symbol="onUpdate"/>
         <entry id="8389375" method="true" object="true" symbol="WatchFace"/>
         <entry id="8388771" module="true" object="true" symbol="Drawables"/>
         <entry id="8389275" method="true" symbol="getApp"/>
         <entry id="5" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="23" method="true" symbol="toLongSafe"/>
         <entry id="8389122" method="true" symbol="onLayout"/>
         <entry id="8389376" method="true" symbol="onEnterSleep"/>
-        <entry field="true" id="12" symbol="Alphazet"/>
+        <entry id="20" method="true" symbol="lastMonthOfHebrewYear"/>
+        <entry id="12" method="true" symbol="daysInHebrewYear"/>
+        <entry field="true" id="25" symbol="Alphazet"/>
         <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
         <entry id="8389377" method="true" symbol="onExitSleep"/>
         <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8388645" module="true" symbol="Time"/>
         <entry id="8388769" module="true" object="true" symbol="Rez"/>
         <entry id="8388640" module="true" symbol="Lang"/>
-        <entry field="true" id="11" symbol="LauncherIcon"/>
+        <entry field="true" id="24" symbol="LauncherIcon"/>
         <entry id="8388610" symbol="statics"/>
         <entry id="8389123" method="true" symbol="onShow"/>
         <entry id="8389350" module="true" symbol="globals"/>
@@ -65,18 +169,70 @@
         <entry id="8389279" method="true" symbol="onStart"/>
         <entry id="8389280" method="true" symbol="getInitialView"/>
         <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="14" method="true" symbol="getHebrewDateThisMorning"/>
         <entry id="9" module="true" symbol="Layouts"/>
         <entry id="4" module="true" symbol="globals/Rez/Fonts"/>
         <entry id="8" object="true" symbol="JF_HebrewCalendarView"/>
         <entry id="8389125" method="true" symbol="onHide"/>
+        <entry id="16" method="true" symbol="hebrewCalendarElapsedDays"/>
         <entry id="8388635" module="true" symbol="Application"/>
     </symbolTable>
     <localVars>
-        <entry arg="true" endPc="268435647" name="dc" stackId="1" startPc="268435574"/>
-        <entry arg="true" endPc="268435883" name="dc" stackId="1" startPc="268435663"/>
-        <entry endPc="268435882" name="clockTime" stackId="2" startPc="268435666"/>
-        <entry endPc="268435882" name="h" stackId="3" startPc="268435666"/>
-        <entry arg="true" endPc="268435896" name="dc" stackId="1" startPc="268435884"/>
+        <entry arg="true" endPc="268435686" name="year" stackId="1" startPc="268435574"/>
+        <entry arg="true" endPc="268435686" name="month" stackId="2" startPc="268435574"/>
+        <entry arg="true" endPc="268435709" name="year" stackId="1" startPc="268435687"/>
+        <entry arg="true" endPc="268435979" name="year" stackId="1" startPc="268435710"/>
+        <entry endPc="268435979" name="months" stackId="2" startPc="268435713"/>
+        <entry endPc="268435979" name="parts" stackId="3" startPc="268435713"/>
+        <entry endPc="268435979" name="hours" stackId="4" startPc="268435713"/>
+        <entry endPc="268435979" name="day" stackId="5" startPc="268435713"/>
+        <entry endPc="268435979" name="altDay" stackId="6" startPc="268435713"/>
+        <entry arg="true" endPc="268436053" name="dc" stackId="1" startPc="268435980"/>
+        <entry arg="true" endPc="268436263" name="hebrewYear" stackId="1" startPc="268436054"/>
+        <entry endPc="268436263" name="HEBREW_EPOCH_ABS" stackId="2" startPc="268436057"/>
+        <entry endPc="268436263" name="abs" stackId="3" startPc="268436057"/>
+        <entry endPc="268436263" name="gregorianYear" stackId="4" startPc="268436057"/>
+        <entry endPc="268436263" name="days" stackId="5" startPc="268436057"/>
+        <entry endPc="268436263" name="month" stackId="6" startPc="268436057"/>
+        <entry endPc="268436263" name="day" stackId="7" startPc="268436057"/>
+        <entry arg="true" endPc="268436300" name="year" stackId="1" startPc="268436264"/>
+        <entry arg="true" endPc="268436450" name="year" stackId="1" startPc="268436301"/>
+        <entry arg="true" endPc="268436450" name="month" stackId="2" startPc="268436301"/>
+        <entry arg="true" endPc="268436450" name="day" stackId="3" startPc="268436301"/>
+        <entry endPc="268436450" name="abs" stackId="4" startPc="268436304"/>
+        <entry endPc="268436450" name="monthLengths" stackId="5" startPc="268436304"/>
+        <entry endPc="268436440" name="m" stackId="6" startPc="268436421"/>
+        <entry arg="true" endPc="268436472" name="n" stackId="1" startPc="268436451"/>
+        <entry arg="true" endPc="268436489" name="year" stackId="1" startPc="268436473"/>
+        <entry arg="true" endPc="268436560" name="year" stackId="1" startPc="268436490"/>
+        <entry endPc="268436560" name="y" stackId="2" startPc="268436493"/>
+        <entry endPc="268436560" name="cycles" stackId="3" startPc="268436493"/>
+        <entry endPc="268436560" name="yc" stackId="4" startPc="268436493"/>
+        <entry endPc="268436655" name="gd" stackId="1" startPc="268436564"/>
+        <entry endPc="268436655" name="abs" stackId="2" startPc="268436564"/>
+        <entry endPc="268436655" name="hd" stackId="3" startPc="268436564"/>
+        <entry arg="true" endPc="268436682" name="year" stackId="1" startPc="268436656"/>
+        <entry arg="true" endPc="268436930" name="absDay" stackId="1" startPc="268436683"/>
+        <entry endPc="268436930" name="HEBREW_EPOCH" stackId="2" startPc="268436686"/>
+        <entry endPc="268436930" name="approx" stackId="3" startPc="268436686"/>
+        <entry endPc="268436930" name="year" stackId="4" startPc="268436686"/>
+        <entry endPc="268436930" name="startOfHebrewYearThisGregorianYear" stackId="5" startPc="268436686"/>
+        <entry endPc="268436930" name="startOfHebrewYearNextGregorianYear" stackId="6" startPc="268436686"/>
+        <entry endPc="268436930" name="startOfYearAbs" stackId="7" startPc="268436686"/>
+        <entry endPc="268436930" name="dayOfYear" stackId="8" startPc="268436686"/>
+        <entry endPc="268436930" name="month" stackId="9" startPc="268436686"/>
+        <entry arg="true" endPc="268436977" name="a" stackId="1" startPc="268436931"/>
+        <entry arg="true" endPc="268436977" name="b" stackId="2" startPc="268436931"/>
+        <entry endPc="268436977" name="ai" stackId="3" startPc="268436934"/>
+        <entry endPc="268436977" name="bi" stackId="4" startPc="268436934"/>
+        <entry endPc="268436977" name="c" stackId="5" startPc="268436934"/>
+        <entry endPc="268436977" name="res" stackId="6" startPc="268436934"/>
+        <entry arg="true" endPc="268437248" name="dc" stackId="1" startPc="268436993"/>
+        <entry endPc="268437247" name="clockTime" stackId="2" startPc="268436996"/>
+        <entry endPc="268437247" name="h" stackId="3" startPc="268436996"/>
+        <entry endPc="268437247" name="hd" stackId="4" startPc="268436996"/>
+        <entry endPc="268437247" name="hDate" stackId="5" startPc="268436996"/>
+        <entry arg="true" endPc="268437261" name="dc" stackId="1" startPc="268437249"/>
     </localVars>
     <deviceInfo deviceVersion="0ed082a335bbf00c12e5da810e92d4f89288090c" partNumber="006-B4024-00"/>
     <annotations>
@@ -90,10 +246,10 @@
         <dataEntry label="globals/Rez" offset="134" parentId="globals" symbolId="Rez" type="module"/>
         <dataEntry label="globals/JF_HebrewCalendarApp" offset="196" parentId="globals" symbolId="JF_HebrewCalendarApp" type="class"/>
         <dataEntry label="globals/JF_HebrewCalendarView" offset="267" parentId="globals" symbolId="JF_HebrewCalendarView" type="class"/>
-        <dataEntry label="globals/Rez/Drawables" offset="374" parentId="Rez" symbolId="Drawables" type="module"/>
-        <dataEntry label="globals/Rez/Layouts" offset="409" parentId="Rez" symbolId="Layouts" type="module"/>
-        <dataEntry label="globals/Rez/Fonts" offset="444" parentId="Rez" symbolId="Fonts" type="module"/>
-        <dataEntry label="globals/Rez/Strings" offset="488" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/Drawables" offset="491" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="526" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Fonts" offset="561" parentId="Rez" symbolId="Fonts" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="605" parentId="Rez" symbolId="Strings" type="module"/>
     </dataEntryOffsetMappings>
     <functions>
         <functionEntry accessMode="public" endPc="268435480" name="getApp" startPc="268435460">
@@ -137,27 +293,82 @@
         <functionEntry accessMode="public" name="onExitSleep" parent="JF_HebrewCalendarView">
             <documentation/>
         </functionEntry>
+        <functionEntry accessMode="public" endPc="268435686" name="daysInHebrewMonth" parent="JF_HebrewCalendarView" startPc="268435574">
+            <param id="year"/>
+            <param id="month"/>
+            <documentation/>
+        </functionEntry>
         <functionEntry accessMode="public" name="onShow" parent="JF_HebrewCalendarView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435647" name="onLayout" parent="JF_HebrewCalendarView" startPc="268435574">
+        <functionEntry accessMode="public" endPc="268435709" name="lastMonthOfHebrewYear" parent="JF_HebrewCalendarView" startPc="268435687">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435979" name="hebrewCalendarElapsedDays" parent="JF_HebrewCalendarView" startPc="268435710">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436053" name="onLayout" parent="JF_HebrewCalendarView" startPc="268435980">
             <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436263" name="hebrewYearStartGregorian" parent="JF_HebrewCalendarView" startPc="268436054">
+            <param id="hebrewYear"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436300" name="isGregorianLeapYear" parent="JF_HebrewCalendarView" startPc="268436264">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436450" name="gregorianToAbsolute" parent="JF_HebrewCalendarView" startPc="268436301">
+            <param id="year"/>
+            <param id="month"/>
+            <param id="day"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436472" name="toLongSafe" parent="JF_HebrewCalendarView" startPc="268436451">
+            <param id="n"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436489" name="isHebrewLeapYear" parent="JF_HebrewCalendarView" startPc="268436473">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436560" name="monthsElapsedBeforeHebrewYear" parent="JF_HebrewCalendarView" startPc="268436490">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436655" name="getHebrewDateThisMorning" parent="JF_HebrewCalendarView" startPc="268436561">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436682" name="daysInHebrewYear" parent="JF_HebrewCalendarView" startPc="268436656">
+            <param id="year"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436930" name="absoluteToHebrew" parent="JF_HebrewCalendarView" startPc="268436683">
+            <param id="absDay"/>
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="onEnterSleep" parent="JF_HebrewCalendarView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435662" name="initialize" parent="JF_HebrewCalendarView" startPc="268435648">
+        <functionEntry accessMode="public" endPc="268436977" name="divFloor" parent="JF_HebrewCalendarView" startPc="268436931">
+            <param id="a"/>
+            <param id="b"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436992" name="initialize" parent="JF_HebrewCalendarView" startPc="268436978">
             <documentation/>
         </functionEntry>
         <functionEntry accessMode="public" name="onHide" parent="JF_HebrewCalendarView">
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435883" name="onUpdate" parent="JF_HebrewCalendarView" startPc="268435663">
+        <functionEntry accessMode="public" endPc="268437248" name="onUpdate" parent="JF_HebrewCalendarView" startPc="268436993">
             <param id="dc"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268435896" name="WatchFace" parent="Layouts" startPc="268435884">
+        <functionEntry accessMode="public" endPc="268437261" name="WatchFace" parent="Layouts" startPc="268437249">
             <param id="dc"/>
             <documentation/>
         </functionEntry>
