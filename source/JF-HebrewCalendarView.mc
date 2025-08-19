@@ -16,7 +16,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     setLayout(Rez.Layouts.WatchFace(dc));
     myfonts = WatchUi.loadResource(Rez.Fonts.frank);
     var hebLabel = View.findDrawableById("HebDateLabel") as Text;
-    hebLabel.setFont(myfonts);
+    //hebLabel.setFont(myfonts);
   }
 
   // Called when this View is brought to the foreground. Restore
