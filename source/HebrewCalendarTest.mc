@@ -16,6 +16,6 @@ class HebrewCalendarTest {
         var formatted = HebrewCalendar.formatHebrewDate(hebrewDate);
         System.println("Formatted: " + formatted);
         
-        // Expected: 23 Av 5785 (Hebrew year month 12, standard month 5)
+        // Expected: 23 Av 5785 (Hebrew year month 11, standard month 5)
     }
 }
