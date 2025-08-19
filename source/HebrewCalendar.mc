@@ -48,29 +48,39 @@ class HebrewCalendar {
 
     // Calculates days from Hebrew epoch to start of given Hebrew year
     static function hebrewCalendarElapsedDays(year as Number) as Number {
-        var months = monthsElapsedBeforeHebrewYear(year);
+        // Days elapsed from epoch to start of given Hebrew year
+        var months = Math.floor((235 * year - 234) / 19);
+        var parts = 12084 + 13753 * months;
+        var day = months * 29 + Math.floor(parts / 25920);
 
-        var parts = 204 + 793 * (months % 1080);
-        var hours = 5 + 12 * months + Math.floor((793 * months) / 1080) + Math.floor(parts / 1080);
-        parts = parts % 1080;
-        var day = 1 + 29 * months + Math.floor(hours / 24);
-        hours = hours % 24;
-
-        var altDay = day;
-
-        // Dehiyyot - postponement rules
-        if (hours >= 18 ||
-            (!isHebrewLeapYear(year) && hours == 9 && parts >= 204 && day % 7 == 2) ||
-            (isHebrewLeapYear(year - 1) && hours == 15 && parts >= 589 && day % 7 == 1)) {
-            altDay += 1;
+        // First postponement rule
+        if ((3 * (day + 1)) % 7 < 3) {
+            day += 1;
         }
 
-        // If Rosh Hashana would occur on Sunday, Wednesday, or Friday, postpone
-        if ([0, 3, 5].indexOf(altDay % 7) >= 0) {
-            altDay += 1;
+        // Second postponement rule based on adjacent year lengths
+        var lastMonths = Math.floor((235 * (year - 1) - 234) / 19);
+        var lastParts = 12084 + 13753 * lastMonths;
+        var lastDay = lastMonths * 29 + Math.floor(lastParts / 25920);
+        if ((3 * (lastDay + 1)) % 7 < 3) {
+            lastDay += 1;
         }
 
-        return altDay;
+        var nextMonths = Math.floor((235 * (year + 1) - 234) / 19);
+        var nextParts = 12084 + 13753 * nextMonths;
+        var nextDay = nextMonths * 29 + Math.floor(nextParts / 25920);
+        if ((3 * (nextDay + 1)) % 7 < 3) {
+            nextDay += 1;
+        }
+
+        var delay2 = 0;
+        if (nextDay - day == 356) {
+            delay2 = 2;
+        } else if (day - lastDay == 382) {
+            delay2 = 1;
+        }
+
+        return day + delay2;
     }
 
     // Calculates the number of days in a given Hebrew year
@@ -80,18 +90,30 @@ class HebrewCalendar {
 
     // Calculates the number of days in a given Hebrew month and year
     static function daysInHebrewMonth(year as Number, month as Number) as Number {
-        if (month == 2 && daysInHebrewYear(year) % 10 != 5) {
-            return 29; // Cheshvan short
+        var yearLen = daysInHebrewYear(year);
+        var leap = isHebrewLeapYear(year);
+
+        // Variable-length months
+        if (month == 2) { // Cheshvan
+            return (yearLen % 10 == 5) ? 30 : 29;
         }
-        if (month == 3 && daysInHebrewYear(year) % 10 == 3) {
-            return 29; // Kislev short
+        if (month == 3) { // Kislev
+            return (yearLen % 10 == 3) ? 29 : 30;
         }
-        if (month == 12 && !isHebrewLeapYear(year)) {
-            return 29; // Adar short in non-leap
+
+        // Fixed 29-day months
+        if (month == 4) { // Tevet
+            return 29;
         }
-        if (month == 13) {
-            return 29; // Adar II short
+        if (!leap) {
+            if (month == 6) { return 29; } // Adar
+            if (month == 8 || month == 10 || month == 12) { return 29; } // Iyar, Tammuz, Elul
+        } else {
+            if (month == 6) { return 30; } // Adar I
+            if (month == 7) { return 29; } // Adar II
+            if (month == 9 || month == 11 || month == 13) { return 29; } // Iyar, Tammuz, Elul
         }
+
         return 30;
     }
 
@@ -129,8 +151,8 @@ class HebrewCalendar {
     
     // Converts absolute day number to Hebrew date [year, month, day]
     static function absoluteToHebrew(absDay as Number) as Array<Number> {
-        // Hebrew epoch - fine-tuned to match accurate Hebrew calendar dates
-        var HEBREW_EPOCH = -1373427 - 14; // Adjusted for correct day calculation
+        // Hebrew epoch (absolute date for 1 Tishrei AM 1)
+        var HEBREW_EPOCH = -1373427;
         var approxFloat = (absDay - HEBREW_EPOCH) / 365.246822206 + 1; // rough year guess
         var year = Math.floor(approxFloat).toNumber();
 
@@ -158,8 +180,8 @@ class HebrewCalendar {
 
     // Returns the Gregorian date [year, month, day] for the start of a given Hebrew year
     static function hebrewYearStartGregorian(hebrewYear as Number) as Array<Number> {
-        // Fine-tuned Hebrew calendar epoch
-        var HEBREW_EPOCH_ABS = -1373427 - 14; 
+        // Hebrew calendar epoch
+        var HEBREW_EPOCH_ABS = -1373427;
         var abs = hebrewCalendarElapsedDays(hebrewYear) + HEBREW_EPOCH_ABS;
 
         // Now convert absolute day to Gregorian date
