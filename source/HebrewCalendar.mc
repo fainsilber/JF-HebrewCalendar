@@ -273,6 +273,34 @@ class HebrewCalendar {
     static function getHebrewMonthName(standardMonth as Number, isLeapYear as Boolean) as String {
         var monthNames = [
             "", // index 0 unused
+            "Nisan",    // 1 - Nisan
+            "Iyar",    // 2 - Iyar
+            "Sivan",    // 3 - Sivan
+            "Tamuz",    // 4 - Tamuz
+            "Av",      // 5 - Av
+            "Elul",    // 6 - Elul
+            "Tishrei",    // 7 - Tishrei
+            "Cheshvan",    // 8 - Cheshvan  
+            "Kislev",    // 9 - Kislev
+            "Tevet",     // 10 - Tevet
+            "Shevat",     // 11 - Shevat
+            "Adar"      // 12 - Adar (or Adar I in leap year)
+        ];
+        
+        if (standardMonth <= 12) {
+            if (standardMonth == 12 && isLeapYear) {
+                return "Adar I"; // Adar I
+            }
+            return monthNames[standardMonth];
+        } else if (standardMonth == 13 && isLeapYear) {
+            return "Adar II"; // Adar II
+        }
+        
+        return "";
+    }
+        static function getHebrewMonthNameInHebrew(standardMonth as Number, isLeapYear as Boolean) as String {
+        var monthNames = [
+            "", // index 0 unused
             "ניסן",    // 1 - Nisan
             "אייר",    // 2 - Iyar
             "סיון",    // 3 - Sivan
@@ -298,7 +326,6 @@ class HebrewCalendar {
         
         return "";
     }
-    
     // Formats Hebrew date as a string
     static function formatHebrewDate(hebrewDate as Array<Number>) as String {
         var year = hebrewDate[0];
