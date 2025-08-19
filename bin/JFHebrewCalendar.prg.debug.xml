@@ -200,10 +200,11 @@
         <entry filename="C:\\src\\projects\\garmin\\JF-HebrewCalendar\\source\\JF-HebrewCalendarView.mc" id="38" lineNum="45" parent="globals/JF_HebrewCalendarView" pc="268438138" symbol="onUpdate"/>
         <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="18" parent="globals/Rez/Layouts" pc="268438159" symbol="WatchFace"/>
         <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="19" parent="globals/Rez/Layouts" pc="268438170" symbol="WatchFace"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="21" parent="globals/Rez/Layouts" pc="268438254" symbol="WatchFace"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="23" parent="globals/Rez/Layouts" pc="268438339" symbol="WatchFace"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="25" parent="globals/Rez/Layouts" pc="268438425" symbol="WatchFace"/>
-        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="27" parent="globals/Rez/Layouts" pc="268438512" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="21" parent="globals/Rez/Layouts" pc="268438256" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="23" parent="globals/Rez/Layouts" pc="268438341" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="25" parent="globals/Rez/Layouts" pc="268438426" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="27" parent="globals/Rez/Layouts" pc="268438513" symbol="WatchFace"/>
+        <entry filename="c:\\src\\projects\\garmin\\JF-HebrewCalendar\\bin\\gen\\006-B4024-00\\source\\Rez.mcgen" id="39" lineNum="29" parent="globals/Rez/Layouts" pc="268438600" symbol="WatchFace"/>
     </pcToLineNum>
     <symbolTable>
         <entry id="8388639" module="true" symbol="Graphics"/>
@@ -367,11 +368,12 @@
         <entry endPc="268438157" name="gInfo" stackId="5" startPc="268437772"/>
         <entry endPc="268438157" name="gDate" stackId="6" startPc="268437772"/>
         <entry endPc="268438157" name="hDate" stackId="7" startPc="268437772"/>
-        <entry arg="true" endPc="268438536" name="dc" stackId="1" startPc="268438159"/>
-        <entry endPc="268438536" name="rez_cmp_local_text_TimeLabel" stackId="2" startPc="268438170"/>
-        <entry endPc="268438536" name="rez_cmp_local_text_SecondsLabel" stackId="3" startPc="268438170"/>
-        <entry endPc="268438536" name="rez_cmp_local_text_GregDateLabel" stackId="4" startPc="268438170"/>
-        <entry endPc="268438536" name="rez_cmp_local_text_HebDateLabel" stackId="5" startPc="268438170"/>
+        <entry arg="true" endPc="268438629" name="dc" stackId="1" startPc="268438159"/>
+        <entry endPc="268438629" name="rez_cmp_local_text_HebDateLabel" stackId="2" startPc="268438170"/>
+        <entry endPc="268438629" name="rez_cmp_local_text_TimeLabel" stackId="3" startPc="268438170"/>
+        <entry endPc="268438629" name="rez_cmp_local_text_SecondsLabel" stackId="4" startPc="268438170"/>
+        <entry endPc="268438629" name="rez_cmp_local_text_GregDateLabel" stackId="5" startPc="268438170"/>
+        <entry endPc="268438629" name="rez_cmp_local_text_ExtraDateLabel" stackId="6" startPc="268438170"/>
     </localVars>
     <deviceInfo deviceVersion="0ed082a335bbf00c12e5da810e92d4f89288090c" partNumber="006-B4024-00"/>
     <annotations>
@@ -564,7 +566,7 @@
             <param id="dc"/>
             <documentation/>
         </functionEntry>
-        <functionEntry accessMode="public" endPc="268438536" name="WatchFace" parent="Layouts" startPc="268438159">
+        <functionEntry accessMode="public" endPc="268438629" name="WatchFace" parent="Layouts" startPc="268438159">
             <param id="dc"/>
             <documentation/>
         </functionEntry>

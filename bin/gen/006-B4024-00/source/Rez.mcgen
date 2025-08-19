@@ -16,15 +16,17 @@ module Rez {
 
     module Layouts {
         function WatchFace(dc as Graphics.Dc) as Array<WatchUi.Drawable> {
-            var rez_cmp_local_text_TimeLabel = new WatchUi.Text({:identifier=>"TimeLabel", :color=>Graphics.COLOR_BLUE, :locX=>(260 * 0.5), :locY=>60, :justification=>Graphics.TEXT_JUSTIFY_RIGHT, :font=>Graphics.FONT_NUMBER_HOT});
+            var rez_cmp_local_text_HebDateLabel = new WatchUi.Text({:identifier=>"HebDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>60, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_LARGE});
 
-            var rez_cmp_local_text_SecondsLabel = new WatchUi.Text({:identifier=>"SecondsLabel", :color=>Graphics.COLOR_BLUE, :locX=>(260 * 0.5), :locY=>60, :justification=>Graphics.TEXT_JUSTIFY_LEFT, :font=>Graphics.FONT_NUMBER_MILD});
+            var rez_cmp_local_text_TimeLabel = new WatchUi.Text({:identifier=>"TimeLabel", :color=>Graphics.COLOR_BLUE, :locX=>(260 * 0.5), :locY=>110, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_NUMBER_HOT});
 
-            var rez_cmp_local_text_GregDateLabel = new WatchUi.Text({:identifier=>"GregDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>120, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_SYSTEM_LARGE});
+            var rez_cmp_local_text_SecondsLabel = new WatchUi.Text({:identifier=>"SecondsLabel", :color=>Graphics.COLOR_BLUE, :locX=>WatchUi.LAYOUT_HALIGN_RIGHT, :locY=>120, :justification=>Graphics.TEXT_JUSTIFY_LEFT, :font=>Graphics.FONT_NUMBER_MILD});
 
-            var rez_cmp_local_text_HebDateLabel = new WatchUi.Text({:identifier=>"HebDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>150, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_SYSTEM_LARGE});
+            var rez_cmp_local_text_GregDateLabel = new WatchUi.Text({:identifier=>"GregDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>190, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_LARGE});
 
-            return [rez_cmp_local_text_TimeLabel, rez_cmp_local_text_SecondsLabel, rez_cmp_local_text_GregDateLabel, rez_cmp_local_text_HebDateLabel] as Array<WatchUi.Drawable>;
+            var rez_cmp_local_text_ExtraDateLabel = new WatchUi.Text({:identifier=>"ExtraDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>204, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_SMALL});
+
+            return [rez_cmp_local_text_HebDateLabel, rez_cmp_local_text_TimeLabel, rez_cmp_local_text_SecondsLabel, rez_cmp_local_text_GregDateLabel, rez_cmp_local_text_ExtraDateLabel] as Array<WatchUi.Drawable>;
         }
     } // Layouts
 
