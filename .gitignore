@@ -1,4 +1,29 @@
+# Ignore Connect IQ / compiler build outputs
+/bin/
+/build/
+/out/
+/dist/
+/compiled/
 
-build/
+# Ignore packaged / device files
+*.prg
+*.iq
+*.zip
+*.elf
+*.map
+*.mcgen
+*.mir
+*.prg.debug.xml
 
-bin/
+
+# IDE / OS
+.vscode/
+.idea/
+.settings/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# NPM / misc (if present)
+node_modules/
