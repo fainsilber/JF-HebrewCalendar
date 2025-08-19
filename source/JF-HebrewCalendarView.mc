@@ -15,6 +15,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
     myfonts = WatchUi.loadResource(Rez.Fonts.frank);
+    var hebLabel = View.findDrawableById("HebDateLabel") as Text;
+    hebLabel.setFont(myfonts);
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -24,45 +26,23 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    myfonts = WatchUi.loadResource(Rez.Fonts.frank);
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
-    // Get and show the current time
+
     var clockTime = System.getClockTime();
-    var h = clockTime.hour + ":" + clockTime.min.format("%02d");
-    // var t = "שלום";
-    // dc.drawText(
-    //   dc.getWidth() / 2,
-    //   dc.getHeight(),
-    //   myfonts,
-    //   t,
-    //   Graphics.TEXT_JUSTIFY_CENTER
-    // );
-    //dc.drawText(dc.getWidth() / 2, dc.getHeight() / 2, myfonts, h, Graphics.TEXT_JUSTIFY_CENTER);
+    var timeStr = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
+    var secStr = clockTime.sec.format("%02d");
+
+    var gInfo = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+    var gDate = Lang.format("$1$/$2$/$3$", [gInfo.month.format("%02d"), gInfo.day.format("%02d"), gInfo.year]);
     var hDate = HebrewCalendar.getFormattedHebrewDate();
-    dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-    dc.drawText(
-      dc.getWidth() / 2, // gets the width of the device and divides by 2
-      dc.getHeight() / 4, // gets the height of the device and divides by 2
-      myfonts,
-      hDate, // the String to display
-      Graphics.TEXT_JUSTIFY_CENTER // sets the justification for the text
-    );
-    dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-    dc.drawText(
-      dc.getWidth() / 2, // gets the width of the device and divides by 2
-      dc.getHeight() / 2, // gets the height of the device and divides by 2
-      myfonts, // sets the font size
-      h, // the String to display
-      Graphics.TEXT_JUSTIFY_CENTER // sets the justification for the text
-    );
 
-    // var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
-    // var view = View.findDrawableById("TimeLabel") as Text;
-    // view.setText(timeString);
+    (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
+    (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+    (View.findDrawableById("GregDateLabel") as Text).setText(gDate);
+    (View.findDrawableById("HebDateLabel") as Text).setText(hDate);
 
-    // // Call the parent onUpdate function to redraw the layout
-    // View.onUpdate(dc);
+    View.onUpdate(dc);
   }
 
   // Called when this View is removed from the screen. Save the
