@@ -335,7 +335,7 @@ class HebrewCalendar {
         var standardMonth = hebrewYearMonthToStandardMonth(hebrewYearMonth, isLeap);
         var monthName = getHebrewMonthName(standardMonth, isLeap);
         
-        return day + "-" + monthName + "-" + year;
+        return day + " " + monthName + " " + year;
     }
     
     // Gets formatted current Hebrew date

@@ -15,7 +15,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
     myfonts = WatchUi.loadResource(Rez.Fonts.frank);
-    var hebLabel = View.findDrawableById("HebDateLabel") as Text;
+    var hebLabel = View.findDrawableById("topDateLabel") as Text;
     //hebLabel.setFont(myfonts);
   }
 
@@ -31,16 +31,16 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     var clockTime = System.getClockTime();
     var timeStr = Lang.format("$1$:$2$", [clockTime.hour.format("%02d"), clockTime.min.format("%02d")]);
-    var secStr = clockTime.sec.format("%02d");
+    var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
 
     var gInfo = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-    var gDate = Lang.format("$1$/$2$/$3$", [gInfo.month.format("%02d"), gInfo.day.format("%02d"), gInfo.year]);
+    var gDate = Lang.format("$1$/$2$/$3$", [ gInfo.day.format("%02d"),gInfo.month.format("%02d"), gInfo.year]);
     var hDate = HebrewCalendar.getFormattedHebrewDate();
 
     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
     (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
-    (View.findDrawableById("GregDateLabel") as Text).setText(gDate);
-    (View.findDrawableById("HebDateLabel") as Text).setText(hDate);
+    (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
+    (View.findDrawableById("topDateLabel") as Text).setText(hDate);
 
     View.onUpdate(dc);
   }
