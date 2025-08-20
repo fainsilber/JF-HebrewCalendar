@@ -1984,12 +1984,12 @@ C__src_projects_garmin_JF_HebrewCalendar_source_HebrewCalendar_mc_330_76_339_4_s
 [ "C:\src\projects\garmin\JF-HebrewCalendar\source\HebrewCalendar.mc" 338 8 ]
         %tmp.24 = lgetv %day.3;
         symbol [ day %tmp.24 338 15 18 ];
-        %tmp.25 = "-";
+        %tmp.25 = " ";
         %tmp.26 = add %tmp.24 %tmp.25;
         %tmp.27 = lgetv %monthName.6;
         symbol [ monthName %tmp.27 338 27 36 ];
         %tmp.28 = add %tmp.26 %tmp.27;
-        %tmp.29 = "-";
+        %tmp.29 = " ";
         %tmp.30 = add %tmp.28 %tmp.29;
         %tmp.31 = lgetv %year.1;
         symbol [ year %tmp.31 338 45 49 ];
