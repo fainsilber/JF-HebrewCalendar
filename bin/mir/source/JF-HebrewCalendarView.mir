@@ -8,137 +8,167 @@ import Toybox.System;
 import Toybox.WatchUi;
 [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [Time,5,14,18]; ]
 import Toybox.Time;
-[ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 7; @symbol_classdef = [JF_HebrewCalendarView,7,6,27]; @symbol_extends<0> = [WatchUi,7,36,43]; @symbol_extends<1> = [WatchFace,7,44,53]; ]
+[ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 6; @symbol_importdef<0> = [Toybox,6,7,13]; @symbol_importdef<1> = [Activity,6,14,22]; ]
+import Toybox.Activity;
+[ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 7; @symbol_importdef<0> = [Toybox,7,7,13]; @symbol_importdef<1> = [Position,7,14,22]; ]
+import Toybox.Position;
+[ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 8; @symbol_importdef<0> = [Toybox,8,7,13]; @symbol_importdef<1> = [Math,8,14,18]; ]
+import Toybox.Math;
+[ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 10; @symbol_classdef = [JF_HebrewCalendarView,10,6,27]; @symbol_extends<0> = [WatchUi,10,36,43]; @symbol_extends<1> = [WatchFace,10,44,53]; ]
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 7; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 10; ]
     <init> {
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 7; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 10; ]
     static
     <init> {
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 8; @position = 6; @symbol_vardef = [myfonts,8,6,13]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 11; @position = 6; @symbol_vardef = [myfonts,11,6,13]; ]
     var myfonts = null;
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 10; @symbol_functiondef = [initialize,10,11,21]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 12; @position = 6; @symbol_vardef = [stepsIcon,12,6,15]; ]
+    var stepsIcon = null;
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 13; @position = 6; @symbol_vardef = [sunCalc,13,6,13]; ]
+    var sunCalc = null;
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 15; @symbol_functiondef = [initialize,15,11,21]; ]
     function initialize() as Void {
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_10_24_12_2_start:
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 11 4 ]
-        symbol [ WatchFace %tmp.2 11 4 13 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_24_17_2_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 16 4 ]
+        symbol [ WatchFace %tmp.2 16 4 13 ];
         %tmp.2 = getv ? :WatchFace;
-        symbol [ initialize %tmp.3 11 14 24 ];
+        symbol [ initialize %tmp.3 16 14 24 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_10_24_12_2_stop:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_24_17_2_stop:
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 15; @symbol_functiondef = [onLayout,15,11,19]; @symbol_param<0> = [dc,15,20,22]; @symbol_param<0>_type<0> = [Dc,15,26,28]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 20; @symbol_functiondef = [onLayout,20,11,19]; @symbol_param<0> = [dc,20,20,22]; @symbol_param<0>_type<0> = [Dc,20,26,28]; ]
     function onLayout(dc as Dc) as Void {
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_38_20_2_start:
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 16 4 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_20_38_27_2_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 21 4 ]
         %tmp.1 = self;
-        symbol [ setLayout %tmp.2 16 4 13 ];
+        symbol [ setLayout %tmp.2 21 4 13 ];
         %tmp.2 = getv function %tmp.1 :setLayout;
-        symbol [ Rez %tmp.4 16 14 17 ];
+        symbol [ Rez %tmp.4 21 14 17 ];
         %tmp.4 = getv ? :Rez;
-        symbol [ Layouts %tmp.5 16 18 25 ];
+        symbol [ Layouts %tmp.5 21 18 25 ];
         %tmp.5 = getv %tmp.4 :Layouts;
-        symbol [ WatchFace %tmp.6 16 26 35 ];
+        symbol [ WatchFace %tmp.6 21 26 35 ];
         %tmp.6 = getv function %tmp.5 :WatchFace;
         %tmp.7 = lgetv %dc;
-        symbol [ dc %tmp.7 16 36 38 ];
+        symbol [ dc %tmp.7 21 36 38 ];
         %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
         invoke %tmp.1 %tmp.2(%tmp.8);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 17 4 ]
-        symbol [ WatchUi %tmp.9 17 14 21 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 22 4 ]
+        symbol [ WatchUi %tmp.9 22 14 21 ];
         %tmp.9 = getm $.Toybox.WatchUi;
-        symbol [ loadResource %tmp.10 17 22 34 ];
+        symbol [ loadResource %tmp.10 22 22 34 ];
         %tmp.10 = getv function %tmp.9 :loadResource;
-        symbol [ Rez %tmp.12 17 35 38 ];
+        symbol [ Rez %tmp.12 22 35 38 ];
         %tmp.12 = getv ? :Rez;
-        symbol [ Fonts %tmp.13 17 39 44 ];
+        symbol [ Fonts %tmp.13 22 39 44 ];
         %tmp.13 = getv %tmp.12 :Fonts;
-        symbol [ frank %tmp.14 17 45 50 ];
+        symbol [ frank %tmp.14 22 45 50 ];
         %tmp.14 = getv %tmp.13 :frank;
         %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.14);
-        symbol [ myfonts ? 17 4 11 ];
+        symbol [ myfonts ? 22 4 11 ];
         putv self :myfonts %tmp.15;
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 18 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_38_20_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_38_20_2_stop" ]
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 23 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_20_38_27_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_20_38_27_2_stop" ]
         %hebLabel.1 = local;
-        symbol [ hebLabel %hebLabel.1 18 8 16 ];
-        symbol [ View %tmp.17 18 19 23 ];
+        symbol [ hebLabel %hebLabel.1 23 8 16 ];
+        symbol [ View %tmp.17 23 19 23 ];
         %tmp.17 = getv ? :View;
-        symbol [ findDrawableById %tmp.18 18 24 40 ];
+        symbol [ findDrawableById %tmp.18 23 24 40 ];
         %tmp.18 = getv function %tmp.17 :findDrawableById;
         %tmp.19 = "topDateLabel";
         %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
         %tmp.21 = as %tmp.20 Text;
-        symbol [ Text %tmp.21 18 60 64 ];
+        symbol [ Text %tmp.21 23 60 64 ];
         lputv %hebLabel.1 %tmp.21;
-        symbol [ hebLabel %hebLabel.1 18 8 16 ];
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_15_38_20_2_stop:
+        symbol [ hebLabel %hebLabel.1 23 8 16 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 25 4 ]
+        symbol [ WatchUi %tmp.22 25 16 23 ];
+        %tmp.22 = getm $.Toybox.WatchUi;
+        symbol [ loadResource %tmp.23 25 24 36 ];
+        %tmp.23 = getv function %tmp.22 :loadResource;
+        symbol [ Rez %tmp.25 25 37 40 ];
+        %tmp.25 = getv ? :Rez;
+        symbol [ Drawables %tmp.26 25 41 50 ];
+        %tmp.26 = getv %tmp.25 :Drawables;
+        symbol [ StepsIcon %tmp.27 25 51 60 ];
+        %tmp.27 = getv %tmp.26 :StepsIcon;
+        %tmp.28 = invoke %tmp.22 %tmp.23(%tmp.27);
+        symbol [ stepsIcon ? 25 4 13 ];
+        putv self :stepsIcon %tmp.28;
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 26 4 ]
+        symbol [ SunCalc %tmp.32 26 18 25 ];
+        %tmp.32 = getv ? :SunCalc;
+        %tmp.29 = newc %tmp.32 ();
+        symbol [ sunCalc ? 26 4 11 ];
+        putv self :sunCalc %tmp.29;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_20_38_27_2_stop:
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 25; @symbol_functiondef = [onShow,25,11,17]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 32; @symbol_functiondef = [onShow,32,11,17]; ]
     function onShow() as Void {
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 28; @symbol_functiondef = [onUpdate,28,11,19]; @symbol_param<0> = [dc,28,20,22]; @symbol_param<0>_type<0> = [Dc,28,26,28]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 35; @symbol_functiondef = [onUpdate,35,11,19]; @symbol_param<0> = [dc,35,20,22]; @symbol_param<0>_type<0> = [Dc,35,26,28]; ]
     function onUpdate(dc as Dc) as Void {
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start:
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 29 4 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 36 4 ]
         %tmp.1 = lgetv %dc;
-        symbol [ dc %tmp.1 29 4 6 ];
-        symbol [ setColor %tmp.2 29 7 15 ];
+        symbol [ dc %tmp.1 36 4 6 ];
+        symbol [ setColor %tmp.2 36 7 15 ];
         %tmp.2 = getv function %tmp.1 :setColor;
-        symbol [ Graphics %tmp.3 29 16 24 ];
+        symbol [ Graphics %tmp.3 36 16 24 ];
         %tmp.3 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.4 29 25 36 ];
+        symbol [ COLOR_BLACK %tmp.4 36 25 36 ];
         %tmp.4 = getv %tmp.3 :COLOR_BLACK;
-        symbol [ Graphics %tmp.5 29 38 46 ];
+        symbol [ Graphics %tmp.5 36 38 46 ];
         %tmp.5 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.6 29 47 58 ];
+        symbol [ COLOR_BLACK %tmp.6 36 47 58 ];
         %tmp.6 = getv %tmp.5 :COLOR_BLACK;
         invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 30 4 ]
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 37 4 ]
         %tmp.7 = lgetv %dc;
-        symbol [ dc %tmp.7 30 4 6 ];
-        symbol [ clear %tmp.8 30 7 12 ];
+        symbol [ dc %tmp.7 37 4 6 ];
+        symbol [ clear %tmp.8 37 7 12 ];
         %tmp.8 = getv function %tmp.7 :clear;
         invoke %tmp.7 %tmp.8();
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 32 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 39 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %clockTime.1 = local;
-        symbol [ clockTime %clockTime.1 32 8 17 ];
-        symbol [ System %tmp.9 32 20 26 ];
+        symbol [ clockTime %clockTime.1 39 8 17 ];
+        symbol [ System %tmp.9 39 20 26 ];
         %tmp.9 = getm $.Toybox.System;
-        symbol [ getClockTime %tmp.10 32 27 39 ];
+        symbol [ getClockTime %tmp.10 39 27 39 ];
         %tmp.10 = getv function %tmp.9 :getClockTime;
         %tmp.11 = invoke %tmp.9 %tmp.10();
         lputv %clockTime.1 %tmp.11;
-        symbol [ clockTime %clockTime.1 32 8 17 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 33 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+        symbol [ clockTime %clockTime.1 39 8 17 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 40 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %timeStr.2 = local;
-        symbol [ timeStr %timeStr.2 33 8 15 ];
-        symbol [ Lang %tmp.12 33 18 22 ];
+        symbol [ timeStr %timeStr.2 40 8 15 ];
+        symbol [ Lang %tmp.12 40 18 22 ];
         %tmp.12 = getm $.Toybox.Lang;
-        symbol [ format %tmp.13 33 23 29 ];
+        symbol [ format %tmp.13 40 23 29 ];
         %tmp.13 = getv function %tmp.12 :format;
         %tmp.14 = "$1$:$2$";
         %tmp.15 = newa 2;
         %tmp.16 = lgetv %clockTime.1;
-        symbol [ clockTime %tmp.16 33 42 51 ];
-        symbol [ hour %tmp.17 33 52 56 ];
+        symbol [ clockTime %tmp.16 40 42 51 ];
+        symbol [ hour %tmp.17 40 52 56 ];
         %tmp.17 = getv %tmp.16 :hour;
-        symbol [ format %tmp.18 33 57 63 ];
+        symbol [ format %tmp.18 40 57 63 ];
         %tmp.18 = getv function %tmp.17 :format;
         %tmp.19 = "%02d";
         %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
         %tmp.21 = dup %tmp.15;
         %tmp.22 = aputv %tmp.21 0 %tmp.20;
         %tmp.23 = lgetv %clockTime.1;
-        symbol [ clockTime %tmp.23 33 73 82 ];
-        symbol [ min %tmp.24 33 83 86 ];
+        symbol [ clockTime %tmp.23 40 73 82 ];
+        symbol [ min %tmp.24 40 83 86 ];
         %tmp.24 = getv %tmp.23 :min;
-        symbol [ format %tmp.25 33 87 93 ];
+        symbol [ format %tmp.25 40 87 93 ];
         %tmp.25 = getv function %tmp.24 :format;
         %tmp.26 = "%02d";
         %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
@@ -146,22 +176,22 @@ C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_4
         %tmp.29 = aputv %tmp.28 1 %tmp.27;
         %tmp.30 = invoke %tmp.12 %tmp.13(%tmp.14, %tmp.29);
         lputv %timeStr.2 %tmp.30;
-        symbol [ timeStr %timeStr.2 33 8 15 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 34 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+        symbol [ timeStr %timeStr.2 40 8 15 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 41 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %secStr.3 = local;
-        symbol [ secStr %secStr.3 34 8 14 ];
-        symbol [ Lang %tmp.31 34 17 21 ];
+        symbol [ secStr %secStr.3 41 8 14 ];
+        symbol [ Lang %tmp.31 41 17 21 ];
         %tmp.31 = getm $.Toybox.Lang;
-        symbol [ format %tmp.32 34 22 28 ];
+        symbol [ format %tmp.32 41 22 28 ];
         %tmp.32 = getv function %tmp.31 :format;
         %tmp.33 = ":$1$";
         %tmp.34 = newa 1;
         %tmp.35 = lgetv %clockTime.1;
-        symbol [ clockTime %tmp.35 34 38 47 ];
-        symbol [ sec %tmp.36 34 48 51 ];
+        symbol [ clockTime %tmp.35 41 38 47 ];
+        symbol [ sec %tmp.36 41 48 51 ];
         %tmp.36 = getv %tmp.35 :sec;
-        symbol [ format %tmp.37 34 52 58 ];
+        symbol [ format %tmp.37 41 52 58 ];
         %tmp.37 = getv function %tmp.36 :format;
         %tmp.38 = "%02d";
         %tmp.39 = invoke %tmp.36 %tmp.37(%tmp.38);
@@ -169,152 +199,732 @@ C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_4
         %tmp.41 = aputv %tmp.40 0 %tmp.39;
         %tmp.42 = invoke %tmp.31 %tmp.32(%tmp.33, %tmp.41);
         lputv %secStr.3 %tmp.42;
-        symbol [ secStr %secStr.3 34 8 14 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 36 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+        symbol [ secStr %secStr.3 41 8 14 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 43 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %gInfo.4 = local;
-        symbol [ gInfo %gInfo.4 36 8 13 ];
-        symbol [ Time %tmp.43 36 16 20 ];
+        symbol [ gInfo %gInfo.4 43 8 13 ];
+        symbol [ Time %tmp.43 43 16 20 ];
         %tmp.43 = getm $.Toybox.Time;
-        symbol [ Gregorian %tmp.44 36 21 30 ];
+        symbol [ Gregorian %tmp.44 43 21 30 ];
         %tmp.44 = getv %tmp.43 :Gregorian;
-        symbol [ info %tmp.45 36 31 35 ];
+        symbol [ info %tmp.45 43 31 35 ];
         %tmp.45 = getv function %tmp.44 :info;
-        symbol [ Time %tmp.46 36 36 40 ];
+        symbol [ Time %tmp.46 43 36 40 ];
         %tmp.46 = getm $.Toybox.Time;
-        symbol [ now %tmp.47 36 41 44 ];
+        symbol [ now %tmp.47 43 41 44 ];
         %tmp.47 = getv function %tmp.46 :now;
         %tmp.48 = invoke %tmp.46 %tmp.47();
-        symbol [ Time %tmp.49 36 48 52 ];
+        symbol [ Time %tmp.49 43 48 52 ];
         %tmp.49 = getm $.Toybox.Time;
-        symbol [ FORMAT_SHORT %tmp.50 36 53 65 ];
+        symbol [ FORMAT_SHORT %tmp.50 43 53 65 ];
         %tmp.50 = getv %tmp.49 :FORMAT_SHORT;
         %tmp.51 = invoke %tmp.44 %tmp.45(%tmp.48, %tmp.50);
         lputv %gInfo.4 %tmp.51;
-        symbol [ gInfo %gInfo.4 36 8 13 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 37 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+        symbol [ gInfo %gInfo.4 43 8 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 44 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %gDate.5 = local;
-        symbol [ gDate %gDate.5 37 8 13 ];
-        symbol [ Lang %tmp.52 37 16 20 ];
+        symbol [ gDate %gDate.5 44 8 13 ];
+        symbol [ Lang %tmp.52 44 16 20 ];
         %tmp.52 = getm $.Toybox.Lang;
-        symbol [ format %tmp.53 37 21 27 ];
+        symbol [ format %tmp.53 44 21 27 ];
         %tmp.53 = getv function %tmp.52 :format;
         %tmp.54 = "$1$/$2$/$3$";
         %tmp.55 = newa 3;
         %tmp.56 = lgetv %gInfo.4;
-        symbol [ gInfo %tmp.56 37 45 50 ];
-        symbol [ day %tmp.57 37 51 54 ];
+        symbol [ gInfo %tmp.56 44 45 50 ];
+        symbol [ day %tmp.57 44 51 54 ];
         %tmp.57 = getv %tmp.56 :day;
-        symbol [ format %tmp.58 37 55 61 ];
+        symbol [ format %tmp.58 44 55 61 ];
         %tmp.58 = getv function %tmp.57 :format;
         %tmp.59 = "%02d";
         %tmp.60 = invoke %tmp.57 %tmp.58(%tmp.59);
         %tmp.61 = dup %tmp.55;
         %tmp.62 = aputv %tmp.61 0 %tmp.60;
         %tmp.63 = lgetv %gInfo.4;
-        symbol [ gInfo %tmp.63 37 70 75 ];
-        symbol [ month %tmp.64 37 76 81 ];
+        symbol [ gInfo %tmp.63 44 70 75 ];
+        symbol [ month %tmp.64 44 76 81 ];
         %tmp.64 = getv %tmp.63 :month;
-        symbol [ format %tmp.65 37 82 88 ];
+        symbol [ format %tmp.65 44 82 88 ];
         %tmp.65 = getv function %tmp.64 :format;
         %tmp.66 = "%02d";
         %tmp.67 = invoke %tmp.64 %tmp.65(%tmp.66);
         %tmp.68 = dup %tmp.62;
         %tmp.69 = aputv %tmp.68 1 %tmp.67;
         %tmp.70 = lgetv %gInfo.4;
-        symbol [ gInfo %tmp.70 37 98 103 ];
-        symbol [ year %tmp.71 37 104 108 ];
+        symbol [ gInfo %tmp.70 44 98 103 ];
+        symbol [ year %tmp.71 44 104 108 ];
         %tmp.71 = getv %tmp.70 :year;
         %tmp.72 = dup %tmp.69;
         %tmp.73 = aputv %tmp.72 2 %tmp.71;
         %tmp.74 = invoke %tmp.52 %tmp.53(%tmp.54, %tmp.73);
         lputv %gDate.5 %tmp.74;
-        symbol [ gDate %gDate.5 37 8 13 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 38 4 ]
-        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop" ]
+        symbol [ gDate %gDate.5 44 8 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 45 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
         %hDate.6 = local;
-        symbol [ hDate %hDate.6 38 8 13 ];
-        symbol [ HebrewCalendar %tmp.76 38 16 30 ];
+        symbol [ hDate %hDate.6 45 8 13 ];
+        symbol [ HebrewCalendar %tmp.76 45 16 30 ];
         %tmp.76 = getv ? :HebrewCalendar;
-        symbol [ getFormattedHebrewDate %tmp.77 38 31 53 ];
+        symbol [ getFormattedHebrewDate %tmp.77 45 31 53 ];
         %tmp.77 = getv function %tmp.76 :getFormattedHebrewDate;
         %tmp.78 = invoke %tmp.76 %tmp.77();
         lputv %hDate.6 %tmp.78;
-        symbol [ hDate %hDate.6 38 8 13 ];
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 40 4 ]
-        symbol [ View %tmp.80 40 5 9 ];
-        %tmp.80 = getv ? :View;
-        symbol [ findDrawableById %tmp.81 40 10 26 ];
-        %tmp.81 = getv function %tmp.80 :findDrawableById;
-        %tmp.82 = "TimeLabel";
-        %tmp.83 = invoke %tmp.80 %tmp.81(%tmp.82);
-        %tmp.84 = as %tmp.83 Text;
-        symbol [ Text %tmp.84 40 43 47 ];
-        symbol [ setText %tmp.85 40 49 56 ];
-        %tmp.85 = getv function %tmp.84 :setText;
-        %tmp.86 = lgetv %timeStr.2;
-        symbol [ timeStr %tmp.86 40 57 64 ];
-        invoke %tmp.84 %tmp.85(%tmp.86);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 41 4 ]
-        symbol [ View %tmp.88 41 5 9 ];
-        %tmp.88 = getv ? :View;
-        symbol [ findDrawableById %tmp.89 41 10 26 ];
-        %tmp.89 = getv function %tmp.88 :findDrawableById;
-        %tmp.90 = "SecondsLabel";
-        %tmp.91 = invoke %tmp.88 %tmp.89(%tmp.90);
-        %tmp.92 = as %tmp.91 Text;
-        symbol [ Text %tmp.92 41 46 50 ];
-        symbol [ setText %tmp.93 41 52 59 ];
-        %tmp.93 = getv function %tmp.92 :setText;
-        %tmp.94 = lgetv %secStr.3;
-        symbol [ secStr %tmp.94 41 60 66 ];
-        invoke %tmp.92 %tmp.93(%tmp.94);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 42 4 ]
-        symbol [ View %tmp.96 42 5 9 ];
-        %tmp.96 = getv ? :View;
-        symbol [ findDrawableById %tmp.97 42 10 26 ];
-        %tmp.97 = getv function %tmp.96 :findDrawableById;
-        %tmp.98 = "bottomDateLabel";
-        %tmp.99 = invoke %tmp.96 %tmp.97(%tmp.98);
-        %tmp.100 = as %tmp.99 Text;
-        symbol [ Text %tmp.100 42 49 53 ];
-        symbol [ setText %tmp.101 42 55 62 ];
-        %tmp.101 = getv function %tmp.100 :setText;
-        %tmp.102 = lgetv %gDate.5;
-        symbol [ gDate %tmp.102 42 63 68 ];
-        invoke %tmp.100 %tmp.101(%tmp.102);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 43 4 ]
-        symbol [ View %tmp.104 43 5 9 ];
-        %tmp.104 = getv ? :View;
-        symbol [ findDrawableById %tmp.105 43 10 26 ];
-        %tmp.105 = getv function %tmp.104 :findDrawableById;
-        %tmp.106 = "topDateLabel";
-        %tmp.107 = invoke %tmp.104 %tmp.105(%tmp.106);
-        %tmp.108 = as %tmp.107 Text;
-        symbol [ Text %tmp.108 43 46 50 ];
-        symbol [ setText %tmp.109 43 52 59 ];
-        %tmp.109 = getv function %tmp.108 :setText;
-        %tmp.110 = lgetv %hDate.6;
-        symbol [ hDate %tmp.110 43 60 65 ];
-        invoke %tmp.108 %tmp.109(%tmp.110);
-[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 45 4 ]
-        symbol [ View %tmp.112 45 4 8 ];
-        %tmp.112 = getv ? :View;
-        symbol [ onUpdate %tmp.113 45 9 17 ];
-        %tmp.113 = getv function %tmp.112 :onUpdate;
-        %tmp.114 = lgetv %dc;
-        symbol [ dc %tmp.114 45 18 20 ];
-        invoke %tmp.112 %tmp.113(%tmp.114);
-C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_28_38_46_2_stop:
+        symbol [ hDate %hDate.6 45 8 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 47 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
+        %actInfo.7 = local;
+        symbol [ actInfo %actInfo.7 47 8 15 ];
+        symbol [ ActivityMonitor %tmp.80 47 18 33 ];
+        %tmp.80 = getv ? :ActivityMonitor;
+        symbol [ getInfo %tmp.81 47 34 41 ];
+        %tmp.81 = getv function %tmp.80 :getInfo;
+        %tmp.82 = invoke %tmp.80 %tmp.81();
+        lputv %actInfo.7 %tmp.82;
+        symbol [ actInfo %actInfo.7 47 8 15 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 48 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
+        %stepsNum.8 = local;
+        symbol [ stepsNum %stepsNum.8 48 8 16 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_begin:
+        %tmp.83 = lgetv %actInfo.7;
+        symbol [ actInfo %tmp.83 48 19 26 ];
+        %tmp.84 = null;
+        %tmp.85 = ne %tmp.83 %tmp.84;
+        bf %tmp.85 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_false;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_true:
+        %tmp.86 = lgetv %actInfo.7;
+        symbol [ actInfo %tmp.86 48 37 44 ];
+        %tmp.87 = as %tmp.86 { (!Null) };
+        symbol [ steps %tmp.88 48 45 50 ];
+        %tmp.88 = getv %tmp.87 :steps;
+        push %tmp.88;
+        goto @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_false:
+        %tmp.89 = 0;
+        push %tmp.89;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_end:
+        %tmp.90 = phi [%tmp.85 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_begin] [%tmp.88 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_true] [%tmp.89 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_false] [%tmp.90 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_48_19_48_53_end];
+        lputv %stepsNum.8 %tmp.90;
+        symbol [ stepsNum %stepsNum.8 48 8 16 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 49 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
+        %steps.9 = local;
+        symbol [ steps %steps.9 49 8 13 ];
+        symbol [ Lang %tmp.91 49 16 20 ];
+        %tmp.91 = getm $.Toybox.Lang;
+        symbol [ format %tmp.92 49 21 27 ];
+        %tmp.92 = getv function %tmp.91 :format;
+        %tmp.93 = "$1$ ";
+        %tmp.94 = newa 2;
+        %tmp.95 = lgetv %stepsNum.8;
+        symbol [ stepsNum %tmp.95 49 37 45 ];
+        %tmp.96 = dup %tmp.94;
+        %tmp.97 = aputv %tmp.96 0 %tmp.95;
+        %tmp.98 = "";
+        %tmp.99 = dup %tmp.97;
+        %tmp.100 = aputv %tmp.99 1 %tmp.98;
+        %tmp.101 = invoke %tmp.91 %tmp.92(%tmp.93, %tmp.100);
+        lputv %steps.9 %tmp.101;
+        symbol [ steps %steps.9 49 8 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 51 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
+        %nextLabel.10 = local;
+        symbol [ nextLabel %nextLabel.10 51 8 17 ];
+        %tmp.102 = "";
+        lputv %nextLabel.10 %tmp.102;
+        symbol [ nextLabel %nextLabel.10 51 8 17 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 52 4 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop" ]
+        %posInfo.11 = local;
+        symbol [ posInfo %posInfo.11 52 8 15 ];
+        symbol [ Position %tmp.103 52 18 26 ];
+        %tmp.103 = getm $.Toybox.Position;
+        symbol [ getInfo %tmp.104 52 27 34 ];
+        %tmp.104 = getv function %tmp.103 :getInfo;
+        %tmp.105 = invoke %tmp.103 %tmp.104();
+        lputv %posInfo.11 %tmp.105;
+        symbol [ posInfo %posInfo.11 52 8 15 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 53 4 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_4_79_4_if_stmt:
+        %tmp.106 = lgetv %posInfo.11;
+        symbol [ posInfo %tmp.106 53 8 15 ];
+        %tmp.107 = null;
+        %tmp.108 = ne %tmp.106 %tmp.107;
+        bf %tmp.108 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_4_79_4_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_4_79_4_if_true:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 54 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %posInRadians.12 = local;
+        symbol [ posInRadians %posInRadians.12 54 10 22 ];
+        %tmp.109 = lgetv %posInfo.11;
+        symbol [ posInfo %tmp.109 54 25 32 ];
+        %tmp.110 = as %tmp.109 { (!Null) };
+        symbol [ position %tmp.111 54 33 41 ];
+        %tmp.111 = getv %tmp.110 :position;
+        symbol [ toRadians %tmp.112 54 42 51 ];
+        %tmp.112 = getv function %tmp.111 :toRadians;
+        %tmp.113 = invoke %tmp.111 %tmp.112();
+        lputv %posInRadians.12 %tmp.113;
+        symbol [ posInRadians %posInRadians.12 54 10 22 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 55 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %lat.13 = local;
+        symbol [ lat %lat.13 55 10 13 ];
+        %tmp.114 = lgetv %posInRadians.12;
+        symbol [ posInRadians %tmp.114 55 17 29 ];
+        %tmp.115 = 0;
+        %tmp.116 = agetv %tmp.114 %tmp.115;
+        lputv %lat.13 %tmp.116;
+        symbol [ lat %lat.13 55 10 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 56 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %lon.14 = local;
+        symbol [ lon %lon.14 56 10 13 ];
+        %tmp.117 = lgetv %posInRadians.12;
+        symbol [ posInRadians %tmp.117 56 16 28 ];
+        %tmp.118 = 1;
+        %tmp.119 = agetv %tmp.117 %tmp.118;
+        lputv %lon.14 %tmp.119;
+        symbol [ lon %lon.14 56 10 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 57 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %now.15 = local;
+        symbol [ now %now.15 57 10 13 ];
+        symbol [ Time %tmp.120 57 16 20 ];
+        %tmp.120 = getm $.Toybox.Time;
+        symbol [ now %tmp.121 57 21 24 ];
+        %tmp.121 = getv function %tmp.120 :now;
+        %tmp.122 = invoke %tmp.120 %tmp.121();
+        lputv %now.15 %tmp.122;
+        symbol [ now %now.15 57 10 13 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 58 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %sunrise.16 = local;
+        symbol [ sunrise %sunrise.16 58 10 17 ];
+        symbol [ sunCalc %tmp.124 58 20 27 ];
+        %tmp.124 = getv ? :sunCalc;
+        symbol [ calculate %tmp.125 58 28 37 ];
+        %tmp.125 = getv function %tmp.124 :calculate;
+        %tmp.126 = lgetv %now.15;
+        symbol [ now %tmp.126 58 38 41 ];
+        %tmp.127 = lgetv %lat.13;
+        symbol [ lat %tmp.127 58 43 46 ];
+        %tmp.128 = lgetv %lon.14;
+        symbol [ lon %tmp.128 58 48 51 ];
+        symbol [ SUNRISE %tmp.130 58 53 60 ];
+        %tmp.130 = getv ? :SUNRISE;
+        %tmp.131 = invoke %tmp.124 %tmp.125(%tmp.126, %tmp.127, %tmp.128, %tmp.130);
+        lputv %sunrise.16 %tmp.131;
+        symbol [ sunrise %sunrise.16 58 10 17 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 59 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %sunset.17 = local;
+        symbol [ sunset %sunset.17 59 10 16 ];
+        symbol [ sunCalc %tmp.133 59 19 26 ];
+        %tmp.133 = getv ? :sunCalc;
+        symbol [ calculate %tmp.134 59 27 36 ];
+        %tmp.134 = getv function %tmp.133 :calculate;
+        %tmp.135 = lgetv %now.15;
+        symbol [ now %tmp.135 59 37 40 ];
+        %tmp.136 = lgetv %lat.13;
+        symbol [ lat %tmp.136 59 42 45 ];
+        %tmp.137 = lgetv %lon.14;
+        symbol [ lon %tmp.137 59 47 50 ];
+        symbol [ SUNSET %tmp.139 59 52 58 ];
+        %tmp.139 = getv ? :SUNSET;
+        %tmp.140 = invoke %tmp.133 %tmp.134(%tmp.135, %tmp.136, %tmp.137, %tmp.139);
+        lputv %sunset.17 %tmp.140;
+        symbol [ sunset %sunset.17 59 10 16 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 60 6 ]
+        symbol [ Time %tmp.141 60 12 16 ];
+        %tmp.141 = getm $.Toybox.Time;
+        symbol [ Gregorian %tmp.142 60 17 26 ];
+        %tmp.142 = getv %tmp.141 :Gregorian;
+        symbol [ info %tmp.143 60 27 31 ];
+        %tmp.143 = getv function %tmp.142 :info;
+        %tmp.144 = lgetv %now.15;
+        symbol [ now %tmp.144 60 32 35 ];
+        symbol [ Time %tmp.145 60 37 41 ];
+        %tmp.145 = getm $.Toybox.Time;
+        symbol [ FORMAT_SHORT %tmp.146 60 42 54 ];
+        %tmp.146 = getv %tmp.145 :FORMAT_SHORT;
+        %tmp.147 = invoke %tmp.142 %tmp.143(%tmp.144, %tmp.146);
+        lputv %now.15 %tmp.147;
+        symbol [ now %now.15 60 6 9 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 61 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %sunRiseTime.18 = local;
+        symbol [ sunRiseTime %sunRiseTime.18 61 10 21 ];
+        symbol [ Time %tmp.148 61 24 28 ];
+        %tmp.148 = getm $.Toybox.Time;
+        symbol [ Gregorian %tmp.149 61 29 38 ];
+        %tmp.149 = getv %tmp.148 :Gregorian;
+        symbol [ info %tmp.150 61 39 43 ];
+        %tmp.150 = getv function %tmp.149 :info;
+        %tmp.151 = lgetv %sunrise.16;
+        symbol [ sunrise %tmp.151 61 44 51 ];
+        symbol [ Time %tmp.152 61 53 57 ];
+        %tmp.152 = getm $.Toybox.Time;
+        symbol [ FORMAT_LONG %tmp.153 61 58 69 ];
+        %tmp.153 = getv %tmp.152 :FORMAT_LONG;
+        %tmp.154 = invoke %tmp.149 %tmp.150(%tmp.151, %tmp.153);
+        lputv %sunRiseTime.18 %tmp.154;
+        symbol [ sunRiseTime %sunRiseTime.18 61 10 21 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 62 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %sunSetTime.19 = local;
+        symbol [ sunSetTime %sunSetTime.19 62 10 20 ];
+        symbol [ Time %tmp.155 62 23 27 ];
+        %tmp.155 = getm $.Toybox.Time;
+        symbol [ Gregorian %tmp.156 62 28 37 ];
+        %tmp.156 = getv %tmp.155 :Gregorian;
+        symbol [ info %tmp.157 62 38 42 ];
+        %tmp.157 = getv function %tmp.156 :info;
+        %tmp.158 = lgetv %sunset.17;
+        symbol [ sunset %tmp.158 62 43 49 ];
+        symbol [ Time %tmp.159 62 51 55 ];
+        %tmp.159 = getm $.Toybox.Time;
+        symbol [ FORMAT_LONG %tmp.160 62 56 67 ];
+        %tmp.160 = getv %tmp.159 :FORMAT_LONG;
+        %tmp.161 = invoke %tmp.156 %tmp.157(%tmp.158, %tmp.160);
+        lputv %sunSetTime.19 %tmp.161;
+        symbol [ sunSetTime %sunSetTime.19 62 10 20 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 63 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %afterSunrise.20 = local;
+        symbol [ afterSunrise %afterSunrise.20 63 10 22 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_28_63_118_begin:
+        %tmp.162 = lgetv %now.15;
+        symbol [ now %tmp.162 63 28 31 ];
+        symbol [ hour %tmp.163 63 32 36 ];
+        %tmp.163 = getv %tmp.162 :hour;
+        %tmp.164 = lgetv %sunRiseTime.18;
+        symbol [ sunRiseTime %tmp.164 63 39 50 ];
+        symbol [ hour %tmp.165 63 51 55 ];
+        %tmp.165 = getv %tmp.164 :hour;
+        %tmp.166 = gt %tmp.163 %tmp.165;
+        %tmp.167 = dup %tmp.166;
+        bt %tmp.167 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_57_63_118_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_57_63_118_false:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_59_63_115_begin:
+        %tmp.168 = lgetv %now.15;
+        symbol [ now %tmp.168 63 59 62 ];
+        symbol [ hour %tmp.169 63 63 67 ];
+        %tmp.169 = getv %tmp.168 :hour;
+        %tmp.170 = lgetv %sunRiseTime.18;
+        symbol [ sunRiseTime %tmp.170 63 71 82 ];
+        symbol [ hour %tmp.171 63 83 87 ];
+        %tmp.171 = getv %tmp.170 :hour;
+        %tmp.172 = eq %tmp.169 %tmp.171;
+        %tmp.173 = dup %tmp.172;
+        bf %tmp.173 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_92_63_115_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_92_63_115_true:
+        %tmp.174 = lgetv %now.15;
+        symbol [ now %tmp.174 63 92 95 ];
+        symbol [ min %tmp.175 63 96 99 ];
+        %tmp.175 = getv %tmp.174 :min;
+        %tmp.176 = lgetv %sunRiseTime.18;
+        symbol [ sunRiseTime %tmp.176 63 103 114 ];
+        symbol [ min %tmp.177 63 115 118 ];
+        %tmp.177 = getv %tmp.176 :min;
+        %tmp.178 = gte %tmp.175 %tmp.177;
+        %tmp.179 = and %tmp.172 %tmp.178;
+        push %tmp.179;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_92_63_115_end:
+        %tmp.180 = phi [%tmp.173 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_59_63_115_begin] [%tmp.179 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_92_63_115_true] [%tmp.180 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_92_63_115_end];
+        %tmp.181 = or %tmp.166 %tmp.180;
+        push %tmp.181;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_57_63_118_end:
+        %tmp.182 = phi [%tmp.167 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_28_63_118_begin] [%tmp.181 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_57_63_118_false] [%tmp.182 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_63_57_63_118_end];
+        lputv %afterSunrise.20 %tmp.182;
+        symbol [ afterSunrise %afterSunrise.20 63 10 22 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 64 6 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop" ]
+        %beforeSunset.21 = local;
+        symbol [ beforeSunset %beforeSunset.21 64 10 22 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_27_64_116_begin:
+        %tmp.183 = lgetv %now.15;
+        symbol [ now %tmp.183 64 27 30 ];
+        symbol [ hour %tmp.184 64 31 35 ];
+        %tmp.184 = getv %tmp.183 :hour;
+        %tmp.185 = lgetv %sunSetTime.19;
+        symbol [ sunSetTime %tmp.185 64 38 48 ];
+        symbol [ hour %tmp.186 64 49 53 ];
+        %tmp.186 = getv %tmp.185 :hour;
+        %tmp.187 = lt %tmp.184 %tmp.186;
+        %tmp.188 = dup %tmp.187;
+        bt %tmp.188 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_57_64_116_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_57_64_116_false:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_59_64_113_begin:
+        %tmp.189 = lgetv %now.15;
+        symbol [ now %tmp.189 64 59 62 ];
+        symbol [ hour %tmp.190 64 63 67 ];
+        %tmp.190 = getv %tmp.189 :hour;
+        %tmp.191 = lgetv %sunSetTime.19;
+        symbol [ sunSetTime %tmp.191 64 71 81 ];
+        symbol [ hour %tmp.192 64 82 86 ];
+        %tmp.192 = getv %tmp.191 :hour;
+        %tmp.193 = eq %tmp.190 %tmp.192;
+        %tmp.194 = dup %tmp.193;
+        bf %tmp.194 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_91_64_113_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_91_64_113_true:
+        %tmp.195 = lgetv %now.15;
+        symbol [ now %tmp.195 64 91 94 ];
+        symbol [ min %tmp.196 64 95 98 ];
+        %tmp.196 = getv %tmp.195 :min;
+        %tmp.197 = lgetv %sunSetTime.19;
+        symbol [ sunSetTime %tmp.197 64 102 112 ];
+        symbol [ min %tmp.198 64 113 116 ];
+        %tmp.198 = getv %tmp.197 :min;
+        %tmp.199 = lte %tmp.196 %tmp.198;
+        %tmp.200 = and %tmp.193 %tmp.199;
+        push %tmp.200;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_91_64_113_end:
+        %tmp.201 = phi [%tmp.194 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_59_64_113_begin] [%tmp.200 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_91_64_113_true] [%tmp.201 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_91_64_113_end];
+        %tmp.202 = or %tmp.187 %tmp.201;
+        push %tmp.202;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_57_64_116_end:
+        %tmp.203 = phi [%tmp.188 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_27_64_116_begin] [%tmp.202 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_57_64_116_false] [%tmp.203 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_64_57_64_116_end];
+        lputv %beforeSunset.21 %tmp.203;
+        symbol [ beforeSunset %beforeSunset.21 64 10 22 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 65 6 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_stmt:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_10_65_29_begin:
+        %tmp.204 = lgetv %sunrise.16;
+        symbol [ sunrise %tmp.204 65 10 17 ];
+        %tmp.205 = null;
+        %tmp.206 = ne %tmp.204 %tmp.205;
+        bf %tmp.206 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_false;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_29_65_29_true:
+        %tmp.207 = lgetv %afterSunrise.20;
+        symbol [ afterSunrise %tmp.207 65 29 41 ];
+        push %tmp.207;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_29_65_29_end:
+        %tmp.208 = phi [%tmp.206 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_10_65_29_begin] [%tmp.207 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_29_65_29_true] [%tmp.208 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_29_65_29_end];
+        bf %tmp.208 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_false;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_true:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_43_67_6_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 66 8 ]
+        symbol [ Lang %tmp.209 66 20 24 ];
+        %tmp.209 = getm $.Toybox.Lang;
+        symbol [ format %tmp.210 66 25 31 ];
+        %tmp.210 = getv function %tmp.209 :format;
+        %tmp.211 = "SR $1$:$2$";
+        %tmp.212 = newa 2;
+        %tmp.213 = lgetv %sunRiseTime.18;
+        symbol [ sunRiseTime %tmp.213 66 47 58 ];
+        symbol [ hour %tmp.214 66 59 63 ];
+        %tmp.214 = getv %tmp.213 :hour;
+        symbol [ format %tmp.215 66 64 70 ];
+        %tmp.215 = getv function %tmp.214 :format;
+        %tmp.216 = "%02d";
+        %tmp.217 = invoke %tmp.214 %tmp.215(%tmp.216);
+        %tmp.218 = dup %tmp.212;
+        %tmp.219 = aputv %tmp.218 0 %tmp.217;
+        %tmp.220 = lgetv %sunRiseTime.18;
+        symbol [ sunRiseTime %tmp.220 66 80 91 ];
+        symbol [ min %tmp.221 66 92 95 ];
+        %tmp.221 = getv %tmp.220 :min;
+        symbol [ format %tmp.222 66 96 102 ];
+        %tmp.222 = getv function %tmp.221 :format;
+        %tmp.223 = "%02d";
+        %tmp.224 = invoke %tmp.221 %tmp.222(%tmp.223);
+        %tmp.225 = dup %tmp.219;
+        %tmp.226 = aputv %tmp.225 1 %tmp.224;
+        %tmp.227 = invoke %tmp.209 %tmp.210(%tmp.211, %tmp.226);
+        lputv %nextLabel.10 %tmp.227;
+        symbol [ nextLabel %nextLabel.10 66 8 17 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_43_67_6_stop:
+        goto @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_false:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 67 13 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_stmt:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_17_67_35_begin:
+        %tmp.228 = lgetv %sunset.17;
+        symbol [ sunset %tmp.228 67 17 23 ];
+        %tmp.229 = null;
+        %tmp.230 = ne %tmp.228 %tmp.229;
+        bf %tmp.230 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_else_false;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_35_67_35_true:
+        %tmp.231 = lgetv %beforeSunset.21;
+        symbol [ beforeSunset %tmp.231 67 35 47 ];
+        push %tmp.231;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_35_67_35_end:
+        %tmp.232 = phi [%tmp.230 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_17_67_35_begin] [%tmp.231 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_35_67_35_true] [%tmp.232 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_35_67_35_end];
+        bf %tmp.232 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_else_false;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_true:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_49_69_6_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 68 8 ]
+        symbol [ Lang %tmp.233 68 20 24 ];
+        %tmp.233 = getm $.Toybox.Lang;
+        symbol [ format %tmp.234 68 25 31 ];
+        %tmp.234 = getv function %tmp.233 :format;
+        %tmp.235 = "SS $1$:$2$";
+        %tmp.236 = newa 2;
+        %tmp.237 = lgetv %sunSetTime.19;
+        symbol [ sunSetTime %tmp.237 68 47 57 ];
+        symbol [ hour %tmp.238 68 58 62 ];
+        %tmp.238 = getv %tmp.237 :hour;
+        symbol [ format %tmp.239 68 63 69 ];
+        %tmp.239 = getv function %tmp.238 :format;
+        %tmp.240 = "%02d";
+        %tmp.241 = invoke %tmp.238 %tmp.239(%tmp.240);
+        %tmp.242 = dup %tmp.236;
+        %tmp.243 = aputv %tmp.242 0 %tmp.241;
+        %tmp.244 = lgetv %sunSetTime.19;
+        symbol [ sunSetTime %tmp.244 68 79 89 ];
+        symbol [ min %tmp.245 68 90 93 ];
+        %tmp.245 = getv %tmp.244 :min;
+        symbol [ format %tmp.246 68 94 100 ];
+        %tmp.246 = getv function %tmp.245 :format;
+        %tmp.247 = "%02d";
+        %tmp.248 = invoke %tmp.245 %tmp.246(%tmp.247);
+        %tmp.249 = dup %tmp.243;
+        %tmp.250 = aputv %tmp.249 1 %tmp.248;
+        %tmp.251 = invoke %tmp.233 %tmp.234(%tmp.235, %tmp.250);
+        lputv %nextLabel.10 %tmp.251;
+        symbol [ nextLabel %nextLabel.10 68 8 17 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_49_69_6_stop:
+        goto @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_else_false:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 70 8 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_stop" ]
+        %today.22 = local;
+        symbol [ today %today.22 70 12 17 ];
+        symbol [ Time %tmp.252 70 18 22 ];
+        %tmp.252 = getm $.Toybox.Time;
+        symbol [ now %tmp.253 70 23 26 ];
+        %tmp.253 = getv function %tmp.252 :now;
+        %tmp.254 = invoke %tmp.252 %tmp.253();
+        lputv %today.22 %tmp.254;
+        symbol [ today %today.22 70 12 17 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 71 8 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_stop" ]
+        %oneDay.23 = local;
+        symbol [ oneDay %oneDay.23 71 12 18 ];
+        symbol [ Time %tmp.257 71 25 29 ];
+        %tmp.257 = getm $.Toybox.Time;
+        symbol [ Duration %tmp.258 71 30 38 ];
+        %tmp.258 = getv function ? %tmp.257 :Duration;
+        %tmp.259 = 86400;
+        %tmp.255 = newc %tmp.258 (%tmp.259);
+        lputv %oneDay.23 %tmp.255;
+        symbol [ oneDay %oneDay.23 71 12 18 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 72 8 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_stop" ]
+        %tomorrow.24 = local;
+        symbol [ tomorrow %tomorrow.24 72 12 20 ];
+        %tmp.260 = lgetv %today.22;
+        symbol [ today %tmp.260 72 23 28 ];
+        symbol [ add %tmp.261 72 29 32 ];
+        %tmp.261 = getv function %tmp.260 :add;
+        %tmp.262 = lgetv %oneDay.23;
+        symbol [ oneDay %tmp.262 72 33 39 ];
+        %tmp.263 = invoke %tmp.260 %tmp.261(%tmp.262);
+        lputv %tomorrow.24 %tmp.263;
+        symbol [ tomorrow %tomorrow.24 72 12 20 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 73 8 ]
+        [ "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_start" "C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_stop" ]
+        %sunrise2.25 = local;
+        symbol [ sunrise2 %sunrise2.25 73 12 20 ];
+        symbol [ sunCalc %tmp.265 73 23 30 ];
+        %tmp.265 = getv ? :sunCalc;
+        symbol [ calculate %tmp.266 73 31 40 ];
+        %tmp.266 = getv function %tmp.265 :calculate;
+        %tmp.267 = lgetv %tomorrow.24;
+        symbol [ tomorrow %tmp.267 73 41 49 ];
+        %tmp.268 = lgetv %lat.13;
+        symbol [ lat %tmp.268 73 51 54 ];
+        %tmp.269 = lgetv %lon.14;
+        symbol [ lon %tmp.269 73 56 59 ];
+        symbol [ SUNRISE %tmp.271 73 61 68 ];
+        %tmp.271 = getv ? :SUNRISE;
+        %tmp.272 = invoke %tmp.265 %tmp.266(%tmp.267, %tmp.268, %tmp.269, %tmp.271);
+        lputv %sunrise2.25 %tmp.272;
+        symbol [ sunrise2 %sunrise2.25 73 12 20 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 74 8 ]
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_8_77_8_if_stmt:
+        %tmp.273 = lgetv %sunrise2.25;
+        symbol [ sunrise2 %tmp.273 74 12 20 ];
+        %tmp.274 = null;
+        %tmp.275 = ne %tmp.273 %tmp.274;
+        bf %tmp.275 @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_8_77_8_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_8_77_8_if_true:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_30_77_8_start:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 75 10 ]
+        symbol [ Time %tmp.276 75 21 25 ];
+        %tmp.276 = getm $.Toybox.Time;
+        symbol [ Gregorian %tmp.277 75 26 35 ];
+        %tmp.277 = getv %tmp.276 :Gregorian;
+        symbol [ info %tmp.278 75 36 40 ];
+        %tmp.278 = getv function %tmp.277 :info;
+        %tmp.279 = lgetv %sunrise2.25;
+        symbol [ sunrise2 %tmp.279 75 41 49 ];
+        %tmp.280 = as %tmp.279 { (!Null) };
+        symbol [ Time %tmp.281 75 51 55 ];
+        %tmp.281 = getm $.Toybox.Time;
+        symbol [ FORMAT_SHORT %tmp.282 75 56 68 ];
+        %tmp.282 = getv %tmp.281 :FORMAT_SHORT;
+        %tmp.283 = invoke %tmp.277 %tmp.278(%tmp.280, %tmp.282);
+        lputv %sunrise2.25 %tmp.283;
+        symbol [ sunrise2 %sunrise2.25 75 10 18 ];
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 76 10 ]
+        symbol [ Lang %tmp.284 76 22 26 ];
+        %tmp.284 = getm $.Toybox.Lang;
+        symbol [ format %tmp.285 76 27 33 ];
+        %tmp.285 = getv function %tmp.284 :format;
+        %tmp.286 = " SR $1$:$2$";
+        %tmp.287 = newa 2;
+        %tmp.288 = lgetv %sunrise2.25;
+        symbol [ sunrise2 %tmp.288 76 50 58 ];
+        symbol [ hour %tmp.289 76 59 63 ];
+        %tmp.289 = getv %tmp.288 :hour;
+        symbol [ format %tmp.290 76 64 70 ];
+        %tmp.290 = getv function %tmp.289 :format;
+        %tmp.291 = "%02d";
+        %tmp.292 = invoke %tmp.289 %tmp.290(%tmp.291);
+        %tmp.293 = dup %tmp.287;
+        %tmp.294 = aputv %tmp.293 0 %tmp.292;
+        %tmp.295 = lgetv %sunrise2.25;
+        symbol [ sunrise2 %tmp.295 76 80 88 ];
+        symbol [ min %tmp.296 76 89 92 ];
+        %tmp.296 = getv %tmp.295 :min;
+        symbol [ format %tmp.297 76 93 99 ];
+        %tmp.297 = getv function %tmp.296 :format;
+        %tmp.298 = "%02d";
+        %tmp.299 = invoke %tmp.296 %tmp.297(%tmp.298);
+        %tmp.300 = dup %tmp.294;
+        %tmp.301 = aputv %tmp.300 1 %tmp.299;
+        %tmp.302 = invoke %tmp.284 %tmp.285(%tmp.286, %tmp.301);
+        lputv %nextLabel.10 %tmp.302;
+        symbol [ nextLabel %nextLabel.10 76 10 19 ];
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_30_77_8_stop:
+        goto @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_8_77_8_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_74_8_77_8_if_end:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_69_13_78_6_stop:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_67_13_78_6_if_end:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_65_6_78_6_if_end:
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_25_79_4_stop:
+        goto @C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_4_79_4_if_end;
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_53_4_79_4_if_end:
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 81 4 ]
+        symbol [ View %tmp.304 81 5 9 ];
+        %tmp.304 = getv ? :View;
+        symbol [ findDrawableById %tmp.305 81 10 26 ];
+        %tmp.305 = getv function %tmp.304 :findDrawableById;
+        %tmp.306 = "TimeLabel";
+        %tmp.307 = invoke %tmp.304 %tmp.305(%tmp.306);
+        %tmp.308 = as %tmp.307 Text;
+        symbol [ Text %tmp.308 81 43 47 ];
+        symbol [ setText %tmp.309 81 49 56 ];
+        %tmp.309 = getv function %tmp.308 :setText;
+        %tmp.310 = lgetv %timeStr.2;
+        symbol [ timeStr %tmp.310 81 57 64 ];
+        invoke %tmp.308 %tmp.309(%tmp.310);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 82 4 ]
+        symbol [ View %tmp.312 82 5 9 ];
+        %tmp.312 = getv ? :View;
+        symbol [ findDrawableById %tmp.313 82 10 26 ];
+        %tmp.313 = getv function %tmp.312 :findDrawableById;
+        %tmp.314 = "SecondsLabel";
+        %tmp.315 = invoke %tmp.312 %tmp.313(%tmp.314);
+        %tmp.316 = as %tmp.315 Text;
+        symbol [ Text %tmp.316 82 46 50 ];
+        symbol [ setText %tmp.317 82 52 59 ];
+        %tmp.317 = getv function %tmp.316 :setText;
+        %tmp.318 = lgetv %secStr.3;
+        symbol [ secStr %tmp.318 82 60 66 ];
+        invoke %tmp.316 %tmp.317(%tmp.318);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 83 4 ]
+        symbol [ View %tmp.320 83 5 9 ];
+        %tmp.320 = getv ? :View;
+        symbol [ findDrawableById %tmp.321 83 10 26 ];
+        %tmp.321 = getv function %tmp.320 :findDrawableById;
+        %tmp.322 = "bottomDateLabel";
+        %tmp.323 = invoke %tmp.320 %tmp.321(%tmp.322);
+        %tmp.324 = as %tmp.323 Text;
+        symbol [ Text %tmp.324 83 49 53 ];
+        symbol [ setText %tmp.325 83 55 62 ];
+        %tmp.325 = getv function %tmp.324 :setText;
+        %tmp.326 = lgetv %gDate.5;
+        symbol [ gDate %tmp.326 83 63 68 ];
+        invoke %tmp.324 %tmp.325(%tmp.326);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 84 4 ]
+        symbol [ View %tmp.328 84 5 9 ];
+        %tmp.328 = getv ? :View;
+        symbol [ findDrawableById %tmp.329 84 10 26 ];
+        %tmp.329 = getv function %tmp.328 :findDrawableById;
+        %tmp.330 = "topDateLabel";
+        %tmp.331 = invoke %tmp.328 %tmp.329(%tmp.330);
+        %tmp.332 = as %tmp.331 Text;
+        symbol [ Text %tmp.332 84 46 50 ];
+        symbol [ setText %tmp.333 84 52 59 ];
+        %tmp.333 = getv function %tmp.332 :setText;
+        %tmp.334 = lgetv %hDate.6;
+        symbol [ hDate %tmp.334 84 60 65 ];
+        invoke %tmp.332 %tmp.333(%tmp.334);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 85 4 ]
+        symbol [ View %tmp.336 85 5 9 ];
+        %tmp.336 = getv ? :View;
+        symbol [ findDrawableById %tmp.337 85 10 26 ];
+        %tmp.337 = getv function %tmp.336 :findDrawableById;
+        %tmp.338 = "stepsLabel";
+        %tmp.339 = invoke %tmp.336 %tmp.337(%tmp.338);
+        %tmp.340 = as %tmp.339 Text;
+        symbol [ Text %tmp.340 85 44 48 ];
+        symbol [ setText %tmp.341 85 50 57 ];
+        %tmp.341 = getv function %tmp.340 :setText;
+        %tmp.342 = lgetv %steps.9;
+        symbol [ steps %tmp.342 85 58 63 ];
+        symbol [ toString %tmp.343 85 64 72 ];
+        %tmp.343 = getv function %tmp.342 :toString;
+        %tmp.344 = invoke %tmp.342 %tmp.343();
+        invoke %tmp.340 %tmp.341(%tmp.344);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 86 4 ]
+        symbol [ View %tmp.346 86 5 9 ];
+        %tmp.346 = getv ? :View;
+        symbol [ findDrawableById %tmp.347 86 10 26 ];
+        %tmp.347 = getv function %tmp.346 :findDrawableById;
+        %tmp.348 = "sunLabel";
+        %tmp.349 = invoke %tmp.346 %tmp.347(%tmp.348);
+        %tmp.350 = as %tmp.349 Text;
+        symbol [ Text %tmp.350 86 42 46 ];
+        symbol [ setText %tmp.351 86 48 55 ];
+        %tmp.351 = getv function %tmp.350 :setText;
+        %tmp.352 = lgetv %nextLabel.10;
+        symbol [ nextLabel %tmp.352 86 56 65 ];
+        invoke %tmp.350 %tmp.351(%tmp.352);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 88 4 ]
+        %tmp.353 = lgetv %dc;
+        symbol [ dc %tmp.353 88 4 6 ];
+        symbol [ drawBitmap %tmp.354 88 7 17 ];
+        %tmp.354 = getv function %tmp.353 :drawBitmap;
+        %tmp.355 = 10;
+        %tmp.356 = 198;
+        symbol [ stepsIcon %tmp.358 88 27 36 ];
+        %tmp.358 = getv ? :stepsIcon;
+        invoke %tmp.353 %tmp.354(%tmp.355, %tmp.356, %tmp.358);
+[ "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc" 90 4 ]
+        symbol [ View %tmp.360 90 4 8 ];
+        %tmp.360 = getv ? :View;
+        symbol [ onUpdate %tmp.361 90 9 17 ];
+        %tmp.361 = getv function %tmp.360 :onUpdate;
+        %tmp.362 = lgetv %dc;
+        symbol [ dc %tmp.362 90 18 20 ];
+        invoke %tmp.360 %tmp.361(%tmp.362);
+C__src_projects_garmin_JF_HebrewCalendar_source_JF_HebrewCalendarView_mc_35_38_91_2_stop:
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 51; @symbol_functiondef = [onHide,51,11,17]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 96; @symbol_functiondef = [onHide,96,11,17]; ]
     function onHide() as Void {
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 54; @symbol_functiondef = [onExitSleep,54,11,22]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 99; @symbol_functiondef = [onExitSleep,99,11,22]; ]
     function onExitSleep() as Void {
     }
-    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 57; @symbol_functiondef = [onEnterSleep,57,11,23]; ]
+    [ @file = "C:\src\projects\garmin\JF-HebrewCalendar\source\JF-HebrewCalendarView.mc"; @line = 102; @symbol_functiondef = [onEnterSleep,102,11,23]; ]
     function onEnterSleep() as Void {
     }
 }

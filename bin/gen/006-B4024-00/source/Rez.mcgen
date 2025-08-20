@@ -6,6 +6,7 @@ using Toybox.Graphics as Gfx;
 
 module Rez {
     module Drawables {
+        (:initialized) var StepsIcon as ResourceId;
         (:initialized) var LauncherIcon as ResourceId;
     } // Drawables
 
@@ -24,9 +25,11 @@ module Rez {
 
             var rez_cmp_local_text_bottomDateLabel = new WatchUi.Text({:identifier=>"bottomDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>160, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_LARGE});
 
-            var rez_cmp_local_text_ExtraDateLabel = new WatchUi.Text({:identifier=>"ExtraDateLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>204, :justification=>Graphics.TEXT_JUSTIFY_CENTER, :font=>Graphics.FONT_SMALL});
+            var rez_cmp_local_text_stepsLabel = new WatchUi.Text({:identifier=>"stepsLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>204, :justification=>Graphics.TEXT_JUSTIFY_RIGHT, :font=>Graphics.FONT_TINY});
 
-            return [rez_cmp_local_text_topDateLabel, rez_cmp_local_text_TimeLabel, rez_cmp_local_text_SecondsLabel, rez_cmp_local_text_bottomDateLabel, rez_cmp_local_text_ExtraDateLabel] as Array<WatchUi.Drawable>;
+            var rez_cmp_local_text_sunLabel = new WatchUi.Text({:identifier=>"sunLabel", :color=>Graphics.COLOR_WHITE, :locX=>(260 * 0.5), :locY=>204, :justification=>Graphics.TEXT_JUSTIFY_LEFT, :font=>Graphics.FONT_TINY});
+
+            return [rez_cmp_local_text_topDateLabel, rez_cmp_local_text_TimeLabel, rez_cmp_local_text_SecondsLabel, rez_cmp_local_text_bottomDateLabel, rez_cmp_local_text_stepsLabel, rez_cmp_local_text_sunLabel] as Array<WatchUi.Drawable>;
         }
     } // Layouts
 

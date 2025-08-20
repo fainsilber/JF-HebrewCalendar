@@ -44,26 +44,36 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var gDate = Lang.format("$1$/$2$/$3$", [ gInfo.day.format("%02d"),gInfo.month.format("%02d"), gInfo.year]);
     var hDate = HebrewCalendar.getFormattedHebrewDate();
 
-    var actInfo = Activity.getActivityInfo();
-    var steps = actInfo != null ? actInfo.steps : 0;
+    var actInfo = ActivityMonitor.getInfo();
+    var stepsNum = actInfo != null ? actInfo.steps : 0;
+    var steps = Lang.format("$1$ ", [stepsNum, ""]);
 
     var nextLabel = "";
     var posInfo = Position.getInfo();
     if (posInfo != null) {
-      var lat = posInfo.latitude * Math.PI / 180.0;
-      var lon = posInfo.longitude * Math.PI / 180.0;
+      var posInRadians = posInfo.position.toRadians();
+      var lat =  posInRadians[0];
+      var lon = posInRadians[1];
       var now = Time.now();
       var sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
       var sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-      if (sunrise != null && now < sunrise) {
-        nextLabel = Lang.format("SR $1$:$2$", [sunrise.hour.format("%02d"), sunrise.min.format("%02d")]);
-      } else if (sunset != null && now < sunset) {
-        nextLabel = Lang.format("SS $1$:$2$", [sunset.hour.format("%02d"), sunset.min.format("%02d")]);
+      now = Time.Gregorian.info(now, Time.FORMAT_SHORT);
+      var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
+      var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+      var afterSunrise =  ( now.hour > sunRiseTime.hour||( now.hour == sunRiseTime.hour &&  now.min >= sunRiseTime.min));
+      var beforeSunset = ( now.hour < sunSetTime.hour || ( now.hour == sunSetTime.hour &&  now.min <= sunSetTime.min));
+      if (sunrise != null && afterSunrise) {
+        nextLabel = Lang.format("SR $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
+      } else if (sunset != null && beforeSunset) {
+        nextLabel = Lang.format("SS $1$:$2$", [sunSetTime.hour.format("%02d"), sunSetTime.min.format("%02d")]);
       } else {
-        var tomorrow = new Time.Moment(now.value() + 86400);
+        var today=Time.now();
+        var oneDay = new Time.Duration(86400);
+        var tomorrow = today.add(oneDay);
         var sunrise2 = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
         if (sunrise2 != null) {
-          nextLabel = Lang.format("SR $1$:$2$", [sunrise2.hour.format("%02d"), sunrise2.min.format("%02d")]);
+          sunrise2 = Time.Gregorian.info(sunrise2, Time.FORMAT_SHORT);
+          nextLabel = Lang.format(" SR $1$:$2$", [sunrise2.hour.format("%02d"), sunrise2.min.format("%02d")]);
         }
       }
     }
