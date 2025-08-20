@@ -1,9 +1,9 @@
 # Ignore Connect IQ / compiler build outputs
-/bin/
-/build/
-/out/
-/dist/
-/compiled/
+bin/
+builds/
+out/
+dist/
+compiled/
 
 # Ignore packaged / device files
 *.prg
