@@ -298,7 +298,8 @@ class HebrewCalendar {
         
         return "";
     }
-        static function getHebrewMonthNameInHebrew(standardMonth as Number, isLeapYear as Boolean) as String {
+        
+    static function getHebrewMonthNameInHebrew(standardMonth as Number, isLeapYear as Boolean) as String {
         var monthNames = [
             "", // index 0 unused
             "ניסן",    // 1 - Nisan
