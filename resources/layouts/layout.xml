@@ -11,6 +11,7 @@
     <!-- Gregorian date -->
     <label id="bottomDateLabel" x="center" y="160" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 
-    <!-- Additional/extra date field (new) -->
-    <label id="ExtraDateLabel" x="center" y="204" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <!-- Steps and next sunrise/sunset -->
+    <label id="stepsLabel" x="center" y="204" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+    <label id="sunLabel" x="center" y="204" font="Graphics.FONT_TINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
 </layout>
