@@ -223,6 +223,25 @@ class HebrewCalendar {
         return hd;
     }
 
+    // Gets Sunset time and returns the Hebrew date for this morning (if the time is before) or for tomorrow (if the time is after the sunset)
+    static function getHebrewDateConsideringSunset(sunsetMoment as Time.Moment) as Array<Number> {
+        var now = Time.now();
+        var gd = Gregorian.info(now, Time.FORMAT_SHORT);
+        var abs = gregorianToAbsolute(
+            toLongSafe(gd.year),
+            toLongSafe(gd.month),
+            toLongSafe(gd.day)
+        );
+        
+        // If current time is after sunset, use tomorrow's date
+        if (sunsetMoment != null && now.value() >= sunsetMoment.value()) {
+            abs += 1;
+        }
+        
+        var hd = absoluteToHebrew(abs);
+        return hd;
+    }
+
     // Converts a Gregorian date to Hebrew date [year, month, day]
     static function gregorianToHebrew(year as Number, month as Number, day as Number) as Array<Number> {
         var abs = gregorianToAbsolute(year, month, day);
@@ -340,8 +359,13 @@ class HebrewCalendar {
     }
     
     // Gets formatted current Hebrew date
-    static function getFormattedHebrewDate() as String {
+    static function getFormattedHebrewDateThisMorning() as String {
         var hebrewDate = getHebrewDateThisMorning();
+        return formatHebrewDate(hebrewDate);
+    }
+    // Gets formatted Hebrew date based on sunset
+    static function getFormattedHebrewDate(sunset) as String {
+        var hebrewDate = getHebrewDateConsideringSunset(sunset);
         return formatHebrewDate(hebrewDate);
     }
 }
