@@ -79,13 +79,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         (now.hour == sunSetTime.hour && now.min <= sunSetTime.min);
       // If we're before sunrise, the next event is sunrise; otherwise if we're before sunset, it's sunset
       if (sunrise != null && !afterSunrise) {
-        iconStr="0?";
+        iconStr="0>";
         nextLabel = Lang.format("   $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (sunset != null && beforeSunset) {
-        iconStr="0>";
+        iconStr="0?";
         nextLabel = Lang.format("   $1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
