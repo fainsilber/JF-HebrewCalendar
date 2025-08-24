@@ -377,8 +377,8 @@ class HebrewCalendar {
         var standardMonth = hebrewYearMonthToStandardMonth(hebrewYearMonth, isLeap);
         var monthName = getHebrewMonthNameInHebrew(standardMonth, isLeap);
         var dayInHebrew = getHebrewDayInHebrew(day);
-        
-        return dayInHebrew + " " + monthName;
+        var dateString =dayInHebrew + " ב" + monthName;
+        return dateString + " " + year;
     }
     
     // Gets formatted current Hebrew date

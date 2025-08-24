@@ -9,6 +9,7 @@ import Toybox.Math;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
+  var frankFont = null;
   var stepsIcon = null;
   var sunCalc = null;
 
@@ -20,7 +21,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
     iconFont = WatchUi.loadResource(Rez.Fonts.icons);
-    
+    frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
   }
@@ -55,6 +56,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     var nextLabel = "";
     var hDate = "hb";
+    var iconStr = "0 ";
     var posInfo = Position.getInfo();
     if (posInfo != null) {
       var posInRadians = posInfo.position.toRadians();
@@ -76,11 +78,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         (now.hour == sunSetTime.hour && now.min <= sunSetTime.min);
       // If we're before sunrise, the next event is sunrise; otherwise if we're before sunset, it's sunset
       if (sunrise != null && !afterSunrise) {
+        iconStr="0?";
         nextLabel = Lang.format("   $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (sunset != null && beforeSunset) {
+        iconStr="0>";
         nextLabel = Lang.format("   $1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
@@ -106,10 +110,14 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
     (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
     (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
+    (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
     (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
+    (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
     (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
+    //(View.findDrawableById("stepsLabel") as Text).setFont(frankFont);
     (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
-    (View.findDrawableById("iconsLabel") as Text).setText("0>");
+    //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
+    (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
     
     dc.drawBitmap(10, 198, stepsIcon);
