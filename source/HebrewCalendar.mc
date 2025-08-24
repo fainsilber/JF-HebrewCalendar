@@ -320,7 +320,27 @@ class HebrewCalendar {
     return 1; // fallback
   }
 
-  // Returns Hebrew month names (by standard numbering: 1=Nisan)
+  // Core logic for retrieving Hebrew month names (by standard numbering: 1=Nisan)
+  static function getMonthName(
+    standardMonth as Number,
+    isLeapYear as Boolean,
+    monthNames as Array<String>,
+    adarIName as String,
+    adarIIName as String
+  ) as String {
+    if (standardMonth <= 12) {
+      if (standardMonth == 12 && isLeapYear) {
+        return adarIName; // Adar I
+      }
+      return monthNames[standardMonth];
+    } else if (standardMonth == 13 && isLeapYear) {
+      return adarIIName; // Adar II
+    }
+
+    return "";
+  }
+
+  // Returns Hebrew month names in English (by standard numbering: 1=Nisan)
   static function getHebrewMonthName(
     standardMonth as Number,
     isLeapYear as Boolean
@@ -341,18 +361,10 @@ class HebrewCalendar {
       "Adar", // 12 - Adar (or Adar I in leap year)
     ];
 
-    if (standardMonth <= 12) {
-      if (standardMonth == 12 && isLeapYear) {
-        return "Adar I"; // Adar I
-      }
-      return monthNames[standardMonth];
-    } else if (standardMonth == 13 && isLeapYear) {
-      return "Adar II"; // Adar II
-    }
-
-    return "";
+    return getMonthName(standardMonth, isLeapYear, monthNames, "Adar I", "Adar II");
   }
 
+  // Returns Hebrew month names in Hebrew (by standard numbering: 1=Nisan)
   static function getHebrewMonthNameInHebrew(
     standardMonth as Number,
     isLeapYear as Boolean
@@ -373,16 +385,7 @@ class HebrewCalendar {
       "אדר", // 12 - Adar (or Adar I in leap year)
     ];
 
-    if (standardMonth <= 12) {
-      if (standardMonth == 12 && isLeapYear) {
-        return "אדר א"; // Adar I
-      }
-      return monthNames[standardMonth];
-    } else if (standardMonth == 13 && isLeapYear) {
-      return "אדר ב"; // Adar II
-    }
-
-    return "";
+    return getMonthName(standardMonth, isLeapYear, monthNames, "אדר א", "אדר ב");
   }
 
   static function getHebrewDayInHebrew(day as Number) as String {
@@ -448,25 +451,37 @@ class HebrewCalendar {
     return dateString + " " + year;
   }
 
+  // Helper to format a Hebrew date in the requested language
+  static function formatHebrewDateByLanguage(
+    hebrewDate as Array<Number>,
+    inHebrew as Boolean
+  ) as String {
+    return inHebrew
+      ? formatHebrewDateInHebrew(hebrewDate)
+      : formatHebrewDate(hebrewDate);
+  }
+
   // Gets formatted current Hebrew date
   static function getFormattedHebrewDateThisMorningInHebrew() as String {
-    var hebrewDate = getHebrewDateThisMorning();
-    return formatHebrewDateInHebrew(hebrewDate);
+    return formatHebrewDateByLanguage(getHebrewDateThisMorning(), true);
   }
   // Gets formatted Hebrew date based on sunset
   static function getFormattedHebrewDateInHebrew(sunset) as String {
-    var hebrewDate = getHebrewDateConsideringSunset(sunset);
-    return formatHebrewDateInHebrew(hebrewDate);
+    return formatHebrewDateByLanguage(
+      getHebrewDateConsideringSunset(sunset),
+      true
+    );
   }
   // Gets formatted current Hebrew date
   static function getFormattedHebrewDateThisMorning() as String {
-    var hebrewDate = getHebrewDateThisMorning();
-    return formatHebrewDate(hebrewDate);
+    return formatHebrewDateByLanguage(getHebrewDateThisMorning(), false);
   }
   // Gets formatted Hebrew date based on sunset
   static function getFormattedHebrewDate(sunset) as String {
-    var hebrewDate = getHebrewDateConsideringSunset(sunset);
-    return formatHebrewDate(hebrewDate);
+    return formatHebrewDateByLanguage(
+      getHebrewDateConsideringSunset(sunset),
+      false
+    );
   }
 
   // Returns the Hebrew name of date's holyday or an empty string if none
