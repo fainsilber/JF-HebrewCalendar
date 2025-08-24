@@ -31,6 +31,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {}
 
+  function onPartialUpdate(dc) {
+    var clockTime = System.getClockTime();
+    var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
+    (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+  }
+
   // Update the view
   function onUpdate(dc as Dc) as Void {
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
@@ -56,7 +62,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     var nextLabel = "";
     var hDate = "hb";
-    var holyday="";
+    var holyday = "";
     var iconStr = "0 ";
     var posInfo = Position.getInfo();
     if (posInfo != null) {
@@ -79,13 +85,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         (now.hour == sunSetTime.hour && now.min <= sunSetTime.min);
       // If we're before sunrise, the next event is sunrise; otherwise if we're before sunset, it's sunset
       if (sunrise != null && !afterSunrise) {
-        iconStr="0>";
+        iconStr = "0?";
         nextLabel = Lang.format("   $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (sunset != null && beforeSunset) {
-        iconStr="0?";
+        iconStr = "0>";
         nextLabel = Lang.format("   $1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
@@ -97,6 +103,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         var sunrise2 = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
         if (sunrise2 != null) {
           sunrise2 = Time.Gregorian.info(sunrise2, Time.FORMAT_SHORT);
+          iconStr = "0>";
           nextLabel = Lang.format("    $1$:$2$", [
             sunrise2.hour.format("%02d"),
             sunrise2.min.format("%02d"),
@@ -104,10 +111,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         }
       }
       hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(sunset);
-      holyday=HebrewCalendar.getHebrewHolyday(sunset);
+      holyday = HebrewCalendar.getHebrewHolyday(sunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
-      holyday=HebrewCalendar.getHebrewHolydayForThisMorning();
+      holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
     }
 
     (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
@@ -124,7 +131,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
     (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
-    
+
     dc.drawBitmap(10, 198, stepsIcon);
 
     View.onUpdate(dc);
