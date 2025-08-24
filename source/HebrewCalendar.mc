@@ -401,4 +401,38 @@ class HebrewCalendar {
         var hebrewDate = getHebrewDateConsideringSunset(sunset);
         return formatHebrewDate(hebrewDate);
     }
+
+    // Returns the Hebrew name of today's holyday or an empty string if none
+    static function GetHebrewHolydayToday() as String {
+        var hd = getHebrewDateThisMorning();
+        var year = hd[0];
+        var month = hd[1];
+        var day = hd[2];
+        var isLeap = isHebrewLeapYear(year);
+        var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
+
+        if (standardMonth == 7) {
+            if (day == 1 || day == 2) { return "ראש השנה"; }
+            if (day == 10) { return "יום כיפור"; }
+            if (day >= 15 && day <= 21) { return "סוכות"; }
+            if (day == 22) { return "שמיני עצרת"; }
+            if (day == 23) { return "שמחת תורה"; }
+        } else if (standardMonth == 9) {
+            if (day >= 25) { return "חנוכה"; }
+        } else if (standardMonth == 10) {
+            if (day <= 3) { return "חנוכה"; }
+        } else if (standardMonth == 11) {
+            if (day == 15) { return "ט\"ו בשבט"; }
+        } else if (standardMonth == 12) {
+            if (!isLeap && day == 14) { return "פורים"; }
+        } else if (standardMonth == 13) {
+            if (day == 14) { return "פורים"; }
+        } else if (standardMonth == 1) {
+            if (day >= 15 && day <= 22) { return "פסח"; }
+        } else if (standardMonth == 3) {
+            if (day == 6 || day == 7) { return "שבועות"; }
+        }
+
+        return "";
+    }
 }
