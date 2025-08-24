@@ -1,20 +1,21 @@
 <layout id="WatchFace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- Hebrew date - slightly higher -->
-    <label id="holydayLabel" x="center" y="25" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <!-- Positions are set dynamically in code based on the device's width and height -->
+    <label id="holydayLabel" x="center" y="0" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
     <!-- Hebrew date - slightly higher -->
-    <label id="topDateLabel" x="center" y="55" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <label id="topDateLabel" x="center" y="0" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 
     <!-- Main time - centered -->
     <label id="TimeLabel" x="left" y="center" font="Graphics.FONT_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
 
     <!-- Seconds - offset to the right of the main time; adjust the +value if it overlaps -->
-    <label id="SecondsLabel" x="right" y="118" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE" />
+    <label id="SecondsLabel" x="right" y="0" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE" />
 
     <!-- Gregorian date -->
-    <label id="bottomDateLabel" x="center" y="162" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <label id="bottomDateLabel" x="center" y="0" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 
     <!-- Steps and next sunrise/sunset -->
-    <label id="iconsLabel" x="center" y="204" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
-    <label id="stepsLabel" x="100" y="204" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
-    <label id="sunLabel" x="150" y="204" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
+    <label id="iconsLabel" x="center" y="0" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <label id="stepsLabel" x="0" y="0" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_RIGHT" color="Graphics.COLOR_WHITE" />
+    <label id="sunLabel" x="0" y="0" font="Graphics.FONT_XTINY" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_WHITE" />
 </layout>
