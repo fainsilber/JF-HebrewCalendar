@@ -117,20 +117,52 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
     }
 
+    // --- start dynamic layout drawing (replaces fixed-layout Text.setText calls) ---
+    var w = dc.getWidth();
+    var h = dc.getHeight();
+    var cx = Math.floor(w / 2);
+    // vertical positions as fractions of screen height (tweak as needed)
+    //var holydayY = Math.floor(h * 0.12);
+    //var topDateY = Math.floor(h * 0.22);
+    //var timeY = Math.floor(h * 0.48);
+    //var secondsY = Math.floor(timeY - (h * 0.04)); // slightly above time baseline if desired
+    //var bottomDateY = Math.floor(h * 0.72);
+    //var iconsY = Math.floor(h * 0.88);
+
     (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
     (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
+    var holydayY = Math.floor(h * 0.12);
+    (View.findDrawableById("holydayLabel") as Text).setLocation(cx, holydayY);
+    
     (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
     (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
+    var topDateY = Math.floor(h * 0.22);
+    (View.findDrawableById("topDateLabel") as Text).setLocation(cx, topDateY);
+
     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
+    var timeY = Math.floor(h * 0.48);
+    (View.findDrawableById("TimeLabel") as Text).setLocation(cx, timeY);
+
     (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+    var secondsY = Math.floor(timeY - (h * 0.04)); // slightly above time baseline if desired
+    (View.findDrawableById("SecondsLabel") as Text).setLocation(cx + 60, secondsY); // adjust horizontal position as needed
+
     (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
     (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
+    var bottomDateY = Math.floor(h * 0.72);
+    (View.findDrawableById("bottomDateLabel") as Text).setLocation(cx, bottomDateY);
+    
+    var iconsY = Math.floor(h * 0.88);
     (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
+    (View.findDrawableById("stepsLabel") as Text).setLocation(cx - 10, iconsY);
     //(View.findDrawableById("stepsLabel") as Text).setFont(frankFont);
     (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
+    (View.findDrawableById("sunLabel") as Text).setLocation(cx + 70, iconsY);
+
     //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
     (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
+    (View.findDrawableById("iconsLabel") as Text).setLocation(cx, iconsY);
 
     dc.drawBitmap(10, 198, stepsIcon);
 
