@@ -402,9 +402,9 @@ class HebrewCalendar {
         return formatHebrewDate(hebrewDate);
     }
 
-    // Returns the Hebrew name of today's holyday or an empty string if none
-    static function GetHebrewHolydayToday() as String {
-        var hd = getHebrewDateThisMorning();
+    // Returns the Hebrew name of date's holyday or an empty string if none
+    static function getHebrewHolydayForDate(hd) as String {
+        //var hd = getHebrewDateThisMorning();
         var year = hd[0];
         var month = hd[1];
         var day = hd[2];
@@ -416,23 +416,34 @@ class HebrewCalendar {
             if (day == 10) { return "יום כיפור"; }
             if (day >= 15 && day <= 21) { return "סוכות"; }
             if (day == 22) { return "שמיני עצרת"; }
-            if (day == 23) { return "שמחת תורה"; }
         } else if (standardMonth == 9) {
             if (day >= 25) { return "חנוכה"; }
         } else if (standardMonth == 10) {
             if (day <= 3) { return "חנוכה"; }
-        } else if (standardMonth == 11) {
-            if (day == 15) { return "ט\"ו בשבט"; }
         } else if (standardMonth == 12) {
             if (!isLeap && day == 14) { return "פורים"; }
+            if (!isLeap && day == 15) { return "שושן פורים"; }
         } else if (standardMonth == 13) {
             if (day == 14) { return "פורים"; }
+            if (day == 15) { return "שושן פורים"; }
         } else if (standardMonth == 1) {
             if (day >= 15 && day <= 22) { return "פסח"; }
+        } else if (standardMonth == 2) {
+            if (day == 5 ) { return "יום העצמאות"; }
         } else if (standardMonth == 3) {
-            if (day == 6 || day == 7) { return "שבועות"; }
+            if (day == 6 ) { return "שבועות"; }
         }
+        if (day==30 || day==1){return "ראש חודש";}
 
         return "";
     }
+
+    static function getHebrewHolydayForThisMorning() as String {
+        var hd = getHebrewDateThisMorning();
+        return getHebrewHolydayForDate(hd);
+    }static function getHebrewHolyday(sunset) as String {
+        var hd = getHebrewDateConsideringSunset(sunset);
+        return getHebrewHolydayForDate(hd);
+    }
+
 }

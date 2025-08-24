@@ -1,5 +1,7 @@
 <layout id="WatchFace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
     <!-- Hebrew date - slightly higher -->
+    <label id="holydayLabel" x="center" y="25" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <!-- Hebrew date - slightly higher -->
     <label id="topDateLabel" x="center" y="55" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 
     <!-- Main time - centered -->

@@ -56,6 +56,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     var nextLabel = "";
     var hDate = "hb";
+    var holyday="";
     var iconStr = "0 ";
     var posInfo = Position.getInfo();
     if (posInfo != null) {
@@ -103,16 +104,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         }
       }
       hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(sunset);
+      holyday=HebrewCalendar.getHebrewHolyday(sunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
+      holyday=HebrewCalendar.getHebrewHolydayForThisMorning();
     }
 
+    (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
+    (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
+    (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
+    (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
     (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
     (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
     (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
-    (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
     (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
     //(View.findDrawableById("stepsLabel") as Text).setFont(frankFont);
     (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
