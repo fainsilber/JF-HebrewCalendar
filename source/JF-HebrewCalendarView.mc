@@ -8,7 +8,7 @@ import Toybox.Position;
 import Toybox.Math;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
-  var myfonts = null;
+  var iconFont = null;
   var stepsIcon = null;
   var sunCalc = null;
 
@@ -19,9 +19,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Load your resources here
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
-    myfonts = WatchUi.loadResource(Rez.Fonts.frank);
-    var hebLabel = View.findDrawableById("topDateLabel") as Text;
-    //hebLabel.setFont(myfonts);
+    iconFont = WatchUi.loadResource(Rez.Fonts.icons);
+    
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
   }
@@ -93,15 +92,15 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         var sunrise2 = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
         if (sunrise2 != null) {
           sunrise2 = Time.Gregorian.info(sunrise2, Time.FORMAT_SHORT);
-          nextLabel = Lang.format(" SR $1$:$2$", [
+          nextLabel = Lang.format("    $1$:$2$", [
             sunrise2.hour.format("%02d"),
             sunrise2.min.format("%02d"),
           ]);
         }
       }
-      hDate = HebrewCalendar.getFormattedHebrewDate(sunset);
+      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(sunset);
     } else {
-      hDate = HebrewCalendar.getFormattedHebrewDateThisMorning();
+      hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
     }
 
     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
@@ -110,7 +109,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
     (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
     (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
-
+    (View.findDrawableById("iconsLabel") as Text).setText("0>");
+    (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
+    
     dc.drawBitmap(10, 198, stepsIcon);
 
     View.onUpdate(dc);

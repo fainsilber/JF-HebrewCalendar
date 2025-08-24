@@ -234,7 +234,7 @@ class HebrewCalendar {
         );
         
         // If current time is after sunset, use tomorrow's date
-        if (sunsetMoment != null && now.value() >= sunsetMoment.value()) {
+        if (now.value() >= sunsetMoment.value()) {
             abs += 1;
         }
         
@@ -346,6 +346,17 @@ class HebrewCalendar {
         
         return "";
     }
+
+    static function getHebrewDayInHebrew(day as Number) as String {
+        var DayIHebrew = [
+            "", // index 0 unused
+            "א", "ב", "ג", "ד", "ה", "ו", "ז", "ח", "ט", "י",
+            "יא", "יב", "יג", "יד", "טו", "טז", "יז", "יח", "יט", "כ",
+            "כא", "כב", "כג", "כד", "כה", "כו", "כז", "כח", "כט", "ל"
+        ];
+        
+        return DayIHebrew[day];
+    }
     // Formats Hebrew date as a string
     static function formatHebrewDate(hebrewDate as Array<Number>) as String {
         var year = hebrewDate[0];
@@ -357,7 +368,29 @@ class HebrewCalendar {
         
         return day + " " + monthName + " " + year;
     }
+    // Formats Hebrew date as a string
+    static function formatHebrewDateInHebrew(hebrewDate as Array<Number>) as String {
+        var year = hebrewDate[0];
+        var hebrewYearMonth = hebrewDate[1]; // This is Hebrew year month (1=Tishrei)
+        var day = hebrewDate[2];
+        var isLeap = isHebrewLeapYear(year);
+        var standardMonth = hebrewYearMonthToStandardMonth(hebrewYearMonth, isLeap);
+        var monthName = getHebrewMonthNameInHebrew(standardMonth, isLeap);
+        var dayInHebrew = getHebrewDayInHebrew(day);
+        
+        return dayInHebrew + " " + monthName;
+    }
     
+    // Gets formatted current Hebrew date
+    static function getFormattedHebrewDateThisMorningInHebrew() as String {
+        var hebrewDate = getHebrewDateThisMorning();
+        return formatHebrewDateInHebrew(hebrewDate);
+    }
+    // Gets formatted Hebrew date based on sunset
+    static function getFormattedHebrewDateInHebrew(sunset) as String {
+        var hebrewDate = getHebrewDateConsideringSunset(sunset);
+        return formatHebrewDateInHebrew(hebrewDate);
+    }
     // Gets formatted current Hebrew date
     static function getFormattedHebrewDateThisMorning() as String {
         var hebrewDate = getHebrewDateThisMorning();

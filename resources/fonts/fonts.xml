@@ -2,4 +2,5 @@
 <fonts>
     <font id="Alphazet" filename="Alphazet-SemiBold.fnt" filter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:.,;!?-()[]{}'"/>
     <font id="frank" filename="frank.fnt" filter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:.,;!?-()[]{}'אבגדהוזחתיכלמנסעפצקרשתךםףץ"/>
+    <font id="icons" filename="crystal-icons.fnt" filter="0>?BCDEF"/>
 </fonts>
