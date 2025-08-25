@@ -12,6 +12,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var frankFont = null;
   var stepsIcon = null;
   var sunCalc = null;
+  var stepsIconX = 0;
+  var stepsIconY = 0;
 
   function initialize() {
     WatchFace.initialize();
@@ -24,6 +26,23 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
+
+    // Scale label positions based on actual device dimensions
+    var w = dc.getWidth();
+    var h = dc.getHeight();
+    var xScale = w / 260.0;
+    var yScale = h / 260.0;
+
+    (View.findDrawableById("holydayLabel") as Text).setLocation(w / 2.0, 25.0 * yScale);
+    (View.findDrawableById("topDateLabel") as Text).setLocation(w / 2.0, 55.0 * yScale);
+    (View.findDrawableById("SecondsLabel") as Text).setLocation(w, 118.0 * yScale);
+    (View.findDrawableById("bottomDateLabel") as Text).setLocation(w / 2.0, 162.0 * yScale);
+    (View.findDrawableById("iconsLabel") as Text).setLocation(w / 2.0, 204.0 * yScale);
+    (View.findDrawableById("stepsLabel") as Text).setLocation(100.0 * xScale, 204.0 * yScale);
+    (View.findDrawableById("sunLabel") as Text).setLocation(150.0 * xScale, 204.0 * yScale);
+
+    stepsIconX = 10.0 * xScale;
+    stepsIconY = 198.0 * yScale;
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -132,7 +151,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
 
-    dc.drawBitmap(10, 198, stepsIcon);
+    // Draw the steps icon using scaled coordinates
+    dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
 
     View.onUpdate(dc);
   }
