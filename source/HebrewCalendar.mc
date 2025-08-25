@@ -518,6 +518,9 @@ class HebrewCalendar {
         return "פסח";
       }
     } else if (standardMonth == 2) {
+      if (day == 4) {
+        return "יום הזיכרון";
+      }
       if (day == 5) {
         return "יום העצמאות";
       }
@@ -549,7 +552,8 @@ class HebrewCalendar {
         omerDay = 44 + day;
       }
       if (omerDay >= 1 && omerDay <= 49) {
-        return "בעומר " + omerDay;
+        return " יום " + omerDay+" בעומר ";
+        //return  ;
       }
     }
 
