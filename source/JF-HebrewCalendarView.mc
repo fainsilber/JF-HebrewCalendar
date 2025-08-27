@@ -54,29 +54,24 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var clockTime = System.getClockTime();
     var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
     
-    // Set clipping region to only update the seconds area
+    // Calculate position
     var w = dc.getWidth();
-    var h = dc.getHeight();
     var xScale = w / 260.0;
-    var yScale = h / 260.0;
+    var yScale = w / 260.0; // Assuming square screen
     
-    // Calculate the clipping area around the seconds label
     var secondsX = 200.0 * xScale;
     var secondsY = 118.0 * yScale;
     
-    // Set clip region (x, y, width, height) - adjust size as needed
-    dc.setClip(secondsX - 5, secondsY - 10, 60, 25);
+    // Set small clipping area
+    dc.setClip(secondsX - 2, secondsY - 8, 50, 20);
     
-    // Clear only the clipped area
+    // Clear background in clipped area
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
     
-    // Update the seconds label
-    (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
-    (View.findDrawableById("SecondsLabel") as Text).setColor(Graphics.COLOR_WHITE);
-    
-    // Draw the updated label
-    View.onUpdate(dc);
+    // Draw text directly
+    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(secondsX, secondsY, Graphics.FONT_NUMBER_MILD, secStr, Graphics.TEXT_JUSTIFY_LEFT);
   }
 
   // Update the view
