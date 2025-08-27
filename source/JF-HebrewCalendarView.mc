@@ -54,7 +54,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var clockTime = System.getClockTime();
     var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
     (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
-    (View.findDrawableById("SecondsLabel") as Text).setColor(Graphics.COLOR_WHITE);
+    View.onUpdate(dc);
   }
 
   // Update the view
