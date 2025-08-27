@@ -63,19 +63,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var secondsY = 118.0 * yScale;
     
     // Set small clipping area
-    dc.setClip(secondsX - 2, secondsY - 8, 50, 20);
+    dc.setClip(secondsX, secondsY, 60, 60);
     
     // Clear background in clipped area
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
     
     // Draw text directly
-    dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
     dc.drawText(secondsX, secondsY, Graphics.FONT_NUMBER_MILD, secStr, Graphics.TEXT_JUSTIFY_LEFT);
   }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
+    dc.setClip(0, 0, 260, 260);
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
 
