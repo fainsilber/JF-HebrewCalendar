@@ -9,7 +9,7 @@
     <label id="TimeLabel" x="left" y="center" font="Graphics.FONT_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" />
 
     <!-- Seconds - offset to the right of the main time; adjust the +value if it overlaps -->
-    <label id="SecondsLabel" x="right" y="0" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE" />
+    <label id="SecondsLabel" x="195" y="118" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE" />
 
     <!-- Gregorian date -->
     <label id="bottomDateLabel" x="center" y="0" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />

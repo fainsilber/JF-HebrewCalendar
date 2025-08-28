@@ -35,7 +35,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     (View.findDrawableById("holydayLabel") as Text).setLocation(w / 2.0, 25.0 * yScale);
     (View.findDrawableById("topDateLabel") as Text).setLocation(w / 2.0, 55.0 * yScale);
-    (View.findDrawableById("SecondsLabel") as Text).setLocation(w, 118.0 * yScale);
+    (View.findDrawableById("SecondsLabel") as Text).setLocation(200.0 * xScale, 118.0 * yScale);
     (View.findDrawableById("bottomDateLabel") as Text).setLocation(w / 2.0, 162.0 * yScale);
     (View.findDrawableById("iconsLabel") as Text).setLocation(w / 2.0, 204.0 * yScale);
     (View.findDrawableById("stepsLabel") as Text).setLocation(100.0 * xScale, 204.0 * yScale);
@@ -53,11 +53,30 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onPartialUpdate(dc) {
     var clockTime = System.getClockTime();
     var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
-    (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+    
+    // Calculate position
+    var w = dc.getWidth();
+    var xScale = w / 260.0;
+    var yScale = w / 260.0; // Assuming square screen
+    
+    var secondsX = 200.0 * xScale;
+    var secondsY = 118.0 * yScale;
+    
+    // Set small clipping area
+    dc.setClip(secondsX, secondsY, 60, 60);
+    
+    // Clear background in clipped area
+    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+    dc.clear();
+    
+    // Draw text directly
+    dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+    dc.drawText(secondsX, secondsY, Graphics.FONT_NUMBER_MILD, secStr, Graphics.TEXT_JUSTIFY_LEFT);
   }
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
+    dc.setClip(0, 0, 260, 260);
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
 
