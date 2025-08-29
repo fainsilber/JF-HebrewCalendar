@@ -160,9 +160,31 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
     }
 
+
+
+    //var battery = "BCDEF";
+    var myStats = System.getSystemStats();
+    var batteryLevel = myStats.battery;
+
     var battery = "";
-    (View.findDrawableById("batteryLabel") as Text).setText(battery.toString());    
+    if (batteryLevel > 80) {
+      battery = "B";
     (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_GREEN);
+    } else if (batteryLevel > 60) {
+      battery = "C";
+    (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_GREEN);
+    } else if (batteryLevel > 40) {
+      battery = "D";
+    (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_YELLOW);
+    } else if (batteryLevel > 20) {
+      battery = "E";
+    (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_ORANGE);
+    } else {
+      battery = "F";
+    (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_RED);
+    }
+
+    (View.findDrawableById("batteryLabel") as Text).setText(battery.toString());    
     (View.findDrawableById("batteryLabel") as Text).setFont(iconFont);
 
     (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
