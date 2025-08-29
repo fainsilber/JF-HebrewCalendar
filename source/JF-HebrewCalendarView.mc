@@ -163,7 +163,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var battery = "";
     (View.findDrawableById("batteryLabel") as Text).setText(battery.toString());    
     (View.findDrawableById("batteryLabel") as Text).setColor(Graphics.COLOR_GREEN);
-    (View.findDrawableById("batteryLabel") as Text).setText(iconStr);
+    (View.findDrawableById("batteryLabel") as Text).setFont(iconFont);
 
     (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
     (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
