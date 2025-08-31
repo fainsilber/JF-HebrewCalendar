@@ -30,14 +30,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       showSteps = propShow;
     }
 
+    
     var color = app.getProperty("stepsColor");
-    if (color == "red") {
-      stepsColor = Graphics.COLOR_RED;
-    } else if (color == "green") {
-      stepsColor = Graphics.COLOR_GREEN;
-    } else {
-      stepsColor = Graphics.COLOR_WHITE;
-    }
+    stepsColor = getStepsColor(color);
+  
   }
 
   // Load your resources here
@@ -289,4 +285,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {}
+
+  function getStepsColor(color) as ColorValue {
+    switch (color) {
+      case 1:
+        return Graphics.COLOR_WHITE;
+      case 2:
+        return Graphics.COLOR_DK_GRAY;
+      case 3:
+        return Graphics.COLOR_BLUE;
+      case 4:
+        return Graphics.COLOR_RED;
+      case 5:
+        return Graphics.COLOR_GREEN;
+      case 6:
+        return Graphics.COLOR_ORANGE;
+      case 7:
+        return Graphics.COLOR_YELLOW;
+      default:
+        return Graphics.COLOR_WHITE;
+    }
+  }
 }
