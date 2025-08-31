@@ -16,7 +16,17 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var stepsIconX = 0;
   var stepsIconY = 0;
 
+  var showBattery = true;
+  var showTime = true;
+  var showSeconds = true;
+  var showGregorianDate = true;
   var showSteps = true;
+  var showSunEvent = true;
+  var hebrewDateColor = Graphics.COLOR_WHITE;
+  var timeColor = Graphics.COLOR_WHITE;
+  var secondsColor = Graphics.COLOR_WHITE;
+  var gregorianDateColor = Graphics.COLOR_WHITE;
+  var sunEventColor = Graphics.COLOR_WHITE;
   var stepsColor = Graphics.COLOR_WHITE;
 
   function initialize() {
@@ -24,15 +34,43 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function loadSettings() {
-    var app = Application.getApp();
-    var propShow = app.getProperty("showSteps");
+    var propShow = Properties.getValue("showBattery");
+    if (propShow != null) {
+      showBattery = propShow;
+    }   
+    propShow = Properties.getValue("showTime");
+    if (propShow != null) {
+      showTime = propShow;
+    } 
+    propShow = Properties.getValue("showSeconds");
+    if (propShow != null) {
+      showSeconds = propShow;
+    } 
+    propShow = Properties.getValue("showGregorianDate");
+    if (propShow != null) {
+      showGregorianDate = propShow;
+    } 
+    propShow = Properties.getValue("showSteps");
     if (propShow != null) {
       showSteps = propShow;
-    }
+    } 
+    propShow = Properties.getValue("showSunEvent");
+    if (propShow != null) {
+      showSunEvent = propShow;
+    } 
 
-    
-    var color = app.getProperty("stepsColor");
-    stepsColor = getStepsColor(color);
+    var color =  Properties.getValue("hebrewDateColor");
+    hebrewDateColor = getColor(color);
+    color = Properties.getValue("timeColor");
+    timeColor = getColor(color);
+    color = Properties.getValue("secondsColor");
+    secondsColor = getColor(color);
+    color = Properties.getValue("gregorianDateColor");
+    gregorianDateColor = getColor(color);
+    color = Properties.getValue("sunEventColor");
+    sunEventColor = getColor(color);
+    color =  Properties.getValue("stepsColor");
+    stepsColor = getColor(color);
   
   }
 
@@ -43,7 +81,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
-    loadSettings();
+    //loadSettings();
 
     // Scale label positions based on actual device dimensions
     var w = dc.getWidth();
@@ -152,15 +190,15 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var hDate = "hb";
     var holyday = "";
     var iconStr = "0 ";
-    var lat = 2147483647;
-    var lon = 2147483647;
+    var lat = 31.777580;
+    var lon = 35.235786;
     var posInfo = Position.getInfo();
-    if (posInfo != null) {
-      var posInDeg = posInfo.position.toDegrees();
-      lat = posInDeg[0];
-      lon = posInDeg[1];
-    }
-    if (lat != 179.99999991618097 && lon != 179.99999991618097) {
+    // if (posInfo != null) {
+    //   var pos = posInfo.position;
+    //   lat = pos.lat;
+    //   lon = pos.lon;
+    // }
+    if (lat != 2147483647 && lon != 2147483647) {
       var posInRadians = posInfo.position.toRadians();
       lat = posInRadians[0];
       lon = posInRadians[1];
@@ -286,7 +324,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {}
 
-  function getStepsColor(color) as ColorValue {
+  function getColor(color) as ColorValue {
     switch (color) {
       case 1:
         return Graphics.COLOR_WHITE;
