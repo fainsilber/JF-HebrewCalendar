@@ -1,0 +1,4 @@
+<properties>
+    <property id="showSteps" type="boolean">false</property>
+    <property id="stepsColor" type="number">0xFFFFFF</property>
+</properties>
