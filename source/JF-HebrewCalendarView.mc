@@ -37,29 +37,29 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var propShow = Properties.getValue("showBattery");
     if (propShow != null) {
       showBattery = propShow;
-    }   
+    }
     propShow = Properties.getValue("showTime");
     if (propShow != null) {
       showTime = propShow;
-    } 
+    }
     propShow = Properties.getValue("showSeconds");
     if (propShow != null) {
       showSeconds = propShow;
-    } 
+    }
     propShow = Properties.getValue("showGregorianDate");
     if (propShow != null) {
       showGregorianDate = propShow;
-    } 
+    }
     propShow = Properties.getValue("showSteps");
     if (propShow != null) {
       showSteps = propShow;
-    } 
+    }
     propShow = Properties.getValue("showSunEvent");
     if (propShow != null) {
       showSunEvent = propShow;
-    } 
+    }
 
-    var color =  Properties.getValue("hebrewDateColor");
+    var color = Properties.getValue("hebrewDateColor");
     hebrewDateColor = getColor(color);
     color = Properties.getValue("timeColor");
     timeColor = getColor(color);
@@ -69,9 +69,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     gregorianDateColor = getColor(color);
     color = Properties.getValue("sunEventColor");
     sunEventColor = getColor(color);
-    color =  Properties.getValue("stepsColor");
+    color = Properties.getValue("stepsColor");
     stepsColor = getColor(color);
-  
   }
 
   // Load your resources here
@@ -190,7 +189,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var hDate = "hb";
     var holyday = "";
     var iconStr = "0 ";
-    var lat = 31.777580;
+    var lat = 31.77758;
     var lon = 35.235786;
     var posInfo = Position.getInfo();
     // if (posInfo != null) {
@@ -250,49 +249,60 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
     }
 
-    //var battery = "BCDEF";
-    var myStats = System.getSystemStats();
-    var batteryLevel = myStats.battery;
-
-    var battery = "";
-    if (batteryLevel > 80) {
-      battery = "B";
-      (View.findDrawableById("batteryLabel") as Text).setColor(
-        Graphics.COLOR_GREEN
-      );
-    } else if (batteryLevel > 60) {
-      battery = "C";
-      (View.findDrawableById("batteryLabel") as Text).setColor(
-        Graphics.COLOR_GREEN
-      );
-    } else if (batteryLevel > 40) {
-      battery = "D";
-      (View.findDrawableById("batteryLabel") as Text).setColor(
-        Graphics.COLOR_YELLOW
-      );
-    } else if (batteryLevel > 20) {
-      battery = "E";
-      (View.findDrawableById("batteryLabel") as Text).setColor(
-        Graphics.COLOR_ORANGE
-      );
-    } else {
-      battery = "F";
-      (View.findDrawableById("batteryLabel") as Text).setColor(
-        Graphics.COLOR_RED
-      );
-    }
-
-    (View.findDrawableById("batteryLabel") as Text).setText(battery.toString());
-    (View.findDrawableById("batteryLabel") as Text).setFont(iconFont);
-
     (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
     (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
     (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
     (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
-    (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+
+    if (showBattery) {
+      //var battery = "BCDEF";
+      var myStats = System.getSystemStats();
+      var batteryLevel = myStats.battery;
+
+      var battery = "";
+      if (batteryLevel > 80) {
+        battery = "B";
+        (View.findDrawableById("batteryLabel") as Text).setColor(
+          Graphics.COLOR_GREEN
+        );
+      } else if (batteryLevel > 60) {
+        battery = "C";
+        (View.findDrawableById("batteryLabel") as Text).setColor(
+          Graphics.COLOR_GREEN
+        );
+      } else if (batteryLevel > 40) {
+        battery = "D";
+        (View.findDrawableById("batteryLabel") as Text).setColor(
+          Graphics.COLOR_GREEN
+        );
+      } else if (batteryLevel > 20) {
+        battery = "E";
+        (View.findDrawableById("batteryLabel") as Text).setColor(
+          Graphics.COLOR_ORANGE
+        );
+      } else {
+        battery = "F";
+        (View.findDrawableById("batteryLabel") as Text).setColor(
+          Graphics.COLOR_RED
+        );
+      }
+      (View.findDrawableById("batteryLabel") as Text).setText(
+        battery.toString()
+      );
+      (View.findDrawableById("batteryLabel") as Text).setFont(iconFont);
+    } else {
+      (View.findDrawableById("batteryLabel") as Text).setText("");
+    }
+
+    if(showTime){     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);}
+    else{(View.findDrawableById("TimeLabel") as Text).setText("");}
+    if(showSeconds){(View.findDrawableById("SecondsLabel") as Text).setText(secStr);}
+    else{(View.findDrawableById("SecondsLabel") as Text).setText("");}
+
+    if(showGregorianDate){
     (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
-    (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
+    (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);}
+    else{(View.findDrawableById("bottomDateLabel") as Text).setText("");}
     //(View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
     if (showSteps) {
       (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
@@ -301,8 +311,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     } else {
       (View.findDrawableById("stepsLabel") as Text).setText("");
     }
-    //(View.findDrawableById("stepsLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
+    if(showSunEvent){
+    (View.findDrawableById("sunLabel") as Text).setText(nextLabel);}
+    else{(View.findDrawableById("sunLabel") as Text).setText("");}
     //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
     (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
