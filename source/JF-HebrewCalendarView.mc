@@ -253,6 +253,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
     (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
     (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
+    (View.findDrawableById("holydayLabel") as Text).setColor(hebrewDateColor);
+    (View.findDrawableById("topDateLabel") as Text).setColor(hebrewDateColor);
 
     if (showBattery) {
       //var battery = "BCDEF";
@@ -294,26 +296,40 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       (View.findDrawableById("batteryLabel") as Text).setText("");
     }
 
-    if(showTime){     (View.findDrawableById("TimeLabel") as Text).setText(timeStr);}
-    else{(View.findDrawableById("TimeLabel") as Text).setText("");}
-    if(showSeconds){(View.findDrawableById("SecondsLabel") as Text).setText(secStr);}
-    else{(View.findDrawableById("SecondsLabel") as Text).setText("");}
+    if (showTime) {
+      (View.findDrawableById("TimeLabel") as Text).setColor(timeColor);
+      (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
+    } else {
+      (View.findDrawableById("TimeLabel") as Text).setText("");
+    }
+    if (showSeconds) {
+      (View.findDrawableById("SecondsLabel") as Text).setColor(secondsColor);
+      (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
+    } else {
+      (View.findDrawableById("SecondsLabel") as Text).setText("");
+    }
 
-    if(showGregorianDate){
-    (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
-    (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);}
-    else{(View.findDrawableById("bottomDateLabel") as Text).setText("");}
+    if (showGregorianDate) {
+      (View.findDrawableById("bottomDateLabel") as Text).setColor(gregorianDateColor);
+      (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
+      (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
+    } else {
+      (View.findDrawableById("bottomDateLabel") as Text).setText("");
+    }
     //(View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
     if (showSteps) {
-      (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
+      (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());      
       (View.findDrawableById("stepsLabel") as Text).setColor(stepsColor);
       dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
     } else {
       (View.findDrawableById("stepsLabel") as Text).setText("");
     }
-    if(showSunEvent){
-    (View.findDrawableById("sunLabel") as Text).setText(nextLabel);}
-    else{(View.findDrawableById("sunLabel") as Text).setText("");}
+    if (showSunEvent) {
+      (View.findDrawableById("sunLabel") as Text).setColor(sunEventColor);
+      (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
+    } else {
+      (View.findDrawableById("sunLabel") as Text).setText("");
+    }
     //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
     (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
     (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
