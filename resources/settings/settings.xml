@@ -1,0 +1,97 @@
+<settings>
+    <setting propertyKey="@Properties.showBattery" title="Show Battery Level">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.showTime" title="Show Time">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.timeColor" title="Time Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showSeconds" title="Show Seconds">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.secondsColor" title="Seconds Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.hebrewDateColor" title="Hebrew Date Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showGregorianDate" title="Show Gregorian Date">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.gregorianDateColor" title="Gregorian Date Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.showSteps" title="Show Steps">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.stepsColor" title="Steps Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+    
+    <setting propertyKey="@Properties.showSunEvent" title="Show Next Sun Event">
+        <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.sunEventColor" title="Sun Event Color">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.ColorWhite</listEntry>
+            <listEntry value="2">@Strings.ColorDarkGray</listEntry>
+            <listEntry value="3">@Strings.ColorBlue</listEntry>
+            <listEntry value="4">@Strings.ColorRed</listEntry>
+            <listEntry value="5">@Strings.ColorGreen</listEntry>
+            <listEntry value="6">@Strings.ColorOrange</listEntry>
+            <listEntry value="7">@Strings.ColorYellow</listEntry>
+        </settingConfig>
+    </setting>
+</settings>

@@ -1,0 +1,16 @@
+<properties>
+    <property id="showBattery" type="boolean">true</property>
+    <property id="showTime" type="boolean">true</property>
+    <property id="timeColor" type="number">1</property> 
+    <property id="showSeconds" type="boolean">false</property>
+    <property id="secondsColor" type="number">1</property>
+    <property id="showGregorianDate" type="boolean">true</property>
+    <property id="gregorianDateColor" type="number">1</property>
+    <property id="showSunEvent" type="boolean">false</property>
+    <property id="sunEventColor" type="number">1</property>
+    
+    <property id="hebrewDateColor" type="number">1</property>
+
+    <property id="showSteps" type="boolean">false</property>
+    <property id="stepsColor" type="number">1</property>
+</properties>

@@ -20,6 +20,10 @@ class JF_HebrewCalendarApp extends Application.AppBase {
     function getInitialView() as [Views] or [Views, InputDelegates] {
         return [ new JF_HebrewCalendarView() ];
     }
+    
+    function onSettingsChanged() as Void {
+        WatchUi.requestUpdate();
+    }
 
 }
 
