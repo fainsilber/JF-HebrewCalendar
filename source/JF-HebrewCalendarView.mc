@@ -80,7 +80,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
-    loadSettings();
+    //loadSettings();
 
     // Scale label positions based on actual device dimensions
     var w = dc.getWidth();
@@ -159,7 +159,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    //loadSettings();
+    loadSettings();
 
     var w = dc.getWidth();
     var h = dc.getHeight();
