@@ -80,7 +80,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
-    //loadSettings();
+    loadSettings();
 
     // Scale label positions based on actual device dimensions
     var w = dc.getWidth();
@@ -147,7 +147,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     dc.clear();
 
     // Draw text directly
-    dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+    dc.setColor(secondsColor, Graphics.COLOR_TRANSPARENT);
     dc.drawText(
       secondsX,
       secondsY,
@@ -159,7 +159,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Update the view
   function onUpdate(dc as Dc) as Void {
-    loadSettings();
+    //loadSettings();
 
     var w = dc.getWidth();
     var h = dc.getHeight();
@@ -188,16 +188,16 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var nextLabel = "";
     var hDate = "hb";
     var holyday = "";
-    var iconStr = "0 ";
+    var iconStr = "0";
     var lat = 31.77758;
     var lon = 35.235786;
     var posInfo = Position.getInfo();
-    // if (posInfo != null) {
-    //   var pos = posInfo.position;
-    //   lat = pos.lat;
-    //   lon = pos.lon;
-    // }
-    if (lat != 2147483647 && lon != 2147483647) {
+    var isDefaultGPS=true;
+    if (posInfo != null) {
+      var pos = posInfo.position.toDegrees();
+      isDefaultGPS = (pos[0]>179.99&&pos[1]>179.99 && pos[0]<180.01&&pos[1]<180.01);
+    }
+    if ( !isDefaultGPS) {
       var posInRadians = posInfo.position.toRadians();
       lat = posInRadians[0];
       lon = posInRadians[1];
