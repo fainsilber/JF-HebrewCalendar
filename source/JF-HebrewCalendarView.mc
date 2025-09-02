@@ -254,8 +254,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var hDate = "hb";
     var holyday = "";
     var iconStr = "0";
-    var lat = 31.77758;
-    var lon = 35.235786;
+    var lat = 31.77758 * Math.PI / 180.0;
+    var lon = 35.235786 * Math.PI / 180.0;
     var posInfo = Position.getInfo();
     var isDefaultGPS = true;
     if (posInfo != null) {
@@ -317,8 +317,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function isShabbat(now) {
-    var lat = 31.77758;
-    var lon = 35.235786;
+    var lat = 31.77758 * Math.PI / 180.0;
+    var lon = 35.235786 * Math.PI / 180.0;
     var posInfo = Position.getInfo();
     if (posInfo != null) {
       var pos = posInfo.position.toDegrees();
