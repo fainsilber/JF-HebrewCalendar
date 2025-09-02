@@ -257,7 +257,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var pos = posInfo.position.toDegrees();
       isDefaultGPS = (pos[0] > 179.99 && pos[1] > 179.99 && pos[0] < 180.01 && pos[1] < 180.01);
     }
-    if (!isDefaultGPS) {
+    if (!isDefaultGPS && showSunEvent) {
       var posInRadians = posInfo.position.toRadians();
       lat = posInRadians[0];
       lon = posInRadians[1];
