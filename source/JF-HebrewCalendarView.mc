@@ -29,6 +29,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconsLabel = null;
   var stepsLabel = null;
   var sunLabel = null;
+  var shabbatLabel = null;
 
   // Layout information
   var width = 0.0;
@@ -45,12 +46,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var showGregorianDate = true;
   var showSteps = true;
   var showSunEvent = true;
-  var hebrewDateColor = Graphics.COLOR_WHITE;
+  var shabbatMode = false;
+  var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
-  var secondsColor = Graphics.COLOR_WHITE;
+  var secondsColor = Graphics.COLOR_BLUE;
   var gregorianDateColor = Graphics.COLOR_WHITE;
-  var sunEventColor = Graphics.COLOR_WHITE;
-  var stepsColor = Graphics.COLOR_WHITE;
+  var sunEventColor = Graphics.COLOR_YELLOW;
+  var stepsColor = Graphics.COLOR_GREEN;
 
   function initialize() {
     WatchFace.initialize();
@@ -73,6 +75,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     showGregorianDate = loadBooleanSetting("showGregorianDate", showGregorianDate);
     showSteps = loadBooleanSetting("showSteps", showSteps);
     showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
+    shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
 
     hebrewDateColor = loadColorSetting("hebrewDateColor");
     timeColor = loadColorSetting("timeColor");
@@ -105,6 +108,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     iconsLabel = View.findDrawableById("iconsLabel") as Text;
     stepsLabel = View.findDrawableById("stepsLabel") as Text;
     sunLabel = View.findDrawableById("sunLabel") as Text;
+    shabbatLabel = View.findDrawableById("shabbatLabel") as Text;
   }
 
 
@@ -123,6 +127,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     iconsLabel.setLocation(width / 2.0, 204.0 * yScale);
     stepsLabel.setLocation(100.0 * xScale, 204.0 * yScale);
     sunLabel.setLocation(150.0 * xScale, 204.0 * yScale);
+    shabbatLabel.setLocation(width / 2.0, 204.0 * yScale);
 
     stepsIconX = 10.0 * xScale;
     stepsIconY = 198.0 * yScale;
@@ -259,10 +264,15 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (sunrise == null || sunset == null) {
       sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
       sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-    } else if (now.value() >= sunset.value()) {
-      var tomorrow = now.add(new Time.Duration(86400));
-      sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
-      sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
+    } else {
+      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
+      var sunsetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+      if (nowInfo.hour > sunsetInfo.hour ||
+          (nowInfo.hour == sunsetInfo.hour && nowInfo.min >= sunsetInfo.min)) {
+        var tomorrow = now.add(new Time.Duration(86400));
+        sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
+        sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
+      }
     }
   }
 
@@ -302,9 +312,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         iconStr = "0>";
         nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
         }
-      var lastSunset = sunset.subtract(new Time.Duration(86400));
-      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(lastSunset);
-      holyday = HebrewCalendar.getHebrewHolyday(lastSunset);
+      var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
+      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(todaySunset);
+      holyday = HebrewCalendar.getHebrewHolyday(todaySunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
@@ -317,6 +327,42 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     };
   }
 
+  function isShabbat(now) {
+
+    var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
+    if( gNow.day_of_week != 6 && gNow.day_of_week != 7) {
+      return false; // Not Friday or Saturday
+    }
+
+    // If it's Friday, we only care if the current time is after the sunset time
+    var hadlakatNerot = sunset.subtract(new Time.Duration(18 * 60));
+    var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
+    if (gNow.day_of_week == 6 &&
+        (gNow.hour > hadlakatNerotTime.hour ||
+         (gNow.hour == hadlakatNerotTime.hour && gNow.min >= hadlakatNerotTime.min))) {
+      return true; // After sunset on Friday
+    }
+
+    var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
+    var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
+    if (gNow.day_of_week == 7 &&
+        (gNow.hour < motazshTime.hour ||
+         (gNow.hour == motazshTime.hour && gNow.min < motazshTime.min))) {
+      return true;
+    }
+    return false;
+  }
+
+  function updateShabbat(isActive) {
+    if (isActive) {
+      shabbatLabel.setText("שבת שלום");
+      shabbatLabel.setFont(frankFont);
+      shabbatLabel.setColor(hebrewDateColor);
+    } else {
+      shabbatLabel.setText("");
+    }
+  }
+
   // Update the view
   function onUpdate(dc as Dc) as Void {
     loadSettings();
@@ -325,8 +371,14 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
 
+    var now = Time.now();
+    var shabbatActive = shabbatMode && isShabbat(now);
+    if (shabbatActive) {
+      showSteps = false;
+      showSunEvent = false;
+    }
     var clockTime = System.getClockTime();
-    var gInfo = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+    var gInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
     var gDate = Lang.format("$1$/$2$/$3$", [
       gInfo.day.format("%02d"),
       gInfo.month.format("%02d"),
@@ -342,6 +394,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     updateGregorianDate(gDate);
     updateSteps(dc, stepsNum);
     updateSunEvent(sunInfo);
+    updateShabbat(shabbatActive);
 
     View.onUpdate(dc);
   }

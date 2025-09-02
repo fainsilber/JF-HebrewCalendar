@@ -94,4 +94,8 @@
             <listEntry value="7">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
+
+    <setting propertyKey="@Properties.shabbatMode" title="Shabbat Mode">
+        <settingConfig type="boolean" />
+    </setting>
 </settings>

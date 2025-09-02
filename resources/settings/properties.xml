@@ -8,9 +8,11 @@
     <property id="gregorianDateColor" type="number">1</property>
     <property id="showSunEvent" type="boolean">false</property>
     <property id="sunEventColor" type="number">1</property>
-    
+
     <property id="hebrewDateColor" type="number">1</property>
 
     <property id="showSteps" type="boolean">false</property>
     <property id="stepsColor" type="number">1</property>
+
+    <property id="shabbatMode" type="boolean">false</property>
 </properties>
