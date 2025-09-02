@@ -253,14 +253,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (sunrise == null || sunset == null) {
       sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
       sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-    } else {
-      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
-      var sunSetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      if (nowInfo.hour > sunSetInfo.hour || (nowInfo.hour == sunSetInfo.hour && nowInfo.min >= sunSetInfo.min)) {
-        var tomorrow = now.add(new Time.Duration(86400));
-        sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
-        sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
-      }
+    } else if (now.value() >= sunset.value()) {
+      var tomorrow = now.add(new Time.Duration(86400));
+      sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
+      sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
     }
   }
 
