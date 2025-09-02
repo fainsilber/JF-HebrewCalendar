@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fonts>
     <font id="frank" filename="frank.fnt" filter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:.,;!?-()[]{}/'ןאבגדהוזחטיכלמנסעפצקרשתךםףץ "/>
+    <font id="frank55" filename="frank55.fnt" filter="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:.,;!?-()[]{}/'ןאבגדהוזחטיכלמנסעפצקרשתךםףץ "/>
     <font id="icons" filename="crystal-icons.fnt" filter="0>?BCDEF9="/>
 </fonts>
