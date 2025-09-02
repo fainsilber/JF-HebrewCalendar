@@ -335,11 +335,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var dayStart = now.add(new Time.Duration(-secondsToday));
     var oneDay = new Time.Duration(86400);
 
-    var friday = dayStart;
-    while (Time.Gregorian.info(friday, Time.FORMAT_SHORT).wday != 5) {
-      friday = friday.add(oneDay);
+    // Determine upcoming Friday and Saturday
+    var saturday = dayStart;
+    // Advance to next Saturday (day_of_week == 6)
+    while (Time.Gregorian.info(saturday, Time.FORMAT_SHORT).day_of_week != 6) {
+      saturday = saturday.add(oneDay);
     }
-    var saturday = friday.add(oneDay);
+    var friday = saturday.add(new Time.Duration(-86400));
 
     var fridaySunset = sunCalc.calculate(friday, lat, lon, SUNSET);
     var saturdaySunset = sunCalc.calculate(saturday, lat, lon, SUNSET);
