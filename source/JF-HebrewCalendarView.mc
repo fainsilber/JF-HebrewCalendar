@@ -89,7 +89,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (width > 280 || height > 280) {
       frankFont = WatchUi.loadResource(Rez.Fonts.frank55);
     } else {
-      frankFont = WatchUi.loadResource(Rez.Fonts.frank);
+    frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     }
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
@@ -280,8 +280,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (!isDefaultGPS && showSunEvent) {
       var posInRadians = posInfo.position.toRadians();
       if (lat != posInRadians[0] || lon != posInRadians[1]) {
-        lat = posInRadians[0];
-        lon = posInRadians[1];
+      lat = posInRadians[0];
+      lon = posInRadians[1];
         sunrise = null;
         sunset = null;
       }
@@ -301,7 +301,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       } else {
         iconStr = "0>";
         nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
-      }
+        }
       var lastSunset = sunset.subtract(new Time.Duration(86400));
       hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(lastSunset);
       holyday = HebrewCalendar.getHebrewHolyday(lastSunset);
