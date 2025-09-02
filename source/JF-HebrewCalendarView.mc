@@ -307,9 +307,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         iconStr = "0>";
         nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
         }
-      var lastSunset = sunset.subtract(new Time.Duration(86400));
-      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(lastSunset);
-      holyday = HebrewCalendar.getHebrewHolyday(lastSunset);
+      var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
+      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(todaySunset);
+      holyday = HebrewCalendar.getHebrewHolyday(todaySunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
