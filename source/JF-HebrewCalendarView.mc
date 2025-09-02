@@ -264,10 +264,15 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (sunrise == null || sunset == null) {
       sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
       sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-    } else if (now.value() >= sunset.value()) {
-      var tomorrow = now.add(new Time.Duration(86400));
-      sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
-      sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
+    } else {
+      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
+      var sunsetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+      if (nowInfo.hour > sunsetInfo.hour ||
+          (nowInfo.hour == sunsetInfo.hour && nowInfo.min >= sunsetInfo.min)) {
+        var tomorrow = now.add(new Time.Duration(86400));
+        sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
+        sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
+      }
     }
   }
 
@@ -329,13 +334,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return false; // Not Friday or Saturday
     }
 
-    // If it's Friday, we need to find the sunset of today
-    if (gNow.day_of_week == 6 && now.value() > sunset.value()) {
+    var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+    // If it's Friday, we only care if the current time is after the sunset time
+    if (gNow.day_of_week == 6 &&
+        (gNow.hour > sunSetTime.hour ||
+         (gNow.hour == sunSetTime.hour && gNow.min >= sunSetTime.min))) {
       return true; // After sunset on Friday
     }
+
     var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
-    if (gNow.day_of_week == 7 && now.value() < motazsh.value()) {
-      return true; 
+    var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
+    if (gNow.day_of_week == 7 &&
+        (gNow.hour < motazshTime.hour ||
+         (gNow.hour == motazshTime.hour && gNow.min < motazshTime.min))) {
+      return true;
     }
     return false;
   }
