@@ -13,9 +13,27 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var frankFont = null;
   var stepsIcon = null;
   var sunCalc = null;
-  var stepsIconX = 0;
-  var stepsIconY = 0;
 
+  // Cached drawable references
+  var batteryLabel = null;
+  var holydayLabel = null;
+  var topDateLabel = null;
+  var timeLabel = null;
+  var secondsLabel = null;
+  var bottomDateLabel = null;
+  var iconsLabel = null;
+  var stepsLabel = null;
+  var sunLabel = null;
+
+  // Layout information
+  var width = 0.0;
+  var height = 0.0;
+  var xScale = 1.0;
+  var yScale = 1.0;
+  var stepsIconX = 0.0;
+  var stepsIconY = 0.0;
+
+  // Settings
   var showBattery = true;
   var showTime = true;
   var showSeconds = true;
@@ -33,49 +51,34 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     WatchFace.initialize();
   }
 
-  function loadSettings() {
-    var propShow = Properties.getValue("showBattery");
-    if (propShow != null) {
-      showBattery = propShow;
-    }
-    propShow = Properties.getValue("showTime");
-    if (propShow != null) {
-      showTime = propShow;
-    }
-    propShow = Properties.getValue("showSeconds");
-    if (propShow != null) {
-      showSeconds = propShow;
-    }
-    propShow = Properties.getValue("showGregorianDate");
-    if (propShow != null) {
-      showGregorianDate = propShow;
-    }
-    propShow = Properties.getValue("showSteps");
-    if (propShow != null) {
-      showSteps = propShow;
-    }
-    propShow = Properties.getValue("showSunEvent");
-    if (propShow != null) {
-      showSunEvent = propShow;
-    }
-
-    var color = Properties.getValue("hebrewDateColor");
-    hebrewDateColor = getColor(color);
-    color = Properties.getValue("timeColor");
-    timeColor = getColor(color);
-    color = Properties.getValue("secondsColor");
-    secondsColor = getColor(color);
-    color = Properties.getValue("gregorianDateColor");
-    gregorianDateColor = getColor(color);
-    color = Properties.getValue("sunEventColor");
-    sunEventColor = getColor(color);
-    color = Properties.getValue("stepsColor");
-    stepsColor = getColor(color);
+  // Convenience helpers for settings
+  function loadBooleanSetting(name, current) {
+    var val = Properties.getValue(name);
+    return val == null ? current : val;
   }
 
-  // Load your resources here
-  function onLayout(dc as Dc) as Void {
-    setLayout(Rez.Layouts.WatchFace(dc));
+  function loadColorSetting(name) {
+    return getColor(Properties.getValue(name));
+  }
+
+  function loadSettings() {
+    showBattery = loadBooleanSetting("showBattery", showBattery);
+    showTime = loadBooleanSetting("showTime", showTime);
+    showSeconds = loadBooleanSetting("showSeconds", showSeconds);
+    showGregorianDate = loadBooleanSetting("showGregorianDate", showGregorianDate);
+    showSteps = loadBooleanSetting("showSteps", showSteps);
+    showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
+
+    hebrewDateColor = loadColorSetting("hebrewDateColor");
+    timeColor = loadColorSetting("timeColor");
+    secondsColor = loadColorSetting("secondsColor");
+    gregorianDateColor = loadColorSetting("gregorianDateColor");
+    sunEventColor = loadColorSetting("sunEventColor");
+    stepsColor = loadColorSetting("stepsColor");
+  }
+
+  // Resource loading and layout helpers
+  function loadResources() {
     iconFont = WatchUi.loadResource(Rez.Fonts.icons);
     // Choose a larger font for devices with a display bigger than 280
     var w = dc.getWidth();
@@ -87,43 +90,53 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
-    //loadSettings();
+  }
+
 
     // Scale label positions based on actual device dimensions
     var xScale = w / 260.0;
     var yScale = h / 260.0;
 
-    (View.findDrawableById("holydayLabel") as Text).setLocation(
-      w / 2.0,
-      25.0 * yScale
-    );
-    (View.findDrawableById("topDateLabel") as Text).setLocation(
-      w / 2.0,
-      55.0 * yScale
-    );
-    (View.findDrawableById("SecondsLabel") as Text).setLocation(
-      200.0 * xScale,
-      118.0 * yScale
-    );
-    (View.findDrawableById("bottomDateLabel") as Text).setLocation(
-      w / 2.0,
-      162.0 * yScale
-    );
-    (View.findDrawableById("iconsLabel") as Text).setLocation(
-      w / 2.0,
-      204.0 * yScale
-    );
-    (View.findDrawableById("stepsLabel") as Text).setLocation(
-      100.0 * xScale,
-      204.0 * yScale
-    );
-    (View.findDrawableById("sunLabel") as Text).setLocation(
-      150.0 * xScale,
-      204.0 * yScale
-    );
+  function cacheDrawables() {
+    batteryLabel = View.findDrawableById("batteryLabel") as Text;
+    holydayLabel = View.findDrawableById("holydayLabel") as Text;
+    topDateLabel = View.findDrawableById("topDateLabel") as Text;
+    timeLabel = View.findDrawableById("TimeLabel") as Text;
+    secondsLabel = View.findDrawableById("SecondsLabel") as Text;
+    bottomDateLabel = View.findDrawableById("bottomDateLabel") as Text;
+    iconsLabel = View.findDrawableById("iconsLabel") as Text;
+    stepsLabel = View.findDrawableById("stepsLabel") as Text;
+    sunLabel = View.findDrawableById("sunLabel") as Text;
+  }
+
+
+  function computeScale(dc as Dc) {
+    width = dc.getWidth();
+    height = dc.getHeight();
+    xScale = width / 260.0;
+    yScale = height / 260.0;
+  }
+
+  function positionLabels() {
+    holydayLabel.setLocation(width / 2.0, 25.0 * yScale);
+    topDateLabel.setLocation(width / 2.0, 55.0 * yScale);
+    secondsLabel.setLocation(200.0 * xScale, 118.0 * yScale);
+    bottomDateLabel.setLocation(width / 2.0, 162.0 * yScale);
+    iconsLabel.setLocation(width / 2.0, 204.0 * yScale);
+    stepsLabel.setLocation(100.0 * xScale, 204.0 * yScale);
+    sunLabel.setLocation(150.0 * xScale, 204.0 * yScale);
 
     stepsIconX = 10.0 * xScale;
     stepsIconY = 198.0 * yScale;
+  }
+
+  // Load your resources here
+  function onLayout(dc as Dc) as Void {
+    setLayout(Rez.Layouts.WatchFace(dc));
+    loadResources();
+    cacheDrawables();
+    computeScale(dc);
+    positionLabels();
   }
 
   // Called when this View is brought to the foreground. Restore
@@ -135,23 +148,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var clockTime = System.getClockTime();
     var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
 
-    // Calculate position
-    var w = dc.getWidth();
-    var h = dc.getHeight();
-    var xScale = w / 260.0;
-    var yScale = h / 260.0;
-
+    computeScale(dc);
     var secondsX = 200.0 * xScale;
     var secondsY = 118.0 * yScale;
 
-    // Set small clipping area
     dc.setClip(secondsX, secondsY, 60, 60);
-
-    // Clear background in clipped area
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
-
-    // Draw text directly
     dc.setColor(secondsColor, Graphics.COLOR_TRANSPARENT);
     dc.drawText(
       secondsX,
@@ -162,34 +165,99 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     );
   }
 
-  // Update the view
-  function onUpdate(dc as Dc) as Void {
-    loadSettings();
+  // Update helpers
+  function updateHebrewDate(hDate, holyday) {
+    holydayLabel.setText(holyday.toString());
+    holydayLabel.setFont(frankFont);
+    holydayLabel.setColor(hebrewDateColor);
 
-    var w = dc.getWidth();
-    var h = dc.getHeight();
-    dc.setClip(0, 0, w, h);
-    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-    dc.clear();
+    topDateLabel.setText(hDate.toString());
+    topDateLabel.setFont(frankFont);
+    topDateLabel.setColor(hebrewDateColor);
+  }
 
-    var clockTime = System.getClockTime();
-    var timeStr = Lang.format("$1$:$2$", [
-      clockTime.hour.format("%02d"),
-      clockTime.min.format("%02d"),
-    ]);
-    var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
+  function updateBattery() {
+    if (!showBattery) {
+      batteryLabel.setText("");
+      return;
+    }
+    var myStats = System.getSystemStats();
+    var batteryLevel = myStats.battery;
+    var battery = "";
+    var color = Graphics.COLOR_GREEN;
+    if (batteryLevel > 80) {
+      battery = "B";
+    } else if (batteryLevel > 60) {
+      battery = "C";
+    } else if (batteryLevel > 40) {
+      battery = "D";
+    } else if (batteryLevel > 20) {
+      battery = "E";
+      color = Graphics.COLOR_ORANGE;
+    } else {
+      battery = "F";
+      color = Graphics.COLOR_RED;
+    }
+    batteryLabel.setColor(color);
+    batteryLabel.setText(battery.toString());
+    batteryLabel.setFont(iconFont);
+  }
 
-    var gInfo = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-    var gDate = Lang.format("$1$/$2$/$3$", [
-      gInfo.day.format("%02d"),
-      gInfo.month.format("%02d"),
-      gInfo.year,
-    ]);
+  function updateTime(clockTime) {
+    if (showTime) {
+      var timeStr = Lang.format("$1$:$2$", [
+        clockTime.hour.format("%02d"),
+        clockTime.min.format("%02d"),
+      ]);
+      timeLabel.setColor(timeColor);
+      timeLabel.setText(timeStr);
+    } else {
+      timeLabel.setText("");
+    }
 
-    var actInfo = ActivityMonitor.getInfo();
-    var stepsNum = actInfo != null ? actInfo.steps : 0;
-    var steps = Lang.format("$1$ ", [stepsNum, ""]);
+    if (showSeconds) {
+      var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
+      secondsLabel.setColor(secondsColor);
+      secondsLabel.setText(secStr);
+    } else {
+      secondsLabel.setText("");
+    }
+  }
 
+  function updateGregorianDate(gDate) {
+    if (showGregorianDate) {
+      bottomDateLabel.setColor(gregorianDateColor);
+      bottomDateLabel.setText(gDate);
+      bottomDateLabel.setFont(frankFont);
+    } else {
+      bottomDateLabel.setText("");
+    }
+  }
+
+  function updateSteps(dc as Dc, stepsNum) {
+    if (showSteps) {
+      var steps = Lang.format("$1$ ", [stepsNum, ""]);
+      stepsLabel.setText(steps.toString());
+      stepsLabel.setColor(stepsColor);
+      dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
+    } else {
+      stepsLabel.setText("");
+    }
+  }
+
+  function updateSunEvent(info) {
+    if (showSunEvent) {
+      sunLabel.setColor(sunEventColor);
+      sunLabel.setText(info["label"]);
+      iconsLabel.setText(info["icon"]);
+      iconsLabel.setFont(iconFont);
+    } else {
+      sunLabel.setText("");
+      iconsLabel.setText("");
+    }
+  }
+
+  function calculateSunInfo() {
     var nextLabel = "";
     var hDate = "hb";
     var holyday = "";
@@ -197,12 +265,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var lat = 31.77758;
     var lon = 35.235786;
     var posInfo = Position.getInfo();
-    var isDefaultGPS=true;
+    var isDefaultGPS = true;
     if (posInfo != null) {
       var pos = posInfo.position.toDegrees();
-      isDefaultGPS = (pos[0]>179.99&&pos[1]>179.99 && pos[0]<180.01&&pos[1]<180.01);
+      isDefaultGPS = (pos[0] > 179.99 && pos[1] > 179.99 && pos[0] < 180.01 && pos[1] < 180.01);
     }
-    if ( !isDefaultGPS) {
+    if (!isDefaultGPS && showSunEvent) {
       var posInRadians = posInfo.position.toRadians();
       lat = posInRadians[0];
       lon = posInRadians[1];
@@ -212,15 +280,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       now = Time.Gregorian.info(now, Time.FORMAT_SHORT);
       var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
       var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      // afterSunrise is true when current time is equal or later than sunrise
-      var afterSunrise =
-        now.hour > sunRiseTime.hour ||
+      var afterSunrise = now.hour > sunRiseTime.hour ||
         (now.hour == sunRiseTime.hour && now.min >= sunRiseTime.min);
-      // beforeSunset is true when current time is earlier or equal than sunset
-      var beforeSunset =
-        now.hour < sunSetTime.hour ||
+      var beforeSunset = now.hour < sunSetTime.hour ||
         (now.hour == sunSetTime.hour && now.min <= sunSetTime.min);
-      // If we're before sunrise, the next event is sunrise; otherwise if we're before sunset, it's sunset
       if (sunrise != null && !afterSunrise) {
         iconStr = "0>";
         nextLabel = Lang.format("   $1$:$2$", [
@@ -253,94 +316,39 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
     }
+    return {
+      "icon" => iconStr,
+      "label" => nextLabel,
+      "hDate" => hDate,
+      "holyday" => holyday,
+    };
+  }
 
-    (View.findDrawableById("holydayLabel") as Text).setText(holyday.toString());
-    (View.findDrawableById("holydayLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("topDateLabel") as Text).setText(hDate.toString());
-    (View.findDrawableById("topDateLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("holydayLabel") as Text).setColor(hebrewDateColor);
-    (View.findDrawableById("topDateLabel") as Text).setColor(hebrewDateColor);
+  // Update the view
+  function onUpdate(dc as Dc) as Void {
+    loadSettings();
+    computeScale(dc);
+    dc.setClip(0, 0, width, height);
+    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+    dc.clear();
 
-    if (showBattery) {
-      //var battery = "BCDEF";
-      var myStats = System.getSystemStats();
-      var batteryLevel = myStats.battery;
+    var clockTime = System.getClockTime();
+    var gInfo = Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+    var gDate = Lang.format("$1$/$2$/$3$", [
+      gInfo.day.format("%02d"),
+      gInfo.month.format("%02d"),
+      gInfo.year,
+    ]);
+    var actInfo = ActivityMonitor.getInfo();
+    var stepsNum = actInfo != null ? actInfo.steps : 0;
+    var sunInfo = calculateSunInfo();
 
-      var battery = "";
-      if (batteryLevel > 80) {
-        battery = "B";
-        (View.findDrawableById("batteryLabel") as Text).setColor(
-          Graphics.COLOR_GREEN
-        );
-      } else if (batteryLevel > 60) {
-        battery = "C";
-        (View.findDrawableById("batteryLabel") as Text).setColor(
-          Graphics.COLOR_GREEN
-        );
-      } else if (batteryLevel > 40) {
-        battery = "D";
-        (View.findDrawableById("batteryLabel") as Text).setColor(
-          Graphics.COLOR_GREEN
-        );
-      } else if (batteryLevel > 20) {
-        battery = "E";
-        (View.findDrawableById("batteryLabel") as Text).setColor(
-          Graphics.COLOR_ORANGE
-        );
-      } else {
-        battery = "F";
-        (View.findDrawableById("batteryLabel") as Text).setColor(
-          Graphics.COLOR_RED
-        );
-      }
-      (View.findDrawableById("batteryLabel") as Text).setText(
-        battery.toString()
-      );
-      (View.findDrawableById("batteryLabel") as Text).setFont(iconFont);
-    } else {
-      (View.findDrawableById("batteryLabel") as Text).setText("");
-    }
-
-    if (showTime) {
-      (View.findDrawableById("TimeLabel") as Text).setColor(timeColor);
-      (View.findDrawableById("TimeLabel") as Text).setText(timeStr);
-    } else {
-      (View.findDrawableById("TimeLabel") as Text).setText("");
-    }
-    if (showSeconds) {
-      (View.findDrawableById("SecondsLabel") as Text).setColor(secondsColor);
-      (View.findDrawableById("SecondsLabel") as Text).setText(secStr);
-    } else {
-      (View.findDrawableById("SecondsLabel") as Text).setText("");
-    }
-
-    if (showGregorianDate) {
-      (View.findDrawableById("bottomDateLabel") as Text).setColor(gregorianDateColor);
-      (View.findDrawableById("bottomDateLabel") as Text).setText(gDate);
-      (View.findDrawableById("bottomDateLabel") as Text).setFont(frankFont);
-    } else {
-      (View.findDrawableById("bottomDateLabel") as Text).setText("");
-    }
-    //(View.findDrawableById("stepsLabel") as Text).setText(steps.toString());
-    if (showSteps) {
-      (View.findDrawableById("stepsLabel") as Text).setText(steps.toString());      
-      (View.findDrawableById("stepsLabel") as Text).setColor(stepsColor);
-      dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
-    } else {
-      (View.findDrawableById("stepsLabel") as Text).setText("");
-    }
-    if (showSunEvent) {
-      (View.findDrawableById("sunLabel") as Text).setColor(sunEventColor);
-      (View.findDrawableById("sunLabel") as Text).setText(nextLabel);
-    } else {
-      (View.findDrawableById("sunLabel") as Text).setText("");
-    }
-    //(View.findDrawableById("sunLabel") as Text).setFont(frankFont);
-    (View.findDrawableById("iconsLabel") as Text).setText(iconStr);
-    (View.findDrawableById("iconsLabel") as Text).setFont(iconFont);
-
-    // Draw the steps icon using scaled coordinates
-    dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
+    updateHebrewDate(sunInfo["hDate"], sunInfo["holyday"]);
+    updateBattery();
+    updateTime(clockTime);
+    updateGregorianDate(gDate);
+    updateSteps(dc, stepsNum);
+    updateSunEvent(sunInfo);
 
     View.onUpdate(dc);
   }
@@ -356,24 +364,23 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Terminate any active timers and prepare for slow updates.
   function onEnterSleep() as Void {}
 
+  // Simplified color lookup
   function getColor(color) as ColorValue {
-    switch (color) {
-      case 1:
-        return Graphics.COLOR_WHITE;
-      case 2:
-        return Graphics.COLOR_DK_GRAY;
-      case 3:
-        return Graphics.COLOR_BLUE;
-      case 4:
-        return Graphics.COLOR_RED;
-      case 5:
-        return Graphics.COLOR_GREEN;
-      case 6:
-        return Graphics.COLOR_ORANGE;
-      case 7:
-        return Graphics.COLOR_YELLOW;
-      default:
-        return Graphics.COLOR_WHITE;
+    var colors = [
+      Graphics.COLOR_WHITE,
+      Graphics.COLOR_DK_GRAY,
+      Graphics.COLOR_BLUE,
+      Graphics.COLOR_RED,
+      Graphics.COLOR_GREEN,
+      Graphics.COLOR_ORANGE,
+      Graphics.COLOR_YELLOW,
+    ];
+    if (color == null) {
+      return Graphics.COLOR_WHITE;
     }
+    if (color >= 1 && color <= colors.size()) {
+      return colors[color - 1];
+    }
+    return Graphics.COLOR_WHITE;
   }
 }
