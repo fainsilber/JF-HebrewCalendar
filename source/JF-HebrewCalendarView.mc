@@ -325,16 +325,16 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function isShabbat(now) {
 
     var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
-    if( gNow.day_of_week != 5 && gNow.day_of_week != 6) {
+    if( gNow.day_of_week != 6 && gNow.day_of_week != 7) {
       return false; // Not Friday or Saturday
     }
 
     // If it's Friday, we need to find the sunset of today
-    if (gNow.day_of_week == 5 && now.value() > sunset.value()) {
+    if (gNow.day_of_week == 6 && now.value() > sunset.value()) {
       return true; // After sunset on Friday
     }
     var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
-    if (gNow.day_of_week == 6 && now.value() < motazsh.value()) {
+    if (gNow.day_of_week == 7 && now.value() < motazsh.value()) {
       return true; 
     }
     return false;
