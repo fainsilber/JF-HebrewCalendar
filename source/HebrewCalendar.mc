@@ -256,10 +256,13 @@ class HebrewCalendar {
       toLongSafe(gd.day)
     );
 
-    // If current time is after sunset, use tomorrow's date
-    if (now.value() >= sunsetMoment.value()) {
-      abs += 1;
-    }
+      // If current time is after sunset, use tomorrow's date
+      var nowInfo = Gregorian.info(now, Time.FORMAT_LONG);
+      var sunsetInfo = Gregorian.info(sunsetMoment, Time.FORMAT_LONG);
+      if (nowInfo.hour > sunsetInfo.hour ||
+          (nowInfo.hour == sunsetInfo.hour && nowInfo.min >= sunsetInfo.min)) {
+        abs += 1;
+      }
 
     var hd = absoluteToHebrew(abs);
     return hd;
