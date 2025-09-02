@@ -47,12 +47,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var showSteps = true;
   var showSunEvent = true;
   var shabbatMode = false;
-  var hebrewDateColor = Graphics.COLOR_WHITE;
+  var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
-  var secondsColor = Graphics.COLOR_WHITE;
+  var secondsColor = Graphics.COLOR_BLUE;
   var gregorianDateColor = Graphics.COLOR_WHITE;
-  var sunEventColor = Graphics.COLOR_WHITE;
-  var stepsColor = Graphics.COLOR_WHITE;
+  var sunEventColor = Graphics.COLOR_YELLOW;
+  var stepsColor = Graphics.COLOR_GREEN;
 
   function initialize() {
     WatchFace.initialize();
@@ -323,39 +323,21 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function isShabbat(now) {
-    var lat = 31.77758 * Math.PI / 180.0;
-    var lon = 35.235786 * Math.PI / 180.0;
-    var posInfo = Position.getInfo();
-    if (posInfo != null) {
-      var pos = posInfo.position.toDegrees();
-      var isDefaultGPS = (pos[0] > 179.99 && pos[1] > 179.99 && pos[0] < 180.01 && pos[1] < 180.01);
-      if (!isDefaultGPS) {
-        var posRad = posInfo.position.toRadians();
-        lat = posRad[0];
-        lon = posRad[1];
-      }
-    }
 
     var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
-    var secondsToday = gNow.hour * 3600 + gNow.min * 60 + gNow.sec;
-    var dayStart = now.add(new Time.Duration(-secondsToday));
-    var oneDay = new Time.Duration(86400);
-
-    // Determine upcoming Friday and Saturday
-    var saturday = dayStart;
-    // Advance to next Saturday (day_of_week == 6)
-    while (Time.Gregorian.info(saturday, Time.FORMAT_SHORT).day_of_week != 6) {
-      saturday = saturday.add(oneDay);
+    if( gNow.day_of_week != 5 && gNow.day_of_week != 6) {
+      return false; // Not Friday or Saturday
     }
-    var friday = saturday.add(new Time.Duration(-86400));
 
-    var fridaySunset = sunCalc.calculate(friday, lat, lon, SUNSET);
-    var saturdaySunset = sunCalc.calculate(saturday, lat, lon, SUNSET);
-
-    var start = fridaySunset.add(new Time.Duration(-18 * 60));
-    var end = saturdaySunset.add(new Time.Duration(72 * 60));
-
-    return (now >= start && now <= end);
+    // If it's Friday, we need to find the sunset of today
+    if (gNow.day_of_week == 5 && now.value() > sunset.value()) {
+      return true; // After sunset on Friday
+    }
+    var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
+    if (gNow.day_of_week == 6 && now.value() < motazsh.value()) {
+      return true; 
+    }
+    return false;
   }
 
   function updateShabbat(isActive) {
