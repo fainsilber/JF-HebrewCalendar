@@ -329,13 +329,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return false; // Not Friday or Saturday
     }
 
-    // If it's Friday, we need to find the sunset of today
-    if (gNow.day_of_week == 6 && now.value() > sunset.value()) {
+    var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+    // If it's Friday, we only care if the current time is after the sunset time
+    if (gNow.day_of_week == 6 &&
+        (gNow.hour > sunSetTime.hour ||
+         (gNow.hour == sunSetTime.hour && gNow.min > sunSetTime.min))) {
       return true; // After sunset on Friday
     }
+
     var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
-    if (gNow.day_of_week == 7 && now.value() < motazsh.value()) {
-      return true; 
+    var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
+    if (gNow.day_of_week == 7 &&
+        (gNow.hour < motazshTime.hour ||
+         (gNow.hour == motazshTime.hour && gNow.min < motazshTime.min))) {
+      return true;
     }
     return false;
   }
