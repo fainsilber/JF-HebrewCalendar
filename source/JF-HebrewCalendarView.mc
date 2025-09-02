@@ -81,9 +81,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function loadResources() {
     iconFont = WatchUi.loadResource(Rez.Fonts.icons);
     // Choose a larger font for devices with a display bigger than 280
-    var w = dc.getWidth();
-    var h = dc.getHeight();
-    if (w > 280 || h > 280) {
+    if (width > 280 || height > 280) {
       frankFont = WatchUi.loadResource(Rez.Fonts.frank55);
     } else {
       frankFont = WatchUi.loadResource(Rez.Fonts.frank);
@@ -91,11 +89,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
   }
-
-
-    // Scale label positions based on actual device dimensions
-    var xScale = w / 260.0;
-    var yScale = h / 260.0;
 
   function cacheDrawables() {
     batteryLabel = View.findDrawableById("batteryLabel") as Text;
@@ -133,9 +126,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Load your resources here
   function onLayout(dc as Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
-    loadResources();
     cacheDrawables();
     computeScale(dc);
+    loadResources();
     positionLabels();
   }
 
