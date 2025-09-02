@@ -13,6 +13,11 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var frankFont = null;
   var stepsIcon = null;
   var sunCalc = null;
+  // Global position and sun times
+  var lat = 31.77758;
+  var lon = 35.235786;
+  var sunrise = null;
+  var sunset = null;
 
   // Cached drawable references
   var batteryLabel = null;
@@ -244,13 +249,26 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
   }
 
+  function updateSunTimes(now) {
+    if (sunrise == null || sunset == null) {
+      sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
+      sunset = sunCalc.calculate(now, lat, lon, SUNSET);
+    } else {
+      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
+      var sunSetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+      if (nowInfo.hour > sunSetInfo.hour || (nowInfo.hour == sunSetInfo.hour && nowInfo.min >= sunSetInfo.min)) {
+        var tomorrow = now.add(new Time.Duration(86400));
+        sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
+        sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
+      }
+    }
+  }
+
   function calculateSunInfo() {
     var nextLabel = "";
     var hDate = "hb";
     var holyday = "";
     var iconStr = "0";
-    var lat = 31.77758;
-    var lon = 35.235786;
     var posInfo = Position.getInfo();
     var isDefaultGPS = true;
     if (posInfo != null) {
@@ -259,46 +277,32 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
     if (!isDefaultGPS && showSunEvent) {
       var posInRadians = posInfo.position.toRadians();
-      lat = posInRadians[0];
-      lon = posInRadians[1];
+      if (lat != posInRadians[0] || lon != posInRadians[1]) {
+        lat = posInRadians[0];
+        lon = posInRadians[1];
+        sunrise = null;
+        sunset = null;
+      }
       var now = Time.now();
-      var sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
-      var sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-      now = Time.Gregorian.info(now, Time.FORMAT_SHORT);
+      updateSunTimes(now);
+      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
       var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
       var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      var afterSunrise = now.hour > sunRiseTime.hour ||
-        (now.hour == sunRiseTime.hour && now.min >= sunRiseTime.min);
-      var beforeSunset = now.hour < sunSetTime.hour ||
-        (now.hour == sunSetTime.hour && now.min <= sunSetTime.min);
-      if (sunrise != null && !afterSunrise) {
+      var beforeSunrise = nowInfo.hour < sunRiseTime.hour || (nowInfo.hour == sunRiseTime.hour && nowInfo.min < sunRiseTime.min);
+      var beforeSunset = nowInfo.hour < sunSetTime.hour || (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
+      if (beforeSunrise) {
         iconStr = "0>";
-        nextLabel = Lang.format("   $1$:$2$", [
-          sunRiseTime.hour.format("%02d"),
-          sunRiseTime.min.format("%02d"),
-        ]);
-      } else if (sunset != null && beforeSunset) {
+        nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
+      } else if (beforeSunset) {
         iconStr = "0?";
-        nextLabel = Lang.format("   $1$:$2$", [
-          sunSetTime.hour.format("%02d"),
-          sunSetTime.min.format("%02d"),
-        ]);
+        nextLabel = Lang.format("   $1$:$2$", [sunSetTime.hour.format("%02d"), sunSetTime.min.format("%02d")]);
       } else {
-        var today = Time.now();
-        var oneDay = new Time.Duration(86400);
-        var tomorrow = today.add(oneDay);
-        var sunrise2 = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
-        if (sunrise2 != null) {
-          sunrise2 = Time.Gregorian.info(sunrise2, Time.FORMAT_SHORT);
-          iconStr = "0?";
-          nextLabel = Lang.format("    $1$:$2$", [
-            sunrise2.hour.format("%02d"),
-            sunrise2.min.format("%02d"),
-          ]);
-        }
+        iconStr = "0>";
+        nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
       }
-      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(sunset);
-      holyday = HebrewCalendar.getHebrewHolyday(sunset);
+      var lastSunset = sunset.subtract(new Time.Duration(86400));
+      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(lastSunset);
+      holyday = HebrewCalendar.getHebrewHolyday(lastSunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
