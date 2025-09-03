@@ -54,6 +54,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var sunEventColor = Graphics.COLOR_YELLOW;
   var stepsColor = Graphics.COLOR_GREEN;
 
+  const EIGHTEEN_MINUTES = 18 * 60;
+  const SEVENTY_TWO_MINUTES = 72 * 60;
+
   function initialize() {
     WatchFace.initialize();
   }
@@ -335,7 +338,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
 
     // If it's Friday, we only care if the current time is after the sunset time
-    var hadlakatNerot = sunset.subtract(new Time.Duration(18 * 60));
+    var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
     var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
     if (gNow.day_of_week == 6 &&
         (gNow.hour > hadlakatNerotTime.hour ||
@@ -343,7 +346,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return true; // After sunset on Friday
     }
 
-    var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
+    var motazsh = sunset.add(new Time.Duration(SEVENTY_TWO_MINUTES)); // 72 minutes after sunset
     var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
     if (gNow.day_of_week == 7 &&
         (gNow.hour < motazshTime.hour ||
@@ -353,9 +356,37 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     return false;
   }
 
-  function updateShabbat(isActive) {
-    if (isActive) {
+  // Return true when a chag is in effect
+  function isChag(now) {
+    var gNow = Time.Gregorian.info(now, Time.FORMAT_LONG);
+
+    // Check if the upcoming evening begins a chag
+    var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
+    var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
+    if (HebrewCalendar.isChagForTomorrowMorning() &&
+        (gNow.hour > hadlakatNerotTime.hour ||
+         (gNow.hour == hadlakatNerotTime.hour && gNow.min >= hadlakatNerotTime.min))) {
+      return true;
+    }
+
+    // Check if today is chag and we have not yet passed 72 minutes after sunset
+    if (HebrewCalendar.isChagForThisMorning()) {
+      var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
+      var motzaeiChag = todaySunset.add(new Time.Duration(SEVENTY_TWO_MINUTES));
+      if (now.value() < motzaeiChag.value()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function updateYomTovLabel(shabbatActive, chagActive) {
+    if (shabbatActive) {
       shabbatLabel.setText("שבת שלום");
+      shabbatLabel.setFont(frankFont);
+      shabbatLabel.setColor(hebrewDateColor);
+    } else if (chagActive) {
+      shabbatLabel.setText("חג שמח");
       shabbatLabel.setFont(frankFont);
       shabbatLabel.setColor(hebrewDateColor);
     } else {
@@ -373,7 +404,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     var now = Time.now();
     var shabbatActive = shabbatMode && isShabbat(now);
-    if (shabbatActive) {
+    var chagActive = shabbatMode && !shabbatActive && isChag(now);
+    if (shabbatActive || chagActive) {
       showSteps = false;
       showSunEvent = false;
     }
@@ -394,7 +426,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     updateGregorianDate(gDate);
     updateSteps(dc, stepsNum);
     updateSunEvent(sunInfo);
-    updateShabbat(shabbatActive);
+    updateYomTovLabel(shabbatActive, chagActive);
 
     View.onUpdate(dc);
   }
