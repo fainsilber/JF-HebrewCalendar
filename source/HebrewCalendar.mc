@@ -567,6 +567,59 @@ class HebrewCalendar {
     return "";
   }
 
+  // Returns true if the given Hebrew date is a chag on which melacha is prohibited
+  static function isChagForDate(hd) as Boolean {
+    var year = hd[0];
+    var month = hd[1];
+    var day = hd[2];
+    var isLeap = isHebrewLeapYear(year);
+    var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
+
+    if (standardMonth == 7) {
+      // Tishrei: Rosh Hashana (1-2), Yom Kippur (10), Sukkot (15), Shemini Atzeret (22)
+      if (day == 1 || day == 2 || day == 10 || day == 15 || day == 22) {
+        return true;
+      }
+    } else if (standardMonth == 1) {
+      // Nisan: Pesach (15), Last day of Pesach (21)
+      if (day == 15 || day == 21) {
+        return true;
+      }
+    } else if (standardMonth == 3) {
+      // Sivan: Shavuot (6)
+      if (day == 6) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  // Returns true if today (this morning) is a chag on which melacha is prohibited
+  static function isChagForThisMorning() as Boolean {
+    var hd = getHebrewDateThisMorning();
+    return isChagForDate(hd);
+  }
+
+  // Returns true if tomorrow morning is a chag on which melacha is prohibited
+  static function isChagForTomorrowMorning() as Boolean {
+    var gd = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+    var abs =
+      gregorianToAbsolute(
+        toLongSafe(gd.year),
+        toLongSafe(gd.month),
+        toLongSafe(gd.day)
+      ) + 1;
+    var hd = absoluteToHebrew(abs);
+    return isChagForDate(hd);
+  }
+
+  // Returns true if given sunset-adjusted time falls on a chag on which melacha is prohibited
+  static function isChag(sunset) as Boolean {
+    var hd = getHebrewDateConsideringSunset(sunset);
+    return isChagForDate(hd);
+  }
+
   static function getHebrewHolydayForThisMorning() as String {
     var hd = getHebrewDateThisMorning();
     return getHebrewHolydayForDate(hd);
