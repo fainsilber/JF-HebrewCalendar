@@ -54,8 +54,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var sunEventColor = Graphics.COLOR_YELLOW;
   var stepsColor = Graphics.COLOR_GREEN;
 
-  // var EIGHTEEN-MINUTES = 18 * 60;
-  // var SEVENTY-TWO-MINUTES = 72 * 60;
+  var EIGHTEEN_MINUTES = 18 * 60;
+  var SEVENTY_TWO_MINUTES = 72 * 60;
 
   function initialize() {
     WatchFace.initialize();
@@ -331,6 +331,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function isShabbat(now) {
+    if (sunset == null) {
+      return false;
+    }
 
     var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
     if( gNow.day_of_week != 6 && gNow.day_of_week != 7) {
@@ -338,7 +341,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
 
     // If it's Friday, we only care if the current time is after the sunset time
-    var hadlakatNerot = sunset.subtract(new Time.Duration(18 * 60));
+    var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
     var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
     if (gNow.day_of_week == 6 &&
         (gNow.hour > hadlakatNerotTime.hour ||
@@ -346,7 +349,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return true; // After sunset on Friday
     }
 
-    var motazsh = sunset.add(new Time.Duration(72 * 60)); // 72 minutes after sunset
+    var motazsh = sunset.add(new Time.Duration(SEVENTY_TWO_MINUTES)); // 72 minutes after sunset
     var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
     if (gNow.day_of_week == 7 &&
         (gNow.hour < motazshTime.hour ||
@@ -364,7 +367,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var gNow = Time.Gregorian.info(now, Time.FORMAT_LONG);
 
     // Check if the upcoming evening begins a chag
-    var hadlakatNerot = sunset.subtract(new Time.Duration(18 * 60));
+    var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
     var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
     if (HebrewCalendar.isChagForTomorrowMorning() &&
         (gNow.hour > hadlakatNerotTime.hour ||
@@ -375,7 +378,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     // Check if today is chag and we have not yet passed 72 minutes after sunset
     if (HebrewCalendar.isChagForThisMorning()) {
       var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
-      var motzaeiChag = todaySunset.add(new Time.Duration(72 * 60));
+      var motzaeiChag = todaySunset.add(new Time.Duration(SEVENTY_TWO_MINUTES));
       if (now.value() < motzaeiChag.value()) {
         return true;
       }
