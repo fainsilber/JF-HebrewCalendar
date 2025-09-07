@@ -98,4 +98,8 @@
     <setting propertyKey="@Properties.shabbatMode" title="Shabbat Mode">
         <settingConfig type="boolean" />
     </setting>
+
+    <setting propertyKey="@Properties.rabbenuTam" title="Rabbenu Tam">
+        <settingConfig type="boolean" />
+    </setting>
 </settings>

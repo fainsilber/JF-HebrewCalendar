@@ -47,6 +47,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var showSteps = true;
   var showSunEvent = true;
   var shabbatMode = false;
+  var rabbenuTam = false;
   var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
   var secondsColor = Graphics.COLOR_BLUE;
@@ -83,6 +84,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     showSteps = loadBooleanSetting("showSteps", showSteps);
     showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
     shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
+    rabbenuTam = loadBooleanSetting("rabbenuTam", rabbenuTam);
 
     hebrewDateColor = loadColorSetting("hebrewDateColor");
     timeColor = loadColorSetting("timeColor");
@@ -384,8 +386,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
 
     var minutesAfterSunset = 0;
-    if (true) {
-      //add setting for RabbenuTam}
+    if (!rabbenuTam) {
       minutesAfterSunset = THIRTY_SIX_MINUTES; // 36 minutes after sunset for standard
     } else {
       minutesAfterSunset = SEVENTY_TWO_MINUTES; // 72 minutes after sunset for Rabbenu Tam
@@ -433,8 +434,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (HebrewCalendar.isChagForThisMorning()) {
       var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
       var minutesAfterSunset = 0;
-      if (true) {
-        //add setting for RabbenuTam
+      if (!rabbenuTam) {
         minutesAfterSunset = THIRTY_SIX_MINUTES; // 36 minutes after sunset for standard
       } else {
         minutesAfterSunset = SEVENTY_TWO_MINUTES; // 72 minutes after sunset for Rabbenu Tam
