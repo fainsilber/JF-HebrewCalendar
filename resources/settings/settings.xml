@@ -95,7 +95,7 @@
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.shabbatMode" title="Shabbat Mode">
+    <setting propertyKey="@Properties.shabbatMode" title="Shabbat Mode: removes Steps and Sun Event in Shabbat">
         <settingConfig type="boolean" />
     </setting>
 

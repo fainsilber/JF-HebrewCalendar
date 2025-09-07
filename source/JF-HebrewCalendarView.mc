@@ -264,7 +264,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       iconsLabel.setFont(iconFont);
     } else {
       sunLabel.setText("");
-      iconsLabel.setText("");
+      iconsLabel.setText(info["icon"]);
+      iconsLabel.setFont(iconFont);
     }
   }
 
@@ -291,6 +292,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var hDate = "hb";
     var holyday = "";
     var iconStr = "";
+    if (showSteps) {
+      iconStr = "0"; // Clear icon if showing steps
+    }
     var posInfo = Position.getInfo();
     var isDefaultGPS = true;
     if (posInfo != null) {
@@ -320,13 +324,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var beforeSunset =
         nowInfo.hour < sunSetTime.hour ||
         (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
-      
-      if(showSteps){
-        iconStr = "0"; // Clear icon if showing steps
-      }
-      else {
-        iconStr = ""; // Default to no sun event
-      }
 
       if (beforeSunrise) {
         iconStr += ">";
@@ -399,7 +396,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       minutesAfterSunset = SEVENTY_TWO_MINUTES; // 72 minutes after sunset for Rabbenu Tam
     }
 
-    var motazsh = sunset.add(new Time.Duration(minutesAfterSunset)); 
+    var motazsh = sunset.add(new Time.Duration(minutesAfterSunset));
     var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
     if (
       gNow.day_of_week == 7 &&
