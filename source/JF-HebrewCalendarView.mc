@@ -11,7 +11,6 @@ import Toybox.Application;
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
   var frankFont = null;
-  var stepsIcon = null;
   var sunCalc = null;
   // Global position and sun times
   var lat = 31.77758;
@@ -36,8 +35,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var height = 0.0;
   var xScale = 1.0;
   var yScale = 1.0;
-  var stepsIconX = 0.0;
-  var stepsIconY = 0.0;
 
   // Settings
   var showBattery = true;
@@ -103,7 +100,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     } else {
       frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     }
-    stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
   }
 
@@ -136,9 +132,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     stepsLabel.setLocation(100.0 * xScale, 204.0 * yScale);
     sunLabel.setLocation(150.0 * xScale, 204.0 * yScale);
     shabbatLabel.setLocation(width / 2.0, 204.0 * yScale);
-
-    stepsIconX = 10.0 * xScale;
-    stepsIconY = 198.0 * yScale;
   }
 
   // Load your resources here
@@ -250,7 +243,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var steps = Lang.format("$1$ ", [stepsNum, ""]);
       stepsLabel.setText(steps.toString());
       stepsLabel.setColor(stepsColor);
-      dc.drawBitmap(stepsIconX, stepsIconY, stepsIcon);
     } else {
       stepsLabel.setText("");
     }
@@ -491,6 +483,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (shabbatActive || chagActive) {
       showSteps = false;
       showSunEvent = false;
+      sunInfo["icon"]="";
     }
 
     updateHebrewDate(sunInfo["hDate"], sunInfo["holyday"]);
