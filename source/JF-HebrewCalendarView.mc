@@ -290,7 +290,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var nextLabel = "";
     var hDate = "hb";
     var holyday = "";
-    var iconStr = "0";
+    var iconStr = "";
     var posInfo = Position.getInfo();
     var isDefaultGPS = true;
     if (posInfo != null) {
@@ -320,20 +320,28 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var beforeSunset =
         nowInfo.hour < sunSetTime.hour ||
         (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
+      
+      if(showSteps){
+        iconStr = "0"; // Clear icon if showing steps
+      }
+      else {
+        iconStr = ""; // Default to no sun event
+      }
+
       if (beforeSunrise) {
-        iconStr = "0>";
+        iconStr += ">";
         nextLabel = Lang.format("   $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (beforeSunset) {
-        iconStr = "0?";
+        iconStr += "?";
         nextLabel = Lang.format("   $1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
         ]);
       } else {
-        iconStr = "0>";
+        iconStr += ">";
         nextLabel = Lang.format("   $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
@@ -345,7 +353,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
-      iconStr = "0";
       nextLabel = "GPS?";
     }
     return {
