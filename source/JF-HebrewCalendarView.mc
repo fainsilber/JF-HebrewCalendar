@@ -56,6 +56,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   var EIGHTEEN_MINUTES = 18 * 60;
   var SEVENTY_TWO_MINUTES = 72 * 60;
+  var THIRTY_SIX_MINUTES = 30 * 60;
 
   function initialize() {
     WatchFace.initialize();
@@ -75,7 +76,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     showBattery = loadBooleanSetting("showBattery", showBattery);
     showTime = loadBooleanSetting("showTime", showTime);
     showSeconds = loadBooleanSetting("showSeconds", showSeconds);
-    showGregorianDate = loadBooleanSetting("showGregorianDate", showGregorianDate);
+    showGregorianDate = loadBooleanSetting(
+      "showGregorianDate",
+      showGregorianDate
+    );
     showSteps = loadBooleanSetting("showSteps", showSteps);
     showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
     shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
@@ -95,7 +99,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (width > 280 || height > 280) {
       frankFont = WatchUi.loadResource(Rez.Fonts.frank55);
     } else {
-    frankFont = WatchUi.loadResource(Rez.Fonts.frank);
+      frankFont = WatchUi.loadResource(Rez.Fonts.frank);
     }
     stepsIcon = WatchUi.loadResource(Rez.Drawables.StepsIcon);
     sunCalc = new SunCalc();
@@ -113,7 +117,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     sunLabel = View.findDrawableById("sunLabel") as Text;
     shabbatLabel = View.findDrawableById("shabbatLabel") as Text;
   }
-
 
   function computeScale(dc as Dc) {
     width = dc.getWidth();
@@ -270,8 +273,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     } else {
       var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
       var sunsetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      if (nowInfo.hour > sunsetInfo.hour ||
-          (nowInfo.hour == sunsetInfo.hour && nowInfo.min >= sunsetInfo.min)) {
+      if (
+        nowInfo.hour > sunsetInfo.hour ||
+        (nowInfo.hour == sunsetInfo.hour && nowInfo.min >= sunsetInfo.min)
+      ) {
         var tomorrow = now.add(new Time.Duration(86400));
         sunrise = sunCalc.calculate(tomorrow, lat, lon, SUNRISE);
         sunset = sunCalc.calculate(tomorrow, lat, lon, SUNSET);
@@ -288,13 +293,17 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var isDefaultGPS = true;
     if (posInfo != null) {
       var pos = posInfo.position.toDegrees();
-      isDefaultGPS = (pos[0] > 179.99 && pos[1] > 179.99 && pos[0] < 180.01 && pos[1] < 180.01);
+      isDefaultGPS =
+        pos[0] > 179.99 &&
+        pos[1] > 179.99 &&
+        pos[0] < 180.01 &&
+        pos[1] < 180.01;
     }
     if (!isDefaultGPS && showSunEvent) {
       var posInRadians = posInfo.position.toRadians();
       if (lat != posInRadians[0] || lon != posInRadians[1]) {
-      lat = posInRadians[0];
-      lon = posInRadians[1];
+        lat = posInRadians[0];
+        lon = posInRadians[1];
         sunrise = null;
         sunset = null;
       }
@@ -303,24 +312,39 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var nowInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
       var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
       var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      var beforeSunrise = nowInfo.hour < sunRiseTime.hour || (nowInfo.hour == sunRiseTime.hour && nowInfo.min < sunRiseTime.min);
-      var beforeSunset = nowInfo.hour < sunSetTime.hour || (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
+      var beforeSunrise =
+        nowInfo.hour < sunRiseTime.hour ||
+        (nowInfo.hour == sunRiseTime.hour && nowInfo.min < sunRiseTime.min);
+      var beforeSunset =
+        nowInfo.hour < sunSetTime.hour ||
+        (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
       if (beforeSunrise) {
         iconStr = "0>";
-        nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
+        nextLabel = Lang.format("   $1$:$2$", [
+          sunRiseTime.hour.format("%02d"),
+          sunRiseTime.min.format("%02d"),
+        ]);
       } else if (beforeSunset) {
         iconStr = "0?";
-        nextLabel = Lang.format("   $1$:$2$", [sunSetTime.hour.format("%02d"), sunSetTime.min.format("%02d")]);
+        nextLabel = Lang.format("   $1$:$2$", [
+          sunSetTime.hour.format("%02d"),
+          sunSetTime.min.format("%02d"),
+        ]);
       } else {
         iconStr = "0>";
-        nextLabel = Lang.format("   $1$:$2$", [sunRiseTime.hour.format("%02d"), sunRiseTime.min.format("%02d")]);
-        }
+        nextLabel = Lang.format("   $1$:$2$", [
+          sunRiseTime.hour.format("%02d"),
+          sunRiseTime.min.format("%02d"),
+        ]);
+      }
       var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
       hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(todaySunset);
       holyday = HebrewCalendar.getHebrewHolyday(todaySunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
+      iconStr = "0";
+      nextLabel = "GPS?";
     }
     return {
       "icon" => iconStr,
@@ -331,29 +355,49 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function isShabbat(now) {
+    var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
     if (sunset == null) {
-      return false;
+      if (gNow.day_of_week != 7) {
+        return false;
+      } else {
+        return true; // It's Saturday, but we don't know the sunset time, so assume it's Shabbat
+      }
     }
 
-    var gNow = Time.Gregorian.info(now, Time.FORMAT_SHORT);
-    if( gNow.day_of_week != 6 && gNow.day_of_week != 7) {
+    if (gNow.day_of_week != 6 && gNow.day_of_week != 7) {
       return false; // Not Friday or Saturday
     }
 
     // If it's Friday, we only care if the current time is after the sunset time
     var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
-    var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
-    if (gNow.day_of_week == 6 &&
-        (gNow.hour > hadlakatNerotTime.hour ||
-         (gNow.hour == hadlakatNerotTime.hour && gNow.min >= hadlakatNerotTime.min))) {
+    var hadlakatNerotTime = Time.Gregorian.info(
+      hadlakatNerot,
+      Time.FORMAT_LONG
+    );
+    if (
+      gNow.day_of_week == 6 &&
+      (gNow.hour > hadlakatNerotTime.hour ||
+        (gNow.hour == hadlakatNerotTime.hour &&
+          gNow.min >= hadlakatNerotTime.min))
+    ) {
       return true; // After sunset on Friday
     }
 
-    var motazsh = sunset.add(new Time.Duration(SEVENTY_TWO_MINUTES)); // 72 minutes after sunset
+    var minutesAfterSunset = 0;
+    if (true) {
+      //add setting for RabbenuTam}
+      minutesAfterSunset = THIRTY_SIX_MINUTES; // 36 minutes after sunset for standard
+    } else {
+      minutesAfterSunset = SEVENTY_TWO_MINUTES; // 72 minutes after sunset for Rabbenu Tam
+    }
+
+    var motazsh = sunset.add(new Time.Duration(minutesAfterSunset)); 
     var motazshTime = Time.Gregorian.info(motazsh, Time.FORMAT_LONG);
-    if (gNow.day_of_week == 7 &&
-        (gNow.hour < motazshTime.hour ||
-         (gNow.hour == motazshTime.hour && gNow.min < motazshTime.min))) {
+    if (
+      gNow.day_of_week == 7 &&
+      (gNow.hour < motazshTime.hour ||
+        (gNow.hour == motazshTime.hour && gNow.min < motazshTime.min))
+    ) {
       return true;
     }
     return false;
@@ -361,24 +405,41 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Return true when a chag is in effect
   function isChag(now) {
-    if (sunset == null) {
-      return false;
-    }
     var gNow = Time.Gregorian.info(now, Time.FORMAT_LONG);
+    if (sunset == null) {
+      if (!HebrewCalendar.isChagForThisMorning()) {
+        return false;
+      } else {
+        return true; // It's Chag, but we don't know the sunset time
+      }
+    }
 
     // Check if the upcoming evening begins a chag
     var hadlakatNerot = sunset.subtract(new Time.Duration(EIGHTEEN_MINUTES));
-    var hadlakatNerotTime = Time.Gregorian.info(hadlakatNerot, Time.FORMAT_LONG);
-    if (HebrewCalendar.isChagForTomorrowMorning() &&
-        (gNow.hour > hadlakatNerotTime.hour ||
-         (gNow.hour == hadlakatNerotTime.hour && gNow.min >= hadlakatNerotTime.min))) {
+    var hadlakatNerotTime = Time.Gregorian.info(
+      hadlakatNerot,
+      Time.FORMAT_LONG
+    );
+    if (
+      HebrewCalendar.isChagForTomorrowMorning() &&
+      (gNow.hour > hadlakatNerotTime.hour ||
+        (gNow.hour == hadlakatNerotTime.hour &&
+          gNow.min >= hadlakatNerotTime.min))
+    ) {
       return true;
     }
 
     // Check if today is chag and we have not yet passed 72 minutes after sunset
     if (HebrewCalendar.isChagForThisMorning()) {
       var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
-      var motzaeiChag = todaySunset.add(new Time.Duration(SEVENTY_TWO_MINUTES));
+      var minutesAfterSunset = 0;
+      if (true) {
+        //add setting for RabbenuTam
+        minutesAfterSunset = THIRTY_SIX_MINUTES; // 36 minutes after sunset for standard
+      } else {
+        minutesAfterSunset = SEVENTY_TWO_MINUTES; // 72 minutes after sunset for Rabbenu Tam
+      }
+      var motzaeiChag = todaySunset.add(new Time.Duration(minutesAfterSunset));
       if (now.value() < motzaeiChag.value()) {
         return true;
       }
@@ -421,7 +482,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var stepsNum = actInfo != null ? actInfo.steps : 0;
     var sunInfo = calculateSunInfo();
 
-    
     var shabbatActive = shabbatMode && isShabbat(now);
     var chagActive = shabbatMode && !shabbatActive && isChag(now);
     if (shabbatActive || chagActive) {
