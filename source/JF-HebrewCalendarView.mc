@@ -195,9 +195,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       battery = "C";
     } else if (batteryLevel > 40) {
       battery = "D";
-    } else if (batteryLevel > 20) {
+    } else if (batteryLevel > 10) {
       battery = "E";
-      color = Graphics.COLOR_ORANGE;
     } else {
       battery = "F";
       color = Graphics.COLOR_RED;
