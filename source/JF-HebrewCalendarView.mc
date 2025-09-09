@@ -61,6 +61,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   function initialize() {
     WatchFace.initialize();
+  }
+
+  function restoreStoredLocation() {
     var storedLat = appStorage.getValue("lat");
     var storedLon = appStorage.getValue("lon");
     if (storedLat != null && storedLon != null) {
@@ -76,8 +79,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var val = null;
     if (!isFr45) {
       val = appProperties.getValue(name);
-    } 
-    else {
+    } else {
       val = Application.getApp().getProperty(name);
     }
 
@@ -88,10 +90,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     //
     if (!isFr45) {
       return getColor(appProperties.getValue(name));
-    } 
-    else {
+    } else {
       return getColor(Application.getApp().getProperty(name));
-    }    
+    }
   }
 
   function loadSettings() {
@@ -146,6 +147,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     xScale = width / 260.0;
     yScale = height / 260.0;
     isFr45 = width == 208 && height == 208;
+    if (!isFr45) {
+      restoreStoredLocation();
+    }
   }
 
   function positionLabels() {
@@ -315,11 +319,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var hasValidFix = false;
     if (posInfo != null) {
       var pos = posInfo.position.toDegrees();
-      hasValidFix =
-        !(pos[0] > 179.99 &&
-          pos[1] > 179.99 &&
-          pos[0] < 180.01 &&
-          pos[1] < 180.01);
+      hasValidFix = !(
+        pos[0] > 179.99 &&
+        pos[1] > 179.99 &&
+        pos[0] < 180.01 &&
+        pos[1] < 180.01
+      );
       if (hasValidFix) {
         var posInRadians = posInfo.position.toRadians();
         if (lat != posInRadians[0] || lon != posInRadians[1]) {
@@ -327,13 +332,19 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           lon = posInRadians[1];
           sunrise = null;
           sunset = null;
-          appStorage.setValue("lat", lat);
-          appStorage.setValue("lon", lon);
+          if (!isFr45) {
+            appStorage.setValue("lat", lat);
+            appStorage.setValue("lon", lon);
+          }
         }
       }
     }
-    var haveStoredLocation =
-      appStorage.getValue("lat") != null && appStorage.getValue("lon") != null;
+    var haveStoredLocation = false;
+    if (!isFr45) {
+      haveStoredLocation =
+        appStorage.getValue("lat") != null &&
+        appStorage.getValue("lon") != null;
+    }
     if (showSunEvent && (hasValidFix || haveStoredLocation)) {
       var now = Time.now();
       updateSunTimes(now);
