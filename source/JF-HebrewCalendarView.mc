@@ -14,7 +14,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
   var frankFont = null;
   var sunCalc = null;
-  var isFr45 = false;
+  var hasOldApi = false;
   // Global position and sun times
   var lat = 31.77758;
   var lon = 35.235786;
@@ -77,7 +77,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Convenience helpers for settings
   function loadBooleanSetting(name, current) {
     var val = null;
-    if (!isFr45) {
+    if (!hasOldApi) {
       val = appProperties.getValue(name);
     } else {
       val = Application.getApp().getProperty(name);
@@ -88,7 +88,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   function loadColorSetting(name) {
     //
-    if (!isFr45) {
+    if (!hasOldApi) {
       return getColor(appProperties.getValue(name));
     } else {
       return getColor(Application.getApp().getProperty(name));
@@ -146,10 +146,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     height = dc.getHeight();
     xScale = width / 260.0;
     yScale = height / 260.0;
-    isFr45 = width == 208 && height == 208;
-    if (!isFr45) {
+    hasOldApi = resolutionToOldApi(width, height);
+    if (!hasOldApi) {
       restoreStoredLocation();
     }
+  }
+
+  function resolutionToOldApi(width, height) {
+    if ((width == 208 && height == 208) ||
+      (width == 205 && height == 148) ||
+      (width == 218 && height == 218) ||
+      (width == 215 && height == 180)) {
+      return true;
+    }
+    return false;
   }
 
   function positionLabels() {
@@ -332,7 +342,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           lon = posInRadians[1];
           sunrise = null;
           sunset = null;
-          if (!isFr45) {
+          if (!hasOldApi) {
             appStorage.setValue("lat", lat);
             appStorage.setValue("lon", lon);
           }
@@ -340,7 +350,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
     }
     var haveStoredLocation = false;
-    if (!isFr45) {
+    if (!hasOldApi) {
       haveStoredLocation =
         appStorage.getValue("lat") != null &&
         appStorage.getValue("lon") != null;
@@ -502,7 +512,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     loadSettings();
     computeScale(dc);
-    if (!isFr45) {
+    if (!hasOldApi) {
       dc.setClip(0, 0, width, height);
     }
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
