@@ -8,6 +8,7 @@ import Toybox.Position;
 import Toybox.Math;
 import Toybox.Application;
 using Toybox.Application.Properties as appProperties;
+using Toybox.Application.Storage as appStorage;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
@@ -62,13 +63,23 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     WatchFace.initialize();
   }
 
+  function restoreStoredLocation() {
+    var storedLat = appStorage.getValue("lat");
+    var storedLon = appStorage.getValue("lon");
+    if (storedLat != null && storedLon != null) {
+      lat = storedLat;
+      lon = storedLon;
+      sunrise = null;
+      sunset = null;
+    }
+  }
+
   // Convenience helpers for settings
   function loadBooleanSetting(name, current) {
     var val = null;
     if (!isFr45) {
       val = appProperties.getValue(name);
-    } 
-    else {
+    } else {
       val = Application.getApp().getProperty(name);
     }
 
@@ -79,10 +90,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     //
     if (!isFr45) {
       return getColor(appProperties.getValue(name));
-    } 
-    else {
+    } else {
       return getColor(Application.getApp().getProperty(name));
-    }    
+    }
   }
 
   function loadSettings() {
@@ -137,6 +147,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     xScale = width / 260.0;
     yScale = height / 260.0;
     isFr45 = width == 208 && height == 208;
+    if (!isFr45) {
+      restoreStoredLocation();
+    }
   }
 
   function positionLabels() {
@@ -303,23 +316,36 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       iconStr = "0"; // Clear icon if showing steps
     }
     var posInfo = Position.getInfo();
-    var isDefaultGPS = true;
+    var hasValidFix = false;
     if (posInfo != null) {
       var pos = posInfo.position.toDegrees();
-      isDefaultGPS =
+      hasValidFix = !(
         pos[0] > 179.99 &&
         pos[1] > 179.99 &&
         pos[0] < 180.01 &&
-        pos[1] < 180.01;
-    }
-    if (!isDefaultGPS && showSunEvent) {
-      var posInRadians = posInfo.position.toRadians();
-      if (lat != posInRadians[0] || lon != posInRadians[1]) {
-        lat = posInRadians[0];
-        lon = posInRadians[1];
-        sunrise = null;
-        sunset = null;
+        pos[1] < 180.01
+      );
+      if (hasValidFix) {
+        var posInRadians = posInfo.position.toRadians();
+        if (lat != posInRadians[0] || lon != posInRadians[1]) {
+          lat = posInRadians[0];
+          lon = posInRadians[1];
+          sunrise = null;
+          sunset = null;
+          if (!isFr45) {
+            appStorage.setValue("lat", lat);
+            appStorage.setValue("lon", lon);
+          }
+        }
       }
+    }
+    var haveStoredLocation = false;
+    if (!isFr45) {
+      haveStoredLocation =
+        appStorage.getValue("lat") != null &&
+        appStorage.getValue("lon") != null;
+    }
+    if (showSunEvent && (hasValidFix || haveStoredLocation)) {
       var now = Time.now();
       updateSunTimes(now);
       var nowInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
