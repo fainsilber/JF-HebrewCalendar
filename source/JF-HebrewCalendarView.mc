@@ -60,35 +60,83 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     WatchFace.initialize();
   }
 
-  // Convenience helpers for settings
-  function loadBooleanSetting(name, current) {
-    var val = Properties.getValue(name);
-    return val == null ? current : val;
-  }
-
-  function loadColorSetting(name) {
-    return getColor(Properties.getValue(name));
-  }
-
+  // Load persisted settings with graceful fallbacks
   function loadSettings() {
-    showBattery = loadBooleanSetting("showBattery", showBattery);
-    showTime = loadBooleanSetting("showTime", showTime);
-    showSeconds = loadBooleanSetting("showSeconds", showSeconds);
-    showGregorianDate = loadBooleanSetting(
-      "showGregorianDate",
-      showGregorianDate
-    );
-    showSteps = loadBooleanSetting("showSteps", showSteps);
-    showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
-    shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
-    rabbenuTam = loadBooleanSetting("rabbenuTam", rabbenuTam);
+    try {
+      var val;
 
-    hebrewDateColor = loadColorSetting("hebrewDateColor");
-    timeColor = loadColorSetting("timeColor");
-    secondsColor = loadColorSetting("secondsColor");
-    gregorianDateColor = loadColorSetting("gregorianDateColor");
-    sunEventColor = loadColorSetting("sunEventColor");
-    stepsColor = loadColorSetting("stepsColor");
+      val = Application.Properties.getValue(:showBattery);
+      if (val != null) {
+        showBattery = val;
+      }
+
+      val = Application.Properties.getValue(:showTime);
+      if (val != null) {
+        showTime = val;
+      }
+
+      val = Application.Properties.getValue(:showSeconds);
+      if (val != null) {
+        showSeconds = val;
+      }
+
+      val = Application.Properties.getValue(:showGregorianDate);
+      if (val != null) {
+        showGregorianDate = val;
+      }
+
+      val = Application.Properties.getValue(:showSteps);
+      if (val != null) {
+        showSteps = val;
+      }
+
+      val = Application.Properties.getValue(:showSunEvent);
+      if (val != null) {
+        showSunEvent = val;
+      }
+
+      val = Application.Properties.getValue(:shabbatMode);
+      if (val != null) {
+        shabbatMode = val;
+      }
+
+      val = Application.Properties.getValue(:rabbenuTam);
+      if (val != null) {
+        rabbenuTam = val;
+      }
+
+      val = Application.Properties.getValue(:hebrewDateColor);
+      if (val != null) {
+        hebrewDateColor = getColor(val);
+      }
+
+      val = Application.Properties.getValue(:timeColor);
+      if (val != null) {
+        timeColor = getColor(val);
+      }
+
+      val = Application.Properties.getValue(:secondsColor);
+      if (val != null) {
+        secondsColor = getColor(val);
+      }
+
+      val = Application.Properties.getValue(:gregorianDateColor);
+      if (val != null) {
+        gregorianDateColor = getColor(val);
+      }
+
+      val = Application.Properties.getValue(:sunEventColor);
+      if (val != null) {
+        sunEventColor = getColor(val);
+      }
+
+      val = Application.Properties.getValue(:stepsColor);
+      if (val != null) {
+        stepsColor = getColor(val);
+      }
+    } catch (e) {
+      // If properties are unavailable, defaults remain in place
+    }
   }
 
   // Resource loading and layout helpers
