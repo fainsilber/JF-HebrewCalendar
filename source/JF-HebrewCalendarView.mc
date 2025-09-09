@@ -7,11 +7,13 @@ import Toybox.Activity;
 import Toybox.Position;
 import Toybox.Math;
 import Toybox.Application;
+using Toybox.Application.Properties as appProperties;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
   var frankFont = null;
   var sunCalc = null;
+  var isFr45 = false;
   // Global position and sun times
   var lat = 31.77758;
   var lon = 35.235786;
@@ -62,12 +64,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Convenience helpers for settings
   function loadBooleanSetting(name, current) {
-    var val = Properties.getValue(name);
+    var val = null;
+    if (!isFr45) {
+      val = appProperties.getValue(name);
+    } 
+    else {
+      val = Application.getApp().getProperty(name);
+    }
+
     return val == null ? current : val;
   }
 
   function loadColorSetting(name) {
-    return getColor(Properties.getValue(name));
+    //
+    if (!isFr45) {
+      return getColor(appProperties.getValue(name));
+    } 
+    else {
+      return getColor(Application.getApp().getProperty(name));
+    }    
   }
 
   function loadSettings() {
@@ -121,6 +136,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     height = dc.getHeight();
     xScale = width / 260.0;
     yScale = height / 260.0;
+    isFr45 = width == 208 && height == 208;
   }
 
   function positionLabels() {
@@ -460,7 +476,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     loadSettings();
     computeScale(dc);
-    dc.setClip(0, 0, width, height);
+    if (!isFr45) {
+      dc.setClip(0, 0, width, height);
+    }
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     dc.clear();
 
@@ -482,7 +500,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (shabbatActive || chagActive) {
       showSteps = false;
       showSunEvent = false;
-      sunInfo["icon"]="";
+      sunInfo["icon"] = "";
     }
 
     updateHebrewDate(sunInfo["hDate"], sunInfo["holyday"]);
