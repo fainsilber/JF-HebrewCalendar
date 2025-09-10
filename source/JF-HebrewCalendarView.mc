@@ -147,9 +147,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     xScale = width / 260.0;
     yScale = height / 260.0;
     hasOldApi = resolutionToOldApi(width, height);
-    if (!hasOldApi) {
-      restoreStoredLocation();
-    }
   }
 
   function resolutionToOldApi(width, height) {
@@ -178,6 +175,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     setLayout(Rez.Layouts.WatchFace(dc));
     cacheDrawables();
     computeScale(dc);
+    if (!hasOldApi) {
+      restoreStoredLocation();
+    }
     loadResources();
     positionLabels();
   }
