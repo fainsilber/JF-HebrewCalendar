@@ -150,10 +150,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function resolutionToOldApi(width, height) {
-    if ((width == 208 && height == 208) ||
+    if (
+      (width == 208 && height == 208) ||
       (width == 205 && height == 148) ||
       (width == 218 && height == 218) ||
-      (width == 215 && height == 180)) {
+      (width == 215 && height == 180)
+    ) {
       return true;
     }
     return false;
@@ -188,24 +190,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onShow() as Void {}
 
   function onPartialUpdate(dc) {
-    var clockTime = System.getClockTime();
-    var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
+    if (!hasOldApi) {
+      var clockTime = System.getClockTime();
+      var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
 
-    computeScale(dc);
-    var secondsX = 200.0 * xScale;
-    var secondsY = 118.0 * yScale;
+      var secondsX = 200.0 * xScale;
+      var secondsY = 118.0 * yScale;
 
-    dc.setClip(secondsX, secondsY, 60, 60);
-    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-    dc.clear();
-    dc.setColor(secondsColor, Graphics.COLOR_TRANSPARENT);
-    dc.drawText(
-      secondsX,
-      secondsY,
-      Graphics.FONT_NUMBER_MILD,
-      secStr,
-      Graphics.TEXT_JUSTIFY_LEFT
-    );
+      dc.setClip(secondsX, secondsY, 60, 60);
+      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+      dc.clear();
+      dc.setColor(secondsColor, Graphics.COLOR_TRANSPARENT);
+      dc.drawText(
+        secondsX,
+        secondsY,
+        Graphics.FONT_NUMBER_MILD,
+        secStr,
+        Graphics.TEXT_JUSTIFY_LEFT
+      );
+    }
   }
 
   // Update helpers
