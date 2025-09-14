@@ -1,7 +1,8 @@
 <properties>
     <property id="showBattery" type="boolean">true</property>
     <property id="showTime" type="boolean">true</property>
-    <property id="timeColor" type="number">1</property> 
+    <property id="timeColor" type="number">1</property>
+    <property id="timeFormat" type="number">1</property>
     <property id="showSeconds" type="boolean">true</property>
     <property id="secondsColor" type="number">1</property>
     <property id="showGregorianDate" type="boolean">true</property>

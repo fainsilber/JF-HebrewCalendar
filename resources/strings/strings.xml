@@ -11,6 +11,10 @@
     <string id="ColorGreen">Green</string>
     <string id="ColorOrange">Orange</string>
     <string id="ColorYellow">Yellow</string>
-    
 
+
+    <string id="TimeFormat24">24h (00:00)</string>
+    <string id="TimeFormat24NoZero">24h (0:00)</string>
+    <string id="TimeFormat12">12h (12:00 AM)</string>
+    <string id="TimeFormat12NoZero">12h (1:00 AM)</string>
 </strings>

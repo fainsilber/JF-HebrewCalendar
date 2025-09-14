@@ -50,6 +50,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var rabbenuTam = false;
   var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
+  var timeFormat = 1;
   var secondsColor = Graphics.COLOR_BLUE;
   var gregorianDateColor = Graphics.COLOR_WHITE;
   var sunEventColor = Graphics.COLOR_YELLOW;
@@ -86,6 +87,17 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     return val == null ? current : val;
   }
 
+  function loadNumberSetting(name, current) {
+    var val = null;
+    if (!hasOldApi) {
+      val = appProperties.getValue(name);
+    } else {
+      val = Application.getApp().getProperty(name);
+    }
+
+    return val == null ? current : val;
+  }
+
   function loadColorSetting(name) {
     //
     if (!hasOldApi) {
@@ -110,6 +122,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
     hebrewDateColor = loadColorSetting("hebrewDateColor");
     timeColor = loadColorSetting("timeColor");
+    timeFormat = loadNumberSetting("timeFormat", timeFormat);
     secondsColor = loadColorSetting("secondsColor");
     gregorianDateColor = loadColorSetting("gregorianDateColor");
     sunEventColor = loadColorSetting("sunEventColor");
@@ -248,12 +261,37 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     batteryLabel.setFont(iconFont);
   }
 
+  function formatHourMinute(hour, min) {
+    var hourStr = "";
+    var ampm = "";
+    if (timeFormat == 2) {
+      hourStr = hour.format("%d");
+      return Lang.format("$1$:$2$", [hourStr, min.format("%02d")]);
+    } else if (timeFormat == 3) {
+      var h12 = hour % 12;
+      if (h12 == 0) {
+        h12 = 12;
+      }
+      ampm = hour < 12 ? "AM" : "PM";
+      hourStr = h12.format("%02d");
+      return Lang.format("$1$:$2$ $3$", [hourStr, min.format("%02d"), ampm]);
+    } else if (timeFormat == 4) {
+      var h12 = hour % 12;
+      if (h12 == 0) {
+        h12 = 12;
+      }
+      ampm = hour < 12 ? "AM" : "PM";
+      hourStr = h12.format("%d");
+      return Lang.format("$1$:$2$ $3$", [hourStr, min.format("%02d"), ampm]);
+    }
+
+    hourStr = hour.format("%02d");
+    return Lang.format("$1$:$2$", [hourStr, min.format("%02d")]);
+  }
+
   function updateTime(clockTime) {
     if (showTime) {
-      var timeStr = Lang.format("$1$:$2$", [
-        clockTime.hour.format("%02d"),
-        clockTime.min.format("%02d"),
-      ]);
+      var timeStr = formatHourMinute(clockTime.hour, clockTime.min);
       timeLabel.setColor(timeColor);
       timeLabel.setText(timeStr);
     } else {
@@ -373,21 +411,18 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
       if (beforeSunrise) {
         iconStr += ">";
-        nextLabel = Lang.format("   $1$:$2$", [
-          sunRiseTime.hour.format("%02d"),
-          sunRiseTime.min.format("%02d"),
+        nextLabel = Lang.format("   $1$", [
+          formatHourMinute(sunRiseTime.hour, sunRiseTime.min),
         ]);
       } else if (beforeSunset) {
         iconStr += "?";
-        nextLabel = Lang.format("   $1$:$2$", [
-          sunSetTime.hour.format("%02d"),
-          sunSetTime.min.format("%02d"),
+        nextLabel = Lang.format("   $1$", [
+          formatHourMinute(sunSetTime.hour, sunSetTime.min),
         ]);
       } else {
         iconStr += ">";
-        nextLabel = Lang.format("   $1$:$2$", [
-          sunRiseTime.hour.format("%02d"),
-          sunRiseTime.min.format("%02d"),
+        nextLabel = Lang.format("   $1$", [
+          formatHourMinute(sunRiseTime.hour, sunRiseTime.min),
         ]);
       }
       var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
