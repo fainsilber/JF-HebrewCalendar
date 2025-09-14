@@ -12,9 +12,9 @@
     <string id="ColorOrange">Orange</string>
     <string id="ColorYellow">Yellow</string>
 
-    <string id="FontNumberMedium">Number Medium</string>
-    <string id="FontNumberHot">Number Hot</string>
-    <string id="FontNumberThaiHot">Number Thai Hot</string>
+    <string id="FontNumberMedium">Small</string>
+    <string id="FontNumberHot">Medium</string>
+    <string id="FontNumberThaiHot">Big</string>
 
 
 </strings>
