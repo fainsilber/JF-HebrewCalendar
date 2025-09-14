@@ -19,6 +19,15 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.timeFormat" title="Time Format">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.TimeFormat24</listEntry>
+            <listEntry value="2">@Strings.TimeFormat24NoZero</listEntry>
+            <listEntry value="3">@Strings.TimeFormat12</listEntry>
+            <listEntry value="4">@Strings.TimeFormat12NoZero</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.showSeconds" title="Show Seconds">
         <settingConfig type="boolean" />
     </setting>
