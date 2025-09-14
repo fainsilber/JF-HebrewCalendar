@@ -124,6 +124,7 @@ Access the watch face settings through:
 - **Show Battery Level**: Toggle battery indicator
 - **Show Time**: Toggle time display
 - **Time Color**: Choose from 7 color options
+- **Time Font**: Select Number Medium, Number Hot, or Number Thai Hot fonts
 - **Show Seconds**: Toggle seconds display
 - **Seconds Color**: Choose from 7 color options
 - **Hebrew Date Color**: Choose from 7 color options

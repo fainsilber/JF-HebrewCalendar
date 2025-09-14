@@ -50,6 +50,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var rabbenuTam = false;
   var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
+  var timeFont = Graphics.FONT_NUMBER_THAI_HOT;
   var secondsColor = Graphics.COLOR_BLUE;
   var gregorianDateColor = Graphics.COLOR_WHITE;
   var sunEventColor = Graphics.COLOR_YELLOW;
@@ -95,6 +96,16 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
   }
 
+  function loadFontSetting(name) {
+    var font = null;
+    if (!hasOldApi) {
+      font = appProperties.getValue(name);
+    } else {
+      font = Application.getApp().getProperty(name);
+    }
+    return getFont(font);
+  }
+
   function loadSettings() {
     showBattery = loadBooleanSetting("showBattery", showBattery);
     showTime = loadBooleanSetting("showTime", showTime);
@@ -114,6 +125,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     gregorianDateColor = loadColorSetting("gregorianDateColor");
     sunEventColor = loadColorSetting("sunEventColor");
     stepsColor = loadColorSetting("stepsColor");
+    timeFont = loadFontSetting("timeFont");
+    if (timeLabel != null) {
+      timeLabel.setFont(timeFont);
+    }
   }
 
   // Resource loading and layout helpers
@@ -565,6 +580,21 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onEnterSleep() as Void {}
 
   // Simplified color lookup
+  function getFont(font) {
+    var fonts = [
+      Graphics.FONT_NUMBER_MEDIUM,
+      Graphics.FONT_NUMBER_HOT,
+      Graphics.FONT_NUMBER_THAI_HOT,
+    ];
+    if (font == null) {
+      return Graphics.FONT_NUMBER_THAI_HOT;
+    }
+    if (font >= 1 && font <= fonts.size()) {
+      return fonts[font - 1];
+    }
+    return Graphics.FONT_NUMBER_THAI_HOT;
+  }
+
   function getColor(color) as ColorValue {
     var colors = [
       Graphics.COLOR_WHITE,

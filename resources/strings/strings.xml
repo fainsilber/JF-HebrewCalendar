@@ -11,6 +11,10 @@
     <string id="ColorGreen">Green</string>
     <string id="ColorOrange">Orange</string>
     <string id="ColorYellow">Yellow</string>
-    
+
+    <string id="FontNumberMedium">Number Medium</string>
+    <string id="FontNumberHot">Number Hot</string>
+    <string id="FontNumberThaiHot">Number Thai Hot</string>
+
 
 </strings>
