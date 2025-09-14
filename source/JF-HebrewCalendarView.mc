@@ -7,14 +7,12 @@ import Toybox.Activity;
 import Toybox.Position;
 import Toybox.Math;
 import Toybox.Application;
-using Toybox.Application.Properties as appProperties;
-using Toybox.Application.Storage as appStorage;
+import Toybox.Storage;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
   var frankFont = null;
   var sunCalc = null;
-  var hasOldApi = false;
   // Global position and sun times
   var lat = 31.77758;
   var lon = 35.235786;
@@ -64,8 +62,17 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function restoreStoredLocation() {
-    var storedLat = appStorage.getValue("lat");
-    var storedLon = appStorage.getValue("lon");
+    var storedLat = null;
+    var storedLon = null;
+
+    if (Toybox has :Storage) {
+      storedLat = Storage.getValue("lat");
+      storedLon = Storage.getValue("lon");
+    } else {
+      storedLat = Application.Storage.getValue("lat");
+      storedLon = Application.Storage.getValue("lon");
+    }
+
     if (storedLat != null && storedLon != null) {
       lat = storedLat;
       lon = storedLon;
@@ -77,8 +84,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   // Convenience helpers for settings
   function loadBooleanSetting(name, current) {
     var val = null;
-    if (!hasOldApi) {
-      val = appProperties.getValue(name);
+    if (Application has :Properties) {
+      val = Application.Properties.getValue(name);
     } else {
       val = Application.getApp().getProperty(name);
     }
@@ -87,9 +94,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function loadColorSetting(name) {
-    //
-    if (!hasOldApi) {
-      return getColor(appProperties.getValue(name));
+    if (Application has :Properties) {
+      return getColor(Application.Properties.getValue(name));
     } else {
       return getColor(Application.getApp().getProperty(name));
     }
@@ -146,19 +152,6 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     height = dc.getHeight();
     xScale = width / 260.0;
     yScale = height / 260.0;
-    hasOldApi = resolutionToOldApi(width, height);
-  }
-
-  function resolutionToOldApi(width, height) {
-    if (
-      (width == 208 && height == 208) ||
-      (width == 205 && height == 148) ||
-      (width == 218 && height == 218) ||
-      (width == 215 && height == 180)
-    ) {
-      return true;
-    }
-    return false;
   }
 
   function positionLabels() {
@@ -177,9 +170,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     setLayout(Rez.Layouts.WatchFace(dc));
     cacheDrawables();
     computeScale(dc);
-    if (!hasOldApi) {
-      restoreStoredLocation();
-    }
+    restoreStoredLocation();
     loadResources();
     positionLabels();
   }
@@ -190,7 +181,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onShow() as Void {}
 
   function onPartialUpdate(dc) {
-    if (!hasOldApi) {
+    if (dc has :setClip) {
       var clockTime = System.getClockTime();
       var secStr = Lang.format(":$1$", [clockTime.sec.format("%02d")]);
 
@@ -345,18 +336,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           lon = posInRadians[1];
           sunrise = null;
           sunset = null;
-          if (!hasOldApi) {
-            appStorage.setValue("lat", lat);
-            appStorage.setValue("lon", lon);
+          if (Toybox has :Storage) {
+            Storage.setValue("lat", lat);
+            Storage.setValue("lon", lon);
+          } else {
+            Application.Storage.setValue("lat", lat);
+            Application.Storage.setValue("lon", lon);
           }
         }
       }
     }
     var haveStoredLocation = false;
-    if (!hasOldApi) {
+    if (Toybox has :Storage) {
       haveStoredLocation =
-        appStorage.getValue("lat") != null &&
-        appStorage.getValue("lon") != null;
+        Storage.getValue("lat") != null &&
+        Storage.getValue("lon") != null;
+    } else {
+      haveStoredLocation =
+        Application.Storage.getValue("lat") != null &&
+        Application.Storage.getValue("lon") != null;
     }
     if (showSunEvent && (hasValidFix || haveStoredLocation)) {
       var now = Time.now();
@@ -515,7 +513,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   function onUpdate(dc as Dc) as Void {
     loadSettings();
     computeScale(dc);
-    if (!hasOldApi) {
+    if (dc has :setClip) {
       dc.setClip(0, 0, width, height);
     }
     dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
