@@ -19,6 +19,14 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.timeFont" title="Time Font">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.FontNumberMedium</listEntry>
+            <listEntry value="2">@Strings.FontNumberHot</listEntry>
+            <listEntry value="3">@Strings.FontNumberThaiHot</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.showSeconds" title="Show Seconds">
         <settingConfig type="boolean" />
     </setting>
