@@ -51,6 +51,15 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.gregorianDateFormat" title="@Strings.GregorianDateFormatTitle">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.GregorianFormatDowDayMonth</listEntry>
+            <listEntry value="2">@Strings.GregorianFormatDowMonthDay</listEntry>
+            <listEntry value="3">@Strings.GregorianFormatDayMonthYear</listEntry>
+            <listEntry value="4">@Strings.GregorianFormatMonthDayYear</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.gregorianDateColor" title="Gregorian Date Color">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>

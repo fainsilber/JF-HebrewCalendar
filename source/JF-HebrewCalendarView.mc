@@ -44,6 +44,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var showTime = true;
   var showSeconds = true;
   var showGregorianDate = true;
+  var gregorianDateFormat = 3;
   var showSteps = true;
   var showSunEvent = true;
   var shabbatMode = false;
@@ -86,6 +87,17 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     return val == null ? current : val;
   }
 
+  function loadNumberSetting(name, current) {
+    var val = null;
+    if (!hasOldApi) {
+      val = appProperties.getValue(name);
+    } else {
+      val = Application.getApp().getProperty(name);
+    }
+
+    return val == null ? current : val;
+  }
+
   function loadColorSetting(name) {
     //
     if (!hasOldApi) {
@@ -102,6 +114,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     showGregorianDate = loadBooleanSetting(
       "showGregorianDate",
       showGregorianDate
+    );
+    gregorianDateFormat = loadNumberSetting(
+      "gregorianDateFormat",
+      gregorianDateFormat
     );
     showSteps = loadBooleanSetting("showSteps", showSteps);
     showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
@@ -273,10 +289,94 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (showGregorianDate) {
       bottomDateLabel.setColor(gregorianDateColor);
       bottomDateLabel.setText(gDate);
-      bottomDateLabel.setFont(frankFont);
+      //bottomDateLabel.setFont(frankFont);
     } else {
       bottomDateLabel.setText("");
     }
+  }
+
+  function getOrdinalDay(day) {
+    var mod100 = day % 100;
+    var suffix = "th";
+    if (mod100 < 11 || mod100 > 13) {
+      var mod10 = day % 10;
+      if (mod10 == 1) {
+        suffix = "st";
+      } else if (mod10 == 2) {
+        suffix = "nd";
+      } else if (mod10 == 3) {
+        suffix = "rd";
+      }
+    }
+    return Lang.format("$1$$2$", [day.format("%d"), suffix]);
+  }
+
+  function formatGregorianDate(now) {
+    var info = Time.Gregorian.info(now, Time.FORMAT_LONG);
+    var day = info.day;
+    var month = info.month;
+    var year = info.year;
+    var weekDay = info.day_of_week;
+
+    var dayStr = day.format("%d");
+    var monthStr = month;//.format("%d");
+    var yearStr = year.format("%d");
+
+    var weekdayNames = [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+    ];
+    var monthNames = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    // var weekdayIndex = weekDay;
+    // if (weekdayIndex < 1 || weekdayIndex > weekdayNames.size()) {
+    //   weekdayIndex = 1;
+    // }
+    // var monthIndex = month;
+    // if (monthIndex < 1 || monthIndex > monthNames.size()) {
+    //   monthIndex = 1;
+    // }
+
+    var weekdayName = weekDay;//weekdayNames[weekdayIndex - 1];
+    var monthName = monthStr;// monthNames[monthIndex - 1];
+    var format = gregorianDateFormat;
+    if (format == null) {
+      format = 3;
+    }
+
+    if (format == 1 || format == "1") {
+      return Lang.format("$1$, $2$ $3$", [weekdayName, dayStr, monthName]);
+    } else if (format == 2 || format == "2") {
+      return Lang.format("$1$, $2$ $3$", [
+        weekdayName,
+        monthName,
+        getOrdinalDay(day),
+      ]);
+    } else if (format == 3 || format == "3") {
+      return Lang.format("$1$/$2$/$3$", [dayStr, monthStr, yearStr]);
+    } else if (format == 4 || format == "4") {
+      return Lang.format("$1$ $2$, $3$", [monthName, dayStr, yearStr]);
+    }
+
+    return Lang.format("$1$/$2$/$3$", [dayStr, monthStr, yearStr]);
   }
 
   function updateSteps(dc as Dc, stepsNum) {
@@ -524,12 +624,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var now = Time.now();
 
     var clockTime = System.getClockTime();
-    var gInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
-    var gDate = Lang.format("$1$/$2$/$3$", [
-      gInfo.day.format("%02d"),
-      gInfo.month.format("%02d"),
-      gInfo.year,
-    ]);
+    var gDate = formatGregorianDate(now);
     var actInfo = ActivityMonitor.getInfo();
     var stepsNum = actInfo != null ? actInfo.steps : 0;
     var sunInfo = calculateSunInfo();

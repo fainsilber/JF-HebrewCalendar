@@ -11,6 +11,13 @@
     <string id="ColorGreen">Green</string>
     <string id="ColorOrange">Orange</string>
     <string id="ColorYellow">Yellow</string>
-    
+
+
+    <string id="GregorianDateFormatTitle">Gregorian Date Format</string>
+    <string id="GregorianFormatDowDayMonth">Weekday 17 Sep</string>
+    <string id="GregorianFormatDowMonthDay">Weekday Sep 17th</string>
+    <string id="GregorianFormatDayMonthYear">17/9/2025</string>
+    <string id="GregorianFormatMonthDayYear">Sep 17, 2025</string>
+
 
 </strings>
