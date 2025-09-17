@@ -13,7 +13,7 @@
     <label id="SecondsLabel" x="195" y="118" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_LEFT" color="Graphics.COLOR_BLUE" />
 
     <!-- Gregorian date -->
-    <label id="bottomDateLabel" x="center" y="0" font="Graphics.FONT_LARGE" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
+    <label id="bottomDateLabel" x="center" y="0" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />
 
     <!-- Steps and next sunrise/sunset -->
     <label id="iconsLabel" x="center" y="0" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_WHITE" />

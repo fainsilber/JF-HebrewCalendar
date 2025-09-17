@@ -289,7 +289,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (showGregorianDate) {
       bottomDateLabel.setColor(gregorianDateColor);
       bottomDateLabel.setText(gDate);
-      bottomDateLabel.setFont(frankFont);
+      //bottomDateLabel.setFont(frankFont);
     } else {
       bottomDateLabel.setText("");
     }
@@ -319,7 +319,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var weekDay = info.day_of_week;
 
     var dayStr = day.format("%d");
-    var monthStr = month.format("%d");
+    var monthStr = month;//.format("%d");
     var yearStr = year.format("%d");
 
     var weekdayNames = [
@@ -346,26 +346,26 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       "Dec",
     ];
 
-    var weekdayIndex = weekDay;
-    if (weekdayIndex < 1 || weekdayIndex > weekdayNames.size()) {
-      weekdayIndex = 1;
-    }
-    var monthIndex = month;
-    if (monthIndex < 1 || monthIndex > monthNames.size()) {
-      monthIndex = 1;
-    }
+    // var weekdayIndex = weekDay;
+    // if (weekdayIndex < 1 || weekdayIndex > weekdayNames.size()) {
+    //   weekdayIndex = 1;
+    // }
+    // var monthIndex = month;
+    // if (monthIndex < 1 || monthIndex > monthNames.size()) {
+    //   monthIndex = 1;
+    // }
 
-    var weekdayName = weekdayNames[weekdayIndex - 1];
-    var monthName = monthNames[monthIndex - 1];
+    var weekdayName = weekDay;//weekdayNames[weekdayIndex - 1];
+    var monthName = monthStr;// monthNames[monthIndex - 1];
     var format = gregorianDateFormat;
     if (format == null) {
       format = 3;
     }
 
     if (format == 1 || format == "1") {
-      return Lang.format("$1$ $2$ $3$", [weekdayName, dayStr, monthName]);
+      return Lang.format("$1$, $2$ $3$", [weekdayName, dayStr, monthName]);
     } else if (format == 2 || format == "2") {
-      return Lang.format("$1$ $2$ $3$", [
+      return Lang.format("$1$, $2$ $3$", [
         weekdayName,
         monthName,
         getOrdinalDay(day),
