@@ -5,6 +5,7 @@
     <property id="showSeconds" type="boolean">true</property>
     <property id="secondsColor" type="number">1</property>
     <property id="showGregorianDate" type="boolean">true</property>
+    <property id="gregorianDateFormat" type="number">3</property>
     <property id="gregorianDateColor" type="number">1</property>
     <property id="showSunEvent" type="boolean">true</property>
     <property id="sunEventColor" type="number">1</property>
