@@ -381,7 +381,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   function updateSteps(dc as Dc, stepsNum) {
     if (showSteps) {
-      var steps = Lang.format("$1$ ", [stepsNum, ""]);
+      var steps = Lang.format("$1$", [stepsNum, ""]);
       stepsLabel.setText(steps.toString());
       stepsLabel.setColor(stepsColor);
     } else {
@@ -473,19 +473,19 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
       if (beforeSunrise) {
         iconStr += ">";
-        nextLabel = Lang.format("   $1$:$2$", [
+        nextLabel = Lang.format(" $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (beforeSunset) {
         iconStr += "?";
-        nextLabel = Lang.format("   $1$:$2$", [
+        nextLabel = Lang.format(" $1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
         ]);
       } else {
         iconStr += ">";
-        nextLabel = Lang.format("   $1$:$2$", [
+        nextLabel = Lang.format(" $1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
