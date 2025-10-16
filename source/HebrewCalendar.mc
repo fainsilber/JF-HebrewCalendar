@@ -5,6 +5,15 @@ import Toybox.Time.Gregorian;
 
 // Hebrew Calendar calculation utilities
 class HebrewCalendar {
+  static var sChutzLaAretz = false;
+
+  static function setChutzLaAretzMode(enabled as Boolean) as Void {
+    sChutzLaAretz = enabled;
+  }
+
+  static function isChutzLaAretzMode() as Boolean {
+    return sChutzLaAretz;
+  }
   // --- Integer helpers (force to Long first) ---
 
   // Safely converts a number to Long to avoid overflow issues
@@ -481,6 +490,8 @@ class HebrewCalendar {
     var isLeap = isHebrewLeapYear(year);
     var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
 
+    var chutzLaAretz = isChutzLaAretzMode();
+
     if (standardMonth == 7) {
       if (day == 1 || day == 2) {
         return "ראש השנה";
@@ -493,6 +504,9 @@ class HebrewCalendar {
       }
       if (day == 22) {
         return "שמיני עצרת";
+      }
+      if (chutzLaAretz && day == 23) {
+        return "שמחת תורה";
       }
     } else if (standardMonth == 9) {
       if (day >= 25) {
@@ -528,7 +542,7 @@ class HebrewCalendar {
         return "יום העצמאות";
       }
     } else if (standardMonth == 3) {
-      if (day == 6) {
+      if (day == 6 || (chutzLaAretz && day == 7)) {
         return "שבועות";
       }
     }
@@ -575,19 +589,30 @@ class HebrewCalendar {
     var isLeap = isHebrewLeapYear(year);
     var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
 
+    var chutzLaAretz = isChutzLaAretzMode();
+
     if (standardMonth == 7) {
-      // Tishrei: Rosh Hashana (1-2), Yom Kippur (10), Sukkot (15), Shemini Atzeret (22)
-      if (day == 1 || day == 2 || day == 10 || day == 15 || day == 22) {
+      // Tishrei: Rosh Hashana (1-2), Yom Kippur (10), Sukkot (15/16), Shemini Atzeret (22/23)
+      if (day == 1 || day == 2 || day == 10) {
+        return true;
+      }
+      if (day == 15 || (chutzLaAretz && day == 16)) {
+        return true;
+      }
+      if (day == 22 || (chutzLaAretz && day == 23)) {
         return true;
       }
     } else if (standardMonth == 1) {
-      // Nisan: Pesach (15), Last day of Pesach (21)
+      // Nisan: Pesach (15/16) and last day(s) (21/22)
       if (day == 15 || day == 21) {
         return true;
       }
+      if (chutzLaAretz && (day == 16 || day == 22)) {
+        return true;
+      }
     } else if (standardMonth == 3) {
-      // Sivan: Shavuot (6)
-      if (day == 6) {
+      // Sivan: Shavuot (6/7)
+      if (day == 6 || (chutzLaAretz && day == 7)) {
         return true;
       }
     }

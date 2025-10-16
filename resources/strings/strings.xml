@@ -20,4 +20,6 @@
     <string id="GregorianFormatMonthDayYear">Sep 17, 2025</string>
 
 
+    <string id="ChutzLaAretzTitle">Chutz LaAretz Mode</string>
+    <string id="ChutzLaAretzDescription">Treat second day of Yom Tov as full Chag</string>
 </strings>
