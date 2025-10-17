@@ -188,8 +188,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var centerX = width / 2.0;
 
     stepsLabel.setLocation(centerX - 35.0 * xScale, baselineY);
-    stepsIconLabel.setLocation(centerX - 10.0 * xScale, baselineY);
-    sunIconLabel.setLocation(centerX + 10.0 * xScale, baselineY);
+    stepsIconLabel.setLocation(centerX - 25.0 * xScale, baselineY);
+    sunIconLabel.setLocation(centerX + 25.0 * xScale, baselineY);
     sunLabel.setLocation(centerX + 30.0 * xScale, baselineY);
     shabbatLabel.setLocation(width / 2.0, 204.0 * yScale);
   }
