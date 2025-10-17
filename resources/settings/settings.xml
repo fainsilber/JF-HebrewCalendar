@@ -92,7 +92,7 @@
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle" description="@Strings.ChutzLaAretzDescription">
+    <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle">
         <settingConfig type="boolean" />
     </setting>
 
