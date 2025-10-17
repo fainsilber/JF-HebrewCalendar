@@ -17,4 +17,5 @@
 
     <property id="shabbatMode" type="boolean">true</property>
     <property id="rabbenuTam" type="boolean">false</property>
+    <property id="chutzLaAretz" type="boolean">false</property>
 </properties>

@@ -50,6 +50,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var showSunEvent = true;
   var shabbatMode = false;
   var rabbenuTam = false;
+  var chutzLaAretz = false;
   var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
   var secondsColor = Graphics.COLOR_BLUE;
@@ -124,6 +125,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     showSunEvent = loadBooleanSetting("showSunEvent", showSunEvent);
     shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
     rabbenuTam = loadBooleanSetting("rabbenuTam", rabbenuTam);
+    chutzLaAretz = loadBooleanSetting("chutzLaAretz", chutzLaAretz);
 
     hebrewDateColor = loadColorSetting("hebrewDateColor");
     timeColor = loadColorSetting("timeColor");
@@ -131,6 +133,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     gregorianDateColor = loadColorSetting("gregorianDateColor");
     sunEventColor = loadColorSetting("sunEventColor");
     stepsColor = loadColorSetting("stepsColor");
+
+    HebrewCalendar.setChutzLaAretzMode(chutzLaAretz);
   }
 
   // Resource loading and layout helpers

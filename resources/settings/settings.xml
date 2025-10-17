@@ -92,6 +92,10 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
     <setting propertyKey="@Properties.sunEventColor" title="Sun Event Color">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
