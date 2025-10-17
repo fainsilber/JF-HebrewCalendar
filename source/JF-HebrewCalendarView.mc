@@ -28,9 +28,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var timeLabel = null;
   var secondsLabel = null;
   var bottomDateLabel = null;
-  var iconsLabel = null;
   var stepsLabel = null;
+  var stepsIconLabel = null;
   var sunLabel = null;
+  var sunIconLabel = null;
   var shabbatLabel = null;
 
   // Layout information
@@ -151,9 +152,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     timeLabel = View.findDrawableById("TimeLabel") as Text;
     secondsLabel = View.findDrawableById("SecondsLabel") as Text;
     bottomDateLabel = View.findDrawableById("bottomDateLabel") as Text;
-    iconsLabel = View.findDrawableById("iconsLabel") as Text;
     stepsLabel = View.findDrawableById("stepsLabel") as Text;
+    stepsIconLabel = View.findDrawableById("stepsIconLabel") as Text;
     sunLabel = View.findDrawableById("sunLabel") as Text;
+    sunIconLabel = View.findDrawableById("sunIconLabel") as Text;
     shabbatLabel = View.findDrawableById("shabbatLabel") as Text;
   }
 
@@ -182,9 +184,13 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     topDateLabel.setLocation(width / 2.0, 55.0 * yScale);
     secondsLabel.setLocation(200.0 * xScale, 118.0 * yScale);
     bottomDateLabel.setLocation(width / 2.0, 162.0 * yScale);
-    iconsLabel.setLocation(width / 2.0, 204.0 * yScale);
-    stepsLabel.setLocation(100.0 * xScale, 204.0 * yScale);
-    sunLabel.setLocation(150.0 * xScale, 204.0 * yScale);
+    var baselineY = 204.0 * yScale;
+    var centerX = width / 2.0;
+
+    stepsLabel.setLocation(centerX - 35.0 * xScale, baselineY);
+    stepsIconLabel.setLocation(centerX - 25.0 * xScale, baselineY);
+    sunIconLabel.setLocation(centerX + 25.0 * xScale, baselineY);
+    sunLabel.setLocation(centerX + 30.0 * xScale, baselineY);
     shabbatLabel.setLocation(width / 2.0, 204.0 * yScale);
   }
 
@@ -384,8 +390,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var steps = Lang.format("$1$", [stepsNum, ""]);
       stepsLabel.setText(steps.toString());
       stepsLabel.setColor(stepsColor);
+      stepsIconLabel.setText("0");
+      stepsIconLabel.setFont(iconFont);
+      stepsIconLabel.setColor(stepsColor);
     } else {
       stepsLabel.setText("");
+      stepsIconLabel.setText("");
     }
   }
 
@@ -393,12 +403,16 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (showSunEvent) {
       sunLabel.setColor(sunEventColor);
       sunLabel.setText(info["label"]);
-      iconsLabel.setText(info["icon"]);
-      iconsLabel.setFont(iconFont);
+      var iconText = info["sunIcon"];
+      if (iconText == null) {
+        iconText = "";
+      }
+      sunIconLabel.setText(iconText);
+      sunIconLabel.setFont(iconFont);
+      sunIconLabel.setColor(sunEventColor);
     } else {
       sunLabel.setText("");
-      iconsLabel.setText(info["icon"]);
-      iconsLabel.setFont(iconFont);
+      sunIconLabel.setText("");
     }
   }
 
@@ -424,10 +438,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var nextLabel = "";
     var hDate = "hb";
     var holyday = "";
-    var iconStr = "";
-    if (showSteps) {
-      iconStr = "0"; // Clear icon if showing steps
-    }
+    var sunIcon = "";
     var posInfo = Position.getInfo();
     var hasValidFix = false;
     if (posInfo != null) {
@@ -472,20 +483,20 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
 
       if (beforeSunrise) {
-        iconStr += ">";
-        nextLabel = Lang.format(" $1$:$2$", [
+        sunIcon = ">";
+        nextLabel = Lang.format("$1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
       } else if (beforeSunset) {
-        iconStr += "?";
-        nextLabel = Lang.format(" $1$:$2$", [
+        sunIcon = "?";
+        nextLabel = Lang.format("$1$:$2$", [
           sunSetTime.hour.format("%02d"),
           sunSetTime.min.format("%02d"),
         ]);
       } else {
-        iconStr += ">";
-        nextLabel = Lang.format(" $1$:$2$", [
+        sunIcon = ">";
+        nextLabel = Lang.format("$1$:$2$", [
           sunRiseTime.hour.format("%02d"),
           sunRiseTime.min.format("%02d"),
         ]);
@@ -499,7 +510,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       nextLabel = "GPS?";
     }
     return {
-      "icon" => iconStr,
+      "sunIcon" => sunIcon,
       "label" => nextLabel,
       "hDate" => hDate,
       "holyday" => holyday,
@@ -634,7 +645,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (shabbatActive || chagActive) {
       showSteps = false;
       showSunEvent = false;
-      sunInfo["icon"] = "";
+      sunInfo["sunIcon"] = "";
     }
 
     updateHebrewDate(sunInfo["hDate"], sunInfo["holyday"]);
