@@ -1,6 +1,8 @@
 # JF Hebrew Calendar Watch Face
 
 A comprehensive Hebrew calendar watch face for Garmin devices that displays Hebrew dates, Jewish holidays, and Shabbat/Chag information alongside standard time and fitness data.
+https://apps.garmin.com/apps/ae5a3599-28b8-4aa1-a688-9def957d7601
+you can support me here: https://www.paypal.com/paypalme/fainsilber
 
 ## Features
 
@@ -217,3 +219,4 @@ Special thanks to the Garmin Connect IQ platform for making custom watch faces p
 For support, bug reports, or feature requests, please open an issue on GitHub.
 
 *May this watch face help you stay connected to Jewish time and tradition throughout your day!*
+
