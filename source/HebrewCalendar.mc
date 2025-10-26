@@ -210,18 +210,33 @@ class HebrewCalendar {
   static function hebrewYearStartGregorian(
     hebrewYear as Number
   ) as Array<Number> {
-    // Hebrew calendar epoch
+    var abs = hebrewDateToAbsolute(hebrewYear, 1, 1);
+    return absoluteToGregorian(abs);
+  }
+
+  static function hebrewDateToAbsolute(
+    year as Number,
+    hebrewYearMonth as Number,
+    day as Number
+  ) as Number {
     var HEBREW_EPOCH_ABS = -1373427;
-    var abs = hebrewCalendarElapsedDays(hebrewYear) + HEBREW_EPOCH_ABS;
+    var abs = hebrewCalendarElapsedDays(year) + HEBREW_EPOCH_ABS;
 
-    // Now convert absolute day to Gregorian date
-    var gregorianYear = 1;
+    var monthIndex = 1;
+    while (monthIndex < hebrewYearMonth) {
+      abs += daysInHebrewMonth(year, monthIndex);
+      monthIndex += 1;
+    }
 
+    return abs + day - 1;
+  }
+
+  static function absoluteToGregorian(abs as Number) as Array<Number> {
     // Estimate Gregorian year
     var approxYear = (abs - 1) / 365.2425 + 1;
-    gregorianYear = Math.floor(approxYear).toNumber();
+    var gregorianYear = Math.floor(approxYear).toNumber();
 
-    // Find the correct Gregorian year
+    // Adjust to the exact Gregorian year containing the absolute day
     while (gregorianToAbsolute(gregorianYear + 1, 1, 1) <= abs) {
       gregorianYear += 1;
     }
@@ -229,14 +244,29 @@ class HebrewCalendar {
       gregorianYear -= 1;
     }
 
-    // Find month and day
+    // Determine month
     var month = 1;
-    while (gregorianToAbsolute(gregorianYear, month + 1, 1) <= abs) {
-      month += 1;
+    while (month < 12) {
+      var nextMonth = month + 1;
+      if (gregorianToAbsolute(gregorianYear, nextMonth, 1) > abs) {
+        break;
+      }
+      month = nextMonth;
     }
+
+    // Determine day within the month
     var day = abs - gregorianToAbsolute(gregorianYear, month, 1) + 1;
 
     return [gregorianYear, month, day];
+  }
+
+  static function hebrewToGregorian(
+    year as Number,
+    hebrewYearMonth as Number,
+    day as Number
+  ) as Array<Number> {
+    var abs = hebrewDateToAbsolute(year, hebrewYearMonth, day);
+    return absoluteToGregorian(abs);
   }
 
   // --- Public API Functions ---
@@ -491,6 +521,26 @@ class HebrewCalendar {
     var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
 
     var chutzLaAretz = isChutzLaAretzMode();
+    var gregorianDate = hebrewToGregorian(year, month, day);
+    var gregorianYear = gregorianDate[0];
+    var gregorianMonth = gregorianDate[1];
+    var gregorianDay = gregorianDate[2];
+
+    if (chutzLaAretz) {
+      if (gregorianMonth == 12) {
+        var startDay = 4;
+        if (isGregorianLeapYear(gregorianYear + 1)) {
+          startDay = 5;
+        }
+        if (gregorianDay == startDay) {
+          return "ותן טל ומטר";
+        }
+      }
+    } else {
+      if (standardMonth == 8 && day == 7) {
+        return "ותן טל ומטר";
+      }
+    }
 
     if (standardMonth == 7) {
       if (day == 1 || day == 2) {
