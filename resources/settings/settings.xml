@@ -72,11 +72,23 @@
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.showSteps" title="Show Steps">
+    <setting propertyKey="@Properties.showSteps" title="@Strings.BottomLeftDataToggle">
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.stepsColor" title="Steps Color">
+    <setting propertyKey="@Properties.stepsDataType" title="@Strings.BottomLeftDataTitle">
+        <settingConfig type="list">
+            <listEntry value="steps">@Strings.DataSteps</listEntry>
+            <listEntry value="heartRate">@Strings.DataHeartRate</listEntry>
+            <listEntry value="bodyBattery">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="floors">@Strings.DataFloors</listEntry>
+            <listEntry value="intensityMinutes">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="calories">@Strings.DataCalories</listEntry>
+            <listEntry value="battery">@Strings.DataBattery</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.stepsColor" title="@Strings.BottomLeftColorTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
             <listEntry value="2">@Strings.ColorDarkGray</listEntry>
@@ -88,15 +100,28 @@
         </settingConfig>
     </setting>
     
-    <setting propertyKey="@Properties.showSunEvent" title="Show Next Sun Event">
+    <setting propertyKey="@Properties.showSunEvent" title="@Strings.BottomRightDataToggle">
         <settingConfig type="boolean" />
+    </setting>
+
+    <setting propertyKey="@Properties.sunDataType" title="@Strings.BottomRightDataTitle">
+        <settingConfig type="list">
+            <listEntry value="sun">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="steps">@Strings.DataSteps</listEntry>
+            <listEntry value="heartRate">@Strings.DataHeartRate</listEntry>
+            <listEntry value="bodyBattery">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="floors">@Strings.DataFloors</listEntry>
+            <listEntry value="intensityMinutes">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="calories">@Strings.DataCalories</listEntry>
+            <listEntry value="battery">@Strings.DataBattery</listEntry>
+        </settingConfig>
     </setting>
 
     <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle">
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.sunEventColor" title="Sun Event Color">
+    <setting propertyKey="@Properties.sunEventColor" title="@Strings.BottomRightColorTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
             <listEntry value="2">@Strings.ColorDarkGray</listEntry>
