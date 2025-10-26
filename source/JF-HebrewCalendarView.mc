@@ -255,23 +255,14 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
     var myStats = System.getSystemStats();
     var batteryLevel = myStats.battery;
-    var battery = "";
     var color = Graphics.COLOR_GREEN;
-    if (batteryLevel > 80) {
-      battery = "B";
-    } else if (batteryLevel > 60) {
-      battery = "C";
-    } else if (batteryLevel > 40) {
-      battery = "D";
-    } else if (batteryLevel > 10) {
-      battery = "E";
-    } else {
-      battery = "F";
+    if (batteryLevel <= 10) {
       color = Graphics.COLOR_RED;
     }
+    var batteryText = Lang.format("$1$%", [batteryLevel.format("%d")]);
     batteryLabel.setColor(color);
-    batteryLabel.setText(battery.toString());
-    batteryLabel.setFont(iconFont);
+    batteryLabel.setText(batteryText);
+    batteryLabel.setFont(Graphics.FONT_TINY);
   }
 
   function updateTime(clockTime) {
