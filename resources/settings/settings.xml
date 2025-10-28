@@ -76,15 +76,16 @@
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.stepsDataType" title="@Strings.BottomLeftDataTitle">
+    <setting propertyKey="@Properties.stepsDataType" title="Bottom Left Data">
         <settingConfig type="list">
-            <listEntry value="steps">@Strings.DataSteps</listEntry>
-            <listEntry value="heartRate">@Strings.DataHeartRate</listEntry>
-            <listEntry value="bodyBattery">@Strings.DataBodyBattery</listEntry>
-            <listEntry value="floors">@Strings.DataFloors</listEntry>
-            <listEntry value="intensityMinutes">@Strings.DataIntensityMinutes</listEntry>
-            <listEntry value="calories">@Strings.DataCalories</listEntry>
-            <listEntry value="battery">@Strings.DataBattery</listEntry>
+            <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="2">@Strings.DataSteps</listEntry>
+            <listEntry value="3">@Strings.DataHeartRate</listEntry>
+            <listEntry value="4">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="5">@Strings.DataFloors</listEntry>
+            <listEntry value="6">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="7">@Strings.DataCalories</listEntry>
+            <listEntry value="8">@Strings.DataBattery</listEntry>
         </settingConfig>
     </setting>
 
@@ -104,16 +105,16 @@
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.sunDataType" title="@Strings.BottomRightDataTitle">
+    <setting propertyKey="@Properties.sunDataType" title="Bottom Right Data">
         <settingConfig type="list">
-            <listEntry value="sun">@Strings.DataNextSunEvent</listEntry>
-            <listEntry value="steps">@Strings.DataSteps</listEntry>
-            <listEntry value="heartRate">@Strings.DataHeartRate</listEntry>
-            <listEntry value="bodyBattery">@Strings.DataBodyBattery</listEntry>
-            <listEntry value="floors">@Strings.DataFloors</listEntry>
-            <listEntry value="intensityMinutes">@Strings.DataIntensityMinutes</listEntry>
-            <listEntry value="calories">@Strings.DataCalories</listEntry>
-            <listEntry value="battery">@Strings.DataBattery</listEntry>
+            <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="2">@Strings.DataSteps</listEntry>
+            <listEntry value="3">@Strings.DataHeartRate</listEntry>
+            <listEntry value="4">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="5">@Strings.DataFloors</listEntry>
+            <listEntry value="6">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="7">@Strings.DataCalories</listEntry>
+            <listEntry value="8">@Strings.DataBattery</listEntry>
         </settingConfig>
     </setting>
 

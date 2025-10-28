@@ -9,13 +9,13 @@
     <property id="gregorianDateColor" type="number">1</property>
     <property id="showSunEvent" type="boolean">true</property>
     <property id="sunEventColor" type="number">1</property>
-    <property id="sunDataType" type="string">sun</property>
+    <property id="sunDataType" type="number">1</property>
 
     <property id="hebrewDateColor" type="number">1</property>
 
     <property id="showSteps" type="boolean">true</property>
     <property id="stepsColor" type="number">1</property>
-    <property id="stepsDataType" type="string">steps</property>
+    <property id="stepsDataType" type="number">2</property>
 
     <property id="shabbatMode" type="boolean">true</property>
     <property id="rabbenuTam" type="boolean">false</property>

@@ -427,6 +427,19 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     stats,
     sunInfo
   ) {
+
+    /*
+            <settingConfig type="list">
+            <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="2">@Strings.DataSteps</listEntry>
+            <listEntry value="3">@Strings.DataHeartRate</listEntry>
+            <listEntry value="4">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="5">@Strings.DataFloors</listEntry>
+            <listEntry value="6">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="7">@Strings.DataCalories</listEntry>
+            <listEntry value="8">@Strings.DataBattery</listEntry>
+        </settingConfig>
+    */
     if (dataType == null) {
       return null;
     }
@@ -435,30 +448,26 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return null;
     }
 
-    if (dataType == "steps") {
+    if (dataType == 2) {
       var stepsNum = null;
       if (actInfo != null) {
-        try {
+        if (actInfo.steps != null) {
           stepsNum = actInfo.steps;
-        } catch (e as Lang.Exception) {
+        } else {
           stepsNum = null;
         }
       }
       return {
         "text" => formatIntValue(stepsNum),
         "icon" => "0",
-        "iconFont" => iconFont,
+        "iconFont" => iconFont
       };
     }
 
-    if (dataType == "heartRate") {
+    if (dataType == 3) {
       var heartRate = null;
-      if (actInfo != null) {
-        try {
-          heartRate = actInfo.currentHeartRate;
-        } catch (e as Lang.Exception) {
-          heartRate = null;
-        }
+      if (actInfo != null && !hasOldApi) {
+        heartRate = actInfo.currentHeartRate;
       }
       if (heartRate == null || heartRate <= 0) {
         heartRate = null;
@@ -466,95 +475,79 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return {
         "text" => formatIntValue(heartRate),
         "icon" => "HR",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "bodyBattery") {
+    if (dataType == 4) {
       var bodyBattery = null;
-      if (actInfo != null) {
-        try {
-          bodyBattery = actInfo.bodyBattery;
-        } catch (e as Lang.Exception) {
-          bodyBattery = null;
-        }
+      if (actInfo != null && !hasOldApi) {
+        bodyBattery = actInfo.averageHeartRate;
       }
       return {
         "text" => formatPercentValue(bodyBattery),
         "icon" => "BB",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "calories") {
+    if (dataType == 7) {
       var calories = null;
-      if (actInfo != null) {
-        try {
-          calories = actInfo.calories;
-        } catch (e as Lang.Exception) {
-          calories = null;
-        }
+      if (actInfo != null && !hasOldApi) {
+        calories = actInfo.calories;
       }
       return {
         "text" => formatIntValue(calories),
         "icon" => "CAL",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "intensityMinutes") {
+    if (dataType == 6) {
       var minutes = null;
-      if (actInfo != null) {
-        try {
-          minutes = actInfo.intensityMinutes;
-        } catch (e as Lang.Exception) {
-          minutes = null;
-        }
+      if (actInfo != null && !hasOldApi) {
+        minutes = actInfo.intensity;
       }
       return {
         "text" => formatIntValue(minutes),
         "icon" => "IM",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "floors") {
+    if (dataType == 5) {
       var floors = null;
-      if (actInfo != null) {
-        try {
-          floors = actInfo.floorsClimbed;
-        } catch (e as Lang.Exception) {
-          floors = null;
-        }
+      if (actInfo != null && !hasOldApi) {
+        floors = actInfo.floorsClimbed;
       }
       return {
         "text" => formatIntValue(floors),
         "icon" => "FL",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "battery") {
+    if (dataType == 8) {
       var batteryLevel = stats != null ? stats.battery : null;
       return {
         "text" => formatPercentValue(batteryLevel),
         "icon" => "BT",
-        "iconFont" => Graphics.FONT_TINY,
+        "iconFont" => Graphics.FONT_TINY
       };
     }
 
-    if (dataType == "sun") {
+    if (dataType == 1) {
       if (sunInfo == null) {
         return {
           "text" => "",
           "icon" => "",
-          "iconFont" => iconFont,
+          "iconFont" => iconFont
         };
       }
       return {
         "text" => sunInfo["label"],
         "icon" => sunInfo["sunIcon"],
-        "iconFont" => iconFont,
+        "iconFont" => iconFont
       };
     }
 
@@ -725,8 +718,9 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       "sunIcon" => sunIcon,
       "label" => nextLabel,
       "hDate" => hDate,
-      "holyday" => holyday,
+      "holyday" => holyday
     };
+
   }
 
   function isShabbat(now) {
