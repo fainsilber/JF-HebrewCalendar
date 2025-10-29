@@ -13,6 +13,22 @@
     <string id="ColorYellow">Yellow</string>
 
 
+    <string id="BottomLeftDataToggle">Show Bottom Left Data</string>
+    <string id="BottomLeftDataTitle">Bottom Left Data</string>
+    <string id="BottomRightDataToggle">Show Bottom Right Data</string>
+    <string id="BottomRightDataTitle">Bottom Right Data</string>
+    <string id="BottomLeftColorTitle">Bottom Left Color</string>
+    <string id="BottomRightColorTitle">Bottom Right Color</string>
+    <string id="DataSteps">Steps</string>
+    <string id="DataHeartRate">Heart Rate</string>
+    <string id="DataBodyBattery">Body Battery</string>
+    <string id="DataFloors">Floors Climbed</string>
+    <string id="DataIntensityMinutes">Intensity Minutes</string>
+    <string id="DataCalories">Calories</string>
+    <string id="DataBattery">Battery</string>
+    <string id="DataNextSunEvent">Next Sun Event</string>
+
+
     <string id="GregorianDateFormatTitle">Gregorian Date Format</string>
     <string id="GregorianFormatDowDayMonth">Weekday 17 Sep</string>
     <string id="GregorianFormatDowMonthDay">Weekday Sep 17th</string>
