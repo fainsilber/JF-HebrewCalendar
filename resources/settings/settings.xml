@@ -3,6 +3,13 @@
         <settingConfig type="boolean" />
     </setting>
 
+    <setting propertyKey="@Properties.batteryDisplayMode" title="@Strings.BatteryDisplayTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.BatteryDisplayIcon</listEntry>
+            <listEntry value="1">@Strings.BatteryDisplayPercent</listEntry>
+        </settingConfig>
+    </setting>
+
     <setting propertyKey="@Properties.showTime" title="Show Time">
         <settingConfig type="boolean" />
     </setting>

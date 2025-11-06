@@ -1,5 +1,6 @@
 <properties>
     <property id="showBattery" type="boolean">true</property>
+    <property id="batteryDisplayMode" type="number">0</property>
     <property id="showTime" type="boolean">true</property>
     <property id="timeColor" type="number">1</property> 
     <property id="showSeconds" type="boolean">true</property>
