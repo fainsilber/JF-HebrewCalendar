@@ -45,6 +45,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var batteryDisplayMode = 0;
   const BATTERY_DISPLAY_ICON = 0;
   const BATTERY_DISPLAY_PERCENT = 1;
+  const BATTERY_DISPLAY_DAYS = 2;
   var showTime = true;
   var showSeconds = true;
   var showGregorianDate = true;
@@ -262,6 +263,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
     var myStats = System.getSystemStats();
     var batteryLevel = myStats.battery;
+    var batteryLevelDays = myStats.batteryInDays;
     var color = Graphics.COLOR_GREEN;
     if (batteryLevel <= 10) {
       color = Graphics.COLOR_RED;
@@ -271,7 +273,12 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var batteryText = Lang.format("$1$%", [batteryLevel.format("%d")]);
       batteryLabel.setColor(color);
       batteryLabel.setText(batteryText);
-      batteryLabel.setFont(Graphics.FONT_TINY);
+      batteryLabel.setFont(Graphics.FONT_XTINY);
+    } else if (batteryDisplayMode == BATTERY_DISPLAY_DAYS) {
+      var batteryText = Lang.format("$1$ d", [batteryLevelDays.format("%d"),]);      
+      batteryLabel.setColor(color);
+      batteryLabel.setText(batteryText);
+      batteryLabel.setFont(Graphics.FONT_XTINY);
     } else {
       var battery = "";
       if (batteryLevel > 80) {

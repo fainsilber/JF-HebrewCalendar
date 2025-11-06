@@ -5,6 +5,7 @@
     <string id="BatteryDisplayTitle">Battery Display</string>
     <string id="BatteryDisplayIcon">Icon</string>
     <string id="BatteryDisplayPercent">Percentage</string>
+    <string id="BatteryDisplayDays">Days</string>
 
 
     <string id="ColorBlack">Black</string>
