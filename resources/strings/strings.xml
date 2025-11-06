@@ -2,6 +2,12 @@
     <string id="AppName">JF-HebrewCalendar</string>
 
 
+    <string id="BatteryDisplayTitle">Battery Display</string>
+    <string id="BatteryDisplayIcon">Icon</string>
+    <string id="BatteryDisplayPercent">Percentage</string>
+    <string id="BatteryDisplayDays">Days</string>
+
+
     <string id="ColorBlack">Black</string>
     <string id="ColorDarkGray">Dark Gray</string>
     <string id="ColorLightGray">Light Gray</string>
