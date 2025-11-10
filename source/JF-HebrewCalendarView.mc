@@ -9,6 +9,7 @@ import Toybox.Math;
 import Toybox.Application;
 using Toybox.Application.Properties as appProperties;
 using Toybox.Application.Storage as appStorage;
+using Toybox.SensorHistory;
 
 class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var iconFont = null;
@@ -347,18 +348,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var weekDay = info.day_of_week;
 
     var dayStr = day.format("%d");
-    var monthStr = month;//.format("%d");
+    var monthStr = month; //.format("%d");
     var yearStr = year.format("%d");
 
-    var weekdayNames = [
-      "Sun",
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat",
-    ];
+    var weekdayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     var monthNames = [
       "Jan",
       "Feb",
@@ -383,8 +376,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     //   monthIndex = 1;
     // }
 
-    var weekdayName = weekDay;//weekdayNames[weekdayIndex - 1];
-    var monthName = monthStr;// monthNames[monthIndex - 1];
+    var weekdayName = weekDay; //weekdayNames[weekdayIndex - 1];
+    var monthName = monthStr; // monthNames[monthIndex - 1];
     var format = gregorianDateFormat;
     if (format == null) {
       format = 3;
@@ -421,13 +414,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     return Lang.format("$1$%", [value.format("%d")]);
   }
 
-  function getDataFieldData(
-    dataType,
-    actInfo,
-    stats,
-    sunInfo
-  ) {
-
+  function getDataFieldData(dataType, actInfo, stats, sunInfo, hrInfo) {
     /*
             <settingConfig type="list">
             <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
@@ -447,6 +434,22 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (dataType == "off") {
       return null;
     }
+    
+    if (dataType == 1) {
+      if (sunInfo != null) {
+        var SunEvent = "";
+        var icon = "";
+        if (sunInfo != null ) {
+          SunEvent = sunInfo["label"];
+          icon = sunInfo["sunIcon"];  
+        }
+        return {
+          "text" => SunEvent,
+          "icon" => icon,
+          "iconFont" => iconFont,
+        };
+      }
+    }
 
     if (dataType == 2) {
       var stepsNum = null;
@@ -460,14 +463,14 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return {
         "text" => formatIntValue(stepsNum),
         "icon" => "0",
-        "iconFont" => iconFont
+        "iconFont" => iconFont,
       };
     }
 
     if (dataType == 3) {
       var heartRate = null;
-      if (actInfo != null && !hasOldApi) {
-        heartRate = actInfo.currentHeartRate;
+      if (hrInfo != null) {
+        heartRate = hrInfo.currentHeartRate;// actInfo.currentHeartRate;
       }
       if (heartRate == null || heartRate <= 0) {
         heartRate = null;
@@ -475,43 +478,22 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return {
         "text" => formatIntValue(heartRate),
         "icon" => "HR",
-        "iconFont" => Graphics.FONT_TINY
+        "iconFont" => Graphics.FONT_TINY,
       };
     }
 
     if (dataType == 4) {
       var bodyBattery = null;
-      if (actInfo != null && !hasOldApi) {
-        bodyBattery = actInfo.averageHeartRate;
+      // get the body battery iterator object
+      var bbIterator = getIterator();
+      var bbSample = bbIterator.next();                         // get the body battery data
+      if (actInfo != null ) {
+        bodyBattery = bbSample.data;
       }
       return {
         "text" => formatPercentValue(bodyBattery),
         "icon" => "BB",
-        "iconFont" => Graphics.FONT_TINY
-      };
-    }
-
-    if (dataType == 7) {
-      var calories = null;
-      if (actInfo != null && !hasOldApi) {
-        calories = actInfo.calories;
-      }
-      return {
-        "text" => formatIntValue(calories),
-        "icon" => "CAL",
-        "iconFont" => Graphics.FONT_TINY
-      };
-    }
-
-    if (dataType == 6) {
-      var minutes = null;
-      if (actInfo != null && !hasOldApi) {
-        minutes = actInfo.intensity;
-      }
-      return {
-        "text" => formatIntValue(minutes),
-        "icon" => "IM",
-        "iconFont" => Graphics.FONT_TINY
+        "iconFont" => Graphics.FONT_TINY,
       };
     }
 
@@ -523,7 +505,37 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return {
         "text" => formatIntValue(floors),
         "icon" => "FL",
-        "iconFont" => Graphics.FONT_TINY
+        "iconFont" => Graphics.FONT_TINY,
+      };
+    }
+
+    if (dataType == 6) {
+      var minutes = null;
+      if (actInfo != null && !hasOldApi) {
+        var actMinutes = actInfo.activeMinutesDay;
+        var moderateMinutes = actMinutes.moderate;
+        var vigorousMinutes = actMinutes.vigorous;
+            
+            // Calculate the total based on Garmin's display logic (vigorous minutes count double)
+        minutes = moderateMinutes + (vigorousMinutes * 2);
+        // actInfo.intensity;//need fix
+      }
+      return {
+        "text" => formatIntValue(minutes),
+        "icon" => "IM",
+        "iconFont" => Graphics.FONT_TINY,
+      };
+    }
+
+    if (dataType == 7) {
+      var calories = null;
+      if (actInfo != null && !hasOldApi) {
+        calories = actInfo.calories;
+      }
+      return {
+        "text" => formatIntValue(calories),
+        "icon" => "CAL",
+        "iconFont" => Graphics.FONT_TINY,
       };
     }
 
@@ -532,34 +544,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return {
         "text" => formatPercentValue(batteryLevel),
         "icon" => "BT",
-        "iconFont" => Graphics.FONT_TINY
-      };
-    }
-
-    if (dataType == 1) {
-      if (sunInfo == null) {
-        return {
-          "text" => "",
-          "icon" => "",
-          "iconFont" => iconFont
-        };
-      }
-      return {
-        "text" => sunInfo["label"],
-        "icon" => sunInfo["sunIcon"],
-        "iconFont" => iconFont
+        "iconFont" => Graphics.FONT_TINY,
       };
     }
 
     return null;
   }
 
-  function applyDataToLabels(
-    valueLabel,
-    iconLabel,
-    color,
-    data
-  ) {
+  // Create a method to get the SensorHistoryIterator object
+  function getIterator() {
+      // Check device for SensorHistory compatibility
+      if ((Toybox has :SensorHistory) && (Toybox.SensorHistory has :getBodyBatteryHistory)) {
+          // Set up the method with parameters
+          return Toybox.SensorHistory.getBodyBatteryHistory({});
+      }
+      return null;
+  }
+  
+
+  function applyDataToLabels(valueLabel, iconLabel, color, data) {
     if (data == null) {
       valueLabel.setText("");
       iconLabel.setText("");
@@ -592,25 +595,25 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
   }
 
-  function updateLeftData(actInfo, stats) {
-    if (!showSteps) {
-      stepsLabel.setText("");
-      stepsIconLabel.setText("");
-      return;
-    }
+  function updateLeftData(actInfo, stats, sunInfo, hrInfo) {
+    // if (!showSteps) {
+    //   stepsLabel.setText("");
+    //   stepsIconLabel.setText("");
+    //   return;
+    // }
 
-    var data = getDataFieldData(stepsDataType, actInfo, stats, null);
+    var data = getDataFieldData(stepsDataType, actInfo, stats, sunInfo, hrInfo);
     applyDataToLabels(stepsLabel, stepsIconLabel, stepsColor, data);
   }
 
-  function updateRightData(actInfo, stats, sunInfo) {
-    if (!showSunEvent) {
-      sunLabel.setText("");
-      sunIconLabel.setText("");
-      return;
-    }
+  function updateRightData(actInfo, stats, sunInfo, hrInfo) {
+    // if (!showSunEvent) {
+    //   sunLabel.setText("");
+    //   sunIconLabel.setText("");
+    //   return;
+    // }
 
-    var data = getDataFieldData(sunDataType, actInfo, stats, sunInfo);
+    var data = getDataFieldData(sunDataType, actInfo, stats, sunInfo, hrInfo);
     applyDataToLabels(sunLabel, sunIconLabel, sunEventColor, data);
   }
 
@@ -667,7 +670,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         appStorage.getValue("lat") != null &&
         appStorage.getValue("lon") != null;
     }
-    var shouldShowSunData = showSunEvent && sunDataType == "sun";
+    var shouldShowSunData = showSunEvent && sunDataType == 1;
     var hasLocation = hasValidFix || haveStoredLocation;
 
     if (hasLocation) {
@@ -718,9 +721,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       "sunIcon" => sunIcon,
       "label" => nextLabel,
       "hDate" => hDate,
-      "holyday" => holyday
+      "holyday" => holyday,
     };
-
   }
 
   function isShabbat(now) {
@@ -843,6 +845,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var clockTime = System.getClockTime();
     var gDate = formatGregorianDate(now);
     var actInfo = ActivityMonitor.getInfo();
+    var hrInfo = Activity.getActivityInfo();
     var systemStats = System.getSystemStats();
     var sunInfo = calculateSunInfo();
 
@@ -858,8 +861,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     updateBattery(systemStats);
     updateTime(clockTime);
     updateGregorianDate(gDate);
-    updateLeftData(actInfo, systemStats);
-    updateRightData(actInfo, systemStats, sunInfo);
+    updateLeftData(actInfo, systemStats, sunInfo, hrInfo);
+    updateRightData(actInfo, systemStats, sunInfo, hrInfo);
     updateYomTovLabel(shabbatActive, chagActive);
 
     View.onUpdate(dc);
