@@ -477,8 +477,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatIntValue(heartRate),
-        "icon" => "HR",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "3",
+        "iconFont" => iconFont,
       };
     }
 
@@ -492,8 +492,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatPercentValue(bodyBattery),
-        "icon" => "BB",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "?",
+        "iconFont" => iconFont,
       };
     }
 
@@ -504,8 +504,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatIntValue(floors),
-        "icon" => "FL",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "1",
+        "iconFont" => iconFont,
       };
     }
 
@@ -522,8 +522,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatIntValue(minutes),
-        "icon" => "IM",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "2",
+        "iconFont" => iconFont,
       };
     }
 
@@ -534,8 +534,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatIntValue(calories),
-        "icon" => "CAL",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "7",
+        "iconFont" => iconFont,
       };
     }
 
@@ -543,8 +543,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var batteryLevel = stats != null ? stats.battery : null;
       return {
         "text" => formatPercentValue(batteryLevel),
-        "icon" => "BT",
-        "iconFont" => Graphics.FONT_TINY,
+        "icon" => "5",
+        "iconFont" => iconFont,
       };
     }
 
