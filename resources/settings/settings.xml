@@ -80,11 +80,24 @@
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.showSteps" title="Show Steps">
+    <setting propertyKey="@Properties.showSteps" title="@Strings.BottomLeftDataToggle">
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.stepsColor" title="Steps Color">
+    <setting propertyKey="@Properties.stepsDataType" title="Bottom Left Data">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="2">@Strings.DataSteps</listEntry>
+            <listEntry value="3">@Strings.DataHeartRate</listEntry>
+            <listEntry value="4">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="5">@Strings.DataFloors</listEntry>
+            <listEntry value="6">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="7">@Strings.DataCalories</listEntry>
+            <listEntry value="8">@Strings.DataBattery</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.stepsColor" title="@Strings.BottomLeftColorTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
             <listEntry value="2">@Strings.ColorDarkGray</listEntry>
@@ -96,15 +109,23 @@
         </settingConfig>
     </setting>
     
-    <setting propertyKey="@Properties.showSunEvent" title="Show Next Sun Event">
+    <setting propertyKey="@Properties.showSunEvent" title="@Strings.BottomRightDataToggle">
         <settingConfig type="boolean" />
     </setting>
 
-    <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle">
-        <settingConfig type="boolean" />
+    <setting propertyKey="@Properties.sunDataType" title="Bottom Right Data">
+        <settingConfig type="list">
+            <listEntry value="1">@Strings.DataNextSunEvent</listEntry>
+            <listEntry value="2">@Strings.DataSteps</listEntry>
+            <listEntry value="3">@Strings.DataHeartRate</listEntry>
+            <listEntry value="4">@Strings.DataBodyBattery</listEntry>
+            <listEntry value="5">@Strings.DataFloors</listEntry>
+            <listEntry value="6">@Strings.DataIntensityMinutes</listEntry>
+            <listEntry value="7">@Strings.DataCalories</listEntry>
+            <listEntry value="8">@Strings.DataBattery</listEntry>
+        </settingConfig>
     </setting>
-
-    <setting propertyKey="@Properties.sunEventColor" title="Sun Event Color">
+    <setting propertyKey="@Properties.sunEventColor" title="@Strings.BottomRightColorTitle">
         <settingConfig type="list">
             <listEntry value="1">@Strings.ColorWhite</listEntry>
             <listEntry value="2">@Strings.ColorDarkGray</listEntry>
@@ -115,6 +136,11 @@
             <listEntry value="7">@Strings.ColorYellow</listEntry>
         </settingConfig>
     </setting>
+
+    <setting propertyKey="@Properties.chutzLaAretz" title="@Strings.ChutzLaAretzTitle">
+        <settingConfig type="boolean" />
+    </setting>
+
 
     <setting propertyKey="@Properties.shabbatMode" title="Shabbat Mode: removes Steps and Sun Event in Shabbat">
         <settingConfig type="boolean" />
