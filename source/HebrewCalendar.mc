@@ -582,6 +582,10 @@ class HebrewCalendar {
       }
     } else if (standardMonth == 1) {
       if (day >= 15 && day <= 22) {
+        if (day >= 16) {
+          var pesachOmerDay = day - 15;
+          return "פסח - ספירת העומר יום " + pesachOmerDay;
+        }
         return "פסח";
       }
     } else if (standardMonth == 2) {
@@ -599,7 +603,7 @@ class HebrewCalendar {
 
     // ספירת העומר (Counting of the Omer)
     // Omer runs from 16 Nisan (standardMonth==1 day>=16) through 5 Sivan (standardMonth==3 day<=5)
-    // Note: Pesach (Nisan 15-22) takes precedence above, so Omer will be returned for dates after Pesach or in Iyar/Sivan parts.
+    // Note: During Pesach, Omer is already included in the Pesach label starting from 16 Nisan.
     if (
       (standardMonth == 1 && day > 22) || // Nisan after Pesach (23..30)
       standardMonth == 2 || // Iyar
