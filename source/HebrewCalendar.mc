@@ -584,7 +584,7 @@ class HebrewCalendar {
       if (day >= 15 && day <= 22) {
         if (day >= 16) {
           var pesachOmerDay = day - 15;
-          return " פסח יום " + pesachOmerDay + "בעומר ";
+          return " פסח - " + pesachOmerDay + " בעומר";
         }
         return "פסח";
       }
