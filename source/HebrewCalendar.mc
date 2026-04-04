@@ -563,7 +563,9 @@ class HebrewCalendar {
         return "חנוכה";
       }
     } else if (standardMonth == 10) {
-      if (day <= 3) {
+      var kislevLength = daysInHebrewMonth(year, 3);
+      var lastHanukkahDayInTevet = kislevLength == 30 ? 2 : 3;
+      if (day <= lastHanukkahDayInTevet) {
         return "חנוכה";
       }
     } else if (standardMonth == 12) {
