@@ -269,6 +269,31 @@ class HebrewCalendar {
     return absoluteToGregorian(abs);
   }
 
+  static function getYomHaAtzmautDay(year as Number) as Number {
+    var isLeap = isHebrewLeapYear(year);
+    var iyarMonth = isLeap ? 9 : 8;
+    var gDate = hebrewToGregorian(year, iyarMonth, 5);
+    var options = {
+        :year   => gDate[0],
+        :month  => gDate[1],
+        :day    => gDate[2],
+        :hour   => 12 // Set to noon to avoid timezone shifts pushing the date to yesterday/tomorrow
+    };
+    var moment = Gregorian.moment(options);
+    var weekday = Gregorian.info(moment, Time.FORMAT_SHORT).day_of_week;
+    
+    if (weekday == 6) {
+      return 4;
+    }
+    if (weekday == 7) {
+      return 3;
+    }
+    if (weekday == 2) {
+      return 6;
+    }
+    return 5;
+  }
+
   // --- Public API Functions ---
 
   // Gets the current Hebrew date [year, month, day]
@@ -591,10 +616,11 @@ class HebrewCalendar {
         return "פסח";
       }
     } else if (standardMonth == 2) {
-      if (day == 4) {
+      var yomHaAtzmautDay = getYomHaAtzmautDay(year);
+      if (day == yomHaAtzmautDay - 1) {
         return "יום הזיכרון";
       }
-      if (day == 5) {
+      if (day == yomHaAtzmautDay) {
         return "יום העצמאות";
       }
     } else if (standardMonth == 3) {
