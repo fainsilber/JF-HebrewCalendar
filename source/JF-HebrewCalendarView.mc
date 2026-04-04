@@ -263,7 +263,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     }
     var myStats = System.getSystemStats();
     var batteryLevel = myStats.battery;
-    var batteryLevelDays = myStats.batteryInDays;
+    var batteryLevelDays = myStats.battery;
+    if (myStats has :batteryInDays) {
+      batteryLevelDays = myStats.batteryInDays;
+    }
     var color = Graphics.COLOR_GREEN;
     if (batteryLevel <= 10) {
       color = Graphics.COLOR_RED;
