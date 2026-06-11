@@ -1,0 +1,445 @@
+{
+  "settings" : [ {
+    "key" : "showBattery",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal0$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "batteryDisplayMode",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "BatteryDisplayTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "BatteryDisplayIcon",
+      "value" : 0
+    }, {
+      "display" : "BatteryDisplayPercent",
+      "value" : 1
+    }, {
+      "display" : "BatteryDisplayDays",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "showTime",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal1$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "timeColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal2$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "showSeconds",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal3$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "secondsColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal4$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "hebrewDateColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal5$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "showGregorianDate",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal6$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "gregorianDateFormat",
+    "valueType" : "number",
+    "defaultValue" : 3,
+    "configTitle" : "GregorianDateFormatTitle",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "GregorianFormatDowDayMonth",
+      "value" : 1
+    }, {
+      "display" : "GregorianFormatDowMonthDay",
+      "value" : 2
+    }, {
+      "display" : "GregorianFormatDayMonthYear",
+      "value" : 3
+    }, {
+      "display" : "GregorianFormatMonthDayYear",
+      "value" : 4
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "gregorianDateColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal7$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "showSteps",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal8$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "stepsColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal9$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "showSunEvent",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal10$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "chutzLaAretz",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "ChutzLaAretzTitle",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "sunEventColor",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "$literal11$",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "ColorWhite",
+      "value" : 1
+    }, {
+      "display" : "ColorDarkGray",
+      "value" : 2
+    }, {
+      "display" : "ColorBlue",
+      "value" : 3
+    }, {
+      "display" : "ColorRed",
+      "value" : 4
+    }, {
+      "display" : "ColorGreen",
+      "value" : 5
+    }, {
+      "display" : "ColorOrange",
+      "value" : 6
+    }, {
+      "display" : "ColorYellow",
+      "value" : 7
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "shabbatMode",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "$literal12$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "rabbenuTam",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "$literal13$",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  } ],
+  "supportsLiveValidation" : false,
+  "languages" : {
+    "valyrian" : {
+      "ColorBlue" : "Blue",
+      "GregorianFormatDowMonthDay" : "Weekday Sep 17th",
+      "ColorYellow" : "Yellow",
+      "AppName" : "JF-HebrewCalendar",
+      "BatteryDisplayIcon" : "Icon",
+      "ColorRed" : "Red",
+      "$literal0$" : "Show Battery Level",
+      "GregorianDateFormatTitle" : "Gregorian Date Format",
+      "BatteryDisplayDays" : "Days",
+      "$literal2$" : "Time Color",
+      "$literal4$" : "Seconds Color",
+      "$literal6$" : "Show Gregorian Date",
+      "$literal8$" : "Show Steps",
+      "ColorWhite" : "White",
+      "ChutzLaAretzDescription" : "Treat second day of Yom Tov as full Chag",
+      "ColorGreen" : "Green",
+      "$literal12$" : "Shabbat Mode: removes Steps and Sun Event in Shabbat",
+      "$literal10$" : "Show Next Sun Event",
+      "ColorLightGray" : "Light Gray",
+      "ColorDarkGray" : "Dark Gray",
+      "ColorBlack" : "Black",
+      "BatteryDisplayPercent" : "Percentage",
+      "GregorianFormatMonthDayYear" : "Sep 17, 2025",
+      "ColorOrange" : "Orange",
+      "$literal1$" : "Show Time",
+      "$literal3$" : "Show Seconds",
+      "$literal13$" : "Rabbenu Tam",
+      "ChutzLaAretzTitle" : "Chutz LaAretz Mode",
+      "$literal5$" : "Hebrew Date Color",
+      "$literal7$" : "Gregorian Date Color",
+      "$literal9$" : "Steps Color",
+      "BatteryDisplayTitle" : "Battery Display",
+      "GregorianFormatDayMonthYear" : "17/9/2025",
+      "$literal11$" : "Sun Event Color",
+      "GregorianFormatDowDayMonth" : "Weekday 17 Sep"
+    }
+  }
+}

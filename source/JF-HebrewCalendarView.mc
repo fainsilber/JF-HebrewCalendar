@@ -43,6 +43,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   // Settings
   var showBattery = true;
+  var batteryDisplayMode = 0;
+  const BATTERY_DISPLAY_ICON = 0;
+  const BATTERY_DISPLAY_PERCENT = 1;
+  const BATTERY_DISPLAY_DAYS = 2;
   var showTime = true;
   var showSeconds = true;
   var showGregorianDate = true;
@@ -125,6 +129,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   function loadSettings() {
     showBattery = loadBooleanSetting("showBattery", showBattery);
+    batteryDisplayMode = loadNumberSetting(
+      "batteryDisplayMode",
+      batteryDisplayMode
+    );
     showTime = loadBooleanSetting("showTime", showTime);
     showSeconds = loadBooleanSetting("showSeconds", showSeconds);
     showGregorianDate = loadBooleanSetting(
@@ -274,23 +282,42 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return;
     }
     var batteryLevel = myStats.battery;
-    var battery = "";
+    var batteryLevelDays = myStats.battery;
+    if (myStats has :batteryInDays) {
+      batteryLevelDays = myStats.batteryInDays;
+    }
     var color = Graphics.COLOR_GREEN;
-    if (batteryLevel > 80) {
-      battery = "B";
-    } else if (batteryLevel > 60) {
-      battery = "C";
-    } else if (batteryLevel > 40) {
-      battery = "D";
-    } else if (batteryLevel > 10) {
-      battery = "E";
-    } else {
-      battery = "F";
+    if (batteryLevel <= 10) {
       color = Graphics.COLOR_RED;
     }
-    batteryLabel.setColor(color);
-    batteryLabel.setText(battery.toString());
-    batteryLabel.setFont(iconFont);
+
+    if (batteryDisplayMode == BATTERY_DISPLAY_PERCENT) {
+      var batteryText = Lang.format("$1$%", [batteryLevel.format("%d")]);
+      batteryLabel.setColor(color);
+      batteryLabel.setText(batteryText);
+      batteryLabel.setFont(Graphics.FONT_XTINY);
+    } else if (batteryDisplayMode == BATTERY_DISPLAY_DAYS) {
+      var batteryText = Lang.format("$1$ d", [batteryLevelDays.format("%d"),]);      
+      batteryLabel.setColor(color);
+      batteryLabel.setText(batteryText);
+      batteryLabel.setFont(Graphics.FONT_XTINY);
+    } else {
+      var battery = "";
+      if (batteryLevel > 80) {
+        battery = "B";
+      } else if (batteryLevel > 60) {
+        battery = "C";
+      } else if (batteryLevel > 40) {
+        battery = "D";
+      } else if (batteryLevel > 10) {
+        battery = "E";
+      } else {
+        battery = "F";
+      }
+      batteryLabel.setColor(color);
+      batteryLabel.setText(battery.toString());
+      batteryLabel.setFont(iconFont);
+    }
   }
 
   function updateTime(clockTime) {
@@ -688,26 +715,24 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           nowInfo.hour < sunSetTime.hour ||
           (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
 
-        if (shouldShowSunData) {
-          if (beforeSunrise) {
-            sunIcon = ">";
-            nextLabel = Lang.format("$1$:$2$", [
-              sunRiseTime.hour.format("%02d"),
-              sunRiseTime.min.format("%02d"),
-            ]);
-          } else if (beforeSunset) {
-            sunIcon = "?";
-            nextLabel = Lang.format("$1$:$2$", [
-              sunSetTime.hour.format("%02d"),
-              sunSetTime.min.format("%02d"),
-            ]);
-          } else {
-            sunIcon = ">";
-            nextLabel = Lang.format("$1$:$2$", [
-              sunRiseTime.hour.format("%02d"),
-              sunRiseTime.min.format("%02d"),
-            ]);
-          }
+        if (beforeSunrise) {
+          sunIcon = ">";
+          nextLabel = Lang.format("$1$:$2$", [
+            sunRiseTime.hour.format("%02d"),
+            sunRiseTime.min.format("%02d"),
+          ]);
+        } else if (beforeSunset) {
+          sunIcon = "?";
+          nextLabel = Lang.format("$1$:$2$", [
+            sunSetTime.hour.format("%02d"),
+            sunSetTime.min.format("%02d"),
+          ]);
+        } else {
+          sunIcon = ">";
+          nextLabel = Lang.format("$1$:$2$", [
+            sunRiseTime.hour.format("%02d"),
+            sunRiseTime.min.format("%02d"),
+          ]);
         }
         var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
         if (todaySunset != null) {
@@ -717,6 +742,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
           holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
         }
+      } else {
+        hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
+        holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
+        nextLabel = "GPS?";
       }
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();

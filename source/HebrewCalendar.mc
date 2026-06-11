@@ -210,18 +210,33 @@ class HebrewCalendar {
   static function hebrewYearStartGregorian(
     hebrewYear as Number
   ) as Array<Number> {
-    // Hebrew calendar epoch
+    var abs = hebrewDateToAbsolute(hebrewYear, 1, 1);
+    return absoluteToGregorian(abs);
+  }
+
+  static function hebrewDateToAbsolute(
+    year as Number,
+    hebrewYearMonth as Number,
+    day as Number
+  ) as Number {
     var HEBREW_EPOCH_ABS = -1373427;
-    var abs = hebrewCalendarElapsedDays(hebrewYear) + HEBREW_EPOCH_ABS;
+    var abs = hebrewCalendarElapsedDays(year) + HEBREW_EPOCH_ABS;
 
-    // Now convert absolute day to Gregorian date
-    var gregorianYear = 1;
+    var monthIndex = 1;
+    while (monthIndex < hebrewYearMonth) {
+      abs += daysInHebrewMonth(year, monthIndex);
+      monthIndex += 1;
+    }
 
+    return abs + day - 1;
+  }
+
+  static function absoluteToGregorian(abs as Number) as Array<Number> {
     // Estimate Gregorian year
     var approxYear = (abs - 1) / 365.2425 + 1;
-    gregorianYear = Math.floor(approxYear).toNumber();
+    var gregorianYear = Math.floor(approxYear).toNumber();
 
-    // Find the correct Gregorian year
+    // Adjust to the exact Gregorian year containing the absolute day
     while (gregorianToAbsolute(gregorianYear + 1, 1, 1) <= abs) {
       gregorianYear += 1;
     }
@@ -229,14 +244,54 @@ class HebrewCalendar {
       gregorianYear -= 1;
     }
 
-    // Find month and day
+    // Determine month
     var month = 1;
-    while (gregorianToAbsolute(gregorianYear, month + 1, 1) <= abs) {
-      month += 1;
+    while (month < 12) {
+      var nextMonth = month + 1;
+      if (gregorianToAbsolute(gregorianYear, nextMonth, 1) > abs) {
+        break;
+      }
+      month = nextMonth;
     }
+
+    // Determine day within the month
     var day = abs - gregorianToAbsolute(gregorianYear, month, 1) + 1;
 
     return [gregorianYear, month, day];
+  }
+
+  static function hebrewToGregorian(
+    year as Number,
+    hebrewYearMonth as Number,
+    day as Number
+  ) as Array<Number> {
+    var abs = hebrewDateToAbsolute(year, hebrewYearMonth, day);
+    return absoluteToGregorian(abs);
+  }
+
+  static function getYomHaAtzmautDay(year as Number) as Number {
+    var isLeap = isHebrewLeapYear(year);
+    var iyarMonth = isLeap ? 9 : 8;
+    var gDate = hebrewToGregorian(year, iyarMonth, 5);
+    var options = {
+        :year   => gDate[0],
+        :month  => gDate[1],
+        :day    => gDate[2],
+        :hour   => 12 // Set to noon to avoid timezone shifts pushing the date to yesterday/tomorrow
+    };
+    var moment = Gregorian.moment(options);
+    var weekday = Gregorian.info(moment, Time.FORMAT_SHORT).day_of_week;
+    
+    if (weekday == 6) {
+      return 4;
+    }
+    if (weekday == 7) {
+      return 3;
+    }
+    if (weekday == 2) {
+      return 6;
+    }
+    return 5;
   }
 
   // --- Public API Functions ---
@@ -491,6 +546,26 @@ class HebrewCalendar {
     var standardMonth = hebrewYearMonthToStandardMonth(month, isLeap);
 
     var chutzLaAretz = isChutzLaAretzMode();
+    var gregorianDate = hebrewToGregorian(year, month, day);
+    var gregorianYear = gregorianDate[0];
+    var gregorianMonth = gregorianDate[1];
+    var gregorianDay = gregorianDate[2];
+
+    if (chutzLaAretz) {
+      if (gregorianMonth == 12) {
+        var startDay = 4;
+        if (isGregorianLeapYear(gregorianYear + 1)) {
+          startDay = 5;
+        }
+        if (gregorianDay == startDay) {
+          return "ותן טל ומטר";
+        }
+      }
+    } else {
+      if (standardMonth == 8 && day == 7) {
+        return "ותן טל ומטר";
+      }
+    }
 
     if (standardMonth == 7) {
       if (day == 1 || day == 2) {
@@ -513,7 +588,9 @@ class HebrewCalendar {
         return "חנוכה";
       }
     } else if (standardMonth == 10) {
-      if (day <= 3) {
+      var kislevLength = daysInHebrewMonth(year, 3);
+      var lastHanukkahDayInTevet = kislevLength == 30 ? 2 : 3;
+      if (day <= lastHanukkahDayInTevet) {
         return "חנוכה";
       }
     } else if (standardMonth == 12) {
@@ -532,13 +609,18 @@ class HebrewCalendar {
       }
     } else if (standardMonth == 1) {
       if (day >= 15 && day <= 22) {
+        if (day >= 16) {
+          var pesachOmerDay = day - 15;
+          return " פסח - " + pesachOmerDay + " בעומר";
+        }
         return "פסח";
       }
     } else if (standardMonth == 2) {
-      if (day == 4) {
+      var yomHaAtzmautDay = getYomHaAtzmautDay(year);
+      if (day == yomHaAtzmautDay - 1) {
         return "יום הזיכרון";
       }
-      if (day == 5) {
+      if (day == yomHaAtzmautDay) {
         return "יום העצמאות";
       }
     } else if (standardMonth == 3) {
@@ -549,7 +631,7 @@ class HebrewCalendar {
 
     // ספירת העומר (Counting of the Omer)
     // Omer runs from 16 Nisan (standardMonth==1 day>=16) through 5 Sivan (standardMonth==3 day<=5)
-    // Note: Pesach (Nisan 15-22) takes precedence above, so Omer will be returned for dates after Pesach or in Iyar/Sivan parts.
+    // Note: During Pesach, Omer is already included in the Pesach label starting from 16 Nisan.
     if (
       (standardMonth == 1 && day > 22) || // Nisan after Pesach (23..30)
       standardMonth == 2 || // Iyar
