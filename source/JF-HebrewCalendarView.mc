@@ -492,7 +492,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatPercentValue(bodyBattery),
-        "icon" => "?",
+        "icon" => "4",//"@",
         "iconFont" => iconFont,
       };
     }
@@ -534,7 +534,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
       return {
         "text" => formatIntValue(calories),
-        "icon" => "7",
+        "icon" => "6",
         "iconFont" => iconFont,
       };
     }
@@ -543,7 +543,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       var batteryLevel = stats != null ? stats.battery : null;
       return {
         "text" => formatPercentValue(batteryLevel),
-        "icon" => "5",
+        "icon" => "4",
         "iconFont" => iconFont,
       };
     }
