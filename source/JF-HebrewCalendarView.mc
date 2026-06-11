@@ -621,7 +621,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (sunrise == null || sunset == null) {
       sunrise = sunCalc.calculate(now, lat, lon, SUNRISE);
       sunset = sunCalc.calculate(now, lat, lon, SUNSET);
-    } else {
+    } else if (sunset != null) {
       var nowInfo = Time.Gregorian.info(now, Time.FORMAT_LONG);
       var sunsetInfo = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
       if (
@@ -642,7 +642,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     var sunIcon = "";
     var posInfo = Position.getInfo();
     var hasValidFix = false;
-    if (posInfo != null) {
+    if (posInfo != null && posInfo.position != null) {
       var pos = posInfo.position.toDegrees();
       hasValidFix = !(
         pos[0] > 179.99 &&
@@ -676,40 +676,48 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     if (hasLocation) {
       var now = Time.now();
       updateSunTimes(now);
-      var nowInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
-      var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
-      var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
-      var beforeSunrise =
-        nowInfo.hour < sunRiseTime.hour ||
-        (nowInfo.hour == sunRiseTime.hour && nowInfo.min < sunRiseTime.min);
-      var beforeSunset =
-        nowInfo.hour < sunSetTime.hour ||
-        (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
+      
+      if (sunrise != null && sunset != null) {
+        var nowInfo = Time.Gregorian.info(now, Time.FORMAT_SHORT);
+        var sunRiseTime = Time.Gregorian.info(sunrise, Time.FORMAT_LONG);
+        var sunSetTime = Time.Gregorian.info(sunset, Time.FORMAT_LONG);
+        var beforeSunrise =
+          nowInfo.hour < sunRiseTime.hour ||
+          (nowInfo.hour == sunRiseTime.hour && nowInfo.min < sunRiseTime.min);
+        var beforeSunset =
+          nowInfo.hour < sunSetTime.hour ||
+          (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
 
-      if (shouldShowSunData) {
-        if (beforeSunrise) {
-          sunIcon = ">";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunRiseTime.hour.format("%02d"),
-            sunRiseTime.min.format("%02d"),
-          ]);
-        } else if (beforeSunset) {
-          sunIcon = "?";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunSetTime.hour.format("%02d"),
-            sunSetTime.min.format("%02d"),
-          ]);
+        if (shouldShowSunData) {
+          if (beforeSunrise) {
+            sunIcon = ">";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunRiseTime.hour.format("%02d"),
+              sunRiseTime.min.format("%02d"),
+            ]);
+          } else if (beforeSunset) {
+            sunIcon = "?";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunSetTime.hour.format("%02d"),
+              sunSetTime.min.format("%02d"),
+            ]);
+          } else {
+            sunIcon = ">";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunRiseTime.hour.format("%02d"),
+              sunRiseTime.min.format("%02d"),
+            ]);
+          }
+        }
+        var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
+        if (todaySunset != null) {
+          hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(todaySunset);
+          holyday = HebrewCalendar.getHebrewHolyday(todaySunset);
         } else {
-          sunIcon = ">";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunRiseTime.hour.format("%02d"),
-            sunRiseTime.min.format("%02d"),
-          ]);
+          hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
+          holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
         }
       }
-      var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
-      hDate = HebrewCalendar.getFormattedHebrewDateInHebrew(todaySunset);
-      holyday = HebrewCalendar.getHebrewHolyday(todaySunset);
     } else {
       hDate = HebrewCalendar.getFormattedHebrewDateThisMorningInHebrew();
       holyday = HebrewCalendar.getHebrewHolydayForThisMorning();
