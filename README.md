@@ -190,11 +190,24 @@ Expected SDK tool paths:
 Do not commit Garmin SDK archives or unpacked SDK binaries unless the Garmin license explicitly permits redistribution.
 
 ### Building
+
+You can build from Visual Studio Code with the Monkey C extension:
+
 1. Clone this repository
-2. Install the Garmin Connect IQ SDK and set `CONNECTIQ_HOME` or `CIQ_HOME`
-3. Open in VS Code
-4. Use "Monkey C: Build" command
-5. Deploy to device or simulator
+2. Open in VS Code
+3. Use the "Monkey C: Build" command
+4. Deploy to device or simulator
+
+You can also build from the command line with `scripts/build.sh`. Set `CONNECTIQ_HOME` to your Garmin Connect IQ SDK path (or set `CIQ_HOME` as a fallback), set `GARMIN_DEVELOPER_KEY` to your developer key, and optionally set `GARMIN_DEVICE`. If `GARMIN_DEVICE` is omitted, the build script defaults to `fenix7`, which is listed in `manifest.xml`.
+
+```bash
+CONNECTIQ_HOME=/opt/connectiq \
+GARMIN_DEVELOPER_KEY=/path/to/developer_key.der \
+GARMIN_DEVICE=fenix7 \
+./scripts/build.sh
+```
+
+The script writes the compiled program to `build/JF-HebrewCalendar.prg`.
 
 ### Project Structure
 ```

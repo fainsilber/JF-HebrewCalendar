@@ -4,6 +4,7 @@ builds/
 out/
 dist/
 compiled/
+build/
 
 # Ignore packaged / device files
 *.prg
