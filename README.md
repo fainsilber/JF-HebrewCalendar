@@ -209,6 +209,17 @@ GARMIN_DEVICE=fenix7 \
 
 The script writes the compiled program to `build/JF-HebrewCalendar.prg`.
 
+If `./scripts/build.sh` prints `CONNECTIQ_HOME or CIQ_HOME must be set`, install the Garmin Connect IQ SDK first, then run the build from the same shell with the SDK and developer key variables exported:
+
+```bash
+export CONNECTIQ_HOME="$PWD/.local/connectiq-sdk"
+export CIQ_HOME="$CONNECTIQ_HOME"
+export GARMIN_DEVELOPER_KEY=/path/to/developer_key.der
+./scripts/build.sh
+```
+
+Use `scripts/setup-connectiq-sdk.sh` from the SDK setup section above if you have a local SDK archive or an approved SDK download URL. The build cannot run in a clean environment until both the SDK path and developer key are provided.
+
 ### Project Structure
 ```
 ├── source/              # Monkey C source code
