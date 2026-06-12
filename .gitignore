@@ -27,3 +27,6 @@ Thumbs.db
 
 # NPM / misc (if present)
 node_modules/
+
+# Local SDK downloads/installations
+.local/
