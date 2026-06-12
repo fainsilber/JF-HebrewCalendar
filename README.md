@@ -164,11 +164,37 @@ Access the watch face settings through:
 - [Garmin Connect IQ SDK](https://developer.garmin.com/connect-iq/sdk/)
 - Visual Studio Code with Monkey C extension
 
+### Connect IQ SDK setup
+
+Garmin SDK binaries are not committed to this repository. Download the Connect IQ SDK from Garmin and keep the archive outside version control, then install it locally with:
+
+```bash
+CONNECTIQ_SDK_ARCHIVE=/path/to/connectiq-sdk.zip scripts/setup-connectiq-sdk.sh
+```
+
+`CONNECTIQ_SDK_ARCHIVE` can also be an `https://` URL if your environment has access to a permitted SDK download location. The script unpacks the SDK into `.local/connectiq-sdk` by default and prints the detected SDK version. To install somewhere else, set `CONNECTIQ_SDK_INSTALL_DIR`.
+
+After installation, configure your shell or CI environment with one of these variables:
+
+```bash
+export CONNECTIQ_HOME="$PWD/.local/connectiq-sdk"
+# or, for tools that expect the alternate name:
+export CIQ_HOME="$CONNECTIQ_HOME"
+```
+
+Expected SDK tool paths:
+
+- Compiler: `$CONNECTIQ_HOME/bin/monkeyc`
+- Simulator runner, if used: `$CONNECTIQ_HOME/bin/monkeydo`
+
+Do not commit Garmin SDK archives or unpacked SDK binaries unless the Garmin license explicitly permits redistribution.
+
 ### Building
 1. Clone this repository
-2. Open in VS Code
-3. Use "Monkey C: Build" command
-4. Deploy to device or simulator
+2. Install the Garmin Connect IQ SDK and set `CONNECTIQ_HOME` or `CIQ_HOME`
+3. Open in VS Code
+4. Use "Monkey C: Build" command
+5. Deploy to device or simulator
 
 ### Project Structure
 ```
