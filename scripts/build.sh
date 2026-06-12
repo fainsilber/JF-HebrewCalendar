@@ -5,42 +5,32 @@ DEFAULT_GARMIN_DEVICE="fenix7"
 OUTPUT_DIR="build"
 OUTPUT_FILE="${OUTPUT_DIR}/JF-HebrewCalendar.prg"
 
-if [[ -z "${CONNECTIQ_HOME:-}" ]]; then
-  if [[ -n "${CIQ_HOME:-}" ]]; then
-    CONNECTIQ_HOME="${CIQ_HOME}"
-  else
-    cat >&2 <<'MSG'
-Error: CONNECTIQ_HOME is not set.
-Set CONNECTIQ_HOME to your Garmin Connect IQ SDK path, or set CIQ_HOME as a fallback.
-MSG
-    exit 1
-  fi
+fail() {
+  printf 'Error: %s\n' "$1" >&2
+  exit 1
+}
+
+if [[ -z "${CONNECTIQ_HOME:-}" && -z "${CIQ_HOME:-}" ]]; then
+  fail "CONNECTIQ_HOME or CIQ_HOME must be set to your Garmin Connect IQ SDK path."
 fi
 
+CONNECTIQ_HOME="${CONNECTIQ_HOME:-${CIQ_HOME}}"
 MONKEYC="${CONNECTIQ_HOME}/bin/monkeyc"
+
+if [[ ! -e "${MONKEYC}" ]]; then
+  fail "monkeyc was not found at ${MONKEYC}. Check your CONNECTIQ_HOME/CIQ_HOME setting."
+fi
+
 if [[ ! -x "${MONKEYC}" ]]; then
-  cat >&2 <<MSG
-Error: monkeyc was not found or is not executable at:
-  ${MONKEYC}
-Check CONNECTIQ_HOME/CIQ_HOME and ensure the Connect IQ SDK is installed.
-MSG
-  exit 1
+  fail "monkeyc is not executable at ${MONKEYC}. Check the file permissions or SDK installation."
 fi
 
 if [[ -z "${GARMIN_DEVELOPER_KEY:-}" ]]; then
-  cat >&2 <<'MSG'
-Error: GARMIN_DEVELOPER_KEY is not set.
-Set GARMIN_DEVELOPER_KEY to the path of your Garmin developer key (.der) file.
-MSG
-  exit 1
+  fail "GARMIN_DEVELOPER_KEY must be set to the path of your Garmin developer key (.der) file."
 fi
 
 if [[ ! -f "${GARMIN_DEVELOPER_KEY}" ]]; then
-  cat >&2 <<MSG
-Error: GARMIN_DEVELOPER_KEY does not point to an existing file:
-  ${GARMIN_DEVELOPER_KEY}
-MSG
-  exit 1
+  fail "GARMIN_DEVELOPER_KEY does not point to an existing file: ${GARMIN_DEVELOPER_KEY}"
 fi
 
 GARMIN_DEVICE="${GARMIN_DEVICE:-${DEFAULT_GARMIN_DEVICE}}"
