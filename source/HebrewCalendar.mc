@@ -623,6 +623,9 @@ class HebrewCalendar {
       if (day == yomHaAtzmautDay) {
         return "יום העצמאות";
       }
+      if (day == 28) {
+        return "יום ירושלים";
+      }
     } else if (standardMonth == 3) {
       if (day == 6 || (chutzLaAretz && day == 7)) {
         return "שבועות";
@@ -651,7 +654,8 @@ class HebrewCalendar {
         omerDay = 44 + day;
       }
       if (omerDay >= 1 && omerDay <= 49) {
-        return " יום " + omerDay+" בעומר ";
+        var roshChodeshPrefix = (day == 30 || day == 1) ? "רח " : "";
+        return roshChodeshPrefix + " יום " + omerDay + " בעומר ";
         //return  ;
       }
     }
