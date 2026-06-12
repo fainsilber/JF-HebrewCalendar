@@ -56,8 +56,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   var shabbatMode = false;
   var rabbenuTam = false;
   var chutzLaAretz = false;
-  var stepsDataType = "steps";
-  var sunDataType = "sun";
+  var stepsDataType = 2;
+  var sunDataType = 1;
   var hebrewDateColor = Graphics.COLOR_BLUE;
   var timeColor = Graphics.COLOR_WHITE;
   var secondsColor = Graphics.COLOR_BLUE;
@@ -67,7 +67,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
 
   var EIGHTEEN_MINUTES = 18 * 60;
   var SEVENTY_TWO_MINUTES = 72 * 60;
-  var THIRTY_SIX_MINUTES = 30 * 60;
+  var THIRTY_SIX_MINUTES = 36 * 60;
 
   function initialize() {
     WatchFace.initialize();
@@ -148,8 +148,8 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     shabbatMode = loadBooleanSetting("shabbatMode", shabbatMode);
     rabbenuTam = loadBooleanSetting("rabbenuTam", rabbenuTam);
     chutzLaAretz = loadBooleanSetting("chutzLaAretz", chutzLaAretz);
-    stepsDataType = loadStringSetting("stepsDataType", stepsDataType);
-    sunDataType = loadStringSetting("sunDataType", sunDataType);
+    stepsDataType = loadNumberSetting("stepsDataType", stepsDataType);
+    sunDataType = loadNumberSetting("sunDataType", sunDataType);
 
     hebrewDateColor = loadColorSetting("hebrewDateColor");
     timeColor = loadColorSetting("timeColor");
@@ -441,6 +441,10 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
     return Lang.format("$1$%", [value.format("%d")]);
   }
 
+  function dataTypeEquals(dataType, expected) {
+    return dataType == expected || dataType == expected.format("%d");
+  }
+
   function getDataFieldData(dataType, actInfo, stats, sunInfo, hrInfo) {
     /*
             <settingConfig type="list">
@@ -458,11 +462,11 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       return null;
     }
 
-    if (dataType == "off") {
+    if (dataType == "off" || dataType == 0 || dataType == "0") {
       return null;
     }
     
-    if (dataType == 1) {
+    if (dataTypeEquals(dataType, 1)) {
       if (sunInfo != null) {
         var SunEvent = "";
         var icon = "";
@@ -478,7 +482,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       }
     }
 
-    if (dataType == 2) {
+    if (dataTypeEquals(dataType, 2)) {
       var stepsNum = null;
       if (actInfo != null) {
         if (actInfo.steps != null) {
@@ -494,7 +498,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 3) {
+    if (dataTypeEquals(dataType, 3)) {
       var heartRate = null;
       if (hrInfo != null) {
         heartRate = hrInfo.currentHeartRate;// actInfo.currentHeartRate;
@@ -509,13 +513,15 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 4) {
+    if (dataTypeEquals(dataType, 4)) {
       var bodyBattery = null;
       // get the body battery iterator object
       var bbIterator = getIterator();
-      var bbSample = bbIterator.next();                         // get the body battery data
-      if (actInfo != null ) {
-        bodyBattery = bbSample.data;
+      if (bbIterator != null) {
+        var bbSample = bbIterator.next();
+        if (bbSample != null) {
+          bodyBattery = bbSample.data;
+        }
       }
       return {
         "text" => formatPercentValue(bodyBattery),
@@ -524,7 +530,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 5) {
+    if (dataTypeEquals(dataType, 5)) {
       var floors = null;
       if (actInfo != null && !hasOldApi) {
         floors = actInfo.floorsClimbed;
@@ -536,16 +542,21 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 6) {
+    if (dataTypeEquals(dataType, 6)) {
       var minutes = null;
-      if (actInfo != null && !hasOldApi) {
+      if (actInfo != null && !hasOldApi && actInfo.activeMinutesDay != null) {
         var actMinutes = actInfo.activeMinutesDay;
         var moderateMinutes = actMinutes.moderate;
         var vigorousMinutes = actMinutes.vigorous;
-            
-            // Calculate the total based on Garmin's display logic (vigorous minutes count double)
+        if (moderateMinutes == null) {
+          moderateMinutes = 0;
+        }
+        if (vigorousMinutes == null) {
+          vigorousMinutes = 0;
+        }
+
+        // Calculate the total based on Garmin's display logic (vigorous minutes count double)
         minutes = moderateMinutes + (vigorousMinutes * 2);
-        // actInfo.intensity;//need fix
       }
       return {
         "text" => formatIntValue(minutes),
@@ -554,7 +565,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 7) {
+    if (dataTypeEquals(dataType, 7)) {
       var calories = null;
       if (actInfo != null && !hasOldApi) {
         calories = actInfo.calories;
@@ -566,7 +577,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
       };
     }
 
-    if (dataType == 8) {
+    if (dataTypeEquals(dataType, 8)) {
       var batteryLevel = stats != null ? stats.battery : null;
       return {
         "text" => formatPercentValue(batteryLevel),
@@ -623,22 +634,22 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
   }
 
   function updateLeftData(actInfo, stats, sunInfo, hrInfo) {
-    // if (!showSteps) {
-    //   stepsLabel.setText("");
-    //   stepsIconLabel.setText("");
-    //   return;
-    // }
+    if (!showSteps) {
+      stepsLabel.setText("");
+      stepsIconLabel.setText("");
+      return;
+    }
 
     var data = getDataFieldData(stepsDataType, actInfo, stats, sunInfo, hrInfo);
     applyDataToLabels(stepsLabel, stepsIconLabel, stepsColor, data);
   }
 
   function updateRightData(actInfo, stats, sunInfo, hrInfo) {
-    // if (!showSunEvent) {
-    //   sunLabel.setText("");
-    //   sunIconLabel.setText("");
-    //   return;
-    // }
+    if (!showSunEvent) {
+      sunLabel.setText("");
+      sunIconLabel.setText("");
+      return;
+    }
 
     var data = getDataFieldData(sunDataType, actInfo, stats, sunInfo, hrInfo);
     applyDataToLabels(sunLabel, sunIconLabel, sunEventColor, data);
@@ -697,7 +708,7 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
         appStorage.getValue("lat") != null &&
         appStorage.getValue("lon") != null;
     }
-    var shouldShowSunData = showSunEvent && sunDataType == 1;
+    var shouldShowSunData = showSunEvent && dataTypeEquals(sunDataType, 1);
     var hasLocation = hasValidFix || haveStoredLocation;
 
     if (hasLocation) {
@@ -715,24 +726,26 @@ class JF_HebrewCalendarView extends WatchUi.WatchFace {
           nowInfo.hour < sunSetTime.hour ||
           (nowInfo.hour == sunSetTime.hour && nowInfo.min < sunSetTime.min);
 
-        if (beforeSunrise) {
-          sunIcon = ">";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunRiseTime.hour.format("%02d"),
-            sunRiseTime.min.format("%02d"),
-          ]);
-        } else if (beforeSunset) {
-          sunIcon = "?";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunSetTime.hour.format("%02d"),
-            sunSetTime.min.format("%02d"),
-          ]);
-        } else {
-          sunIcon = ">";
-          nextLabel = Lang.format("$1$:$2$", [
-            sunRiseTime.hour.format("%02d"),
-            sunRiseTime.min.format("%02d"),
-          ]);
+        if (shouldShowSunData) {
+          if (beforeSunrise) {
+            sunIcon = ">";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunRiseTime.hour.format("%02d"),
+              sunRiseTime.min.format("%02d"),
+            ]);
+          } else if (beforeSunset) {
+            sunIcon = "?";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunSetTime.hour.format("%02d"),
+              sunSetTime.min.format("%02d"),
+            ]);
+          } else {
+            sunIcon = ">";
+            nextLabel = Lang.format("$1$:$2$", [
+              sunRiseTime.hour.format("%02d"),
+              sunRiseTime.min.format("%02d"),
+            ]);
+          }
         }
         var todaySunset = sunCalc.calculate(now, lat, lon, SUNSET);
         if (todaySunset != null) {
